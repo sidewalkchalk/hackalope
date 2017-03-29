@@ -1,0 +1,19 @@
+{
+  "name": "hackalope",
+  "version": "1.0.0",
+  "description": "A user-driven app for rating and reviewing introductory coding resources.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidewalkchalk/hackalope.git"
+  },
+  "author": "Carla Clay, Tyler Holzer, James Kip, Daniel Ricaud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidewalkchalk/hackalope/issues"
+  },
+  "homepage": "https://github.com/sidewalkchalk/hackalope#readme"
+}
