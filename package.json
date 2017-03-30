@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/sidewalkchalk/hackalope/issues"
   },
-  "homepage": "https://github.com/sidewalkchalk/hackalope#readme"
+  "homepage": "https://github.com/sidewalkchalk/hackalope#readme",
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
