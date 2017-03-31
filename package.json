@@ -4,7 +4,8 @@
   "description": "A user-driven app for rating and reviewing introductory coding resources.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,18 @@
   "homepage": "https://github.com/sidewalkchalk/hackalope#readme",
   "dependencies": {
     "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "history": "^4.6.1",
+    "html-webpack-plugin": "^2.28.0",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0"
@@ -32,5 +39,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }
