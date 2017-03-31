@@ -3,3 +3,4 @@ clients/assets/lib/
 .DS_Store
 ._*
 clients/assets/config/config.js
+.log
