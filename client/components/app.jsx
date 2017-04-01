@@ -1,11 +1,9 @@
 import React from 'react';
-import { store } from '../store.jsx';
 import Main from './main.jsx';
 import Nav from './nav.jsx';
 import routes from '../routes.jsx';
-
-
-import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { connect } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 
 class App extends React.Component {
@@ -15,13 +13,19 @@ class App extends React.Component {
 
   render () {
     return (
-       <Provider store = {store} >
-         <Router history = {hashHistory}>
-          {routes}
-        </Router>
-      </Provider>
+      <div>
+        <Main />
+      </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    testreducer : state.testreducer,
+    dispatch : state.dispach
+  };
+};
 
-export default App;
+export default connect (mapStateToProps)(App);
+
+
