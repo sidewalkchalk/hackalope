@@ -10,7 +10,7 @@ const resourceSchema = new Schema({
   rating: Number,
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'Users'
+    ref: 'User'
   }
 
 });
