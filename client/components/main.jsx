@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, browserHistory, Redirect } from 'react-router';
+
 
 class Main extends React.Component{
 
@@ -12,7 +14,6 @@ class Main extends React.Component{
       <h1>Hello satan</h1>
 		);
 	}
-
 }
 
 export default Main;

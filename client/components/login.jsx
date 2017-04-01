@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, browserHistory, Redirect } from 'react-router';
 
-const LogIn = (props) => {}
+class Login extends React.Component {
+  
+  constructor (props) {
+    super (props);
+  }
 
+  render () {
 
+  }
+}
 
-export default LogIn;
+export default Login;
