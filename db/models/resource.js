@@ -1,13 +1,18 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 const resourceSchema = new Schema({
-  id: {type: 'Number', required: true},
-  title: {type: 'String', required: true},
-  url: {type: 'String', required: true},
-  tags: [String],
-  language: {type: 'String', required: true},
-  author: {type: 'String', required: true}
+  title: String,
+  description: String,
+  url: String,
+  tags: Array,
+  language: String,
+  rating: Number,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'Users'
+  }
+
 });
 
-export default mongoose.model('Resource', resourceSchema)
+module.exports = mongoose.model('Resource', resourceSchema);
