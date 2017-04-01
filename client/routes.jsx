@@ -1,4 +1,5 @@
 import { Route, browserHistory, Redirect } from 'react-router';
+import React from 'react';
 
 import App from './components/app.jsx';
 import Main from './components/main.jsx';
