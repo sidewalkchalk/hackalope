@@ -5,7 +5,7 @@ const commentSchema = new Schema({
   body: String,
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'Users'
+    ref: 'User'
   },
   resource: {
     type: Schema.Types.ObjectId,

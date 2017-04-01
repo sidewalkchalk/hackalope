@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
-const usersSchema = new Schema({
+const userSchema = new Schema({
   name: String,
   username: {
     type: 'String',
@@ -16,7 +16,7 @@ const usersSchema = new Schema({
 });
 
 // hash password before saving it to the db
-usersSchema.pre('save', function (next) {
+userSchema.pre('save', function (next) {
   var user = this;
 
   bcrypt.hash(user.password, null, null, function (err, hash) {
@@ -30,7 +30,8 @@ usersSchema.pre('save', function (next) {
 });
 
 // promise-based password compare
-usersSchema.methods.comparePassword = function (password) {
+// TODO: consider moving this off the model and into utilities
+userSchema.methods.comparePassword = function (password) {
   var user = this;
 
   return new Promise ((fulfill, reject) => {
@@ -43,4 +44,4 @@ usersSchema.methods.comparePassword = function (password) {
   });
 }
 
-module.exports = mongoose.model('Users', usersSchema);
+module.exports = mongoose.model('User', userSchema);

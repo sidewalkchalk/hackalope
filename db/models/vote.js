@@ -5,7 +5,7 @@ const voteSchema = new Schema({
   vote: Number,
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'Users'
+    ref: 'User'
   },
   resource: {
     type: Schema.Types.ObjectId,
