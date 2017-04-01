@@ -1,34 +1,33 @@
-import Express from 'express';
-import path from 'path';
-import mongoose from 'mongoose';
+// DEPENDENCIES
+var express = require('express');
+var app = express();
+var morgan = require ('morgan');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport  require('passport')
+var path = require('path');
 
-// Webpack Requirements
-import webpack from 'webpack';
-import config from '../webpack.config.dev.js';
+// ROUTES
+var auth = require('./routes/auth.js');
+var main = require('./routes/main.js');
+var results = require('./routes/results.js');
+var submit = require('./routes/submit.js');
 
-// React and Redux setup
-import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexLink } from 'react-router';
+// MIDDLEWARE
+// TODO: implement passport
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(morgan('combined'));
 
-// Import required modules
-import routes from './routes';
-import serverConfig from './config';
+// ROUTING
+app.use('/', main);
+app.use('/auth', auth);
+app.use('/results', results);
+app.use('/submit', submit);
 
-// Set native promises as mongoose promise
-mongoose.Promise = global.Promise;
 
-// MongoDb Connection
-mongoose.connect('mongodb://localhost:27017', (error) => {
-  if (error) {
-    console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
-    throw error;
-  }
-
-// Initalize the Express App
-var app = new Express();
+// SERVER IS LISTENING
 var port = process.env.port || 8000; // also in serverConfig
-
-// Summon Satan
 app.listen(port, function () {
-  console.log('Lucifer is listening on port: ' + port + ' Build like hell!');
+  console.log('Lucifer is listening on port: ' + port + '. Build like hell!');
 });
