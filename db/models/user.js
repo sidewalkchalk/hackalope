@@ -30,6 +30,7 @@ userSchema.pre('save', function (next) {
 });
 
 // promise-based password compare
+// TODO: consider moving this off the model and into utilities
 userSchema.methods.comparePassword = function (password) {
   var user = this;
 
