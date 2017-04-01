@@ -1,6 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, browserHistory, Redirect } from 'react-router';
 
-const Submit = (props) => {}
+
+class Submit extends React.Component {
+  
+  constructor (props) {
+    super (props);
+  }
+
+  render () {
+
+
+  }
+}
 
 export default Submit;

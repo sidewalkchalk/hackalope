@@ -1,6 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Route, browserHistory, Redirect } from 'react-router';
 
-const SignUp = (props) => {}
+class SignUp extends React.Component {
+  
+  constructor (props) {
+    super (props);
+  }
+
+  render () {
+
+
+  }
+}
 
 export default SignUp;
