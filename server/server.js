@@ -3,7 +3,7 @@ var express = require('express');
 var morgan = require ('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var passport  require('passport');
+var passport = require('passport');
 var path = require('path');
 var mongoose = require('mongoose');
 
@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
 });
 
 // LISTEN
-var port = process.env.port || 8000; // also in serverConfig
+var port = process.env.port || 6660; // also in serverConfig
 app.listen(port, function () {
   console.log('Lucifer is listening on port: ' + port + '. Build like hell!');
 });
