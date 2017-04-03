@@ -1,5 +1,8 @@
+// Required React Components
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
+
+// Required Material Components
 import FlatButton from 'material-ui/FlatButton';
 
 class Login extends React.Component {

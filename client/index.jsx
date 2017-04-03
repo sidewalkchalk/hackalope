@@ -1,9 +1,12 @@
+// Required React Components
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+// Required Modules
 import store  from './store.jsx';
 import routes from './routes.jsx';
 import App from './components/app.jsx';
-import { Provider } from 'react-redux';
 
 // this is the new index that is a jsx for redux and has the <Provider>
 

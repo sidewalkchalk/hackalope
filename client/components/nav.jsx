@@ -1,4 +1,7 @@
+// Required React Components
 import React from 'react';
+
+// Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -8,9 +11,11 @@ import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Required Modules
 import Login from './login.jsx';
 
-injectTapEventPlugin();
+injectTapEventPlugin(); // Initialize Tap/Click Events
 
 const Logged = (props) => (
   <IconMenu
@@ -58,8 +63,6 @@ class Nav extends React.Component {
       </div>
 		);
 	}
-
-
 }
 
 export default Nav;

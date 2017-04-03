@@ -1,7 +1,12 @@
+// Required React Components
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+
+// Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+// Required Modules
 import Nav from './nav.jsx';
 
 
