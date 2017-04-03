@@ -42,7 +42,10 @@ var updateResourceInfo = function (id, title, description, url) {
 };
 
 // updates a resource's rating
-var updateResourceRating = function (rating, modifier) {
+var updateResourceRating = function (id, rating, modifier) {
   var newRating = rating + modifier;
-  ResourceModel.update({rating: newRating});
+  ResourceModel.update({_id: id}, {$set: {
+      rating: newRating
+    });
+  }
 }

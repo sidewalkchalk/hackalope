@@ -10,7 +10,8 @@ const commentSchema = new Schema({
   resource: {
     type: Schema.Types.ObjectId,
     ref: 'Resource'
-  }
+  },
+  timestamps: true;
 });
 
 module.exports = mongoose.model('Comment', commentSchema);
