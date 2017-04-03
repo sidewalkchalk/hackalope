@@ -28,7 +28,7 @@ class Main extends React.Component{
 
 	render(){
 		return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider>
         <Nav />
       </MuiThemeProvider>
 		);
