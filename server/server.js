@@ -26,7 +26,11 @@ mongoose.connect('mongodb://localhost/hackalope');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(morgan('combined'));
-app.use(express.session({secret: 'hackalope-666'}));
+app.use(session({
+  secret: 'hackalope-666',
+  saveUninitialized: false
+  }
+));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -5,7 +5,7 @@ const resourceSchema = new Schema({
   title: String,
   description: String,
   url: String,
-  tags: Array,
+  tags: [String],
   language: String,
   rating: Number,
   user: {
