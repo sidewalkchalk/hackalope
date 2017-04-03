@@ -11,13 +11,13 @@ class Main extends React.Component{
 		super(props);
 	}
 	componentWillMount() {
-		testaction((testreducer) => {
+		(testreducer) => {
 			this.props.dispatch({
         	type: 'TEST',
         	testreducer: testreducer
       })
-	  })
-  }
+	  }
+  }  
 
 	render(){
 		return (
