@@ -18,7 +18,7 @@ exports.findResourceById = function (id) {
 // finds all resources with a specified tag
 // TODO: make this work for multiple tags
 exports.findResourcesByTag = function (language, tag) {
-  return ResourceModel.find({language, language}, {tags, tag});
+  return ResourceModel.find({language: language}, {tags: tag});
 };
 
 // finds all resources submitted by a user
@@ -46,6 +46,6 @@ exports.updateResourceRating = function (id, rating, modifier) {
   var newRating = rating + modifier;
   ResourceModel.update({_id: id}, {$set: {
       rating: newRating
-    };
+    }
   });
 };
