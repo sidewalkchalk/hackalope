@@ -11,7 +11,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Main from './main.jsx';
 import Nav from './nav.jsx';
 import routes from '../routes.jsx';
-import Search from './search.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -23,7 +22,6 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div>
           <Main />
-          <Search />
         </div>
       </MuiThemeProvider>
     );

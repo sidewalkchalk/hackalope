@@ -10,6 +10,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Modules
 import Nav from './nav.jsx';
+import Search from './search.jsx';
 
 
 class Main extends React.Component {
@@ -29,7 +30,10 @@ class Main extends React.Component {
 
 	render(){
 		return (
+      <div>
         <Nav />
+        <Search />
+      </div>
 		);
 	}
 };
