@@ -5,6 +5,7 @@ import React from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import AutoComplete from 'material-ui/AutoComplete';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
@@ -43,6 +44,10 @@ export default class Search extends React.Component {
     });
   };
 
+  style = {
+    margin: 12,
+  };
+
   render() {
     return (
       <div>
@@ -67,6 +72,10 @@ export default class Search extends React.Component {
           filter={AutoComplete.caseInsensitiveFilter}
           openOnFocus={true}
         />
+        <RaisedButton
+        label="Let's go!"
+        secondary={true}
+        style={this.style} />
       </div>
     );
   }
