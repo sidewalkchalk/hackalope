@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store  from './store.jsx';
@@ -20,5 +19,3 @@ ReactDOM.render(
 
 //store.suscribe(render);
 App.contextTypes = { store: React.PropTypes.object };
-
-
