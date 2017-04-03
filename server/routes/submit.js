@@ -15,7 +15,7 @@ router.post('/', function (req, res) {
   resourceController.findResourceByUrl(req.body.url)
     .then (function (response) {
       if (response) {
-        res.send('This resources has already been posted!')
+        res.send('This resource has already been posted!')
       } else {
           resourceController.insertResource(req.body)
             .then (function (response) {

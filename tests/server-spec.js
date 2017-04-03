@@ -13,9 +13,31 @@ describe('', function (done) {
   request(app)
     .get('auth/logout')
     .end(function (err, res) {
-      resourceController.deleteResourceByTitle({title: Test}).exec();
-      done();
+      resourceController.deleteResourceByTitle('Code101').exec();
     })
+});
+
+describe('Users', function (done) {
+
+  it ('should add a new user to the database', function () {
+    var user = {
+      name: 'Nathan Turinski',
+      username: 'nathan',
+      password: 'nathan',
+      admin: true,
+
+    }
+
+    request(app)
+      .post('auth/signup')
+      .send(user)
+      .expect(201)
+      .end(done);
+  })
+
+  it ('should find a user in the database', function () {
+
+  })
 });
 
 describe('Resources', function() {
@@ -24,9 +46,21 @@ describe('Resources', function() {
     expect(true).to.equal(true);
   });
 
-  it('should add a resource to the database', function () {
+  xit('should add a resource to the database', function (done) {
+    var sampleData = {
+      title: 'Code101',
+      description: 'Groovy',
+      url: 'http://www.code101.com',
+      tags: ['closures', 'arrays'],
+      language: 'JavaScript',
+      rating: 0
+    };
+
     request(app)
-      .post()
+      .post('/submit')
+      .send(sampleData)
+      .expect(200)
+      .end(done)
 
   })
 
