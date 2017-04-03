@@ -1,5 +1,8 @@
 import React from 'react';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 
 class Nav extends React.Component {
@@ -9,9 +12,13 @@ class Nav extends React.Component {
 	}
 
 	render() {
-		
+    return (
+      <AppBar
+        title="Hackalope"
+      />
+		);
 	}
-	
+
 
 }
 

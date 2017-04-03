@@ -15,7 +15,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-          <Main />
+        <Main />
+        <h1>Hail Satan!</h1>
       </div>
     );
   }
