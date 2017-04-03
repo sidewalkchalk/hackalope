@@ -4,6 +4,7 @@ import Nav from './nav.jsx';
 import routes from '../routes.jsx';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Router, Route, hashHistory } from 'react-router';
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Main />
+          <Main />
       </div>
     );
   }
@@ -27,5 +28,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect (mapStateToProps)(App);
-
-
