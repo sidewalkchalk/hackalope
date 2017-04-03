@@ -9,9 +9,10 @@ import { Provider } from 'react-redux';
 // this is the new index that is a jsx for redux and has the <Provider> 
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,  
+
+ <Provider store={store}>
+   <App />
+ </Provider>,  
   document.getElementById('app')
 );
 
