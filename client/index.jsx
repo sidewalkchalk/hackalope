@@ -17,5 +17,11 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
+<<<<<<< HEAD
+=======
+//store.suscribe(render);
+App.contextTypes = { store: React.PropTypes.object };
+
+>>>>>>> Renders hello world
 
 store.suscribe(render);
