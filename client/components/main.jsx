@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import Nav from './nav.jsx';
 
 
