@@ -64,7 +64,7 @@ export default class Search extends React.Component {
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
           dataSource={topics}
-          filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
+          filter={AutoComplete.caseInsensitiveFilter}
           openOnFocus={true}
         />
       </div>
