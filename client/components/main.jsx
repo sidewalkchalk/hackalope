@@ -12,26 +12,27 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Nav from './nav.jsx';
 
 
-class Main extends React.Component{
+class Main extends React.Component {
 
 	constructor(props){
 		super(props);
-	}
+	};
+
 	componentWillMount() {
 		(testreducer) => {
 			this.props.dispatch({
-        	type: 'TEST',
-        	testreducer: testreducer
-      })
-	  }
-  }
+        type: 'TEST',
+        testreducer: testreducer
+      });
+	  };
+  };
 
 	render(){
 		return (
         <Nav />
 		);
 	}
-}
+};
 
 const mapStateToProps = (state) => {
   return {
