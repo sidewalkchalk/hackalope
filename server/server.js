@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(session({
   secret: 'hackalope-666',
+  resave: false,
   saveUninitialized: false
   }
 ));
@@ -58,3 +59,5 @@ var port = process.env.port || 6666; // also in serverConfig
 app.listen(port, function () {
   console.log('Lucifer is listening on port: ' + port + '. Build like hell!');
 });
+
+module.exports = app;

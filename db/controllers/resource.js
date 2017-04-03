@@ -26,9 +26,18 @@ exports.findResourcesByUser = function (userId) {
   return ResourceModel.findAll({user: userId});
 };
 
-// deletes a resource
-exports.deleteResource = function (id) {
+exports.findResourceByUrl = function (url) {
+  return ResourceModel.find({url: url});
+};
+
+// deletes a resource by id
+exports.deleteResourceById = function (id) {
   return ResourceModel.remove({_id: id});
+};
+
+// deletes a resource by name
+exports.deleteResourceByTitle = function (title) {
+  return ResourceModel.remove({title: title});
 };
 
 // updates a resourceSchema
