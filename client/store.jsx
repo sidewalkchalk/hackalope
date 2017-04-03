@@ -2,12 +2,14 @@
 import { createStore, combineReducers } from 'redux';
 
 import testreducer from './reducers/testreducer.jsx';
-
+import buckysresults from './reducers/buckysresults.jsx';
 //link to reducers
 //import FILL_ME_IN from './reducers/FILL_ME_IN.jsx';
 
 const combinedReducers = combineReducers({
-	 testreducer
+	 test: testreducer,
+   results: buckysresults
+
 });
 
 

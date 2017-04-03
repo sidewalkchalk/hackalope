@@ -11,6 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Main from './main.jsx';
 import Nav from './nav.jsx';
 import routes from '../routes.jsx';
+import ResultsList from './resultsList.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -22,8 +23,10 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div>
           <Main />
+          <ResultsList />
         </div>
       </MuiThemeProvider>
+
     );
   }
 }
