@@ -5,7 +5,7 @@ import { Route, browserHistory, Redirect } from 'react-router';
 // Required Material UI Components
 import FlatButton from 'material-ui/FlatButton';
 
-class Login extends React.Component {
+export default class Login extends React.Component {
 
   constructor (props) {
     super (props);
@@ -18,6 +18,4 @@ class Login extends React.Component {
       <FlatButton {...this.props} label="Login" />
     );
   }
-}
-
-export default Login;
+};

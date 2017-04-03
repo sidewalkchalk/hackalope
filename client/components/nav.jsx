@@ -20,7 +20,7 @@ injectTapEventPlugin(); // Initialize Tap/Click Events
 const Logged = (props) => (
   <IconMenu
     {...props}
-    iconButtonElement={
+    iconButtonElement= {
       <IconButton><MoreVertIcon /></IconButton>
     }
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
@@ -32,7 +32,7 @@ const Logged = (props) => (
 
 Logged.muiName = 'IconMenu';
 
-class Nav extends React.Component {
+export default class Nav extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -63,6 +63,4 @@ class Nav extends React.Component {
       </div>
 		);
 	}
-}
-
-export default Nav;
+};

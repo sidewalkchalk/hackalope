@@ -21,10 +21,10 @@ class App extends React.Component {
   render () {
     return (
       <MuiThemeProvider>
-      <div>
-        <Main />
-        <Search />
-      </div>
+        <div>
+          <Main />
+          <Search />
+        </div>
       </MuiThemeProvider>
     );
   }

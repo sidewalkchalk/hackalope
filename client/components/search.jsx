@@ -5,6 +5,7 @@ import React from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import AutoComplete from 'material-ui/AutoComplete';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
@@ -23,9 +24,11 @@ export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: 1};
-  }
+  };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => {
+    this.setState({value});
+  };
 
   state = {
    searchText: '',
@@ -43,9 +46,13 @@ export default class Search extends React.Component {
     });
   };
 
+  style = {
+    margin: 12,
+  };
+
   render() {
     return (
-      <div>
+      <div id ='search'>
         <DropDownMenu
           id='search-dropdown'
           value={this.state.value}
@@ -58,6 +65,7 @@ export default class Search extends React.Component {
           <MenuItem value={4} primaryText="Java" />
           <MenuItem value={5} primaryText="Python" />
         </DropDownMenu>
+        <br />
         <AutoComplete
           hintText="What would you like to learn today?"
           searchText={this.state.searchText}
@@ -66,6 +74,13 @@ export default class Search extends React.Component {
           dataSource={topics}
           filter={AutoComplete.caseInsensitiveFilter}
           openOnFocus={true}
+          onNewRequest={() => {alert("You selected me!")}}
+        />
+        <RaisedButton
+        label="Let's go!"
+        secondary={true}
+        style={this.style}
+        onTouchTap={() => {alert("You tapped me!")}}
         />
       </div>
     );
