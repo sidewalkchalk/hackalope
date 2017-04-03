@@ -11,7 +11,7 @@ const commentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Resource'
   },
-  timestamps: true;
+  date: Date
 });
 
 module.exports = mongoose.model('Comment', commentSchema);
