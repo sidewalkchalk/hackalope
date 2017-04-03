@@ -1,6 +1,9 @@
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+
 
 class Main extends React.Component{
 
@@ -14,11 +17,13 @@ class Main extends React.Component{
         	testreducer: testreducer
       })
 	  })
-  }  
+  }
 
 	render(){
 		return (
-      <h1>Hello satan</h1>
+      <MuiThemeProvider>
+        <h1>Hello satan</h1>
+      </MuiThemeProvider>
 		);
 	}
 }
