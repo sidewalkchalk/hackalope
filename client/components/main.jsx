@@ -28,9 +28,7 @@ class Main extends React.Component{
 
 	render(){
 		return (
-      <MuiThemeProvider>
         <Nav />
-      </MuiThemeProvider>
 		);
 	}
 }
