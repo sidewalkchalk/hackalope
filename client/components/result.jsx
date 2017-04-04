@@ -35,6 +35,7 @@ export default class Result extends React.Component {
           </CardText>
         </Card>
       </MuiThemeProvider>
+
     );
   }
 }
