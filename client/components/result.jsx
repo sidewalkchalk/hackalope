@@ -1,5 +1,7 @@
 // Required React Components
 import React from 'react';
+import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -92,6 +94,7 @@ class Result extends React.Component {
           primary={true}
           icon={<DetailIcon />}
           style={styles.button}
+          containerElement={<Link to="resultDetails" />}
         />
       </CardActions>
       <CardText expandable={true}>
