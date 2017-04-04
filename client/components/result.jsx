@@ -6,7 +6,10 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class Result extends React.Component {
+// Required Modules
+import Nav from './nav.jsx';
+
+export default class Result extends React.Component {
 
   constructor (props) {
     super (props);
@@ -35,5 +38,3 @@ class Result extends React.Component {
     );
   }
 }
-
-export default Result;

@@ -9,17 +9,14 @@ import store  from './store.jsx';
 import Routes from './routes.jsx';
 import App from './components/app.jsx';
 import ResultsList from './components/resultsList.jsx';
-
+import Main from './components/main.jsx';
+import Nav from './components/nav.jsx';
 
 // this is the new index that is a jsx for redux and has the <Provider>
 
 ReactDOM.render(
-
   <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path='/' component={App} />
-      <Route path='/results' component={ResultsList} />
-    </Router>
+    <App />
   </Provider>,
 
   document.getElementById('app')

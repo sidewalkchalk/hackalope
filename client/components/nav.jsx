@@ -48,6 +48,7 @@ export default class Nav extends React.Component {
 
 	render() {
     return (
+      <MuiThemeProvider>
       <div>
         <AppBar
           title="hackalope.io"
@@ -61,6 +62,7 @@ export default class Nav extends React.Component {
           style={{margin: 20}}
         />
       </div>
+      </MuiThemeProvider>
 		);
 	}
 };
