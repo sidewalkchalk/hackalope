@@ -3,38 +3,117 @@ import React from 'react';
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Avatar from 'material-ui/Avatar';
+import IconButton from 'material-ui/IconButton';
+import ArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up.js';
+import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down.js';
+import Checkbox from 'material-ui/Checkbox';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
-// Required Modules
-import Nav from './nav.jsx';
 
-export default class Result extends React.Component {
+class Result extends React.Component {
 
   constructor (props) {
     super (props);
   }
 
+  
+
   render () {
-    // Individual results cards for resultsList
+    
+    const styles = {
+      block: {
+        maxWidth: 250,
+      },
+      checkbox: {
+        marginBottom: 0,
+      },
+    };
+
     return (
-      <MuiThemeProvider>
-        <Card>
-          <CardHeader
-            title= {this.props.result.title}
-            subtitle= {this.props.result.language}
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
-          <CardActions>
-            <FlatButton label="Do some shit" />
-            <FlatButton label="Do other random shit" />
-          </CardActions>
-          <CardText expandable={true}>
-            {this.props.result.description}
-          </CardText>
-        </Card>
-      </MuiThemeProvider>
+    <MuiThemeProvider>
+    <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+
+        
+        <CardHeader
+          avatar={this.props.result.thumbnail}
+          title= {this.props.result.title}
+          subtitle= {this.props.result.language}
+          actAsExpander={true}
+          showExpandableButton={true}
+          style={{position: 'relative', width: '60%', display: 'inline' }}
+        />
+
+
+       
+        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+            <div style={{ alignSelf: 'center', marginLeft: 16 }}>
+               <span> { this.props.result.rating } </span>
+            </div>
+            <div>
+
+              <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
+                <div>
+                    <IconButton tooltip="Upvote">
+                      <ArrowDropUp />
+                    </IconButton>
+                </div>
+                <div style={{ alignSelf: 'center' }}>
+                   <IconButton tooltip="Downvote">
+                    <ArrowDropDown />
+                  </IconButton>
+                </div>
+            </div>
+                
+            </div>
+            <div style={{ alignSelf: 'center' }}>
+                <Checkbox
+                  checkedIcon={<ActionFavorite />}
+                  uncheckedIcon={<ActionFavoriteBorder />}
+                  style={styles.checkbox}
+                />
+            </div>
+        </div>
+        
+
+       
+
+
+
+
+      <CardActions>
+        <RaisedButton
+          label="Details"
+          labelPosition="before"
+          primary={true}
+          icon={<DetailIcon />}
+          style={styles.button}
+        />
+      </CardActions>
+      <CardText expandable={true}>
+          {this.props.result.description}
+        </CardText>
+      </Card>
+    </MuiThemeProvider>
+
     );
+
   }
 }
+
+export default Result;
+
+
+
+
+
+
+
+
+
+ 
+
