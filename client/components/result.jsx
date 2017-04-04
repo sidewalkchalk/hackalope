@@ -18,13 +18,11 @@ class Result extends React.Component {
         showExpandableButton={true}
       />
       <CardActions>
-        <FlatButton label="Explore" />
+        <FlatButton label="Do some shit" />
         <FlatButton label="Do other random shit" />
       </CardActions>
       <CardText expandable={true}>
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
+        {this.props.result.description}
       </CardText>
     </Card>
     );
