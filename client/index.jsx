@@ -10,6 +10,7 @@ import Routes from './routes.jsx';
 import App from './components/app.jsx';
 import ResultsList from './components/resultsList.jsx';
 
+
 // this is the new index that is a jsx for redux and has the <Provider>
 
 ReactDOM.render(

@@ -13,24 +13,25 @@ class Result extends React.Component {
   }
 
   render () {
+    // Individual results cards for resultsList
     return (
-    <MuiThemeProvider>
-      <Card>
-        <CardHeader
-          title= {this.props.result.title}
-          subtitle= {this.props.result.language}
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
-        <CardActions>
-          <FlatButton label="Do some shit" />
-          <FlatButton label="Do other random shit" />
-        </CardActions>
-        <CardText expandable={true}>
-          {this.props.result.description}
-        </CardText>
-      </Card>
-    </MuiThemeProvider>
+      <MuiThemeProvider>
+        <Card>
+          <CardHeader
+            title= {this.props.result.title}
+            subtitle= {this.props.result.language}
+            actAsExpander={true}
+            showExpandableButton={true}
+          />
+          <CardActions>
+            <FlatButton label="Do some shit" />
+            <FlatButton label="Do other random shit" />
+          </CardActions>
+          <CardText expandable={true}>
+            {this.props.result.description}
+          </CardText>
+        </Card>
+      </MuiThemeProvider>
     );
   }
 }
