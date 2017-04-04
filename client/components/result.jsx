@@ -11,12 +11,14 @@ import Nav from './nav.jsx';
 
 export default class Result extends React.Component {
 
+
   constructor (props) {
     super (props);
   }
 
+  
+
   render () {
-    // Individual results cards for resultsList
     return (
       <MuiThemeProvider>
         <Card>
@@ -36,6 +38,8 @@ export default class Result extends React.Component {
         </Card>
       </MuiThemeProvider>
 
+
     );
+
   }
 }
