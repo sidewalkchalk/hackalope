@@ -50,29 +50,29 @@ describe('Users', function (done) {
       .end(done);
   });
 
-  it ('should be able to access a user\'s profile page', function () {
-
-    request(app)
-      .get('/profile')
-      .expect(200)
-      .end(done);
-  });
-
-  it ('should allow an authenticated user to submit a resource', function () {
-
-    request(app)
-      .post('/submit')
-      .send({
-        title: 'Kansas',
-        description: 'I heart Kansas',
-        url: 'http://www.kansas.com',
-        tags: ['Topeka', 'Wichita'],
-        language: 'JavaScript',
-        rating: 0,
-      })
-      .expect(201)
-      .end(done);
-  })
+  // it ('should be able to access a user\'s profile page', function () {
+  //
+  //   request(app)
+  //     .get('/profile')
+  //     .expect(200)
+  //     .end(done);
+  // });
+  //
+  // it ('should allow an authenticated user to submit a resource', function () {
+  //
+  //   request(app)
+  //     .post('/submit')
+  //     .send({
+  //       title: 'Kansas',
+  //       description: 'I heart Kansas',
+  //       url: 'http://www.kansas.com',
+  //       tags: ['Topeka', 'Wichita'],
+  //       language: 'JavaScript',
+  //       rating: 0,
+  //     })
+  //     .expect(201)
+  //     .end(done);
+  // })
 });
 
 // describe('Resources', function() {

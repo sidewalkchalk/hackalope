@@ -12,5 +12,5 @@ exports.findUserByUsername = function (username) {
 
 // finds a user by their ID
 exports.findUserById = function (id) {
-  return UserModel.findById(id);
+  return UserModel.findOne({_id: id});
 };
