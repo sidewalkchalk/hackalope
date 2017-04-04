@@ -37,7 +37,26 @@ describe('MongoDB tests', function (done) {
               admin: true
             });
 
-            Promise.all([contributor.save(), superUser.save()])
+            var sampleResource = new ResourceModel({
+              title: 'Code101',
+              description: 'Groovy',
+              url: 'http://www.code101.com',
+              tags: ['closures', 'arrays'],
+              language: 'JavaScript',
+              rating: 0,
+              user: '58e2e49c328d2fb328c6e899'
+            });
+
+            var sampleVote = new VoteModel({
+              vote: 1,
+              user: '58e2e49c328d2fb328c6e899',
+              resource: '58e2e731e65991b3ca06df12'
+            });
+
+            Promise.all([contributor.save(),
+                         superUser.save(),
+                         sampleResource.save(),
+                         sampleVote.save()])
             .then( () => done())
             .catch( (err) => console.error(err));
           });
@@ -52,46 +71,24 @@ describe('MongoDB tests', function (done) {
 
   it ('should be able to add and find a user in the database', (done) => {
     UserModel.findOne({username: 'satan'}, function (err, user) {
-      console.log(user);
       expect(user.username).to.equal('satan');
       done();
     });
   });
 
   it ('should be able to add a resource to the database and find it', (done) => {
-    var sampleData = new ResourceModel({
-      title: 'Code101',
-      description: 'Groovy',
-      url: 'http://www.code101.com',
-      tags: ['closures', 'arrays'],
-      language: 'JavaScript',
-      rating: 0,
-      user: '58e2e49c328d2fb328c6e899'
-    });
-
-    Promise.all([sampleData.save()])
-      .then( () => {
-        ResourceModel.findOne({title: 'Code101'}, function (err, resource) {
-          expect(resource.title).to.equal('Code101');
-          done();
-        })
-      });
+    ResourceModel.findOne({title: 'Code101'}, function (err, resource) {
+      console.log(resource);
+      expect(resource.title).to.equal('Code101');
+      done();
+    })
   });
 
   it ('should be able to add a user\'s vote to the database and find it', (done) => {
-    var sampleVote = new VoteModel({
-      vote: 1,
-      user: '58e2e49c328d2fb328c6e899',
-      resource: '58e2e731e65991b3ca06df12'
+    VoteModel.findOne({user: '58e2e49c328d2fb328c6e899'}, function (err, vote) {
+      expect(vote.vote).to.equal(1);
+      done();
     });
-
-    Promise.all([sampleVote.save()])
-      .then( () => {
-        VoteModel.findOne({user: '58e2e49c328d2fb328c6e899'}, function (err, vote) {
-          expect(vote.vote).to.equal(1);
-          done();
-        });
-      });
   });
 
 });
