@@ -6,7 +6,6 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import ArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up.js';
@@ -15,12 +14,8 @@ import Checkbox from 'material-ui/Checkbox';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
-// Required Modules
-import Nav from './nav.jsx';
 
-
-export default class Result extends React.Component {
-
+class Result extends React.Component {
 
   constructor (props) {
     super (props);
@@ -40,7 +35,6 @@ export default class Result extends React.Component {
     };
 
     return (
-
     <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
 
@@ -108,7 +102,6 @@ export default class Result extends React.Component {
 
   }
 }
-
 
 export default Result;
 
