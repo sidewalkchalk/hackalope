@@ -11,7 +11,7 @@ export default function () {
             rating: 3
         },
         {
-            id: 9,
+            id: 2,
             title: "Bucky is awesome",
             language: "Javascript",
             URL: 'facebook.com',
@@ -21,7 +21,7 @@ export default function () {
             rating: 9
         },
         {
-            id: 4,
+            id: 3,
             title: "Roasted, Toasted",
             language: "Javascript",
             URL: 'google.com',
