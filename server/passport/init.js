@@ -2,7 +2,7 @@ var login = require('./login.js');
 var signup = require('./signup.js');
 var users = require('../../db/controllers/user.js');
 
-var initialize = function (passport) {
+module.exports = function (passport) {
   passport.serializeUser(function (user, done) {
     done(null, user._id)
   });
@@ -18,6 +18,4 @@ var initialize = function (passport) {
   });
   login(passport);
   signup(passport);
-}
-
-module.exports = initialize;
+};

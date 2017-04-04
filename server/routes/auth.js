@@ -4,6 +4,11 @@ var router = express.Router();
 // handle login request
 
 module.exports = function (passport) {
+
+  router.get('/', function(req, res, next) {
+    res.json(req.user.username);
+  });
+
   router.post('/login', passport.authenticate('login'),
   function (req, res, next) {
     console.log(user);
@@ -24,4 +29,4 @@ module.exports = function (passport) {
   });
 
   return router;
-}
+};

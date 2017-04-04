@@ -7,7 +7,7 @@ exports.insertResource = function (resource) {
 
 // finds all resources for a specified language
 exports.findResourcesByLanguage = function (language) {
-  return ResourceModel.findAll({language: language});
+  return ResourceModel.find({language: language});
 };
 
 // finds a resource with a specified id
@@ -23,12 +23,21 @@ exports.findResourcesByTag = function (language, tag) {
 
 // finds all resources submitted by a user
 exports.findResourcesByUser = function (userId) {
-  return ResourceModel.findAll({user: userId});
+  return ResourceModel.find({user: userId});
 };
 
-// deletes a resource
-exports.deleteResource = function (id) {
+exports.findResourceByUrl = function (url) {
+  return ResourceModel.find({url: url});
+};
+
+// deletes a resource by id
+exports.deleteResourceById = function (id) {
   return ResourceModel.remove({_id: id});
+};
+
+// deletes a resource by name
+exports.deleteResourceByTitle = function (title) {
+  return ResourceModel.remove({title: title});
 };
 
 // updates a resourceSchema

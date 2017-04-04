@@ -6,7 +6,6 @@ var session = require('express-session');
 var passport = require('passport');
 var path = require('path');
 var mongoose = require('mongoose');
-var passportInit = require('./passport/init.js')
 
 // ROUTES
 var auth = require('./routes/auth.js');
@@ -28,6 +27,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(session({
   secret: 'hackalope-666',
+  resave: false,
   saveUninitialized: false
   }
 ));
@@ -35,13 +35,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // INITIALIZE SERIALIZE/DESERIALIZE FUNCTIONS
-passportInit(passport);
+require('./passport/init.js')(passport);
 
 // SERVE STATIC FILES
 app.use('/public', express.static(path.join(__dirname, '/../client/')))
 
 // ROUTING
-app.use('/auth', auth);
+app.use('/auth', auth(passport));
 app.use('/results', results);
 app.use('/submit', submit);
 app.use('/', main);
@@ -54,7 +54,9 @@ app.use(function (req, res, next) {
 });
 
 // LISTEN
-var port = process.env.port || 6666; // also in serverConfig
+var port = process.env.port || 1337; // also in serverConfig
 app.listen(port, function () {
   console.log('Lucifer is listening on port: ' + port + '. Build like hell!');
 });
+
+module.exports = app;

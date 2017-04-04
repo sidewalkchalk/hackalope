@@ -1,7 +1,7 @@
 var LocalStrategy = require('passport-local');
 var users = require('../../db/controllers/user.js');
 
-var signUp = function (passport) {
+module.exports = function (passport) {
   passport.use('signup', new LocalStrategy({
     passReqToCallback: true
   },
@@ -25,5 +25,3 @@ var signUp = function (passport) {
     });
   }));
 };
-
-module.exports = signUp;
