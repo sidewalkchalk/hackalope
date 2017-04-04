@@ -13,14 +13,14 @@ import Submit from './components/submit.jsx';
 
 const routes = (
 	<Route>
-      <Route path = '/' component = {Main}></Route>
-      <Route path = '/login' component = {LogIn}></Route>
-      <Route path = '/signup' component = {SignUp}></Route>
-      <Route path = '/results' component = {ResultsList}></Route>
-      <Route path = '/:resultId' component = {ResultDetail}></Route>
-      <Route path = '/:user' component = {Profile}></Route>
-      <Route path = '/submit' component = {Submit}></Route>
-    </Route>
+    <Route path = '/' component = {Main}></Route>
+    <Route path = '/login' component = {LogIn}></Route>
+    <Route path = '/signup' component = {SignUp}></Route>
+    <Route path = '/results' component = {ResultsList}></Route>
+    <Route path = '/:resultId' component = {ResultDetail}></Route>
+    <Route path = '/:user' component = {Profile}></Route>
+    <Route path = '/submit' component = {Submit}></Route>
+  </Route>
 );
 
 export default routes;

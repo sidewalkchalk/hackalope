@@ -2,7 +2,7 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
-import Result from './result.jsx'
+import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,6 +12,7 @@ import Main from './main.jsx';
 import Nav from './nav.jsx';
 import routes from '../routes.jsx';
 import ResultsList from './resultsList.jsx';
+import Result from './result.jsx'
 
 class App extends React.Component {
   constructor (props) {
@@ -21,11 +22,13 @@ class App extends React.Component {
   render () {
     return (
       <MuiThemeProvider>
-        <div>
-          <Main />
-        </div>
+      <Router history={hashHistory}>
+        <Route component={App} />
+          <Route path='/' component={Main}>
+          <Route path='/results' component={ResultsList} />
+        </Route>
+      </Router>
       </MuiThemeProvider>
-
     );
   }
 }

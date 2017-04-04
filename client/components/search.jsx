@@ -3,6 +3,7 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
 // Required Material UI Components
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import AutoComplete from 'material-ui/AutoComplete';
@@ -53,6 +54,7 @@ export default class Search extends React.Component {
 
   render() {
     return (
+      <MuiThemeProvider>
       <div id ='search'>
         <DropDownMenu
           id='search-dropdown'
@@ -84,6 +86,7 @@ export default class Search extends React.Component {
         containerElement={<Link to="/results" />}
         />
       </div>
+      </MuiThemeProvider>
     );
   }
 }
