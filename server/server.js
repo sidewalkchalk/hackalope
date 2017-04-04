@@ -12,6 +12,7 @@ var auth = require('./routes/auth.js');
 var main = require('./routes/main.js');
 var results = require('./routes/results.js');
 var submit = require('./routes/submit.js');
+var profile = require('./routes/profile.js');
 
 // USE BLUEBIRD FOR PROMISES
 mongoose.Promise = require('bluebird');
@@ -44,9 +45,10 @@ app.use('/public', express.static(path.join(__dirname, '/../client/')))
 app.use('/auth', auth(passport));
 app.use('/results', results);
 app.use('/submit', submit);
+app.use('/profile', profile);
 app.use('/', main);
 
-// CATCH 404
+// CATCH 404 ERRORS
 app.use(function (req, res, next) {
   var err = new Error ('Sorry--we couldn\'t find that!')
   err.status = 404;

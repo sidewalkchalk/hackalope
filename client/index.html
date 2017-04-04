@@ -13,6 +13,26 @@
 
   <body>
     <div id='app' />
+
+    <form action="/auth/login" method="POST">
+<br>
+ <h1 class='signin'>Sign In</h1>
+ <br>
+    <fieldset>
+        Username:
+        <br>
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+        <br>
+        Password:
+        <br>
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <br>
+  <input class="btn btn-default" type="submit" value="Sign In">
+        <br>
+        <br>
+        <a href="/signup">Create an account</a>
+    </fieldset>
+</form>
   </body>
 
 </html>
