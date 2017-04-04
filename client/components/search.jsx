@@ -1,5 +1,6 @@
 // Required React Components
 import React from 'react';
+import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
 // Required Material UI Components
 import DropDownMenu from 'material-ui/DropDownMenu';
@@ -80,7 +81,7 @@ export default class Search extends React.Component {
         label="Let's go!"
         secondary={true}
         style={this.style}
-        onTouchTap={() => {alert("You tapped me!")}}
+        containerElement={<Link to="/results" />}
         />
       </div>
     );

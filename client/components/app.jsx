@@ -2,7 +2,6 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
-import { Router, Route, hashHistory } from 'react-router';
 import Result from './result.jsx'
 
 // Required Material UI Components
@@ -24,7 +23,6 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div>
           <Main />
-          <ResultsList />
         </div>
       </MuiThemeProvider>
 
