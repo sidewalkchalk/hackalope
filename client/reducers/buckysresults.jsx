@@ -2,53 +2,53 @@ export default function () {
     return [
         {
             id: 1,
-            title: "Javascript is awesome",
-            language: "Javascript",
-            URL: 'yahoo.com',
-            description: "Javascript is awesome Bucky is a React developer and YouTuber",
+            title: "This is the title 1",
+            language: "Javascript-1",
+            URL: 'ONEyahoo.com',
+            description: "Describing entry one. Describing entry one, Describing entry one.",
             thumbnail: "http://i.imgur.com/7yUvePI.jpg",
-            tags: ['array', 'objects', 'closures'],
-            rating: 3
+            tags: ['array1', 'objects1', 'closures1'],
+            rating: 'one-rating'
         },
         {
             id: 2,
-            title: "Bucky is awesome",
-            language: "Javascript",
-            URL: 'facebook.com',
-            description: "Bucky is awesome. Joby loves the Packers, cheese, and turtles.",
+            title: "This is the title 2",
+            language: "Javascript-2",
+            URL: 'TWOfacebook.com',
+            description: "Describing entry two. Describing entry two, Describing entry two.",
             thumbnail: "http://i.imgur.com/52xRlm8.png",
-            tags: ['array', 'objects', 'closures'],
-            rating: 9
+            tags: ['array2', 'objects2', 'closures2'],
+            rating: 'two-rating'
         },
         {
             id: 3,
-            title: "Roasted, Toasted",
-            language: "Javascript",
-            URL: 'google.com',
-            description: "Roasted, Toasted Madi likes her dog but it is really annoying.",
+            title: "This is the title 3",
+            language: "Javascript-3",
+            URL: 'THREEgoogle.com',
+            description: "Describing entry three. Describing entry three, Describing entry three.",
             thumbnail: "http://i.imgur.com/4EMtxHB.png",
-            tags: ['array', 'objects', 'closures'],
-            rating: 10
+            tags: ['array3', 'objects3', 'closures3'],
+            rating: 'three-rating'
         },
                 {
             id: 4,
-            title: "You dont' know JS",
-            language: "Javascript",
-            URL: 'pintrest.com',
-            description: "You dont' know JS Joby loves the Packers, cheese, and turtles.",
+            title: "This is the title 4",
+            language: "Javascript-4",
+            URL: 'FOURpintrest.com',
+            description: "Describing entry four. Describing entry four, Describing entry four.",
             thumbnail: "http://i.imgur.com/52xRlm8.png",
-            tags: ['array', 'objects', 'closures'],
-            rating: 7
+            tags: ['array4', 'objects4', 'closures4'],
+            rating: 'four-rating'
         },
         {
             id: 5,
-            title: "Javascript ninja is here",
-            language: "Javascript",
-            URL: 'instagram.com',
-            description: "Javascript ninja is here Madi likes her dog but it is really annoying.",
+            title: "This is the title 5",
+            language: "Javascript-5",
+            URL: 'FIVEinstagram.com',
+            description: "Describing entry five. Describing entry five, Describing entry five.",
             thumbnail: "http://i.imgur.com/4EMtxHB.png",
-            tags: ['array', 'objects', 'closures'],
-            rating: 4
+            tags: ['array5', 'objects5', 'closures5'],
+            rating: 'five-rating'
         }
     ]
 }
