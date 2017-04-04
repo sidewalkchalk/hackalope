@@ -23,9 +23,8 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
       <Router history={hashHistory}>
-        <Route component={App} />
-          <Route path='/' component={Main}>
-          <Route path='/results' component={ResultsList} />
+          <Route path='/' component={Main} >
+          <Route path='results' component={ResultsList} />
         </Route>
       </Router>
       </MuiThemeProvider>

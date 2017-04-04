@@ -34,6 +34,7 @@ class Main extends React.Component {
       <div>
         <Nav />
         <Search />
+        {this.props.children}
       </div>
 		);
 	}
