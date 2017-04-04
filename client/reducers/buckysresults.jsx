@@ -31,17 +31,17 @@ export default function () {
             rating: 10
         },
                 {
-            id: 2,
+            id: 4,
             title: "You dont' know JS",
             language: "Javascript",
             URL: 'pintrest.com',
-            description: "ou dont' know JS Joby loves the Packers, cheese, and turtles.",
+            description: "You dont' know JS Joby loves the Packers, cheese, and turtles.",
             thumbnail: "http://i.imgur.com/52xRlm8.png",
             tags: ['array', 'objects', 'closures'],
             rating: 7
         },
         {
-            id: 3,
+            id: 5,
             title: "Javascript ninja is here",
             language: "Javascript",
             URL: 'instagram.com',
