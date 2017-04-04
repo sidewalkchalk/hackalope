@@ -84,6 +84,7 @@ class Result extends React.Component {
 
 
 
+
       <CardActions>
         <RaisedButton
           label="Details"
@@ -98,6 +99,7 @@ class Result extends React.Component {
         </CardText>
       </Card>
     </MuiThemeProvider>
+
     );
 
   }
