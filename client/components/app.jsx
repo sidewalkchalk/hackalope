@@ -3,6 +3,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
+import Result from './result.jsx'
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -30,6 +31,9 @@ class App extends React.Component {
     );
   }
 }
+
+
+
 const mapStateToProps = (state) => {
   return {
     testreducer : state.testreducer,
