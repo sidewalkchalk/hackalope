@@ -21,6 +21,7 @@ export default class Result extends React.Component {
 
   render () {
     return (
+
       <MuiThemeProvider>
         <Card>
           <CardHeader
@@ -38,6 +39,7 @@ export default class Result extends React.Component {
           </CardText>
         </Card>
       </MuiThemeProvider>
+
 
 
     );
