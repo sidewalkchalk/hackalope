@@ -23,14 +23,14 @@ describe('MongoDB tests', function (done) {
       resources.drop( () => {
         comments.drop( () => {
           votes.drop( () => {
-            var contributor = new User({
-              name: 'Nathan',
-              username: 'nathan',
-              password: 'nathan',
-              admin: true
+            var contributor = new UserModel({
+              name: 'Jonathan Livingston Granstaff',
+              username: 'jgranny',
+              password: 'jgranny',
+              admin: false
             });
 
-            var superUser = new User({
+            var superUser = new UserModel({
               name: 'Satan',
               username: 'satan',
               password: 'satan',
@@ -49,4 +49,33 @@ describe('MongoDB tests', function (done) {
   afterEach(done => {
     mongoose.connection.close(done);
   });
+
+  it ('should be able to add and find a user in the database', (done) => {
+    UserModel.findOne({username: 'satan'}, function (err, user) {
+      console.log(user);
+      expect(user.username).to.equal('satan');
+      done();
+    });
+  });
+
+  it ('should be able to add a resource to the database and find it', (done) => {
+    var sampleData = new ResourceModel({
+      title: 'Code101',
+      description: 'Groovy',
+      url: 'http://www.code101.com',
+      tags: ['closures', 'arrays'],
+      language: 'JavaScript',
+      rating: 0,
+      user: '58e2e49c328d2fb328c6e899'
+    });
+
+    Promise.all([sampleData.save()])
+      .then( () => {
+        ResourceModel.findOne({title: 'Code101'}, function (err, resource) {
+          expect(resource.title).to.equal('Code101');
+          done();
+        })
+      });
+    });
+
 });

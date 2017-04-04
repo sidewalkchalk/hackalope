@@ -46,7 +46,7 @@ describe('Resources', function() {
     expect(true).to.equal(true);
   });
 
-  xit('should add a resource to the database', function (done) {
+  it('should add a resource to the database', function (done) {
     var sampleData = {
       title: 'Code101',
       description: 'Groovy',
@@ -59,7 +59,7 @@ describe('Resources', function() {
     request(app)
       .post('/submit')
       .send(sampleData)
-      .expect(200)
+      .expect(201)
       .end(done)
 
   })
