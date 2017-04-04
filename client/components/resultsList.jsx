@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import Result from './result.jsx';
 
 // import {bindActionCreator} from 'redux';
 
@@ -12,9 +13,12 @@ class ResultsList extends React.Component {
   renderResults() {
     return this.props.results.map((result) => {
       return (
-        <li key={result.id}>
-          {result.title} {result.description}
-        </li>  
+         
+        <div key = {result.id}>
+          <Result key = {result.id} result = {result} />
+          <br/>
+        </div>
+
       );
     })
   }
