@@ -12,20 +12,19 @@ class Result extends React.Component {
     return (
     <Card>
       <CardHeader
-        title="Without Avatar"
-        subtitle="Subtitle"
+        title= {this.props.result.title}
+        subtitle= {this.props.result.language}
         actAsExpander={true}
         showExpandableButton={true}
       />
       <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
+        <FlatButton label="Explore" />
+        <FlatButton label="Do other random shit" />
       </CardActions>
       <CardText expandable={true}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
+        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
+        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
       </CardText>
     </Card>
     );
