@@ -11,14 +11,14 @@ module.exports = function (passport) {
 
   router.post('/login', passport.authenticate('login'),
   function (req, res, next) {
-    console.log(user);
+    console.log(req.body);
     res.sendStatus(201);
   });
 
   // handle new user signup
   router.post('/signup', passport.authenticate('signup'),
   function (req, res, next){
-    console.log(user);
+    console.log(req.body);
     res.sendStatus(201);
   });
 
