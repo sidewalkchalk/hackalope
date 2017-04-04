@@ -11,6 +11,7 @@ class Result extends React.Component {
   render () {
     return (
     <Card>
+        <img src= {this.props.result.url} height="42" width="42" />
       <CardHeader
         title= {this.props.result.title}
         subtitle= {this.props.result.language}
@@ -22,9 +23,7 @@ class Result extends React.Component {
         <FlatButton label="Do other random shit" />
       </CardActions>
       <CardText expandable={true}>
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
-        BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..BOOM ROASTED TOASTED..
+          {this.props.result.description}
       </CardText>
     </Card>
     );
