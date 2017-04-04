@@ -7,7 +7,7 @@ exports.insertResource = function (resource) {
 
 // finds all resources for a specified language
 exports.findResourcesByLanguage = function (language) {
-  return ResourceModel.findAll({language: language});
+  return ResourceModel.find({language: language});
 };
 
 // finds a resource with a specified id
@@ -23,7 +23,7 @@ exports.findResourcesByTag = function (language, tag) {
 
 // finds all resources submitted by a user
 exports.findResourcesByUser = function (userId) {
-  return ResourceModel.findAll({user: userId});
+  return ResourceModel.find({user: userId});
 };
 
 exports.findResourceByUrl = function (url) {

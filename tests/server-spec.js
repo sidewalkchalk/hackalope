@@ -9,36 +9,36 @@ var userController = require('../db/controllers/user.js');
 var voteController = require('../db/controllers/vote.js');
 
 // empty database before each round of testing
-describe('', function (done) {
-  request(app)
-    .get('auth/logout')
-    .end(function (err, res) {
-      resourceController.deleteResourceByTitle('Code101').exec();
-    })
-});
+// describe('', function (done) {
+//   request(app)
+//     .get('auth/logout')
+//     .end(function (err, res) {
+//       resourceController.deleteResourceByTitle('Code101').exec();
+//     })
+// });
 
-describe('Users', function (done) {
-
-  it ('should add a new user to the database', function () {
-    var user = {
-      name: 'Nathan Turinski',
-      username: 'nathan',
-      password: 'nathan',
-      admin: true,
-
-    }
-
-    request(app)
-      .post('auth/signup')
-      .send(user)
-      .expect(201)
-      .end(done);
-  })
-
-  it ('should find a user in the database', function () {
-
-  })
-});
+// describe('Users', function (done) {
+//
+//   it ('should add a new user to the database', function () {
+//     var user = {
+//       name: 'Nathan Turinski',
+//       username: 'nathan',
+//       password: 'nathan',
+//       admin: true,
+//
+//     }
+//     console.log(user);
+//     request(app)
+//       .post('auth/signup')
+//       .send(user)
+//       .expect(201)
+//       .end(done);
+//   })
+//
+//   it ('should find a user in the database', function () {
+//
+//   })
+// });
 
 describe('Resources', function() {
 

@@ -76,6 +76,22 @@ describe('MongoDB tests', function (done) {
           done();
         })
       });
+  });
+
+  it ('should be able to add a user\'s vote to the database and find it', (done) => {
+    var sampleVote = new VoteModel({
+      vote: 1,
+      user: '58e2e49c328d2fb328c6e899',
+      resource: '58e2e731e65991b3ca06df12'
     });
+
+    Promise.all([sampleVote.save()])
+      .then( () => {
+        VoteModel.findOne({user: '58e2e49c328d2fb328c6e899'}, function (err, vote) {
+          expect(vote.vote).to.equal(1);
+          done();
+        });
+      });
+  });
 
 });
