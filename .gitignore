@@ -4,3 +4,4 @@ clients/assets/lib/
 ._*
 clients/assets/config/config.js
 .log
+dist/
