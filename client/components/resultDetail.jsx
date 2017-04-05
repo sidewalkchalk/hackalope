@@ -3,18 +3,18 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import Result from './result.jsx'
+import { selectResult } from '../actions/index.js' 
+
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 // Required Modules
-import Main from './main.jsx';
-import Search from './search.jsx';
+
 //not using right now
 //import Comment from './comment.jsx';
 //import ResultsList from './resultsList.jsx';
-import routes from '../routes.jsx';
 
 class ResultDetail extends React.Component {
   
@@ -23,10 +23,15 @@ class ResultDetail extends React.Component {
   }
 
   render () {
+    if (!this.props.result) {
+      return (<div>No result selected</div>);
+    }
+
     return (
       <MuiThemeProvider>
         <div>
-          <Main />
+          <h2>{this.props.result.title}</h2>
+          <h3>{this.props.result.language}</h3>
           <h2> We're the best around! nothing is ever gonna keep us down</h2>  
         </div>
       </MuiThemeProvider>
@@ -36,8 +41,7 @@ class ResultDetail extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    testreducer : state.testreducer,
-    dispatch : state.dispach
+    result: state.result
   };
 };
 
