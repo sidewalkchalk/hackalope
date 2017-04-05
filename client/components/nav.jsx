@@ -11,6 +11,8 @@ import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Modules
 import Login from './login.jsx';
@@ -48,7 +50,7 @@ export default class Nav extends React.Component {
 
 	render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <div>
         <AppBar
           title="hackalope.io"

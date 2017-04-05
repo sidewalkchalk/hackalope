@@ -22,14 +22,12 @@ class App extends React.Component {
 
   render () {
     return (
-      <MuiThemeProvider>
       <Router history={hashHistory}>
           <Route path='/' component={Main} >
           <Route path='results' component={ResultsList} />
           <Route path='resultDetails' component={ResultDetails} />
         </Route>
       </Router>
-      </MuiThemeProvider>
     );
   }
 }
