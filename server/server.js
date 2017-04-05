@@ -39,7 +39,8 @@ app.use(passport.session());
 require('./passport/init.js')(passport);
 
 // SERVE STATIC FILES
-app.use('/public', express.static(path.join(__dirname, '/../client/')))
+app.use('/public', express.static(path.join(__dirname, '/../client/')));
+app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
 
 // ROUTING
 app.use('/auth', auth(passport));
