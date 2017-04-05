@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Modules
 import Nav from './nav.jsx';
