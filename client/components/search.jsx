@@ -71,6 +71,7 @@ export default class Search extends React.Component {
           <MenuItem value={5} primaryText="Python" />
         </DropDownMenu>
         <AutoComplete
+          style={{alignSelf: 'center'}}
           hintText="What would you like to learn today?"
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}

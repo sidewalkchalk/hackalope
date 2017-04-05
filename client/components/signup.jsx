@@ -22,7 +22,7 @@ class SignUp extends React.Component {
     return (
       <div>
       <MuiThemeProvider>
-      <form onSubmit={() => signUp(event)}>
+      <form onSubmit={(event) => signUp(event)}>
           <TextField
             floatingLabelText="Name"
           /><br/>
