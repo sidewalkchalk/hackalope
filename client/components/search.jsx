@@ -57,7 +57,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-      <div id ='search'>
+      <div id ='search' style={{alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
         <DropDownMenu
           id='search-dropdown'
           value={this.state.value}
