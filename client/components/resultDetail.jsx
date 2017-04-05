@@ -17,7 +17,7 @@ import Search from './search.jsx';
 import routes from '../routes.jsx';
 
 class ResultDetail extends React.Component {
-  
+
   constructor (props) {
     super (props);
   }
@@ -27,7 +27,7 @@ class ResultDetail extends React.Component {
       <MuiThemeProvider>
         <div>
           <Main />
-          <h2> We're the best around! nothing is ever gonna keep us down</h2>  
+          <h2> We're the best around! nothing is ever gonna keep us down</h2>
         </div>
       </MuiThemeProvider>
     )
@@ -37,7 +37,7 @@ class ResultDetail extends React.Component {
 const mapStateToProps = (state) => {
   return {
     testreducer : state.testreducer,
-    dispatch : state.dispach
+    dispatch : state.dispatch
   };
 };
 
