@@ -27,7 +27,7 @@ class App extends React.Component {
           <Route path='/' component={Main} >
           <Route path='results' component={ResultsList} />
           <Route path='resultDetails' component={ResultDetails} />
-          <Route path='signup' component={SignUp} />
+          <Route path='/signup' component={SignUp} />
         </Route>
       </Router>
     );

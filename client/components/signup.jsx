@@ -1,6 +1,6 @@
 // Required React Components
 import React from 'react';
-import { Route, browserHistory, Redirect } from 'react-router';
+import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required Material UI Components
@@ -22,7 +22,7 @@ class SignUp extends React.Component {
     return (
       <div>
       <MuiThemeProvider>
-      <form onSubmit={signUp}>
+      <form onSubmit={() => signUp(event)}>
           <TextField
             floatingLabelText="Name"
           /><br/>
@@ -56,6 +56,7 @@ const matchDispatchToProps = (dispatch) => {
 
 const signUp = (event) => {
   event.preventDefault();
+  console.log('hey guys')
 }
 
 export default connect (mapStateToProps, matchDispatchToProps)(SignUp);
