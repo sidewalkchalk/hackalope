@@ -7,6 +7,8 @@ module.exports = function (passport) {
   },
   function (req, username, password, done) {
     process.nextTick(function () {
+      // new users cannot be administrators
+      req.body.admin = false;
 
       users.findUserByUsername(username)
         .then(function (user) {

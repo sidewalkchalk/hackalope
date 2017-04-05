@@ -9,13 +9,21 @@ router.get('/', function (req, res) {
 });
 
 // handle search request from homepage
-// TODO: handle search data with tags
 router.post('/', function (req, res) {
   resourceController.findResourcesByLanguage(req.body.language)
-    .then (function (response) {
-      res.send(response);
+    .then ( resources => {
+      // if nothing was entered in the search bar, search all resources
+      if (req.body.topic === 'General') {
+        res.json(resources);
+        // otherwise, filter by search term
+      } else {
+        responseData = resources.filter(resource => {
+          return resource.tags.includes(req.body.topic)
+        })
+        res.json(responseData);
+      }
     })
-    .catch (function (err) {
+    .catch ( err => {
       console.log(err);
     })
 })

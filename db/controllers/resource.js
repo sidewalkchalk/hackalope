@@ -15,6 +15,10 @@ exports.findResourceById = function (id) {
   return ResourceModel.findOne({_id: id});
 };
 
+exports.findFavorites = function (favorites) {
+  return ResourceModel.find({_id: {$in: favorites}});
+}
+
 // finds all resources with a specified tag
 // TODO: make this work for multiple tags
 exports.findResourcesByTag = function (language, tag) {
