@@ -14,6 +14,7 @@ import routes from '../routes.jsx';
 import ResultsList from './resultsList.jsx';
 import Result from './result.jsx'
 import ResultDetails from './resultDetail.jsx';
+import SignUp from './signup.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path='/' component={Main} >
           <Route path='results' component={ResultsList} />
           <Route path='resultDetails' component={ResultDetails} />
+          <Route path='signup' component={SignUp} />
         </Route>
       </Router>
     );
