@@ -34,12 +34,10 @@ class App extends React.Component {
   }
 }
 
-
-
 const mapStateToProps = (state) => {
   return {
     testreducer : state.testreducer,
-    dispatch : state.dispach
+    dispatch : state.dispatch
   };
 };
 

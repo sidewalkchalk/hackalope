@@ -3,7 +3,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { selectResult } from '../actions/index.js' 
+import { selectResult } from '../actions/index.js'
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,7 +17,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 //import ResultsList from './resultsList.jsx';
 
 class ResultDetail extends React.Component {
-  
+
   constructor (props) {
     super (props);
   }
@@ -32,7 +32,7 @@ class ResultDetail extends React.Component {
         <div>
           <h2>{this.props.result.title}</h2>
           <h3>{this.props.result.language}</h3>
-          <h2> We're the best around! nothing is ever gonna keep us down</h2>  
+          <h2> We're the best around! nothing is ever gonna keep us down</h2>
         </div>
       </MuiThemeProvider>
     )
