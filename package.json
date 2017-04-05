@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sidewalkchalk/hackalope#readme",
   "dependencies": {
+    "axios": "^0.16.0",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",

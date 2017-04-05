@@ -52,8 +52,6 @@ class Result extends React.Component {
           style={{position: 'relative', width: '60%', display: 'inline' }}
         />
 
-
-
         <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
                <span> { this.props.result.rating } </span>
