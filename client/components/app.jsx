@@ -15,6 +15,7 @@ import ResultsList from './resultsList.jsx';
 import Result from './result.jsx'
 import Resource from './resource.jsx';
 import SignUp from './signup.jsx';
+import Submit from './submit.jsx';
 
 const App = (props) => (
   <Router history={hashHistory}>
@@ -22,6 +23,7 @@ const App = (props) => (
       <Route path='results' component={ResultsList} />
       <Route path='resource' component={Resource} />
       <Route path='signup' component={SignUp} />
+      <Route path='/submit' component={Submit} />
     </Route>
   </Router>
 );
