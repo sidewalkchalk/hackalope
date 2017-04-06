@@ -43,7 +43,7 @@ class SignUp extends React.Component {
 
   render () {
     return (
-      <div alignContent='center'>
+      <div style={{alignContent: 'center'}}>
       <MuiThemeProvider>
 
       <form onSubmit={this.handleSubmit}>
