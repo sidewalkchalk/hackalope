@@ -79,11 +79,11 @@ const mapStateToProps = (state) => {
 
   }
 }
-// should be able to use store.dispatch(selectUser(user)) on 37 and delete 
+// should be able to use store.dispatch(selectUser(user)) on 37 and delete
 //matchDispatchToProps but we'll worry about that on refactor
-function matchDispatchToProps (dispatch) {
+function mapDispatchToProps (dispatch) {
   return bindActionCreators({selectUser:selectUser},dispatch);
 }
 
 
-export default connect (mapStateToProps, matchDispatchToProps)(SignUp);
+export default connect (mapStateToProps, mapDispatchToProps)(SignUp);

@@ -16,13 +16,15 @@ import Result from './result.jsx'
 import Resource from './resource.jsx';
 import SignUp from './signup.jsx';
 import Submit from './submit.jsx';
+import Login from './login.jsx';
 
 const App = (props) => (
   <Router history={hashHistory}>
       <Route path='/' component={Main} >
-      <Route path='results' component={ResultsList} />
-      <Route path='resource' component={Resource} />
-      <Route path='signup' component={SignUp} />
+      <Route path='/results' component={ResultsList} />
+      <Route path='/resource' component={Resource} />
+      <Route path='/signup' component={SignUp} />
+      <Route path='/login' component={Login} />
       <Route path='/submit' component={Submit} />
     </Route>
   </Router>
