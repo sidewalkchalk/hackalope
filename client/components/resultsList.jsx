@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Dialog from 'material-ui/Dialog';
 
 // Required Modules
+import Result from './result.jsx';
 import { selectResult } from '../actions/index.js';
 import Submit from './submit.jsx';
 
