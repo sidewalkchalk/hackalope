@@ -50,7 +50,7 @@ export default class Nav extends React.Component {
 
 	render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider>
       <div>
         <AppBar
           title="hackalope.io"

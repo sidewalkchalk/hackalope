@@ -39,7 +39,7 @@ class Result extends React.Component {
     };
 
     return (
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
 
 
