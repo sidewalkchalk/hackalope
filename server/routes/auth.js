@@ -17,7 +17,13 @@ module.exports = function (passport) {
   // handle new user signup
   router.post('/signup', passport.authenticate('signup'),
   function (req, res, next){
-    res.sendStatus(201);
+    var userData = {name: req.user.name,
+                    username: req.user.username,
+                    admin: req.user.admin,
+                    _id: req.user._id,
+                    favorites: req.user.favorites};
+
+   res.status(201).send(userData);
   });
 
   // handle logout
