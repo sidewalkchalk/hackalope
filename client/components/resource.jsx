@@ -16,23 +16,15 @@ import Search from './search.jsx';
 //import ResultsList from './resultsList.jsx';
 import routes from '../routes.jsx';
 
-class ResultDetail extends React.Component {
+const Resource = (props) => (
+  <MuiThemeProvider>
+    <div>
+      <Main />
+      <h2> We're the best around! nothing is ever gonna keep us down</h2>
+    </div>
+  </MuiThemeProvider>
+);
 
-  constructor (props) {
-    super (props);
-  }
-
-  render () {
-    return (
-      <MuiThemeProvider>
-        <div>
-          <Main />
-          <h2> We're the best around! nothing is ever gonna keep us down</h2>
-        </div>
-      </MuiThemeProvider>
-    )
-  }
-}
 
 const mapStateToProps = (state) => {
   return {
@@ -41,4 +33,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps)(ResultDetail);
+export default connect (mapStateToProps)(Resource);

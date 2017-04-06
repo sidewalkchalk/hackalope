@@ -14,7 +14,7 @@ class ResultsList extends React.Component {
     //map result is each card from result.jsx
     //card has clickable buttons already added but can use redux here for an on click action
     return this.props.results.map((result) => {
-      return ( 
+      return (
         <div key = {result.id}>
           <Result key = {result.id} result = {result} />
           <br/>
@@ -25,11 +25,11 @@ class ResultsList extends React.Component {
   }
 
   render () {
-    return( 
+    return(
       <ul>
         {this.renderResults()}
       </ul>
-    );    
+    );
   }
 }
 
