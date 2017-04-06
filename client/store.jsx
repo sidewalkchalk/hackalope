@@ -1,5 +1,5 @@
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers} from 'redux';
 import activeResult from './reducers/activeResult.js'
 import testreducer from './reducers/testreducer.jsx';
 import buckysresults from './reducers/buckysresults.jsx';
