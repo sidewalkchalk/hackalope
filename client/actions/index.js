@@ -80,6 +80,13 @@ export const logInDialog = (dialogs) => {
 //     }
 // };
 
+export const commentsByUser = () => {
+    console.log("Comments by user " );
+    return {
+        type: 'COMMENTS_USER',
+    }
+};
+
 // export const commentsByResource = ({{prop}}) => {
 //     console.log("Comments by resource ", {{prop}});
 //     return {
