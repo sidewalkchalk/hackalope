@@ -40,6 +40,7 @@ class ResultsList extends React.Component {
   }
 
   render () {
+
     const style = {
      marginRight: 10,
       top: 'auto',
@@ -70,6 +71,7 @@ class ResultsList extends React.Component {
         </div>
       </div>
    
+
       </MuiThemeProvider>
 
     );    
