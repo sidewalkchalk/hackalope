@@ -12,6 +12,7 @@ module.exports = function (passport) {
       // pass user information to client
       var userData = {name: req.user.name,
         username: req.user.username,
+        password: '',
         admin: req.user.admin,
         _id: req.user._id,
         favorites: req.user.favorites};
@@ -24,6 +25,7 @@ module.exports = function (passport) {
       // pass user information to client
       var userData = {name: req.user.name,
         username: req.user.username,
+        password: '',
         admin: req.user.admin,
         _id: req.user._id,
         favorites: req.user.favorites};

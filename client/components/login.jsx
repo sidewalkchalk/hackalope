@@ -23,6 +23,8 @@ class Login extends React.Component {
       username: '',
       password: '',
     }
+    //bind methods to this
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit (e) {
@@ -30,7 +32,7 @@ class Login extends React.Component {
     axios.post('/auth/login', this.state)
       .then( response => {
         var user = response.data
-        // change the store to add the name and username
+        // change the store to add user information
         this.props.selectUser(user);
       })
       .catch ( err => {
@@ -38,11 +40,43 @@ class Login extends React.Component {
       })
   }
 
-  render() {
+  render () {
     return (
-      <FlatButton {...this.props} label="Login" />
-    );
+      <div style={{alignContent: 'center'}}>
+      <MuiThemeProvider>
+
+      <form onSubmit={this.handleSubmit}>
+        <TextField name="username"
+            value={this.state.username}
+            floatingLabelText="Username"
+            onChange={e => this.setState({username: e.target.value})}
+          /><br/>
+        <TextField name="password"
+            value={this.state.password}
+            floatingLabelText="Password"
+            onChange={e => this.setState({password: e.target.value})}
+          /><br/>
+          <RaisedButton
+            type="submit"
+            label="Submit"
+            secondary={true}
+          />
+      </form>
+      </MuiThemeProvider>
+      </div>
+    )
   }
+}
+
+function mapStateToProps (state) {
+  return {
+    state: state
+  };
+};
+  // should be able to use store.dispatch(selectUser(user)) on 37 and delete
+  //matchDispatchToProps but we'll worry about that on refactor
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({selectUser: selectUser}, dispatch);
 };
 
-export default Login;
+export default connect (mapStateToProps, mapDispatchToProps)(Login);
