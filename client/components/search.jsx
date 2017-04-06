@@ -57,7 +57,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-      <div id ='search' style={{alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
+      <div id ='search' style={{alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
         <DropDownMenu
           id='search-dropdown'
           value={this.state.value}
@@ -71,6 +71,7 @@ export default class Search extends React.Component {
           <MenuItem value={5} primaryText="Python" />
         </DropDownMenu>
         <AutoComplete
+          style={{alignSelf: 'center'}}
           hintText="What would you like to learn today?"
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}

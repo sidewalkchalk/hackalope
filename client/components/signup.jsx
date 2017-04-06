@@ -43,8 +43,9 @@ class SignUp extends React.Component {
 
   render () {
     return (
-      <div>
+      <div alignContent='center'>
       <MuiThemeProvider>
+
       <form onSubmit={this.handleSubmit}>
           <TextField name="name"
             value={this.state.name}
