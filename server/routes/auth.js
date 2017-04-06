@@ -11,6 +11,7 @@ module.exports = function (passport) {
 
   router.post('/login', passport.authenticate('login'),
   function (req, res, next) {
+    console.log('THE USER OBJECT LOOKS LIKE THIS!', req.user);
     res.sendStatus(201);
   });
 
@@ -22,7 +23,6 @@ module.exports = function (passport) {
                     admin: req.user.admin,
                     _id: req.user._id,
                     favorites: req.user.favorites};
-
    res.status(201).send(userData);
   });
 

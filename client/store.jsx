@@ -14,7 +14,6 @@ const combinedReducers = combineReducers({
    user: authReducer
 
 });
-//applyMidleware(ReduxPromise)?
 
 const store = createStore(combinedReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
