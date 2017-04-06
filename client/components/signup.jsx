@@ -1,7 +1,9 @@
 // Required React Components
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
-import { connect } from 'react-redux';
+import { connect} from 'react-redux';
+import { selectUser } from '../actions/index.js';
+import { bindActionCreators } from 'redux';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,7 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 // Required Dependencies
 import axios from 'axios';
-import authreducer from '../reducers/authreducer.jsx';
+import authReducer from '../reducers/authreducer.jsx';
 
 class SignUp extends React.Component {
 
@@ -30,8 +32,9 @@ class SignUp extends React.Component {
     e.preventDefault();
     axios.post('/auth/signup', this.state)
       .then( response => {
-        console.log(response);
+        var user = response.data
         // change the store to add the name and username
+        this.props.selectUser(user);
       })
       .catch ( err => {
         console.error(err)
@@ -72,12 +75,13 @@ class SignUp extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    results: state.results
+
   }
 }
 
-const matchDispatchToProps = (dispatch) => {
-  return authreducer({name: 'james', username: 'james', password: 'james'}, dispatch)
+function matchDispatchToProps (dispatch) {
+  return bindActionCreators({selectUser:selectUser},dispatch);
 }
+
 
 export default connect (mapStateToProps, matchDispatchToProps)(SignUp);

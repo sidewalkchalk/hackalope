@@ -1,12 +1,10 @@
-function authreducer (state = {}, action) {
+function authReducer (state = {}, action) {
   switch (action.type) {
     case 'STORE_USER':
-      return {name: action.payload.name, username: action.payload.username, password: action.payload.password};
+      return Object.assign({}, state, action.user);
     default:
       return state;
   }
 };
 
-
-
-export default authreducer;
+export default authReducer;

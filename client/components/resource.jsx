@@ -3,7 +3,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { selectResult } from '../actions/index.js'
+import { selectResult } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
