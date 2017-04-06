@@ -10,11 +10,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-// Required Modules
-
-//not using right now
+//not using right now but will need once comments reducers/actions are made
 //import Comment from './comment.jsx';
-//import ResultsList from './resultsList.jsx';
 
 class Resource extends React.Component {
   constructor (props) {
@@ -29,9 +26,11 @@ class Resource extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h2>{this.props.result.title}</h2>
-          <h3>{this.props.result.language}</h3>
-          <h2> We're the best around! nothing is ever gonna keep us down</h2>
+          <h2>TITLE:  {this.props.result.title}</h2>
+          <h4>LANGUAGE:  {this.props.result.language}</h4>
+          <a href = "{this.props.result.URL}">{this.props.result.URL}</a>
+          <h4>DESCRIPTION:  {this.props.result.description}</h4>
+          <h4> We're the best around! nothing is ever gonna keep us down</h4>
         </div>
       </MuiThemeProvider>
     )

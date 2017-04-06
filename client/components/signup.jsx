@@ -33,7 +33,7 @@ class SignUp extends React.Component {
     axios.post('/auth/signup', this.state)
       .then( response => {
         var user = response.data
-        // change the store to add the name and username
+        // change the store to add the name, username, admin, _id, favorites
         this.props.selectUser(user);
       })
       .catch ( err => {
@@ -79,7 +79,8 @@ const mapStateToProps = (state) => {
 
   }
 }
-
+// should be able to use store.dispatch(selectUser(user)) on 37 and delete 
+//matchDispatchToProps but we'll worry about that on refactor
 function matchDispatchToProps (dispatch) {
   return bindActionCreators({selectUser:selectUser},dispatch);
 }
