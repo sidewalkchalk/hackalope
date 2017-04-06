@@ -1,6 +1,6 @@
 
-import { createStore, combineReducers } from 'redux';
-
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import activeResult from './reducers/activeResult.js'
 import testreducer from './reducers/testreducer.jsx';
 import buckysresults from './reducers/buckysresults.jsx';
 import { reducer as formReducer } from 'redux-form';
@@ -10,9 +10,9 @@ import { reducer as formReducer } from 'redux-form';
 const combinedReducers = combineReducers({
 	 test: testreducer,
    results: buckysresults,
-	 form: formReducer
+   result: activeResult
 });
-
+//applyMidleware(ReduxPromise)?
 
 const store = createStore(combinedReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

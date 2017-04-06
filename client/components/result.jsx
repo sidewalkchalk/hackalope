@@ -80,13 +80,6 @@ class Result extends React.Component {
                 />
             </div>
         </div>
-
-
-
-
-
-
-
       <CardActions>
         <RaisedButton
           label="Details"

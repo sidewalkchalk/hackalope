@@ -8,7 +8,9 @@ export default function () {
       description: "Describing entry one. Describing entry one, Describing entry one.",
       thumbnail: "http://i.imgur.com/7yUvePI.jpg",
       tags: ['array1', 'objects1', 'closures1'],
-      rating: 'one-rating'
+      rating: 'one-rating',
+      userID: 1
+
     },
     {
       id: 2,
@@ -18,7 +20,8 @@ export default function () {
       description: "Describing entry two. Describing entry two, Describing entry two.",
       thumbnail: "http://i.imgur.com/52xRlm8.png",
       tags: ['array2', 'objects2', 'closures2'],
-      rating: 'two-rating'
+      rating: 'two-rating',
+      userID: 2
     },
     {
       id: 3,
@@ -28,7 +31,8 @@ export default function () {
       description: "Describing entry three. Describing entry three, Describing entry three.",
       thumbnail: "http://i.imgur.com/4EMtxHB.png",
       tags: ['array3', 'objects3', 'closures3'],
-      rating: 'three-rating'
+      rating: 'three-rating',
+      userID: 1,
     },
     {
       id: 4,
@@ -38,7 +42,8 @@ export default function () {
       description: "Describing entry four. Describing entry four, Describing entry four.",
       thumbnail: "http://i.imgur.com/52xRlm8.png",
       tags: ['array4', 'objects4', 'closures4'],
-      rating: 'four-rating'
+      rating: 'four-rating',
+      userID: 2
     },
     {
       id: 5,
@@ -48,7 +53,8 @@ export default function () {
       description: "Describing entry five. Describing entry five, Describing entry five.",
       thumbnail: "http://i.imgur.com/4EMtxHB.png",
       tags: ['array5', 'objects5', 'closures5'],
-      rating: 'five-rating'
+      rating: 'five-rating',
+      userID: 1
     }
   ]
 }
