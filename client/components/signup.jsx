@@ -1,6 +1,6 @@
 // Required React Components
 import React from 'react';
-import { Route, browserHistory, Redirect } from 'react-router';
+import { Route, hashHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required Material UI Components
@@ -16,21 +16,47 @@ class SignUp extends React.Component {
 
   constructor (props) {
     super (props);
+
+    this.state = {
+      name: '',
+      username: '',
+      password: ''
+    }
+    // bind methods to this
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    axios.post('/auth/signup', this.state)
+      .then( response => {
+        console.log(response);
+        // change the store to add the name and username
+      })
+      .catch ( err => {
+        console.error(err)
+      })
   }
 
   render () {
     return (
       <div>
       <MuiThemeProvider>
-      <form onSubmit={signUp}>
-          <TextField
+      <form onSubmit={this.handleSubmit}>
+          <TextField name="name"
+            value={this.state.name}
             floatingLabelText="Name"
+            onChange={e => this.setState({name: e.target.value})}
           /><br/>
-          <TextField
+        <TextField name="username"
+            value={this.state.username}
             floatingLabelText="Username"
+            onChange={e => this.setState({username: e.target.value})}
           /><br/>
-          <TextField
+        <TextField name="password"
+            value={this.state.password}
             floatingLabelText="Password"
+            onChange={e => this.setState({password: e.target.value})}
           /><br/>
           <RaisedButton
             type="submit"
@@ -52,10 +78,6 @@ const mapStateToProps = (state) => {
 
 const matchDispatchToProps = (dispatch) => {
   return authreducer({name: 'james', username: 'james', password: 'james'}, dispatch)
-}
-
-const signUp = (event) => {
-  event.preventDefault();
 }
 
 export default connect (mapStateToProps, matchDispatchToProps)(SignUp);
