@@ -18,9 +18,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class Resource extends React.Component {
   constructor (props) {
-    super (props) {
-
-    }
+    super (props);
+    
   }
   render () {
     if (!this.props.result) {
