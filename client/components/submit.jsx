@@ -7,6 +7,9 @@ class Submit extends React.Component {
     super (props);
   }
   render () {
+    return (
+      <h1>hello </h1>
+    );
   }
 }
 
