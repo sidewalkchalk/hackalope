@@ -2,12 +2,8 @@
 import React from 'react';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
-
-import Result from './result.jsx';
 import {bindActionCreators, createStore } from 'redux';
-import { selectResult } from '../actions/index.js'
-// V this is used for an action on redux
-// import {bindActionCreator} from 'redux';
+
 
 // Required Material UI Components
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -18,7 +14,6 @@ import Dialog from 'material-ui/Dialog';
 // Required Modules
 import { selectResult } from '../actions/index.js';
 import Submit from './submit.jsx';
-
 
 
 class ResultsList extends React.Component {
