@@ -16,12 +16,12 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 //import Comment from './comment.jsx';
 //import ResultsList from './resultsList.jsx';
 
-class ResultDetail extends React.Component {
-
+class Resource extends React.Component {
   constructor (props) {
-    super (props);
-  }
+    super (props) {
 
+    }
+  }
   render () {
     if (!this.props.result) {
       return (<div>No result selected</div>);
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps)(ResultDetail);
+export default connect (mapStateToProps)(Resource);

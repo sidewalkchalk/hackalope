@@ -1,14 +1,7 @@
 import React from 'react';
 
-class Favorites extends React.Component {
-  
-  constructor (props) {
-    super (props);
-  }
+const Favorites = (props) => (
 
-  render () {
-
-  }
-}
+);
 
 export default Favorites;
