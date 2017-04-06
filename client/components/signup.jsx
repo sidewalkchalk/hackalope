@@ -2,7 +2,7 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { selectUser, signUpFormData, getSignUpFormData } from '../actions/index.js';
+import { selectUser, signUpFormData } from '../actions/index.js';
 import { bindActionCreators } from 'redux';
 
 // Required Material UI Components

@@ -1,11 +1,10 @@
 //Need to standardize nomenclature between actions and reducers
 
 export const selectResult = (result) => {
-    console.log("You clicked on result: ", result.title);
-    return {
-        type: 'RESULT_SELECTED',
-        result
-    }
+  return {
+    type: 'RESULT_SELECTED',
+    result
+  }
 };
 
 export const selectUser = (user) => {

@@ -1,8 +1,8 @@
 // Required React Components
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
-import { connect} from 'react-redux';
-import { selectUser } from '../actions/index.js';
+import { connect } from 'react-redux';
+import { selectUser, signUpFormData } from '../actions/index.js';
 import { bindActionCreators } from 'redux';
 
 // Required Material UI Components
@@ -14,69 +14,53 @@ import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios';
 import authReducer from '../reducers/authreducer.jsx';
 
-class Login extends React.Component {
-
-  constructor (props) {
-    super (props);
-
-    this.state = {
-      username: '',
-      password: '',
-    }
-    //bind methods to this
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit (e) {
+const Login = ({ user, dispatch }) => {
+  // log the user in
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/auth/login', this.state)
+    console.log(user);
+    axios.post('/auth/login', user)
       .then( response => {
-        var user = response.data
-        // change the store to add user information
-        this.props.selectUser(user);
+        var userData = response.data
+        // change the store to add the name, username, admin, _id, favorites
+        dispatch(selectUser(userData));
       })
       .catch ( err => {
         console.error(err)
       })
-  }
+  };
 
-  render () {
-    return (
-      <div style={{alignContent: 'center'}}>
+  return (
+    <div style={{alignContent: 'center'}}>
       <MuiThemeProvider>
 
-      <form onSubmit={this.handleSubmit}>
-        <TextField name="username"
-            value={this.state.username}
+        <form onSubmit={handleSubmit}>
+          <TextField name="username"
+            value={user.username}
             floatingLabelText="Username"
-            onChange={e => this.setState({username: e.target.value})}
+            onChange={e => dispatch(signUpFormData({username: e.target.value}))}
           /><br/>
-        <TextField name="password"
-            value={this.state.password}
+          <TextField name="password"
+            value={user.password}
             floatingLabelText="Password"
-            onChange={e => this.setState({password: e.target.value})}
+            onChange={e => dispatch(signUpFormData({password: e.target.value}))}
           /><br/>
+
           <RaisedButton
             type="submit"
             label="Submit"
             secondary={true}
           />
-      </form>
+        </form>
       </MuiThemeProvider>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return {
-    state: state
+    user: state.user
   };
 };
-  // should be able to use store.dispatch(selectUser(user)) on 37 and delete
-  //matchDispatchToProps but we'll worry about that on refactor
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({selectUser: selectUser}, dispatch);
-};
 
-export default connect (mapStateToProps, mapDispatchToProps)(Login);
+export default connect (mapStateToProps)(Login);
