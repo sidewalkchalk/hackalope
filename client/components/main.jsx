@@ -10,23 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Nav from './nav.jsx';
 import Search from './search.jsx';
 
-
-
 class Main extends React.Component {
-
-	constructor(props){
-		super(props);
-	};
-
-	componentWillMount() {
-		(testreducer) => {
-			this.props.dispatch({
-        type: 'TEST',
-        testreducer: testreducer
-      });
-	  };
-  };
-
 	render(){
 		return (
       <div>
@@ -40,8 +24,6 @@ class Main extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-  	testreducer : state.testreducer,
-    dispatch : state.dispach
   };
 };
 

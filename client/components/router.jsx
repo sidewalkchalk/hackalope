@@ -3,15 +3,8 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexLink
 
 import React from 'react';
 
-class Router extends React.Component {
-  
-  constructor (props) {
-    super (props);
-  }
+const Router = (props) => (
 
-  render () {
+);
 
-  }
-}
-
-export default Comment;
+export default Router;

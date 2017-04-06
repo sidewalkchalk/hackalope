@@ -87,7 +87,7 @@ class Result extends React.Component {
           primary={true}
           icon={<DetailIcon />}
           style={styles.button}
-          containerElement={<Link to="resultDetails" />}
+          containerElement={<Link to="Resource" />}
         />
       </CardActions>
       <CardText expandable={true}>

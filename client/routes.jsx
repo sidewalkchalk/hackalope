@@ -6,7 +6,7 @@ import Main from './components/main.jsx';
 import LogIn from './components/login.jsx';
 import SignUp from './components/signup.jsx';
 import ResultsList from './components/resultsList.jsx';
-import ResultDetail from './components/resultDetail.jsx';
+import Resource from './components/resource.jsx';
 import Profile from './components/profile.jsx';
 import Submit from './components/submit.jsx';
 
@@ -17,7 +17,7 @@ const routes = (
     <Route path = '/login' component = {LogIn}></Route>
     <Route path = '/signup' component = {SignUp}></Route>
     <Route path = '/results' component = {ResultsList}></Route>
-    <Route path = '/:resultId' component = {ResultDetail}></Route>
+    <Route path = '/:resultId' component = {Resource}></Route>
     <Route path = '/:user' component = {Profile}></Route>
     <Route path = '/submit' component = {Submit}></Route>
   </Route>

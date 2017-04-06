@@ -13,33 +13,25 @@ import Nav from './nav.jsx';
 import routes from '../routes.jsx';
 import ResultsList from './resultsList.jsx';
 import Result from './result.jsx'
-import ResultDetails from './resultDetail.jsx';
+import Resource from './resource.jsx';
 import SignUp from './signup.jsx';
+import Submit from './submit.jsx';
 
-class App extends React.Component {
-  constructor (props) {
-    super (props);
-  }
-
-  render () {
-    return (
-      <Router history={hashHistory}>
-          <Route path='/' component={Main} >
-          <Route path='results' component={ResultsList} />
-          <Route path='resultDetails' component={ResultDetails} />
-          <Route path='/signup' component={SignUp} />
-        </Route>
-      </Router>
-    );
-  }
-}
-
-
+const App = (props) => (
+  <Router history={hashHistory}>
+      <Route path='/' component={Main} >
+      <Route path='results' component={ResultsList} />
+      <Route path='resource' component={Resource} />
+      <Route path='signup' component={SignUp} />
+      <Route path='/submit' component={Submit} />
+    </Route>
+  </Router>
+);
 
 const mapStateToProps = (state) => {
   return {
     testreducer : state.testreducer,
-    dispatch : state.dispach
+    dispatch : state.dispatch
   };
 };
 
