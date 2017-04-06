@@ -20,7 +20,7 @@ class SignUp extends React.Component {
 
   render () {
     return (
-      <div>
+      <div alignContent='center'>
       <MuiThemeProvider>
       <form onSubmit={(event) => signUp(event)}>
           <TextField
