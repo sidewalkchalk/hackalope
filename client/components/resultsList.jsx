@@ -52,12 +52,6 @@ const ResultsList = ({results, dispatch}) => {
           </ul>
         </div>
         <div style={{ alignSelf: 'center', width: '10%' }}>
-          <FloatingActionButton
-            secondary={true} style={style}
-            containerElement={<Submit />}
-          >
-            <ContentAdd />
-          </FloatingActionButton>
         </div>
       </div>
     </MuiThemeProvider>
