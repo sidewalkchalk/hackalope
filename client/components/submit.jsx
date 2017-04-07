@@ -12,6 +12,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import Snackbar from 'material-ui/Snackbar';
 
 // Required Dependancies
 import axios from 'axios';
@@ -24,14 +25,14 @@ class Submit extends React.Component {
       title: '',
       url: '',
       description: '',
-      open: false
+      dialogOpen: false,
+      snackbarOpen: false
     }
   }
 
   handleSubmit = (e) => {
-    this.setState({open: false});
-    e.preventDefault();
-    
+    this.setState({dialogOpen: false});
+
     var submission = {
       title: this.state.title,
       url: this.state.url,
@@ -39,10 +40,10 @@ class Submit extends React.Component {
     };
 
     axios.post('/submit', submission)
-
       .then( response => {
         console.log(response);
         var resource = response.data
+        this.setState({title: '', url: '', description: ''});
       })
       .catch ( err => {
         console.error(err)
@@ -50,11 +51,11 @@ class Submit extends React.Component {
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({dialogOpen: true});
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({dialogOpen: false});
   };
 
   render() {
@@ -72,10 +73,20 @@ class Submit extends React.Component {
       />,
     ];
 
+    const style = {
+     marginRight: 10,
+      top: 'auto',
+      right: 20,
+      bottom: 20,
+      position: 'fixed',
+    };
+
     return (
       <MuiThemeProvider>
       <div>
-        <FloatingActionButton onTouchTap={this.handleOpen}>
+        <FloatingActionButton
+        secondary={true} style={style}
+        onTouchTap={this.handleOpen}>
         <ContentAdd />
         </FloatingActionButton>
         <div>
@@ -84,7 +95,7 @@ class Submit extends React.Component {
           title="Submit a Resource"
           actions={actions}
           modal={false}
-          open={this.state.open}
+          open={this.state.dialogOpen}
           onRequestClose={this.handleClose}
         >
         <form onSubmit={this.handleSubmit}>

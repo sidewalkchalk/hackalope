@@ -39,13 +39,6 @@ class ResultsList extends React.Component {
   }
 
   render () {
-    const style = {
-     marginRight: 10,
-      top: 'auto',
-      right: 20,
-      bottom: 20,
-      position: 'fixed',
-    };
     return(
       <MuiThemeProvider>
       <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
@@ -54,18 +47,7 @@ class ResultsList extends React.Component {
           {this.renderResults()}
           </ul>
         </div>
-        <div style={{ alignSelf: 'center', width: '10%' }}>
-          <FloatingActionButton
-            secondary={true} style={style}
-            containerElement={<Submit />}
-          >
-            <ContentAdd />
-          </FloatingActionButton>
-
-        </div>
       </div>
-
-
       </MuiThemeProvider>
 
     );
