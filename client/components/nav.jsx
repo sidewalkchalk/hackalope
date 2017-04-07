@@ -23,8 +23,6 @@ import LoggedOutMenu from './loggedoutmenu.jsx';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
-
-
 const Nav = ({user, dispatch}) => {
 
   return (
@@ -41,7 +39,8 @@ const Nav = ({user, dispatch}) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    dialogs: state.dialogs
   };
 };
 

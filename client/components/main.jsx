@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Nav from './nav.jsx';
 import Search from './search.jsx';
 import Submit from './submit.jsx';
+import SignUp from './signup.jsx';
 
 const Main = (props) => {
 
