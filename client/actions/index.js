@@ -26,6 +26,13 @@ export const submissionData = (submission) => {
     type: 'USER_SUBMISSION_DATA',
     submission
   }
+};
+
+export const searchTerm = (search) => {
+  return {
+    type: 'SEARCH_TERM',
+    search
+  }
 }
 
 

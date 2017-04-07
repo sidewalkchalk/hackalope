@@ -4,6 +4,7 @@ import testreducer from './reducers/testreducer.jsx';
 import buckysresults from './reducers/buckysresults.jsx';
 import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
+import searchReducer from './reducers/searchReducer.jsx';
 
 
 // combine all reducers
@@ -12,7 +13,8 @@ const combinedReducers = combineReducers({
    results: buckysresults,
    result: activeResult,
    user: authReducer,
-	 submission: submissionReducer
+	 submission: submissionReducer,
+	 search: searchReducer
 });
 
 // initialize store and initialize redux dev tools
