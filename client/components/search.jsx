@@ -51,22 +51,17 @@ const Search = ({search, dispatch}) => {
         dataSource={topics}
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}
-        onNewRequest={() => {alert("You selected me!")}}
       />
       <RaisedButton
       label="Let's go!"
       secondary={true}
-      style={buttonStyle}
+      style={{margin: 12}}
       containerElement={<Link to="/results" />}
       />
     </div>
     </MuiThemeProvider>
   );
 }
-
-const buttonStyle = {
-  margin: 12,
-};
 
 const mapStateToProps = (state) => {
   return {
