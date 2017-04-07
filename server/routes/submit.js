@@ -19,7 +19,7 @@ router.post('/', utils.checkAuth, function (req, res) {
       if (response) {
         res.send('This resource has already been posted!')
       } else {
-          // set user's ID in request body
+          // set user's ID in request body and add 0 rating for new submission
           req.body.user = req.user._id;
           req.body.rating = 0;
           resourceController.insertResource(req.body)
