@@ -16,6 +16,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Modules
 import Login from './login.jsx';
+import AuthContainer from './authcontainer.jsx';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
