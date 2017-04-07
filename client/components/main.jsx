@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Required Modules
 import Nav from './nav.jsx';
 import Search from './search.jsx';
+import Submit from './submit.jsx';
 
 const Main = (props) => {
 
@@ -11,6 +12,7 @@ const Main = (props) => {
     <div>
       <Nav />
       <Search />
+      <Submit />
       {props.children}
     </div>
 	);
