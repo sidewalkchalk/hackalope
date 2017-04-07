@@ -25,15 +25,22 @@ export const submissionData = (submission) => {
   return {
     type: 'USER_SUBMISSION_DATA',
     submission
-  }
+  };
 };
 
 export const searchTerm = (search) => {
   return {
     type: 'SEARCH_TERM',
     search
-  }
-}
+  };
+};
+
+export const signUpDialog = (dialogs) => {
+  return {
+    type: 'SIGNUP_DIALOG_OPEN',
+    dialogs
+  };
+};
 
 
 

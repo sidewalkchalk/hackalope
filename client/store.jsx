@@ -5,6 +5,7 @@ import buckysresults from './reducers/buckysresults.jsx';
 import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
 import searchReducer from './reducers/searchReducer.jsx';
+import dialogReducer from './reducers/dialogReducer.jsx';
 
 
 // combine all reducers
@@ -14,7 +15,8 @@ const combinedReducers = combineReducers({
    result: activeResult,
    user: authReducer,
 	 submission: submissionReducer,
-	 search: searchReducer
+	 search: searchReducer,
+	 dialogs: dialogReducer
 });
 
 // initialize store and initialize redux dev tools
