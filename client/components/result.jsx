@@ -32,7 +32,6 @@ const Result = (props) => {
   return (
 
 
-    return (
     <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
 
@@ -92,6 +91,10 @@ const Result = (props) => {
     </MuiThemeProvider>
 
   );
-};
+
+ 
+
+}
+
 
 export default Result;
