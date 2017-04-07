@@ -2,7 +2,6 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
-
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -19,34 +18,30 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 
-class Result extends React.Component {
+const Result = (props) => {
 
-  constructor (props) {
-    super (props);
-  }
+  const styles = {
+    block: {
+      maxWidth: 250,
+    },
+    checkbox: {
+      marginBottom: 0,
+    },
+  };
 
+  return (
 
-
-  render () {
-
-    const styles = {
-      block: {
-        maxWidth: 250,
-      },
-      checkbox: {
-        marginBottom: 0,
-      },
-    };
 
     return (
     <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
 
 
+
         <CardHeader
-          avatar={this.props.result.thumbnail}
-          title= {this.props.result.title}
-          subtitle= {this.props.result.language}
+          avatar={props.result.thumbnail}
+          title= {props.result.title}
+          subtitle= {props.result.language}
           actAsExpander={true}
           showExpandableButton={true}
           style={{position: 'relative', width: '60%', display: 'inline' }}
@@ -54,7 +49,7 @@ class Result extends React.Component {
 
         <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-               <span> { this.props.result.rating } </span>
+               <span> { props.result.rating } </span>
             </div>
             <div>
 
@@ -91,14 +86,12 @@ class Result extends React.Component {
         />
       </CardActions>
       <CardText expandable={true}>
-          {this.props.result.description}
+          {props.result.description}
         </CardText>
       </Card>
     </MuiThemeProvider>
 
-    );
-
-  }
-}
+  );
+};
 
 export default Result;

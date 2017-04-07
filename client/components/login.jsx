@@ -2,8 +2,7 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { selectUser, signUpFormData } from '../actions/index.js';
-import { bindActionCreators } from 'redux';
+import { selectUser, userFormData } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,7 +11,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 // Required Dependencies
 import axios from 'axios';
-import authReducer from '../reducers/authreducer.jsx';
 
 const Login = ({ user, dispatch }) => {
   // log the user in
@@ -38,12 +36,12 @@ const Login = ({ user, dispatch }) => {
           <TextField name="username"
             value={user.username}
             floatingLabelText="Username"
-            onChange={e => dispatch(signUpFormData({username: e.target.value}))}
+            onChange={e => dispatch(userFormData({username: e.target.value}))}
           /><br/>
           <TextField name="password"
             value={user.password}
             floatingLabelText="Password"
-            onChange={e => dispatch(signUpFormData({password: e.target.value}))}
+            onChange={e => dispatch(userFormData({password: e.target.value}))}
           /><br/>
 
           <RaisedButton

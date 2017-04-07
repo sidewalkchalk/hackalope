@@ -13,6 +13,7 @@ router.get('/', function (req, res) {
 
 // handles user's submitted resources
 router.post('/', utils.checkAuth, function (req, res) {
+  console.log(req.body)
   resourceController.findResourceByUrl(req.body.url)
     .then (function (response) {
       if (response) {
@@ -20,6 +21,7 @@ router.post('/', utils.checkAuth, function (req, res) {
       } else {
           // set user's ID in request body
           req.body.user = req.user._id;
+          req.body.rating = 0;
           resourceController.insertResource(req.body)
             .then (function (response) {
               console.log(response);

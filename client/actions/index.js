@@ -14,12 +14,19 @@ export const selectUser = (user) => {
   }
 };
 
-export const signUpFormData = (signUpFormData) => {
+export const userFormData = (userFormData) => {
   return {
-    type: 'SIGNUP_FORM_DATA',
-    signUpFormData
+    type: 'USER_FORM_DATA',
+    userFormData
   }
 };
+
+export const submissionData = (submission) => {
+  return {
+    type: 'USER_SUBMISSION_DATA',
+    submission
+  }
+}
 
 
 
