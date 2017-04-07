@@ -1,5 +1,6 @@
 // Required React Components
 import React from 'react';
+import { connect } from 'react-redux';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,55 +18,31 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // Required Modules
 import Login from './login.jsx';
 import AuthContainer from './authcontainer.jsx';
+import LoggedInMenu from './loggedinmenu.jsx';
+import LoggedOutMenu from './loggedoutmenu.jsx';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
-const Logged = (props) => (
-  <IconMenu
-    {...props}
-    iconButtonElement= {
-      <IconButton><MoreVertIcon /></IconButton>
-    }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-  >
-    <MenuItem primaryText="Sign out" />
-  </IconMenu>
-);
 
-Logged.muiName = 'IconMenu';
 
-export default class Nav extends React.Component {
+const Nav = ({user, dispatch}) => {
 
-	constructor(props) {
-		super(props);
-	}
-
-  state = {
-    logged: true,
-  };
-
-  handleChange = (event, logged) => {
-    this.setState({logged: logged});
-  };
-
-	render() {
-    return (
-      <MuiThemeProvider>
-      <div>
-        <AppBar
-          title="hackalope.io"
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}
-        />
-        <Toggle
-          label="Logged"
-          defaultToggled={true}
-          onToggle={this.handleChange}
-          labelPosition="right"
-          style={{margin: 20}}
-        />
-      </div>
-      </MuiThemeProvider>
-		);
-	}
+  return (
+    <MuiThemeProvider>
+    <div>
+      <AppBar
+        title="hackalope.io"
+        iconElementRight={user.name ? <LoggedInMenu /> : <LoggedOutMenu />}
+      />
+    </div>
+    </MuiThemeProvider>
+	);
 };
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Nav)
