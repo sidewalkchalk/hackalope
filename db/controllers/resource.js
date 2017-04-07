@@ -31,7 +31,7 @@ exports.findResourcesByUser = function (userId) {
 };
 
 exports.findResourceByUrl = function (url) {
-  return ResourceModel.find({url: url});
+  return ResourceModel.findOne({url: url});
 };
 
 // deletes a resource by id

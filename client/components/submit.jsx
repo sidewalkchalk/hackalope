@@ -14,15 +14,13 @@ import TextField from 'material-ui/TextField';
 // Required Dependancies
 import axios from 'axios';
 
-
-
 class Submit extends React.Component {
   constructor (props) {
     super (props);
 
     this.state = {
       title: '',
-      link: '',
+      url: '',
       description: '',
       open: false
     }
@@ -31,7 +29,14 @@ class Submit extends React.Component {
   handleSubmit = (e) => {
     this.setState({open: false});
     e.preventDefault();
-    axios.post('/submit', this.state)
+    
+    var submission = {
+      title: this.state.title,
+      url: this.state.url,
+      description: this.state.description
+    };
+
+    axios.post('/submit', submission)
       .then( response => {
         console.log(response);
         var resource = response.data
@@ -85,10 +90,10 @@ class Submit extends React.Component {
               floatingLabelText="Title"
               onChange={e => this.setState({title: e.target.value})}
             /><br/>
-          <TextField name="link"
-              value={this.state.link}
-              floatingLabelText="Link"
-              onChange={e => this.setState({link: e.target.value})}
+          <TextField name="url"
+              value={this.state.url}
+              floatingLabelText="URL"
+              onChange={e => this.setState({url: e.target.value})}
             /><br/>
           <TextField name="Description"
               value={this.state.description}
