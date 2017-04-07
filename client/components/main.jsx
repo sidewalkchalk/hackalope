@@ -14,6 +14,7 @@ const Main = (props) => {
       <Nav />
       <Search />
       <Submit />
+			<SignUp />
       {props.children}
     </div>
 	);
