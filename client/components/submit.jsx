@@ -10,6 +10,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Dependancies
 import axios from 'axios';
@@ -37,6 +39,7 @@ class Submit extends React.Component {
     };
 
     axios.post('/submit', submission)
+
       .then( response => {
         console.log(response);
         var resource = response.data

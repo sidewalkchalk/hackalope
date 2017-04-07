@@ -31,8 +31,13 @@ const Result = (props) => {
 
   return (
 
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+
+    return (
+    <MuiThemeProvider>
+    <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+
+
+
         <CardHeader
           avatar={props.result.thumbnail}
           title= {props.result.title}
