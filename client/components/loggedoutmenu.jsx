@@ -17,11 +17,11 @@ const LoggedOutMenu = ({dispatch}) => {
   };
 
   const openLoginDialog = () => {
-    dispatch(logInDialog({loginDialog: true}));
+    dispatch(logInDialog({login: true}));
   };
 
   const closeLoginDailog = () => {
-    dispatch(logInDialog({loginDialog: false}));
+    dispatch(logInDialog({login: false}));
   };
 
   return (

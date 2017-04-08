@@ -33,7 +33,7 @@ const Login = ({ user, dialogs, dispatch }) => {
   };
 
   const handleClose = () => {
-    dispatch(logInDialog({loginDialog: false}));
+    dispatch(logInDialog({login: false}));
   };
 
   const actions = [
@@ -60,7 +60,7 @@ const Login = ({ user, dialogs, dispatch }) => {
         title="Sign In"
         actions={actions}
         modal={false}
-        open={dialogs.loginDialog}
+        open={dialogs.login}
         onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
       >
 
