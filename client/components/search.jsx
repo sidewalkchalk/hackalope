@@ -2,7 +2,7 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { searchTerm } from '../actions/index.js';
+import { searchTerm, clearSearch } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -36,18 +36,19 @@ const Search = ({search, dispatch}) => {
         onChange={(event, index, value) => dispatch(searchTerm({value: value}))}
         autoWidth={true}
       >
-        <MenuItem value={1} primaryText="JavaScript" default />
-        <MenuItem value={2} primaryText="Swift" />
-        <MenuItem value={3} primaryText="Objective-C" />
-        <MenuItem value={4} primaryText="Java" />
-        <MenuItem value={5} primaryText="Python" />
+        <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
+        <MenuItem value={'Python'} primaryText="Python" />
+        <MenuItem value={'Ruby'} primaryText='Ruby' />
+        <MenuItem value={'HTML'} primaryText='HTML/CSS' />
+        <MenuItem value={'Swift'} primaryText="Swift" />
+        <MenuItem value={'Objective-C'} primaryText="Objective-C" />
+        <MenuItem value={'Java'} primaryText="Java" />
       </DropDownMenu>
       <AutoComplete
         style={{alignSelf: 'center'}}
         hintText="What would you like to learn today?"
         searchText={search.term}
         onUpdateInput={e => dispatch(searchTerm({term: e}))}
-        onNewRequest={() => dispatch(searchTerm({term: ''}))}
         dataSource={topics}
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}

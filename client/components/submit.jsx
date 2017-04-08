@@ -27,13 +27,14 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
       user: user._id,
       title: submission.title,
       url: submission.url,
-      description: submission.description
+      description: submission.description,
+      language: submission.language
     };
     axios.post('/submit', newEntry)
       .then( response => {
         console.log(response);
         dispatch(submitDialog({submit: false}));
-        dispatch(clearSubmissionData());  
+        dispatch(clearSubmissionData());
       })
       .catch ( err => {
         console.error(err)
