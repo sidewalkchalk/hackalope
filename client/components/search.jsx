@@ -49,7 +49,6 @@ const Search = ({search, dispatch}) => {
         hintText="What would you like to learn today?"
         searchText={search.term}
         onUpdateInput={e => dispatch(searchTerm({term: e}))}
-        onNewRequest={() => dispatch(clearSearch())}
         dataSource={topics}
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}
