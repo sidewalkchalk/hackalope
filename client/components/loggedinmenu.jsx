@@ -15,7 +15,9 @@ const LoggedInMenu = (props) => (
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
     <MenuItem primaryText="My Profile" />
-    <MenuItem primaryText="Sign Out" />
+    <MenuItem
+      primaryText="Sign Out"
+       />
   </IconMenu>
 );
 
