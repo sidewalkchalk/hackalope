@@ -35,7 +35,7 @@ const Search = ({search, dispatch}) => {
         console.log(response.data);
         dispatch(searchResults(response.data))
         // redirect to results
-        window.location.href += "/results";
+        window.location.href += "results";
       })
       .catch( err => {
         console.error(err)

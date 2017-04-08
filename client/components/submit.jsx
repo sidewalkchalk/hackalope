@@ -111,19 +111,19 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
               floatingLabelText="Description"
               multiLine={true}
               onChange={e => dispatch(submissionData({description: e.target.value}))}
-            /><br/>    
+            /><br/>
           </div>
 
 
           <div style={{ marginTop: 37, marginLeft: 15 }}> Language: </div>
           <div style={{ alignSelf: 'top', marginTop: 16 }}>
-              
+
 
             <DropDownMenu
               id='submit-dropdown'
               onChange={(event, index, value) => dispatch(submissionData({language: value}))}
               autoWidth={true}
-              value={"JavaScript"}
+              value={submission.language}
             >
               <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
               <MenuItem value={'Python'} primaryText="Python" />
