@@ -4,7 +4,6 @@ import { Route, browserHistory, Redirect, Link } from 'react-router';
 import { commentsByAll} from '../actions/index.js';
 import { createStore , bindActionCreators} from 'redux';
 
-
 const Comments = ({comments, dispatch}) => {
 
   const renderComments = () => {
@@ -28,12 +27,8 @@ const Comments = ({comments, dispatch}) => {
 
 function mapStateToProps(state) {
   return {
-    comments: state.comments,
-  };
+    comments: state.comments
+  }
 };
-
-// function matchDispatchToProps(dispatch){
-//     return bindActionCreators({comments: comments}, dispatch);
-// }
 
 export default connect(mapStateToProps)(Comments);

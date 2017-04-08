@@ -17,7 +17,7 @@ const ResultsList = ({results, dispatch}) => {
 
   const renderResults = () => {
     //map result is each card from result.jsx
-    //card has clickable buttons already added but can use redux here for an on click action
+    //card has clickable buttons, links to resource rendered on resource page
     return results.map( result => {
       return (
 
@@ -55,11 +55,10 @@ const ResultsList = ({results, dispatch}) => {
   );
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     results: state.results,
   };
 };
 
-//connects redux to this component
 export default connect (mapStateToProps)(ResultsList);

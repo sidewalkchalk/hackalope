@@ -9,6 +9,6 @@ const dialogReducer = (state = {signup: false, login: false, submit: false}, act
     default:
       return state;
   }
-}
+};
 
 export default dialogReducer;
