@@ -6,6 +6,9 @@ import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
 import searchReducer from './reducers/searchReducer.jsx';
 import dialogReducer from './reducers/dialogReducer.jsx';
+import commentsReducer from './reducers/testcommentsreducer.jsx';
+
+
 
 
 // combine all reducers
@@ -16,7 +19,9 @@ const combinedReducers = combineReducers({
    user: authReducer,
 	 submission: submissionReducer,
 	 search: searchReducer,
-	 dialogs: dialogReducer
+	 dialogs: dialogReducer,
+   comments: commentsReducer
+
 });
 
 // initialize store and initialize redux dev tools

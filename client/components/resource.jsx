@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { selectResult } from '../actions/index.js';
+import Comments from './comments.jsx';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -31,6 +32,7 @@ class Resource extends React.Component {
           <a href = "{this.props.result.URL}">{this.props.result.URL}</a>
           <h4>DESCRIPTION:  {this.props.result.description}</h4>
           <h4> We're the best around! nothing is ever gonna keep us down</h4>
+          <Comments />
         </div>
       </MuiThemeProvider>
     )

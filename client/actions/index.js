@@ -68,17 +68,13 @@ export const logInDialog = (dialogs) => {
   };
 };
 
-
-
-// to implement
-
-// export const commentsByUser = ({{prop}}) => {
-//     console.log("Comments by user ",{{prop}} );
-//     return {
-//         type: 'COMMENTS_USER',
-//         {{prop}}
-//     }
-// };
+export const commentsByUser = (comments) => {
+    console.log("Comments by user ", comments );
+    return {
+        type: 'COMMENTS_USER',
+        commments    
+    }
+};
 
 // export const commentsByResource = ({{prop}}) => {
 //     console.log("Comments by resource ", {{prop}});
