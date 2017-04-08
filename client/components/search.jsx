@@ -13,6 +13,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import axios from 'axios';
+
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
   'Objects',
@@ -26,6 +28,18 @@ const topics = [
 ];
 
 const Search = ({search, dispatch}) => {
+
+  const handleSearch = (value) => {
+    console.log(value);
+    axios.post('/', value)
+      .then (response => {
+        console.log(response);
+        //TODO: REROUTE
+      })
+      .catch (err => {
+        console.error(err);
+      });
+  };
 
   return (
     <MuiThemeProvider>
@@ -57,7 +71,7 @@ const Search = ({search, dispatch}) => {
       label="Let's go!"
       secondary={true}
       style={{margin: 12}}
-      containerElement={<Link to="/results" />}
+      onClick={() => handleSearch(search)}
       />
     </div>
     </MuiThemeProvider>
