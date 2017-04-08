@@ -1,7 +1,5 @@
 import { createStore, combineReducers} from 'redux';
-import activeResult from './reducers/activeResult.js'
-import testreducer from './reducers/testreducer.jsx';
-import buckysresults from './reducers/buckysresults.jsx';
+import activeResult from './reducers/activeResult.jsx'
 import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
 import searchReducer from './reducers/searchReducer.jsx';
@@ -11,7 +9,6 @@ import resultsReducer from './reducers/resultsReducer.jsx';
 
 // combine all reducers
 const combinedReducers = combineReducers({
-	 test: testreducer,
    results: resultsReducer,
    result: activeResult,
    user: authReducer,

@@ -17,7 +17,6 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-
 const Result = (props) => {
 
   const styles = {
@@ -89,11 +88,7 @@ const Result = (props) => {
         </CardText>
       </Card>
     </MuiThemeProvider>
-
   );
-
- 
-
 }
 
 

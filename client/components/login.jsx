@@ -11,7 +11,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
-
 // Required Dependencies
 import axios from 'axios';
 
@@ -82,7 +81,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     dialogs: state.dialogs
-  };
+  }
 };
 
 export default connect (mapStateToProps)(Login);

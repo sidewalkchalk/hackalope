@@ -11,9 +11,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-//not using right now but will need once comments reducers/actions are made
-//import Comment from './comment.jsx';
-
 class Resource extends React.Component {
   constructor (props) {
     super (props);
@@ -31,7 +28,7 @@ class Resource extends React.Component {
           <h4>LANGUAGE:  {this.props.result.language}</h4>
           <a href = "{this.props.result.URL}">{this.props.result.URL}</a>
           <h4>DESCRIPTION:  {this.props.result.description}</h4>
-          <h4> We're the best around! nothing is ever gonna keep us down</h4>
+          <hr></hr>
           <Comments />
         </div>
       </MuiThemeProvider>
@@ -42,7 +39,7 @@ class Resource extends React.Component {
 const mapStateToProps = (state) => {
   return {
     result: state.result
-  };
+  }
 };
 
 export default connect (mapStateToProps)(Resource);

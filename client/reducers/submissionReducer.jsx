@@ -7,5 +7,6 @@ const submissionReducer = (state = {language: 'JavaScript'}, action) => {
     default:
       return state;
   }
-}
+};
+
 export default submissionReducer;

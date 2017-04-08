@@ -4,7 +4,7 @@ const resultsReducer = (state = [], action) => {
       return action.results;
     default:
       return state;
-  };
+  }
 };
 
 export default resultsReducer;

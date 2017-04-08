@@ -18,8 +18,6 @@ import Snackbar from 'material-ui/Snackbar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
-
-
 // Required Dependancies
 import axios from 'axios';
 
