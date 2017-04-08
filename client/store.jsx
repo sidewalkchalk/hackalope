@@ -19,7 +19,7 @@ const combinedReducers = combineReducers({
    user: authReducer,
 	 submission: submissionReducer,
 	 search: searchReducer,
-	 dialogs: dialogReducer
+	 dialogs: dialogReducer,
    comments: commentsReducer
 
 });

@@ -21,7 +21,6 @@ export const userFormData = (userFormData) => {
   }
 };
 
-<<<<<<< HEAD
 export const clearUser = () => {
   return {
     type: 'CLEAR_USER'
