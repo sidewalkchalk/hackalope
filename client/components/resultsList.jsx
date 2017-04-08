@@ -1,20 +1,19 @@
-// Required React Components
 import React from 'react';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
-import {bindActionCreators, createStore } from 'redux';
+import Result from './result.jsx';
+import {bindActionCreators } from 'redux';
+import { selectResult } from '../actions/index.js'
+// V this is used for an action on redux
+import {bindActionCreator} from 'redux';
 
 
-// Required Material UI Components
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Dialog from 'material-ui/Dialog';
 
-// Required Modules
-import Result from './result.jsx';
-import { selectResult } from '../actions/index.js';
-import Submit from './submit.jsx';
+
+
 
 
 const ResultsList = ({results, dispatch}) => {
@@ -24,6 +23,7 @@ const ResultsList = ({results, dispatch}) => {
     //card has clickable buttons already added but can use redux here for an on click action
     return results.map( result => {
       return (
+
         <div key = {result.id}
           onClick={() => dispatch(selectResult(result))}
           style={{zDepth: 10}}

@@ -36,6 +36,4 @@ function mapStateToProps(state) {
 //     return bindActionCreators({comments: comments}, dispatch);
 // }
 
-
-
 export default connect(mapStateToProps)(Comments);
