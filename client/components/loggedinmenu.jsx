@@ -10,13 +10,12 @@ import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
 
 const LoggedInMenu = ({ user, dispatch}) => {
-
+  // destroy session and remove user from store
   const handleLogout = () => {
     axios.post('/auth/logout')
     .then( response => {
       console.log(response)
       dispatch(clearUser());
-
     })
     .catch (err => {
       console.log(error);

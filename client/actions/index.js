@@ -47,6 +47,12 @@ export const searchTerm = (search) => {
   };
 };
 
+export const clearSearch = () => {
+  return {
+    type: 'CLEAR_SEARCH'
+  };
+};
+
 export const signUpDialog = (dialogs) => {
   return {
     type: 'SIGNUP_DIALOG_OPEN',

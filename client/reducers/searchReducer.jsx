@@ -1,7 +1,9 @@
-const searchReducer = (state = {term: '', value: 1}, action) => {
+const searchReducer = (state = {term: '', value: 'JavaScript'}, action) => {
   switch (action.type) {
     case 'SEARCH_TERM':
       return (Object.assign({}, state, action.search));
+    case 'CLEAR_SEARCH':
+      return state = {};
     default:
       return state;
   }

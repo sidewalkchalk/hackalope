@@ -46,40 +46,33 @@ const Login = ({ user, dialogs, dispatch }) => {
       primary={true}
       keyboardFocused={true}
       onTouchTap={handleSubmit}
-      />,
+      />
   ];
-
 
   return (
     <div style={{alignContent: 'center'}}>
       <MuiThemeProvider>
-
-      <Dialog
-        autoScrollBodyContent={true}
-        title="Sign In"
-        actions={actions}
-        modal={false}
-        open={dialogs.login}
-        onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
-      >
-
-        <form onSubmit={handleSubmit}>
-          <TextField name="username"
-            value={user.username}
-            floatingLabelText="Username"
-            onChange={e => dispatch(userFormData({username: e.target.value}))}
-          /><br/>
-          <TextField name="password"
-            value={user.password}
-            floatingLabelText="Password"
-            onChange={e => dispatch(userFormData({password: e.target.value}))}
-          /><br/>
-        </form>
-
-
-
-      </Dialog>
-
+        <Dialog
+          autoScrollBodyContent={true}
+          title="Sign In"
+          actions={actions}
+          modal={false}
+          open={dialogs.login}
+          onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
+        >
+          <form onSubmit={handleSubmit}>
+            <TextField name="username"
+              value={user.username}
+              floatingLabelText="Username"
+              onChange={e => dispatch(userFormData({username: e.target.value}))}
+            /><br/>
+            <TextField name="password"
+              value={user.password}
+              floatingLabelText="Password"
+              onChange={e => dispatch(userFormData({password: e.target.value}))}
+            /><br/>
+          </form>
+        </Dialog>
       </MuiThemeProvider>
     </div>
   )
