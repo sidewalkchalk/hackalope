@@ -19,7 +19,6 @@ const Login = ({ user, dialogs, dispatch }) => {
   // log the user in
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
     handleClose();
     axios.post('/auth/login', user)
       .then( response => {
@@ -75,9 +74,9 @@ const Login = ({ user, dialogs, dispatch }) => {
             floatingLabelText="Password"
             onChange={e => dispatch(userFormData({password: e.target.value}))}
           /><br/>
-        </form>  
+        </form>
 
-         
+
 
       </Dialog>
 

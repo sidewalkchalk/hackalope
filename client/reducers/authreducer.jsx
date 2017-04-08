@@ -4,6 +4,8 @@ const authReducer = (state = {}, action) => {
       return (Object.assign({}, state, action.user));
     case 'USER_FORM_DATA':
       return Object.assign({}, state, action.userFormData);
+    case 'CLEAR_USER':
+      return state = {};
     default:
       return state;
   }
