@@ -13,14 +13,14 @@ router.post('/', function (req, res) {
   resourceController.findResourcesByLanguage(req.body.language)
     .then ( resources => {
       // if nothing was entered in the search bar, search all resources
-      if (req.body.topic === 'General') {
-        res.json(resources);
+      if (!req.body.term) {
+        res.status(201).send(resources);
         // otherwise, filter by search term
       } else {
         responseData = resources.filter(resource => {
-          return resource.tags.includes(req.body.topic)
+          return resource.tags.includes(req.body.term)
         })
-        res.json(responseData);
+        res.status(201).send(responseData);
       }
     })
     .catch ( err => {

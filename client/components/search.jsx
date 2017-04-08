@@ -13,6 +13,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import axios from 'axios';
+
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
   'Objects',
@@ -27,13 +29,24 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
+  const handleSearch = (value) => {
+    axios.post('/', value)
+      .then (response => {
+        console.log(response.data);
+        // TODO: redirect to results
+      })
+      .catch( err => {
+        console.error(err)
+      });
+  };
+
   return (
     <MuiThemeProvider>
     <div id ='search' style={{alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
       <DropDownMenu
         id='search-dropdown'
-        value={search.value}
-        onChange={(event, index, value) => dispatch(searchTerm({value: value}))}
+        value={search.language}
+        onChange={(event, index, value) => dispatch(searchTerm({language: value}))}
         autoWidth={true}
       >
         <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
@@ -57,7 +70,7 @@ const Search = ({search, dispatch}) => {
       label="Let's go!"
       secondary={true}
       style={{margin: 12}}
-      containerElement={<Link to="/results" />}
+      onClick={() => handleSearch(search)}
       />
     </div>
     </MuiThemeProvider>
