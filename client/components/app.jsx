@@ -15,7 +15,6 @@ const App = (props) => (
       <Route path='/' component={Main} >
       <Route path='/results' component={ResultsList} />
       <Route path='/resource' component={Resource} />
-      <Route path='/signup' component={SignUp} />
       <Route path='/login' component={Login} />
       <Route path='/submit' component={Submit} />
     </Route>

@@ -17,6 +17,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
   // add user to the database
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(signUpDialog({signup: false}));
     axios.post('/auth/signup', user)
       .then( response => {
         var newUser = response.data
@@ -29,7 +30,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
   };
 
   const handleClose = () => {
-    dispatch(signUpDialog({signUpDialog: false}));
+    dispatch(signUpDialog({signup: false}));
   };
 
   const actions = [
@@ -55,8 +56,8 @@ const SignUp = ({ user, dialogs, dispatch }) => {
         title="Join Hackalope"
         actions={actions}
         modal={false}
-        open={dialogs.signUpDialog}
-        onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
+        open={dialogs.signup}
+        onRequestClose={() => handleClose()}
       >
         <form onSubmit={handleSubmit}>
           <TextField name="name"
