@@ -92,58 +92,51 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
         open={dialogs.submit}
         onRequestClose={() => handleClose()}
       >
-      
 
-      
-
-
-          <form onSubmit={handleSubmit}>
-      <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
-        <div>
-
-              <TextField name="Title"
-                value={submission.title}
-                floatingLabelText="Title"
-                onChange={e => dispatch(submissionData({title: e.target.value}))}
-              /><br/>
+      <form onSubmit={handleSubmit}>
+        <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
+          <div>
+            <TextField name="Title"
+              value={submission.title}
+              floatingLabelText="Title"
+              onChange={e => dispatch(submissionData({title: e.target.value}))}
+            /><br/>
             <TextField name="url"
-                value={submission.url}
-                floatingLabelText="URL"
-                onChange={e => dispatch(submissionData({url: e.target.value}))}
-              /><br/>
+              value={submission.url}
+              floatingLabelText="URL"
+              onChange={e => dispatch(submissionData({url: e.target.value}))}
+            /><br/>
             <TextField name="Description"
-                value={submission.description}
-                floatingLabelText="Description"
-                multiLine={true}
-                onChange={e => dispatch(submissionData({description: e.target.value}))}
-              /><br/>
+              value={submission.description}
+              floatingLabelText="Description"
+              multiLine={true}
+              onChange={e => dispatch(submissionData({description: e.target.value}))}
+            /><br/>    
+          </div>
 
-             
+
+          <div style={{ marginTop: 37, marginLeft: 15 }}> Language: </div>
+          <div style={{ alignSelf: 'top', marginTop: 16 }}>
+              
+
+            <DropDownMenu
+              id='submit-dropdown'
+              onChange={(event, index, value) => dispatch(submissionData({language: value}))}
+              autoWidth={true}
+              value={"JavaScript"}
+            >
+              <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
+              <MenuItem value={'Python'} primaryText="Python" />
+              <MenuItem value={'Ruby'} primaryText='Ruby' />
+              <MenuItem value={'HTML'} primaryText='HTML/CSS' />
+              <MenuItem value={'Swift'} primaryText="Swift" />
+              <MenuItem value={'Objective-C'} primaryText="Objective-C" />
+              <MenuItem value={'Java'} primaryText="Java" />
+            </DropDownMenu>
+
+          </div>
         </div>
-
-
-         <div style={{ marginTop: 37, marginLeft: 15 }}> Language: </div>
-        <div style={{ alignSelf: 'top', marginTop: 16 }}>
-            
-
-          <DropDownMenu
-            id='submit-dropdown'
-            onChange={(event, index, value) => dispatch(submissionData({language: value}))}
-            autoWidth={true}
-            value={"JavaScript"}
-          >
-            <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
-            <MenuItem value={'Python'} primaryText="Python" />
-            <MenuItem value={'Ruby'} primaryText='Ruby' />
-            <MenuItem value={'HTML'} primaryText='HTML/CSS' />
-            <MenuItem value={'Swift'} primaryText="Swift" />
-            <MenuItem value={'Objective-C'} primaryText="Objective-C" />
-            <MenuItem value={'Java'} primaryText="Java" />
-          </DropDownMenu>
-
-        </div>
-      </div>
-          </form>
+      </form>
 
       </Dialog>
       </div>
