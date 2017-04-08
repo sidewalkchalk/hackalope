@@ -7,14 +7,12 @@ import submissionReducer from './reducers/submissionReducer.jsx';
 import searchReducer from './reducers/searchReducer.jsx';
 import dialogReducer from './reducers/dialogReducer.jsx';
 import commentsReducer from './reducers/testcommentsreducer.jsx';
-
-
-
+import resultsReducer from './reducers/resultsReducer.jsx';
 
 // combine all reducers
 const combinedReducers = combineReducers({
 	 test: testreducer,
-   results: buckysresults,
+   results: resultsReducer,
    result: activeResult,
    user: authReducer,
 	 submission: submissionReducer,

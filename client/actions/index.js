@@ -7,6 +7,14 @@ export const selectResult = (result) => {
   }
 };
 
+export const searchResults = (results) => {
+  console.log('ACTION', results);
+  return {
+    type: 'SEARCH_RESULTS',
+    results
+  };
+};
+
 export const selectUser = (user) => {
   return {
     type: 'STORE_USER',
@@ -78,7 +86,7 @@ export const commentsByUser = (comments) => {
     console.log("Comments by user ", comments );
     return {
         type: 'COMMENTS_USER',
-        commments    
+        commments
     }
 };
 

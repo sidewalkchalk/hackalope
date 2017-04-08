@@ -1,8 +1,8 @@
 // Required React Components
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { searchTerm, clearSearch } from '../actions/index.js';
+import { searchTerm, clearSearch, searchResults } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -33,7 +33,9 @@ const Search = ({search, dispatch}) => {
     axios.post('/', value)
       .then (response => {
         console.log(response.data);
-        // TODO: redirect to results
+        dispatch(searchResults(response.data))
+        // redirect to results
+        window.location.href="http://localhost:1337/#/results"
       })
       .catch( err => {
         console.error(err)
