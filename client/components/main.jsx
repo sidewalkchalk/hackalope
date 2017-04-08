@@ -6,6 +6,7 @@ import Nav from './nav.jsx';
 import Search from './search.jsx';
 import Submit from './submit.jsx';
 import SignUp from './signup.jsx';
+import Login from './login.jsx';
 
 const Main = (props) => {
 
@@ -15,6 +16,7 @@ const Main = (props) => {
       <Search />
       <Submit />
 			<SignUp />
+      <Login />
       {props.children}
     </div>
 	);
