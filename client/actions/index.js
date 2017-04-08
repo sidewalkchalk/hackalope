@@ -42,6 +42,13 @@ export const submissionData = (submission) => {
   };
 };
 
+export const addTag = (tags) => {
+  return {
+    type: 'ADD_TAG',
+    tags
+  };
+};
+
 export const clearSubmissionData = () => {
   return {
     type: 'CLEAR_SUBMISSION_DATA'

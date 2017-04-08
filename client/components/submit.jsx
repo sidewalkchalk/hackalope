@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { submitDialog, submissionData, clearSubmissionData } from '../actions/index.js';
+import TagSelector from './tagselector.jsx';
 
 // Required Material UI Components
 import FlatButton from 'material-ui/FlatButton';
@@ -131,6 +132,8 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
               <MenuItem value={'Objective-C'} primaryText="Objective-C" />
               <MenuItem value={'Java'} primaryText="Java" />
             </DropDownMenu>
+
+            <TagSelector />
 
           </div>
         </div>
