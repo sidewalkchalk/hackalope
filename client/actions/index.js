@@ -21,6 +21,12 @@ export const userFormData = (userFormData) => {
   }
 };
 
+export const clearUser = () => {
+  return {
+    type: 'CLEAR_USER'
+  }
+}
+
 export const submissionData = (submission) => {
   return {
     type: 'USER_SUBMISSION_DATA',
