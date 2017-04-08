@@ -1,6 +1,8 @@
 // Required React Components
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import { submitDialog, submissionData, clearSubmissionData } from '../actions/index.js';
 
 // Required Material UI Components
 import FlatButton from 'material-ui/FlatButton';
@@ -17,111 +19,105 @@ import Snackbar from 'material-ui/Snackbar';
 // Required Dependancies
 import axios from 'axios';
 
-class Submit extends React.Component {
-  constructor (props) {
-    super (props);
+const Submit = ({user, submission, dialogs, dispatch}) => {
 
-    this.state = {
-      title: '',
-      url: '',
-      description: '',
-      dialogOpen: false,
-      snackbarOpen: false
-    }
-  }
-
-  handleSubmit = (e) => {
-    this.setState({dialogOpen: false});
-
-    var submission = {
-      title: this.state.title,
-      url: this.state.url,
-      description: this.state.description
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    var newEntry = {
+      user: user._id,
+      title: submission.title,
+      url: submission.url,
+      description: submission.description
     };
-
-    axios.post('/submit', submission)
+    axios.post('/submit', newEntry)
       .then( response => {
         console.log(response);
-        var resource = response.data
-        this.setState({title: '', url: '', description: ''});
+        dispatch(submitDialog({submit: false}));
+        dispatch(clearSubmissionData());  
       })
       .catch ( err => {
         console.error(err)
       })
-  }
-
-  handleOpen = () => {
-    this.setState({dialogOpen: true});
   };
 
-  handleClose = () => {
-    this.setState({dialogOpen: false});
+  const handleOpen = () => {
+    dispatch(submitDialog({submit: true}));
   };
 
-  render() {
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onTouchTap={this.handleSubmit}
-      />,
-    ];
+  const handleClose = () => {
+    dispatch(submitDialog({submit: false}));
+  };
 
-    const style = {
-     marginRight: 10,
-      top: 'auto',
-      right: 20,
-      bottom: 20,
-      position: 'fixed',
-    };
+  const actions = [
+    <FlatButton
+      label="Cancel"
+      primary={true}
+      onTouchTap={handleClose}
+    />,
+    <FlatButton
+      label="Submit"
+      primary={true}
+      keyboardFocused={true}
+      onTouchTap={handleSubmit}
+    />,
+  ];
 
-    return (
-      <MuiThemeProvider>
+  const style = {
+   marginRight: 10,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    position: 'fixed',
+  };
+
+  return (
+    <MuiThemeProvider>
+    <div>
+      <FloatingActionButton
+      secondary={true} style={style}
+      onTouchTap={handleOpen}>
+      <ContentAdd />
+      </FloatingActionButton>
       <div>
-        <FloatingActionButton
-        secondary={true} style={style}
-        onTouchTap={this.handleOpen}>
-        <ContentAdd />
-        </FloatingActionButton>
-        <div>
-        <Dialog
-          autoScrollBodyContent={true}
-          title="Submit a Resource"
-          actions={actions}
-          modal={false}
-          open={this.state.dialogOpen}
-          onRequestClose={this.handleClose}
-        >
-        <form onSubmit={this.handleSubmit}>
-            <TextField name="Title"
-              value={this.state.title}
-              floatingLabelText="Title"
-              onChange={e => this.setState({title: e.target.value})}
-            /><br/>
-          <TextField name="url"
-              value={this.state.url}
-              floatingLabelText="URL"
-              onChange={e => this.setState({url: e.target.value})}
-            /><br/>
-          <TextField name="Description"
-              value={this.state.description}
-              floatingLabelText="Description"
-              multiLine={true}
-              onChange={e => this.setState({description: e.target.value})}
-            /><br/>
-        </form>
-        </Dialog>
-        </div>
+      <Dialog
+        autoScrollBodyContent={true}
+        title="Submit a Resource"
+        actions={actions}
+        modal={false}
+        open={dialogs.submit}
+        onRequestClose={() => handleClose()}
+      >
+      <form onSubmit={handleSubmit}>
+          <TextField name="Title"
+            value={submission.title}
+            floatingLabelText="Title"
+            onChange={e => dispatch(submissionData({title: e.target.value}))}
+          /><br/>
+        <TextField name="url"
+            value={submission.url}
+            floatingLabelText="URL"
+            onChange={e => dispatch(submissionData({url: e.target.value}))}
+          /><br/>
+        <TextField name="Description"
+            value={submission.description}
+            floatingLabelText="Description"
+            multiLine={true}
+            onChange={e => dispatch(submissionData({description: e.target.value}))}
+          /><br/>
+      </form>
+      </Dialog>
       </div>
-      </MuiThemeProvider>
-    );
+    </div>
+    </MuiThemeProvider>
+  );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    dialogs: state.dialogs,
+    submission: state.submission,
+    user: state.user
   }
 }
 
-export default Submit;
+export default connect(mapStateToProps)(Submit);

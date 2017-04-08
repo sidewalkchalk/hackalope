@@ -6,15 +6,14 @@ import SignIn from './login.jsx';
 import { connect } from 'react-redux';
 import { signUpDialog } from '../actions/index.js'
 
-
 const LoggedOutMenu = ({dispatch}) => {
 
   const openDialog = () => {
-    dispatch(signUpDialog({signUpDialog: true}));
+    dispatch(signUpDialog({signup: true}));
   };
 
   const closeDialog = () => {
-    dispatch(signUpDialog({signUpDialog: false}));
+    dispatch(signUpDialog({signup: false}));
   };
 
   return (
@@ -31,12 +30,4 @@ const LoggedOutMenu = ({dispatch}) => {
   );
 }
 
-
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    dialogs: state.dialogs
-  };
-};
-
-export default connect(mapStateToProps)(LoggedOutMenu);
+export default connect()(LoggedOutMenu);

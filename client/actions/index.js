@@ -28,6 +28,12 @@ export const submissionData = (submission) => {
   };
 };
 
+export const clearSubmissionData = () => {
+  return {
+    type: 'CLEAR_SUBMISSION_DATA'
+  };
+};
+
 export const searchTerm = (search) => {
   return {
     type: 'SEARCH_TERM',
@@ -38,6 +44,13 @@ export const searchTerm = (search) => {
 export const signUpDialog = (dialogs) => {
   return {
     type: 'SIGNUP_DIALOG_OPEN',
+    dialogs
+  };
+};
+
+export const submitDialog = (dialogs) => {
+  return {
+    type: 'SUBMIT_DIALOG_OPEN',
     dialogs
   };
 };

@@ -30,7 +30,7 @@ const Nav = ({user, dispatch}) => {
     <div>
       <AppBar
         title="hackalope.io"
-        iconElementRight={user.name ? <LoggedInMenu /> : <LoggedOutMenu />}
+        iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
       />
     </div>
     </MuiThemeProvider>

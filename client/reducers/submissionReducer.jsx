@@ -1,7 +1,9 @@
-function submissionReducer (state = {}, action) {
+const submissionReducer = (state = {}, action) => {
   switch (action.type) {
     case 'USER_SUBMISSION_DATA':
       return Object.assign({}, state, action.submission);
+    case 'CLEAR_SUBMISSION_DATA':
+      return state = {};
     default:
       return state;
   }
