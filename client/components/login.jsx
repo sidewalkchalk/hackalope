@@ -2,21 +2,25 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { selectUser, userFormData } from '../actions/index.js';
+import { selectUser, userFormData, logInDialog } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+
 
 // Required Dependencies
 import axios from 'axios';
 
-const Login = ({ user, dispatch }) => {
+const Login = ({ user, dialogs, dispatch }) => {
   // log the user in
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
+    handleClose();
     axios.post('/auth/login', user)
       .then( response => {
         var userData = response.data
@@ -28,9 +32,37 @@ const Login = ({ user, dispatch }) => {
       })
   };
 
+  const handleClose = () => {
+    dispatch(logInDialog({login: false}));
+  };
+
+  const actions = [
+    <FlatButton
+      label="Cancel"
+      primary={true}
+      onTouchTap={handleClose}
+      />,
+    <FlatButton
+      label="Login"
+      primary={true}
+      keyboardFocused={true}
+      onTouchTap={handleSubmit}
+      />,
+  ];
+
+
   return (
     <div style={{alignContent: 'center'}}>
       <MuiThemeProvider>
+
+      <Dialog
+        autoScrollBodyContent={true}
+        title="Sign In"
+        actions={actions}
+        modal={false}
+        open={dialogs.login}
+        onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
+      >
 
         <form onSubmit={handleSubmit}>
           <TextField name="username"
@@ -43,13 +75,12 @@ const Login = ({ user, dispatch }) => {
             floatingLabelText="Password"
             onChange={e => dispatch(userFormData({password: e.target.value}))}
           /><br/>
+        </form>  
 
-          <RaisedButton
-            type="submit"
-            label="Submit"
-            secondary={true}
-          />
-        </form>
+         
+
+      </Dialog>
+
       </MuiThemeProvider>
     </div>
   )
@@ -57,7 +88,8 @@ const Login = ({ user, dispatch }) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    dialogs: state.dialogs
   };
 };
 

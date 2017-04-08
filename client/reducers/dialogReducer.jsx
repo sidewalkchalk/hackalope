@@ -4,6 +4,8 @@ const dialogReducer = (state = {signup: false, login: false, submit: false}, act
       return Object.assign({}, state, action.dialogs);
     case 'SUBMIT_DIALOG_OPEN':
       return Object.assign({}, state, action.dialogs);
+    case 'LOGIN_DIALOG_OPEN':
+      return Object.assign({}, state, action.dialogs);
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import SignUp from './signup.jsx';
 import SignIn from './login.jsx';
 
 import { connect } from 'react-redux';
-import { signUpDialog } from '../actions/index.js'
+import { signUpDialog, logInDialog } from '../actions/index.js'
 
 const LoggedOutMenu = ({dispatch}) => {
 
@@ -16,6 +16,14 @@ const LoggedOutMenu = ({dispatch}) => {
     dispatch(signUpDialog({signup: false}));
   };
 
+  const openLoginDialog = () => {
+    dispatch(logInDialog({login: true}));
+  };
+
+  const closeLoginDailog = () => {
+    dispatch(logInDialog({login: false}));
+  };
+
   return (
     <div>
       <RaisedButton
@@ -25,7 +33,10 @@ const LoggedOutMenu = ({dispatch}) => {
         onTouchTap={() => openDialog()}
       />
 
-      <RaisedButton label="Sign In" secondary={true} style={{margin: 12}} />
+      <RaisedButton label="Sign In" 
+        secondary={true} 
+        style={{margin: 12}}
+        onTouchTap={() => openLoginDialog()} />
     </div>
   );
 }

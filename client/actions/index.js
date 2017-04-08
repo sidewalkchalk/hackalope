@@ -55,6 +55,13 @@ export const submitDialog = (dialogs) => {
   };
 };
 
+export const logInDialog = (dialogs) => {
+  return {
+    type: 'LOGIN_DIALOG_OPEN',
+    dialogs
+  };
+};
+
 
 
 // to implement
