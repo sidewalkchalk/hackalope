@@ -12,7 +12,7 @@ import Submit from './submit.jsx';
 
 const App = (props) => (
   <Router history={hashHistory}>
-      <Route path='/' component={Main} >
+    <Route path='/' component={Main} >
       <Route path='/results' component={ResultsList} />
       <Route path='/resource' component={Resource} />
       <Route path='/login' component={Login} />

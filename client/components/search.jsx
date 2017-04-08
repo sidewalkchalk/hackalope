@@ -1,8 +1,8 @@
 // Required React Components
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { searchTerm, clearSearch } from '../actions/index.js';
+import { searchTerm, clearSearch, searchResults } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,6 +12,8 @@ import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import axios from 'axios';
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
@@ -27,13 +29,26 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
+  const handleSearch = (value) => {
+    axios.post('/', value)
+      .then (response => {
+        console.log(response.data);
+        dispatch(searchResults(response.data))
+        // redirect to results
+        window.location.href="http://localhost:1337/#/results"
+      })
+      .catch( err => {
+        console.error(err)
+      });
+  };
+
   return (
     <MuiThemeProvider>
     <div id ='search' style={{alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
       <DropDownMenu
         id='search-dropdown'
-        value={search.value}
-        onChange={(event, index, value) => dispatch(searchTerm({value: value}))}
+        value={search.language}
+        onChange={(event, index, value) => dispatch(searchTerm({language: value}))}
         autoWidth={true}
       >
         <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
@@ -57,7 +72,7 @@ const Search = ({search, dispatch}) => {
       label="Let's go!"
       secondary={true}
       style={{margin: 12}}
-      containerElement={<Link to="/results" />}
+      onClick={() => handleSearch(search)}
       />
     </div>
     </MuiThemeProvider>

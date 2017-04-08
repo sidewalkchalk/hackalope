@@ -13,9 +13,6 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
-
-
-
 const ResultsList = ({results, dispatch}) => {
 
   const renderResults = () => {
@@ -24,7 +21,7 @@ const ResultsList = ({results, dispatch}) => {
     return results.map( result => {
       return (
 
-        <div key = {result.id}
+        <div key = {result._id}
           onClick={() => dispatch(selectResult(result))}
           style={{zDepth: 10}}
           >

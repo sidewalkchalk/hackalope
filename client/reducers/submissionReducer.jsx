@@ -3,7 +3,7 @@ const submissionReducer = (state = {language: 'JavaScript'}, action) => {
     case 'USER_SUBMISSION_DATA':
       return Object.assign({}, state, action.submission);
     case 'CLEAR_SUBMISSION_DATA':
-      return state = {};
+      return state = {language: 'JavaScript'};
     default:
       return state;
   }
