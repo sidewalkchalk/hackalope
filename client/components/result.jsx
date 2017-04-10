@@ -27,9 +27,10 @@ const Result = (props) => {
   };
 
   const getComments = () => {
-    axios.post('/comments/retrieve', {result: props.result._id})
+    axios.get('/comments/' + props.result._id)
       .then (response => {
         console.log(response);
+        // set the comments in the store using dispatch
       })
       .catch (err => {
         console.error(err);

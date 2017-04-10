@@ -6,12 +6,20 @@ var userController = require('../../db/controllers/user.js');
 var mongoose = require('mongoose');
 
 // get all comments on a resource
-router.post('/retrieve', function (req, res) {
-  commentController.findCommentsByResource(req.body.result)
+router.get('/:id', function (req, res) {
+  commentController.findCommentsByResource(req.params.id)
     .populate('user')
     .populate('resource')
     .then ( response => {
-      console.log(response);
+      var commentData = response.map (comment => {
+        return {
+          user: comment.user.username,
+          body: comment.body,
+          _id: comment._id,
+          createdAt: comment.createdAt
+        }
+      })
+      res.status(200).send(commentData);
     })
     .catch (err => {
       console.error(err);
