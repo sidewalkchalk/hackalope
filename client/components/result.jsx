@@ -80,7 +80,7 @@ const Result = (props) => {
           primary={true}
           icon={<DetailIcon />}
           style={styles.button}
-          containerElement={<Link to="Resource" />}
+          containerElement={<Link to="resource" />}
         />
       </CardActions>
       <CardText expandable={true}>

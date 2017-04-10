@@ -1,6 +1,6 @@
 // Required React Components
 import React from 'react';
-import { Router, Redirect } from 'react-router';
+import { Router, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { searchTerm, clearSearch, searchResults } from '../actions/index.js';
 
@@ -29,13 +29,17 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
+  const pageCheck = () => {
+    if (window.location.href !== 'http://localhost:1337/#/results') {
+      return window.location.href = 'http://localhost:1337/#/results';
+    }
+  }
   const handleSearch = (value) => {
     axios.post('/', value)
       .then (response => {
         console.log(response.data);
         dispatch(searchResults(response.data))
-        // redirect to results
-        window.location.href += "results";
+        // redirect to results is link on RaisedButton
       })
       .catch( err => {
         console.error(err)
@@ -68,12 +72,14 @@ const Search = ({search, dispatch}) => {
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}
       />
-      <RaisedButton
-      label="Let's go!"
-      secondary={true}
-      style={{margin: 12}}
-      onClick={() => handleSearch(search)}
-      />
+      <Link className="searching" to="/results">
+        <RaisedButton
+        label="Let's go!"
+        secondary={true}
+        style={{margin: 12}}
+        onClick={() => handleSearch(search)}
+        />
+      </Link>  
     </div>
     </MuiThemeProvider>
   );
