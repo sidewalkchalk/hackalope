@@ -4,21 +4,40 @@ import { Route, browserHistory, Redirect, Link } from 'react-router';
 import { commentsByAll} from '../actions/index.js';
 import { createStore , bindActionCreators} from 'redux';
 
+//Required Material-UI components
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
+
 const Comments = ({comments, dispatch}) => {
 
   const renderComments = () => {
     return comments.map(comment => {
       return (
         <li key = {comment.unique} >
-          {comment.resourceID} {comment.body} 
-          <br/>
+
+          
+
+           <Card>
+            <CardHeader
+              title="Bucky Roberts"
+              subtitle="Date Posted"
+              avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
+            />
+            <CardText>
+              {comment.body}
+            </CardText>
+          </Card>
+
+
+
         </li>    
       );
     })
   };
   return (
-    <div>
-      <ul>
+    <div style={{ width: "65%", marginRight: 'auto', marginLeft: 'auto' }} >
+      <ul style={{ 'listStyleType': 'none' }}>
       {renderComments()}
       </ul>
     </div>  
