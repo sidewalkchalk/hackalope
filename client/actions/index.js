@@ -97,6 +97,13 @@ export const commentsByUser = (comments) => {
     }
 };
 
+export const addComment = (comment) => {
+  return {
+    type: 'ADD_COMMENT',
+    comment
+  }
+}
+
 // export const commentsByResource = ({{prop}}) => {
 //     console.log("Comments by resource ", {{prop}});
 //     return {
