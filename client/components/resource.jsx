@@ -3,18 +3,23 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import { selectResult } from '../actions/index.js';
-import Comments from './comments.jsx';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+// Required Components
+import { selectResult } from '../actions/index.js';
+import Comments from './comments.jsx';
+
+//not using right now but will need once comments reducers/actions are made
+//import Comment from './comment.jsx';
+
 class Resource extends React.Component {
   constructor (props) {
     super (props);
-    
+
   }
   render () {
     if (!this.props.result) {
