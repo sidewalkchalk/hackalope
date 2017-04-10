@@ -18,10 +18,22 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import axios from 'axios';
+
 const Result = (props) => {
 
   const handleCheck = (id) => {
     console.log(props);
+  };
+
+  const getComments = () => {
+    axios.post('/comments/retrieve', {result: props.result._id})
+      .then (response => {
+        console.log(response);
+      })
+      .catch (err => {
+        console.error(err);
+      });
   };
 
   return (
@@ -78,6 +90,7 @@ const Result = (props) => {
           icon={<DetailIcon />}
           style={styles.button}
           containerElement={<Link to="resource" />}
+          onClick={getComments}
         />
       </CardActions>
       <CardText expandable={true}>

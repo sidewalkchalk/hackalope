@@ -13,6 +13,7 @@ import AddComment from './addComment.jsx';
 
 
 const Comments = ({comments, dispatch}) => {
+
   const renderComments = () => {
     return comments.map(comment => {
       return (
