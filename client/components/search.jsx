@@ -30,9 +30,12 @@ const topics = [
 const Search = ({search, dispatch}) => {
 
   const handleSearch = (value) => {
+    value.term = titleCase(value.term);
+
     axios.post('/', value)
       .then (response => {
         console.log(response.data);
+        dispatch(clearSearch());
         dispatch(searchResults(response.data))
         // redirect to results is link on RaisedButton
       })
@@ -78,6 +81,10 @@ const Search = ({search, dispatch}) => {
     </div>
     </MuiThemeProvider>
   );
+}
+
+const titleCase = (str) => {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
 const mapStateToProps = (state) => {

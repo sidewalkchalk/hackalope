@@ -13,6 +13,7 @@ var main = require('./routes/main.js');
 var results = require('./routes/results.js');
 var submit = require('./routes/submit.js');
 var profile = require('./routes/profile.js');
+var comments = require('./routes/comments.js');
 
 // USE BLUEBIRD FOR PROMISES
 mongoose.Promise = require('bluebird');
@@ -47,6 +48,7 @@ app.use('/auth', auth(passport));
 app.use('/results', results);
 app.use('/submit', submit);
 app.use('/profile', profile);
+app.use('/comments', comments);
 app.use('/', main);
 
 // CATCH 404 ERRORS

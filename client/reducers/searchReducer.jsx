@@ -3,7 +3,7 @@ const searchReducer = (state = {term: '', language: 'JavaScript'}, action) => {
     case 'SEARCH_TERM':
       return (Object.assign({}, state, action.search));
     case 'CLEAR_SEARCH':
-      return state = {};
+      return state = {term: '', language: 'JavaScript'};
     default:
       return state;
   }
