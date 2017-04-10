@@ -29,11 +29,6 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
-  const pageCheck = () => {
-    if (window.location.href !== 'http://localhost:1337/#/results') {
-      return window.location.href = 'http://localhost:1337/#/results';
-    }
-  }
   const handleSearch = (value) => {
     axios.post('/', value)
       .then (response => {
