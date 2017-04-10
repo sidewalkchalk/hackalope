@@ -34,10 +34,8 @@ const Search = ({search, dispatch}) => {
 
     axios.post('/', value)
       .then (response => {
-        console.log(response.data);
         dispatch(clearSearch());
         dispatch(searchResults(response.data))
-        // redirect to results is link on RaisedButton
       })
       .catch( err => {
         console.error(err)
@@ -77,7 +75,7 @@ const Search = ({search, dispatch}) => {
         style={{margin: 12}}
         onClick={() => handleSearch(search)}
         />
-      </Link>  
+      </Link>
     </div>
     </MuiThemeProvider>
   );

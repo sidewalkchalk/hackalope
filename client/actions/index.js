@@ -8,7 +8,6 @@ export const selectResult = (result) => {
 };
 
 export const searchResults = (results) => {
-  console.log('ACTION', results);
   return {
     type: 'SEARCH_RESULTS',
     results
