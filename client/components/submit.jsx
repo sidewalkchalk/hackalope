@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+
 import { submitDialog, submissionData, clearSubmissionData } from '../actions/index.js';
 import TagSelector from './tagselector.jsx';
 
