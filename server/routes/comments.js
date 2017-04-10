@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var utils = require('../utils.js');
-var commentController = require('../../db/controllers/comments.js');
+var commentController = require('../../db/controllers/comment.js');
 
 router.post('/', function (req, res) {
   req.body.user = req.user._id;

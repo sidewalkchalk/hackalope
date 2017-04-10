@@ -28,6 +28,7 @@ class Resource extends React.Component {
           <h4>LANGUAGE:  {this.props.result.language}</h4>
           <a href = "{this.props.result.URL}">{this.props.result.URL}</a>
           <h4>DESCRIPTION:  {this.props.result.description}</h4>
+          <h4>TAGS:  {this.props.result.tags}</h4>
           <hr></hr>
           <Comments />
         </div>
