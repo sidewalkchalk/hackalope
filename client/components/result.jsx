@@ -1,6 +1,7 @@
 // Required React Components
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -19,13 +20,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const Result = (props) => {
 
-  const styles = {
-    block: {
-      maxWidth: 250,
-    },
-    checkbox: {
-      marginBottom: 0,
-    },
+  const handleCheck = (id) => {
+    console.log(props);
   };
 
   return (
@@ -67,6 +63,7 @@ const Result = (props) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
+                  onCheck={() => handleCheck()}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
                   style={styles.checkbox}
@@ -92,4 +89,19 @@ const Result = (props) => {
 }
 
 
-export default Result;
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  checkbox: {
+    marginBottom: 0,
+  },
+};
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(mapStateToProps)(Result);
