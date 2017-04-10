@@ -1,12 +1,12 @@
-# Project Name
+# hackalope.io
 
-> Pithy project description
+> Coding resource review site
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Daniel Ricaud
+  - __Scrum Master__: James Kip
+  - __Development Team Members__: Carla J. Clay, Tyler Holzer
 
 ## Table of Contents
 
@@ -20,31 +20,46 @@
 
 ## Usage
 
-> Some usage instructions
+> hackalope.io is a coding resource review site where users can search coding topics and find resources sorted by how useful other coders found them to be. Logged in users can submit additional coding resources and provide feedback on resources usefulness.
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Mongo DB
 
 ## Development
 
+clone repo from https://github.com/sidewalkchalk/hackalope
+
+In shell run 
+```sh
+npm install 
+```
+from your terminal to install dependencies
+
+In shell run
+```sh
+webpack --watch
+```
+
+In new shell run
+```sh
+mongod
+```
+
+In new shell run
+```sh
+nodemon server/server.js
+```
+
 ### Installing Dependencies
 
-From within the root directory:
-
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/sidewalkchalk/hackalope/issues)
 
 
 ## Contributing
