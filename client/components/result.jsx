@@ -1,6 +1,7 @@
 // Required React Components
 import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -17,15 +18,23 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import axios from 'axios';
+
 const Result = (props) => {
 
-  const styles = {
-    block: {
-      maxWidth: 250,
-    },
-    checkbox: {
-      marginBottom: 0,
-    },
+  const handleCheck = (id) => {
+    console.log(props);
+  };
+
+  const getComments = () => {
+    axios.get('/comments/' + props.result._id)
+      .then (response => {
+        console.log(response);
+        // set the comments in the store using dispatch
+      })
+      .catch (err => {
+        console.error(err);
+      });
   };
 
   return (
@@ -67,6 +76,7 @@ const Result = (props) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
+                  onCheck={() => handleCheck()}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
                   style={styles.checkbox}
@@ -81,6 +91,7 @@ const Result = (props) => {
           icon={<DetailIcon />}
           style={styles.button}
           containerElement={<Link to="resource" />}
+          onClick={getComments}
         />
       </CardActions>
       <CardText expandable={true}>
@@ -92,4 +103,19 @@ const Result = (props) => {
 }
 
 
-export default Result;
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  checkbox: {
+    marginBottom: 0,
+  },
+};
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(mapStateToProps)(Result);

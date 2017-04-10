@@ -30,6 +30,7 @@ const LoggedInMenu = ({ user, dispatch}) => {
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
+      {user.admin ? <MenuItem primaryText="Admin" />: null}
       <MenuItem primaryText="My Profile" />
       <MenuItem
         primaryText="Sign Out"

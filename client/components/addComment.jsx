@@ -28,9 +28,8 @@ const AddComment = ({dispatch, comment, user, result}) => {
         var newComment = {
             user: user._id,
             body: comment.body,
-            result: result._id
+            resource: result._id
         };
-        console.log(newComment)
         axios.post('/comments', newComment)
           .then( response => {
             // TODO: rerender comments

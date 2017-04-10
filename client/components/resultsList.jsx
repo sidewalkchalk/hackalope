@@ -13,7 +13,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
-const ResultsList = ({results, dispatch}) => {
+const ResultsList = ({ results, dispatch }) => {
 
   const renderResults = () => {
     //map result is each card from result.jsx

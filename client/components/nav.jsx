@@ -1,6 +1,7 @@
 // Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -28,7 +29,7 @@ const Nav = ({user, dispatch}) => {
     <MuiThemeProvider>
     <div>
       <AppBar
-        title="hackalope.io"
+        title={<Link style={{"color": "inherit", "textDecoration": "none"}} to='/'>hackalope.io</Link>}
         iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
       />
     </div>
