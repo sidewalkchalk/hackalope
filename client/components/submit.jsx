@@ -25,13 +25,16 @@ import axios from 'axios';
 const Submit = ({user, submission, dialogs, dispatch}) => {
 
   const handleSubmit = (e) => {
+    var tagArray = titleCase(submission.tags);
+
     e.preventDefault();
     var newEntry = {
       user: user._id,
       title: submission.title,
       url: submission.url,
       description: submission.description,
-      language: submission.language
+      language: submission.language,
+      tags: tagArray
     };
     axios.post('/submit', newEntry)
       .then( response => {
@@ -144,6 +147,12 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     </div>
     </MuiThemeProvider>
   );
+};
+
+const titleCase = (str) => {
+    return str.replace(/\w\S*/g,
+      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
+      .split(', ');
 }
 
 const mapStateToProps = (state) => {

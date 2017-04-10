@@ -1,5 +1,10 @@
 var CommentModel = require('../models/comment.js');
 
+// insert a new comment
+exports.insertComment = function (comment) {
+  return CommentModel.create(comment);
+};
+
 // find all comments by a user's id
 exports.findCommentsByUserId = function (id) {
   return CommentModel.find({user: id});
