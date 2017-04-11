@@ -9,7 +9,6 @@ var mongoose = require('mongoose');
 router.get('/:id', function (req, res) {
   commentController.findCommentsByResource(req.params.id)
     .populate('user')
-    .populate('resource')
     .then ( response => {
       var commentData = response.map (comment => {
         return {
@@ -25,7 +24,6 @@ router.get('/:id', function (req, res) {
       console.error(err);
     })
 });
-
 
 // add a comment by a user
 router.post('/', function (req, res) {
