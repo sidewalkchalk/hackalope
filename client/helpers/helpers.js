@@ -167,3 +167,22 @@ export const getComments = (resultId, dispatch) => {
       console.error(err);
     });
 };
+
+// add a new comment on a resource
+export const addComment = (e, user, result, comment, dispatch) => {
+  e.preventDefault();
+  var newComment = {
+      user: user._id,
+      body: comment.body,
+      resource: result._id,
+  };
+  console.log(newComment);
+  axios.post('/comments', newComment)
+    .then( response => {
+      // TODO: rerender comments
+      console.log(response);
+    })
+    .catch ( err => {
+      console.error(err)
+  })
+};

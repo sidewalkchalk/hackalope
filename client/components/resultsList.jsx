@@ -20,7 +20,7 @@ const ResultsList = ({ results, dispatch }) => {
   const renderResults = () => {
     //map result is each card from result.jsx
     //card has clickable buttons, links to resource rendered on resource page
-    return results.map( result => {
+    return !results.length ? <h1>Nothing found!</h1> : results.map( result => {
       return (
 
         <div key = {result._id}

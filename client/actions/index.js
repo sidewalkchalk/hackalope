@@ -96,7 +96,7 @@ export const commentsByUser = (comments) => {
     }
 };
 
-export const addComment = (comment) => {
+export const newComment = (comment) => {
   return {
     type: 'ADD_COMMENT',
     comment

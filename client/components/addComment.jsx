@@ -11,7 +11,8 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import axios from 'axios';
-import { addComment } from '../actions/index.js';
+import { newComment } from '../actions/index.js';
+import { addComment } from '../helpers/helpers.js'
 
 const style = {
     margin: 20,
@@ -23,35 +24,35 @@ const style = {
 
 const AddComment = ({dispatch, comment, user, result}) => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        var newComment = {
-            user: user._id,
-            body: comment.body,
-            resource: result._id,
-        };
-        axios.post('/comments', newComment)
-          .then( response => {
-            // TODO: rerender comments
-            console.log("Response: ", response);
-          })
-        .catch ( err => {
-          console.error(err)
-        })
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     var newComment = {
+    //         user: user._id,
+    //         body: comment.body,
+    //         resource: result._id,
+    //     };
+    //     axios.post('/comments', newComment)
+    //       .then( response => {
+    //         // TODO: rerender comments
+    //         console.log("Response: ", response);
+    //       })
+    //     .catch ( err => {
+    //       console.error(err)
+    //     })
+    // };
 
     return (
         <MuiThemeProvider>
             <div>
               <Paper style={style} zDepth={2}>
-                  <form onSubmit={(e) => handleSubmit(e)}>
+                  <form onSubmit={(e) => addComment(e, user, result, comment, dispatch)}>
                     <TextField
                     value={comment.body}
                     fullWidth={true}
                     hintText="Add a comment"
                     multiLine={true}
                     rows={1}
-                    onChange={(e) => dispatch(addComment({body: e.target.value}))}/>
+                    onChange={(e) => dispatch(newComment({body: e.target.value}))}/>
                     <RaisedButton type="submit" secondary={true} label="Submit"/>
                   </form>
               </Paper>
