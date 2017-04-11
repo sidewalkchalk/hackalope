@@ -5,9 +5,15 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Comments from './comments.jsx';
+import Favorites from './favorites.jsx';
+import { connect } from 'react-redux';
+import { createStore } from 'redux';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+
+
 //import Favorites from './favorites.jsx';
 
-const Profile = (props) => {
+const Profile = ({user, dispatch}) => {
     const style = {
     marginRight: 10,
     top: 'auto',
@@ -24,11 +30,33 @@ const Profile = (props) => {
         secondary={true}
         style={{margin: 12}}
         /></Link> 
-        <h1> THIS IS WHERE FAVORITES AND COMMENTS AND NARWHALS WILL LIVE!</h1>
+      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+      <CardHeader
+        title= {user.name}
+        subtitle= {user.username}
+        style={{position: 'relative', width: '60%', display: 'inline' }}
+      />
+        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+        </div>
+      <CardText>
+        This is where the users profile info goes!
+        <br></br>      
+      </CardText>
+      </Card> 
+      <h4>Favorites component V </h4>
+      <Favorites />
+      <hr></hr> 
+      <h4>Comments component V</h4>
+      <Comments />
       </div>
-
     </MuiThemeProvider>    
   )  
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+};
+
+export default connect(mapStateToProps)(Profile);
