@@ -4,7 +4,7 @@ import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
 import searchReducer from './reducers/searchReducer.jsx';
 import dialogReducer from './reducers/dialogReducer.jsx';
-import commentsReducer from './reducers/testcommentsreducer.jsx';
+import commentsReducer from './reducers/commentsReducer.jsx';
 import resultsReducer from './reducers/resultsReducer.jsx';
 import addCommentReducer from './reducers/addCommentReducer.jsx';
 

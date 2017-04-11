@@ -14,3 +14,13 @@ exports.findUserByUsername = function (username) {
 exports.findUserById = function (id) {
   return UserModel.findOne({_id: id});
 };
+
+// add the resource ID of a favorite resource
+exports.addFavorite = function (userId, resourceId) {
+  return UserModel.findOneAndUpdate({_id: userId}, {$push: {favorites: resourceId}}, {new: true});
+}
+
+// removes a favorite from the user's array of favorites
+exports.removeFavorite = function (userId, resourceId) {
+  return UserModel.findOneAndUpdate({_id: userId}, {$pullAll: {favorites: [resourceId]}}, {new: true});
+};

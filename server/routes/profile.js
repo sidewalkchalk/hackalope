@@ -6,6 +6,7 @@ var userController = require('../../db/controllers/user.js');
 var commentController = require('../../db/controllers/comment.js');
 
 // gets data for user's profile page
+// TODO: rewrite all this bullshit
 router.get('/', utils.checkAuth, function (req, res, next) {
   var profileData = {};
   // get all resources submitted by a user
@@ -39,6 +40,40 @@ router.get('/', utils.checkAuth, function (req, res, next) {
     .catch ( err => {
       console.error(err)
     });
+});
+
+// adds a resource ID to the user's favorites
+router.put('/favorites', utils.checkAuth, function (req, res) {
+  userController.findUserById(req.user._id)
+    .then(user => {
+      if (user.favorites.indexOf(req.body.id) < 0) {
+        userController.addFavorite(req.user._id, req.body.id)
+          .then(response => {
+            console.log(response);
+            res.status(201).send(response);
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send(err)
+        });
+      } else {
+        userController.removeFavorite(req.user._id, req.body.id)
+          .then(response => {
+            console.log(response);
+            res.status(201).send(response);
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send(err);
+          })
+      }
+    })
+
+});
+
+// handles a user's vote on a resource
+router.put('/vote', utils.checkAuth, function (req, res) {
+
 });
 
 module.exports = router;

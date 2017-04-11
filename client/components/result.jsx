@@ -20,14 +20,24 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import axios from 'axios';
 
-const Result = (props) => {
+const Result = ({ result, user, dispatch }) => {
 
-  const handleCheck = (id) => {
-    console.log(props);
+  const handleCheck = () => {
+    axios.put('/profile/favorites', {id: result._id})
+      .then (response => {
+        console.log(response);
+      })
+      .catch (err => {
+        console.error(err)
+      });
+  };
+
+  const isFavorite = () => {
+    return user.favorites.includes(result._id);
   };
 
   const getComments = () => {
-    axios.get('/comments/' + props.result._id)
+    axios.get('/comments/' + result._id)
       .then (response => {
         console.log(response);
         // set the comments in the store using dispatch
@@ -37,18 +47,16 @@ const Result = (props) => {
       });
   };
 
-  return (
+  var favorite = isFavorite();
 
+  return (
 
     <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-
-
-
         <CardHeader
-          avatar={props.result.thumbnail}
-          title= {props.result.title}
-          subtitle= {props.result.language}
+          avatar={result.thumbnail}
+          title= {result.title}
+          subtitle= {result.language}
           actAsExpander={true}
           showExpandableButton={true}
           style={{position: 'relative', width: '60%', display: 'inline' }}
@@ -56,7 +64,7 @@ const Result = (props) => {
 
         <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-               <span> { props.result.rating } </span>
+               <span> {result.rating} </span>
             </div>
             <div>
 
@@ -76,6 +84,7 @@ const Result = (props) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
+                  defaultChecked={favorite}
                   onCheck={() => handleCheck()}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
@@ -95,7 +104,7 @@ const Result = (props) => {
         />
       </CardActions>
       <CardText expandable={true}>
-          {props.result.description}
+          {result.description}
         </CardText>
       </Card>
     </MuiThemeProvider>
