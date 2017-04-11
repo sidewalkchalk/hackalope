@@ -32,6 +32,10 @@ const Result = ({ result, user, dispatch }) => {
       });
   };
 
+  const isChecked = () => {
+    return user.favorites.includes(result._id);
+  };
+
   const getComments = () => {
     axios.get('/comments/' + result._id)
       .then (response => {
@@ -43,8 +47,9 @@ const Result = ({ result, user, dispatch }) => {
       });
   };
 
+  var check = isChecked();
+  
   return (
-
 
     <MuiThemeProvider>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
@@ -79,6 +84,7 @@ const Result = ({ result, user, dispatch }) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
+                  checked={check}
                   onCheck={() => handleCheck()}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
