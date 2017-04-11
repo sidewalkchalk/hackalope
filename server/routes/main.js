@@ -10,10 +10,12 @@ router.get('/', function (req, res) {
 
 // handle search request from homepage
 router.post('/', function (req, res) {
+  console.log(req.body)
   resourceController.findResourcesByLanguage(req.body.language)
     .then ( resources => {
       // if nothing was entered in the search bar, search all resources
       if (!req.body.term) {
+        console.log('here i am')
         res.status(201).send(resources);
         // otherwise, filter by search term
       } else {

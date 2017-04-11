@@ -21,52 +21,21 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 // Required Dependancies
-import axios from 'axios';
+import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js';
 
 const Submit = ({user, submission, dialogs, dispatch}) => {
-
-  const handleSubmit = (e) => {
-    var tagArray = titleCase(submission.tags);
-
-    e.preventDefault();
-    var newEntry = {
-      user: user._id,
-      title: submission.title,
-      url: submission.url,
-      description: submission.description,
-      language: submission.language,
-      tags: tagArray
-    };
-    axios.post('/submit', newEntry)
-      .then( response => {
-        console.log(response);
-        dispatch(submitDialog({submit: false}));
-        dispatch(clearSubmissionData());
-      })
-      .catch ( err => {
-        console.error(err)
-      })
-  };
-
-  const handleOpen = () => {
-    dispatch(submitDialog({submit: true}));
-  };
-
-  const handleClose = () => {
-    dispatch(submitDialog({submit: false}));
-  };
 
   const actions = [
     <FlatButton
       label="Cancel"
       primary={true}
-      onTouchTap={handleClose}
+      onTouchTap={() => handleSubmitClose(dispatch)}
     />,
     <FlatButton
       label="Submit"
       primary={true}
       keyboardFocused={true}
-      onTouchTap={handleSubmit}
+      onTouchTap={(e) => submit(e, user, submission, dispatch)}
     />,
   ];
 
@@ -83,7 +52,7 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     <div>
       <FloatingActionButton
       secondary={true} style={style}
-      onTouchTap={handleOpen}>
+      onTouchTap={() => handleSubmitOpen(dispatch)}>
       <ContentAdd />
       </FloatingActionButton>
       <div>
@@ -96,7 +65,7 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
         onRequestClose={() => handleClose()}
       >
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => submit(e, user, submission, dispatch)}>
         <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
           <div>
             <TextField name="Title"
@@ -149,12 +118,6 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     </MuiThemeProvider>
   );
 };
-
-const titleCase = (str) => {
-    return str.replace(/\w\S*/g,
-      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
-      .split(', ');
-}
 
 const mapStateToProps = (state) => {
   return {

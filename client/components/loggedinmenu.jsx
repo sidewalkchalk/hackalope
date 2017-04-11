@@ -3,26 +3,15 @@ import { clearUser } from '../actions/index.js'
 import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
 
-
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
 
-import axios from 'axios';
+// Required Dependencies
+import { logout } from '../helpers/helpers.js'
 
 const LoggedInMenu = ({ user, dispatch}) => {
-  // destroy session and remove user from store
-  const handleLogout = () => {
-    axios.post('/auth/logout')
-    .then( response => {
-      console.log(response)
-      dispatch(clearUser());
-    })
-    .catch (err => {
-      console.log(error);
-    });
-  };
 
   return (
     <IconMenu
@@ -36,7 +25,7 @@ const LoggedInMenu = ({ user, dispatch}) => {
       <MenuItem primaryText="My Profile" />
       <MenuItem
         primaryText="Sign Out"
-        onClick={handleLogout}/>
+        onClick={() => logout(dispatch)}/>
     </IconMenu>
   );
 };

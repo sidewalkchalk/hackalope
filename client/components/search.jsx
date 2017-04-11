@@ -13,7 +13,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import axios from 'axios';
+// Required Dependencies
+import { handleSearch } from '../helpers/helpers.js'
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
@@ -29,18 +30,18 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
-  const handleSearch = (value) => {
-    value.term = titleCase(value.term);
-
-    axios.post('/', value)
-      .then (response => {
-        dispatch(clearSearch());
-        dispatch(searchResults(response.data))
-      })
-      .catch( err => {
-        console.error(err)
-      });
-  };
+  // const handleSearch = (value) => {
+  //   value.term = titleCase(value.term);
+  //
+  //   axios.post('/', value)
+  //     .then (response => {
+  //       dispatch(clearSearch());
+  //       dispatch(searchResults(response.data))
+  //     })
+  //     .catch( err => {
+  //       console.error(err)
+  //     });
+  // };
 
   return (
     <MuiThemeProvider>
@@ -73,16 +74,12 @@ const Search = ({search, dispatch}) => {
         label="Let's go!"
         secondary={true}
         style={{margin: 12}}
-        onClick={() => handleSearch(search)}
+        onClick={() => handleSearch(search, dispatch)}
         />
       </Link>
     </div>
     </MuiThemeProvider>
   );
-}
-
-const titleCase = (str) => {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
 const mapStateToProps = (state) => {
