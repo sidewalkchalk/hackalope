@@ -32,7 +32,7 @@ const Result = ({ result, user, dispatch }) => {
       });
   };
 
-  const isChecked = () => {
+  const isFavorite = () => {
     return user.favorites.includes(result._id);
   };
 
@@ -47,8 +47,8 @@ const Result = ({ result, user, dispatch }) => {
       });
   };
 
-  var check = isChecked();
-  
+  var favorite = isFavorite();
+
   return (
 
     <MuiThemeProvider>
@@ -84,7 +84,7 @@ const Result = ({ result, user, dispatch }) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
-                  checked={check}
+                  defaultChecked={favorite}
                   onCheck={() => handleCheck()}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
