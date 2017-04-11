@@ -9,6 +9,8 @@ import Resource from './resource.jsx';
 import SignUp from './signup.jsx';
 import Login from './login.jsx';
 import Submit from './submit.jsx';
+import Admin from './admin.jsx';
+
 
 const App = (props) => (
   <Router history={hashHistory}>
@@ -17,6 +19,7 @@ const App = (props) => (
       <Route path='/resource' component={Resource} />
       <Route path='/login' component={Login} />
       <Route path='/submit' component={Submit} />
+      <Route path = '/admin' component = {Admin}></Route>
     </Route>
   </Router>
 );

@@ -1,7 +1,9 @@
-const commentsReducer = (state = {}, action) => {
+const commentsReducer = (state = [], action) => {
   switch (action.type) {
     case 'COMMENTS_USER':
-      return Object.assign({}, state, action.comments);
+      return action.comments;
+    case 'COMMENTS_RESOURCE':
+      return action.comments;
     default:
       return state;
   }

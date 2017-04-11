@@ -21,8 +21,8 @@ const Comments = ({comments, dispatch}) => {
 
            <Card>
             <CardHeader
-              title="Bucky Roberts"
-              subtitle="Date Posted"
+              title={comment.user}
+              subtitle={comment.createdAt}
               avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
             />
             <CardText>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { clearUser } from '../actions/index.js'
 import { connect } from 'react-redux';
+import { Route, browserHistory, Redirect, Link } from 'react-router';
+
 
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -30,7 +32,7 @@ const LoggedInMenu = ({ user, dispatch}) => {
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-      {user.admin ? <MenuItem primaryText="Admin" />: null}
+      {user.admin ? <Link to="admin" ><MenuItem primaryText="Admin" /></Link>: null}
       <MenuItem primaryText="My Profile" />
       <MenuItem
         primaryText="Sign Out"

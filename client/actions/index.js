@@ -103,13 +103,13 @@ export const addComment = (comment) => {
   }
 }
 
-// export const commentsByResource = ({{prop}}) => {
-//     console.log("Comments by resource ", {{prop}});
-//     return {
-//         type: 'COMMENTS_RESOURCE',
-//         {{prop}}
-//     }
-// };
+export const commentsByResource = (comments) => {
+    //console.log("Comments by resource ", {{prop}});
+    return {
+        type: 'COMMENTS_RESOURCE',
+        comments
+    }
+};
 // export const favoritesByUser = ({{prop}}) => {
 //     console.log("Favorites by user", {{prop}});
 //     return {
