@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 // get all comments on a resource
 router.get('/:id', function (req, res) {
   commentController.findCommentsByResource(req.params.id)
+    .sort('-createdAt')
     .populate('user')
     .then ( response => {
       var commentData = response.map (comment => {

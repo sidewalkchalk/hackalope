@@ -17,7 +17,7 @@ const Comments = ({comments, dispatch}) => {
   const renderComments = () => {
     return comments.map(comment => {
       return (
-        <li key = {comment.index} >
+        <li key = {comment._id} >
 
            <Card>
             <CardHeader
