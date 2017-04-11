@@ -20,11 +20,8 @@ const App = (props) => (
       <Route path='/resource' component={Resource} />
       <Route path='/login' component={Login} />
       <Route path='/submit' component={Submit} />
-
-      <Route path = '/admin' component = {Admin}></Route>
-
+      <Route path = '/admin' component = {Admin} />
       <Route path='/profile' component={Profile} />
-
     </Route>
   </Router>
 );
