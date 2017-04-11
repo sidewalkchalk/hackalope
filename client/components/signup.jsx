@@ -12,38 +12,21 @@ import Dialog from 'material-ui/Dialog';
 
 // Required Dependencies
 import axios from 'axios';
+import { signup, handleSignUpClose } from '../helpers/helpers.js'
 
 const SignUp = ({ user, dialogs, dispatch }) => {
-  // add user to the database
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(signUpDialog({signup: false}));
-    axios.post('/auth/signup', user)
-      .then( response => {
-        var newUser = response.data
-        // change the store to add the name, username, admin, _id, favorites
-        dispatch(selectUser(newUser));
-      })
-      .catch ( err => {
-        console.error(err)
-      })
-  };
-
-  const handleClose = () => {
-    dispatch(signUpDialog({signup: false}));
-  };
 
   const actions = [
     <FlatButton
       label="Cancel"
       primary={true}
-      onTouchTap={handleClose}
+      onTouchTap={() => handleClose(dispatch)}
       />,
     <FlatButton
       label="Submit"
       primary={true}
       keyboardFocused={true}
-      onTouchTap={handleSubmit}
+      onTouchTap={(e) => signup(e, user, dispatch)}
       />,
   ];
 
@@ -57,9 +40,9 @@ const SignUp = ({ user, dialogs, dispatch }) => {
         actions={actions}
         modal={false}
         open={dialogs.signup}
-        onRequestClose={() => handleClose()}
+        onRequestClose={() => handleClose(dispatch)}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => signup(e, user, dispatch)}>
           <TextField name="name"
             value={user.name}
             floatingLabelText="Name"

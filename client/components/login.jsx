@@ -16,24 +16,6 @@ import axios from 'axios';
 import { login, handleLoginClose } from '../helpers/helpers.js'
 
 const Login = ({ user, dialogs, dispatch }) => {
-  // log the user in
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   handleClose();
-  //   axios.post('/auth/login', user)
-  //     .then( response => {
-  //       var userData = response.data
-  //       // change the store to add the name, username, admin, _id, favorites
-  //       dispatch(selectUser(userData));
-  //     })
-  //     .catch ( err => {
-  //       console.error(err)
-  //     })
-  // };
-
-  // const handleClose = () => {
-  //   dispatch(logInDialog({login: false}));
-  // };
 
   const actions = [
     <FlatButton
