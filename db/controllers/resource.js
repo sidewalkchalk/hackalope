@@ -62,3 +62,11 @@ exports.updateResourceRating = function (id, rating, modifier) {
     }
   });
 };
+
+//marks a resource as approved by an administrator
+exports.approveResource = function (id) {
+  ResourceModel.update({_id: id}, {$set: {
+      approved: true
+    }
+  })
+};
