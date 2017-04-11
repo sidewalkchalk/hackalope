@@ -3,6 +3,8 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
+import { commentsByResource } from '../actions/index.js'
+
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -41,6 +43,7 @@ const Result = ({ result, user, dispatch }) => {
       .then (response => {
         console.log(response);
         // set the comments in the store using dispatch
+        dispatch(commentsByResource(response.data))
       })
       .catch (err => {
         console.error(err);
@@ -64,7 +67,7 @@ const Result = ({ result, user, dispatch }) => {
 
         <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-               <span> {result.rating} </span>
+               <span> { result.rating } </span>
             </div>
             <div>
 

@@ -9,6 +9,7 @@ import ResultsList from './components/resultsList.jsx';
 import Resource from './components/resource.jsx';
 import Profile from './components/profile.jsx';
 import Submit from './components/submit.jsx';
+import Admin from './components/admin.jsx';
 
 
 const routes = (
@@ -20,6 +21,7 @@ const routes = (
     <Route path = '/:resultId' component = {Resource}></Route>
     <Route path = '/:user' component = {Profile}></Route>
     <Route path = '/submit' component = {Submit}></Route>
+    <Route path = '/admin' component = {Admin}></Route>
   </Route>
 );
 

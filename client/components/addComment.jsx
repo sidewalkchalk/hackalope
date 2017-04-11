@@ -28,7 +28,7 @@ const AddComment = ({dispatch, comment, user, result}) => {
         var newComment = {
             user: user._id,
             body: comment.body,
-            resource: result._id
+            resource: result._id,
         };
         axios.post('/comments', newComment)
           .then( response => {
