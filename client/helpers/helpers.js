@@ -179,8 +179,8 @@ export const addComment = (e, user, result, comment, dispatch) => {
   console.log(newComment);
   axios.post('/comments', newComment)
     .then( response => {
-      // TODO: rerender comments
       console.log(response);
+      getComments(result._id, dispatch)
     })
     .catch ( err => {
       console.error(err)

@@ -74,7 +74,7 @@ const Result = ({ result, user, dispatch }) => {
           primary={true}
           icon={<DetailIcon />}
           style={styles.button}
-          containerElement={<Link to="resource" />}
+          containerElement={<Link to={`results/${result._id}`} />}
           onClick={() => getComments(result._id, dispatch)}
         />
       </CardActions>
