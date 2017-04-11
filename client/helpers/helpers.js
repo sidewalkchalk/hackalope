@@ -43,3 +43,43 @@ export const signup = (e, user, dispatch) => {
 };
 
 // NEW SUBMISSIONS
+// open submission dialog
+export const handleSubmitOpen = (dispatch) => {
+  dispatch(actions.submitDialog({submit: true}));
+};
+
+// close submission dialog
+export const handleSubmitClose = (dispatch) => {
+  dispatch(actions.submitDialog({submit: false}));
+};
+
+// correct casing on submission tags
+export const titleCase = (str) => {
+    return str.replace(/\w\S*/g,
+      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
+      .split(', ');
+};
+
+// post new submission to the server
+export const submit = (e, user, submission, dispatch) => {
+  var tagArray = titleCase(submission.tags);
+
+  e.preventDefault();
+  var newEntry = {
+    user: user._id,
+    title: submission.title,
+    url: submission.url,
+    description: submission.description,
+    language: submission.language,
+    tags: tagArray
+  };
+  axios.post('/submit', newEntry)
+    .then( response => {
+      console.log(response);
+      dispatch(actions.submitDialog({submit: false}));
+      dispatch(actions.clearSubmissionData());
+    })
+    .catch ( err => {
+      console.error(err)
+    })
+};

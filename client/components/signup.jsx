@@ -11,7 +11,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
 // Required Dependencies
-import axios from 'axios';
 import { signup, handleSignUpClose } from '../helpers/helpers.js'
 
 const SignUp = ({ user, dialogs, dispatch }) => {
