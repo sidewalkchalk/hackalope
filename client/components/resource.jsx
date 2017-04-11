@@ -1,7 +1,7 @@
 // Required React Components
 import React from 'react';
 import { createStore } from 'redux';
-import { Route, browserHistory, Redirect } from 'react-router';
+import { Route, browserHistory, Redirect, Link  } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required Material-UI Components
@@ -26,28 +26,19 @@ import Comments from './comments.jsx';
 //not using right now but will need once comments reducers/actions are made
 //import Comment from './comment.jsx';
 
-class Resource extends React.Component {
-  constructor (props) {
-    super (props);
+const Resource = ({result, dispatch}) => {
 
-  }
+  const renderTags = () => {
+    //maps over each tag
+    return result.tags.map( tag => {
+      return (
+        <li key = {result.index}>
+          {tag}
+        </li>
+      );
+    });
+  };
 
-  // renderTags() {
-  //   //map result is each card from result.jsx
-  //   //card has clickable buttons, links to resource rendered on resource page
-  //   return this.props.result.tags.map( tag => {
-  //     return (
-  //       <li key = {result._id}>
-  //         <CardText key = {result.id} tag = {tag} />
-  //         <br/>
-  //       </li>
-  //     );
-  //   });
-  // };
-  render () {
-    if (!this.props.result) {
-      return (<div>No result selected</div>);
-    }
   const style = {
     marginRight: 10,
     top: 'auto',
@@ -55,28 +46,37 @@ class Resource extends React.Component {
     bottom: 20,
     position: 'fixed'
   };
-  return (
 
-      <MuiThemeProvider>
-      <div>
-      <Card style={{ position: 'relative', fontSize: '30px', width: '100%', padding: 10 }}>
-        <CardHeader
-          title= {this.props.result.title}
-          subtitle= {this.props.result.language}
-          style={{position: 'relative', width: '60%', display: 'inline' }}
-        />
-        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-        </div>
-      <CardText>
-          {this.props.result.description} <br></br>      
-        </CardText>
-      </Card> 
-      <Comments />
+  return (
+    <MuiThemeProvider>
+    <div>
+    <Link className="searching" to="/results">
+      <RaisedButton
+        label="BACK TO RESULTS"
+        secondary={true}
+        style={{margin: 12}}
+    /></Link> 
+    <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+      <CardHeader
+        title= {result.title}
+        subtitle= {result.language}
+        style={{position: 'relative', width: '60%', display: 'inline' }}
+    />
+      <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
       </div>
-      </MuiThemeProvider>
-     
-    )
-  }
+    <CardText>
+      {result.description} <br></br> 
+      <div>
+        <ul>
+        {renderTags()}
+        </ul>
+      </div>       
+      </CardText>
+    </Card> 
+    <Comments />
+    </div>
+    </MuiThemeProvider>    
+  )
 }
 
 const mapStateToProps = (state) => {
