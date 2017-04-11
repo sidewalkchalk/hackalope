@@ -30,11 +30,10 @@
 
 clone repo from https://github.com/sidewalkchalk/hackalope
 
-In shell run 
+In shell run to install dependencies
 ```sh
 npm install 
 ```
-from your terminal to install dependencies
 
 In shell run
 ```sh
