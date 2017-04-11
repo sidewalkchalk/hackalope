@@ -168,6 +168,7 @@ export const getComments = (resultId, dispatch) => {
     });
 };
 
+
 // add a new comment on a resource
 export const addComment = (e, user, result, comment, dispatch) => {
   e.preventDefault();
@@ -185,4 +186,16 @@ export const addComment = (e, user, result, comment, dispatch) => {
     .catch ( err => {
       console.error(err)
   })
+/*--------------------------------
+  ADMIN 
+--------------------------------*/
+// handles approving an unapproved resource
+export const approveResource = () =>  {
+
+};
+
+// fetches unapproved resources up for review
+export const getUnapproved = () => {
+
+
 };
