@@ -15,7 +15,13 @@ router.get('/', function (req, res) {
 });
 
 router.put('/', function (req, res) {
-  resourceController.approveResource(req.)
+  resourceController.approveResource(req.result.id)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
 });
 
 module.exports = router;
