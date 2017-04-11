@@ -19,7 +19,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
     <FlatButton
       label="Cancel"
       primary={true}
-      onTouchTap={() => handleClose(dispatch)}
+      onTouchTap={() => handleSignUpClose(dispatch)}
       />,
     <FlatButton
       label="Submit"

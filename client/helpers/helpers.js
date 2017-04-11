@@ -1,7 +1,14 @@
 import * as actions from '../actions/index.js';
 import axios from 'axios';
 
-// AUTHENTICATION HELPERS
+/*--------------------------------
+  AUTHENTICATION
+--------------------------------*/
+// open login popup
+export const handleLoginOpen = (dispatch) => {
+  dispatch(actions.logInDialog({login: true}));
+};
+
 // close login popup
 export const handleLoginClose = (dispatch) => {
   dispatch(actions.logInDialog({login: false}));
@@ -20,6 +27,11 @@ export const login = (e, user, dispatch) => {
     .catch ( err => {
       console.error(err)
     })
+};
+
+// open signup popup
+export const handleSignUpOpen = (dispatch) => {
+  dispatch(actions.signUpDialog({signup: true}));
 };
 
 // close signup popup
@@ -42,7 +54,22 @@ export const signup = (e, user, dispatch) => {
     })
 };
 
-// NEW SUBMISSIONS
+// destroy session and remove user from store
+export const logout = (dispatch) => {
+  axios.post('/auth/logout')
+  .then( response => {
+    console.log(response)
+    dispatch(actions.clearUser());
+  })
+  .catch (err => {
+    console.log(error);
+  });
+};
+
+/*--------------------------------
+  NEW SUBMISSIONS
+--------------------------------*/
+
 // open submission dialog
 export const handleSubmitOpen = (dispatch) => {
   dispatch(actions.submitDialog({submit: true}));
@@ -54,7 +81,7 @@ export const handleSubmitClose = (dispatch) => {
 };
 
 // correct casing on submission tags
-export const titleCase = (str) => {
+export const titleCaseArray = (str) => {
     return str.replace(/\w\S*/g,
       function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
       .split(', ');
@@ -62,7 +89,7 @@ export const titleCase = (str) => {
 
 // post new submission to the server
 export const submit = (e, user, submission, dispatch) => {
-  var tagArray = titleCase(submission.tags);
+  var tagArray = titleCaseArray(submission.tags);
 
   e.preventDefault();
   var newEntry = {
@@ -82,4 +109,61 @@ export const submit = (e, user, submission, dispatch) => {
     .catch ( err => {
       console.error(err)
     })
+};
+
+/*--------------------------------
+  SEARCH FOR RESOURCES
+--------------------------------*/
+// set title case for searchTerm
+export const titleCase = (str) => {
+    return str.replace(/\w\S*/g,
+      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+// search the database for resources
+export const handleSearch = (value, dispatch) => {
+  value.term = titleCase(value.term);
+  axios.post('/', value)
+    .then (response => {
+      dispatch(actions.clearSearch());
+      dispatch(actions.searchResults(response.data))
+    })
+    .catch( err => {
+      console.error(err)
+    });
+};
+
+/*--------------------------------
+  FAVORITES
+--------------------------------*/
+// handles user click to favorite or unfavorite a resource
+export const handleCheck = (id) => {
+  axios.put('/profile/favorites', id)
+    .then (response => {
+      console.log(response);
+    })
+    .catch (err => {
+      console.error(err)
+    });
+};
+
+// adds default check to resources user has favorited
+export const isFavorite = (user, result) => {
+  return user._id ? user.favorites.includes(result._id) : false
+};
+
+/*--------------------------------
+  COMMENTS
+--------------------------------*/
+// get all comments on a resource
+export const getComments = (resultId, dispatch) => {
+  axios.get('/comments/' + resultId)
+    .then (response => {
+      console.log(response);
+      // set the comments in the store using dispatch
+      dispatch(actions.commentsByResource(response.data))
+    })
+    .catch (err => {
+      console.error(err);
+    });
 };

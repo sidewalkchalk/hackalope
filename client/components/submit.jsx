@@ -21,7 +21,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 // Required Dependancies
-import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js'
+import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js';
 
 const Submit = ({user, submission, dialogs, dispatch}) => {
 

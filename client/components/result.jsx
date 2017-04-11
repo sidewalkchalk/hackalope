@@ -20,37 +20,9 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import axios from 'axios';
+import { handleCheck, isFavorite, getComments } from '../helpers/helpers.js'
 
 const Result = ({ result, user, dispatch }) => {
-
-  const handleCheck = () => {
-    axios.put('/profile/favorites', {id: result._id})
-      .then (response => {
-        console.log(response);
-      })
-      .catch (err => {
-        console.error(err)
-      });
-  };
-
-  const isFavorite = () => {
-    return user.favorites.includes(result._id);
-  };
-
-  const getComments = () => {
-    axios.get('/comments/' + result._id)
-      .then (response => {
-        console.log(response);
-        // set the comments in the store using dispatch
-        dispatch(commentsByResource(response.data))
-      })
-      .catch (err => {
-        console.error(err);
-      });
-  };
-
-  var favorite = isFavorite();
 
   return (
 
@@ -87,8 +59,8 @@ const Result = ({ result, user, dispatch }) => {
             </div>
             <div style={{ alignSelf: 'center' }}>
                 <Checkbox
-                  defaultChecked={favorite}
-                  onCheck={() => handleCheck()}
+                  defaultChecked={isFavorite(user, result)}
+                  onCheck={() => handleCheck({id: result._id})}
                   checkedIcon={<ActionFavorite />}
                   uncheckedIcon={<ActionFavoriteBorder />}
                   style={styles.checkbox}
@@ -103,7 +75,7 @@ const Result = ({ result, user, dispatch }) => {
           icon={<DetailIcon />}
           style={styles.button}
           containerElement={<Link to="resource" />}
-          onClick={getComments}
+          onClick={() => getComments(result._id, dispatch)}
         />
       </CardActions>
       <CardText expandable={true}>
@@ -113,7 +85,6 @@ const Result = ({ result, user, dispatch }) => {
     </MuiThemeProvider>
   );
 }
-
 
 const styles = {
   block: {
