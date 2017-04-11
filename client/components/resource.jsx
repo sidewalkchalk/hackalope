@@ -50,12 +50,18 @@ const Resource = ({result, dispatch}) => {
   return (
     <MuiThemeProvider>
     <div>
-    <Link className="searching" to="/results">
+      <Link className="profileView" to="/profile">
+      <RaisedButton
+        label="MY PROFILE"
+        secondary={true}
+        style={{margin: 12}}
+      /></Link> 
+      <Link className="searching" to="/results">
       <RaisedButton
         label="BACK TO RESULTS"
         secondary={true}
-        style={{margin: 12}}
-    /></Link> 
+        style={{ margin: 12}}
+      /></Link> 
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
       <CardHeader
         title= {result.title}
