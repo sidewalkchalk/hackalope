@@ -32,7 +32,7 @@ const Resource = ({result, dispatch}) => {
     //maps over each tag
     return result.tags.map( tag => {
       return (
-        <li key = {result.index}>
+        <li key = {tag}>
           {tag}
         </li>
       );
@@ -55,13 +55,13 @@ const Resource = ({result, dispatch}) => {
         label="MY PROFILE"
         secondary={true}
         style={{margin: 12}}
-      /></Link> 
+      /></Link>
       <Link className="searching" to="/results">
       <RaisedButton
         label="BACK TO RESULTS"
         secondary={true}
         style={{ margin: 12}}
-      /></Link> 
+      /></Link>
     <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
       <CardHeader
         title= {result.title}
@@ -71,17 +71,17 @@ const Resource = ({result, dispatch}) => {
       <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
       </div>
     <CardText>
-      {result.description} <br></br> 
+      {result.description} <br></br>
       <div>
         <ul>
         {renderTags()}
         </ul>
-      </div>       
+      </div>
       </CardText>
-    </Card> 
+    </Card>
     <Comments />
     </div>
-    </MuiThemeProvider>    
+    </MuiThemeProvider>
   )
 }
 
