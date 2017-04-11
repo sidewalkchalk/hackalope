@@ -6,6 +6,8 @@ import {bindActionCreators } from 'redux';
 import { selectResult } from '../actions/index.js'
 // V this is used for an action on redux
 import {bindActionCreator} from 'redux';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -42,7 +44,13 @@ const ResultsList = ({ results, dispatch }) => {
 
   return (
     <MuiThemeProvider>
-      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
+      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}> 
+        <Link className="profileView" to="/profile">
+        <RaisedButton
+        label="MY PROFILE"
+        secondary={true}
+        style={{margin: 12}}
+        /></Link> 
         <div>
           <ul>
           {renderResults()}

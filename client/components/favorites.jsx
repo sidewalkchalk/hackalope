@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 
-const Favorites = ({user, dispatch}) => {
+const Favorites = ({user, result, results, dispatch}) => {
   const renderFavorites = () => {
     return user.favorites.map(favorite => {
       return (
@@ -14,7 +15,7 @@ const Favorites = ({user, dispatch}) => {
               subtitle={favorite}
             />
             <CardText>
-              
+                Favorite info 
               <br></br>
             </CardText>
           </Card>
@@ -24,8 +25,9 @@ const Favorites = ({user, dispatch}) => {
   };
   return (
     <div>
-    Favorites Favorites Favorites Favorites Favorites Favorites
-    {renderFavorites()}
+      <ul style={{ 'listStyleType': 'none' }}>
+      {renderFavorites()}
+      </ul>
     </div>
   )
 };
@@ -33,7 +35,9 @@ const Favorites = ({user, dispatch}) => {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    results:state.results,
+    result:state.result
   }
 };
 
