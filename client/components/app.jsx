@@ -10,6 +10,7 @@ import SignUp from './signup.jsx';
 import Login from './login.jsx';
 import Submit from './submit.jsx';
 import Admin from './admin.jsx';
+import Profile from './profile.jsx';
 
 
 const App = (props) => (
@@ -19,7 +20,8 @@ const App = (props) => (
       <Route path='/resource' component={Resource} />
       <Route path='/login' component={Login} />
       <Route path='/submit' component={Submit} />
-      <Route path = '/admin' component = {Admin}></Route>
+      <Route path = '/admin' component = {Admin} />
+      <Route path='/profile' component={Profile} />
     </Route>
   </Router>
 );
