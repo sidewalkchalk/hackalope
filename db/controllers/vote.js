@@ -16,7 +16,10 @@ exports.deleteVote = function (resourceId, userId) {
 };
 
 exports.updateVote = function (resourceId, userId, newVote) {
-  return VoteModel.update({_id: resourceId}, {user: userId}, {$set: {
+  console.log('I WAS CALLED AND MY VOTE IS : ', newVote)
+  console.log('I WAS CALLED AND MY USERID IS : ', userId)
+  console.log('I WAS CALLED AND MY RESOURCE ID IS : ', resourceId)
+  return VoteModel.findOneAndUpdate({resource: resourceId, user: userId}, {$set: {
     vote: newVote
   }});
 }

@@ -20,7 +20,7 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import { handleCheck, isFavorite, getComments } from '../helpers/helpers.js'
+import { handleCheck, isFavorite, getComments, handleVote } from '../helpers/helpers.js'
 
 const Result = ({ result, user, dispatch }) => {
 
@@ -41,18 +41,28 @@ const Result = ({ result, user, dispatch }) => {
           <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
 
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-              <span> { result.rating } </span>
-            </div>
 
-            <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
-              <IconButton tooltip="Upvote">
-                <ArrowDropUp />
-              </IconButton>
-              <IconButton tooltip="Downvote">
-                <ArrowDropDown />
-              </IconButton>
+               <span> { result.rating } </span>
             </div>
+            <div>
 
+              <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
+                <div>
+                    <Checkbox
+                      onCheck={() => handleVote(result._id, {vote: 1})}
+                      checkedIcon={<ArrowDropUp />}
+                      uncheckedIcon={<ArrowDropUp />}
+                      />
+                </div>
+                <div style={{ alignSelf: 'center' }}>
+                  <Checkbox
+                    onCheck={() => handleVote(result._id, {vote: -1})}
+                    checkedIcon={<ArrowDropDown />}
+                    uncheckedIcon={<ArrowDropDown />}
+                    />
+                </div>
+
+            </div>
 
             <div style={{ alignSelf: 'center' }}>
               <Checkbox

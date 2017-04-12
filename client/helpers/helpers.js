@@ -136,24 +136,6 @@ export const handleSearch = (value, dispatch) => {
     });
 };
 
-/*--------------------------------
-  FAVORITES
---------------------------------*/
-// handles user click to favorite or unfavorite a resource
-export const handleCheck = (id) => {
-  axios.put('/profile/favorites', id)
-    .then (response => {
-      console.log(response);
-    })
-    .catch (err => {
-      console.error(err)
-    });
-};
-
-// adds default check to resources user has favorited
-export const isFavorite = (user, result) => {
-  return user._id ? user.favorites.includes(result._id) : false
-};
 
 /*--------------------------------
   COMMENTS
@@ -215,5 +197,47 @@ export const getUnapproved = (dispatch) => {
   .catch( err => {
     console.error(err);
   });
+
+};
+
+/*--------------------------------
+FAVORITES
+--------------------------------*/
+// handles user click to favorite or unfavorite a resource
+export const handleCheck = (id) => {
+  axios.put('/profile/favorites', id)
+  .then (response => {
+    console.log(response);
+  })
+  .catch (err => {
+    console.error(err)
+  });
+};
+
+// adds default check to resources user has favorited
+export const isFavorite = (user, result) => {
+  return user._id ? user.favorites.includes(result._id) : false
+};
+
+/*--------------------------------
+  VOTES
+--------------------------------*/
+// handles user click to vote on a resource
+export const handleVote = (resourceId, vote) => {
+  axios.post('/votes/' + resourceId, vote)
+    .then(response => {
+      console.log(response);
+
+    })
+    .catch(err => {
+      console.error(err);
+    })
+}
+
+export const isUpvoted = (user, resource) => {
+
+};
+
+export const isDownvoted = (user, resource) => {
 
 };
