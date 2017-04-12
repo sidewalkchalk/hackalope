@@ -15,11 +15,17 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import FontIcon from 'material-ui/FontIcon';
+import {fullWhite} from 'material-ui/styles/colors';
+import FlatButton from 'material-ui/FlatButton';
 
 // Required Modules
 import Login from './login.jsx';
 import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
+
+// Required Dependencies
+import axios from 'axios';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
