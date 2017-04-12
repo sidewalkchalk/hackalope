@@ -16,6 +16,7 @@ var results = require('./routes/results.js');
 var submit = require('./routes/submit.js');
 var profile = require('./routes/profile.js');
 var comments = require('./routes/comments.js');
+var admin = require('./routes/admin.js');
 
 // USE BLUEBIRD FOR PROMISES
 mongoose.Promise = require('bluebird');
@@ -59,6 +60,7 @@ app.use('/results', results);
 app.use('/submit', submit);
 app.use('/profile', profile);
 app.use('/comments', comments);
+app.use('/admin', admin);
 app.use('/', main);
 
 // CATCH 404 ERRORS
@@ -71,7 +73,7 @@ app.use(function (req, res, next) {
 // LISTEN
 var port = process.env.port || 1337; // also in serverConfig
 app.listen(port, function () {
-  console.log('Lucifer is listening on port: ' + port + '. Build like hell!');
+  console.log('Lucifer is listening on port: ' + port + '. Build like hell minions!');
 });
 
 module.exports = app;

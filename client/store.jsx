@@ -7,6 +7,7 @@ import dialogReducer from './reducers/dialogReducer.jsx';
 import commentsReducer from './reducers/commentsReducer.jsx';
 import resultsReducer from './reducers/resultsReducer.jsx';
 import addCommentReducer from './reducers/addCommentReducer.jsx';
+import unapprovedReducer from './reducers/unapprovedReducer.jsx';
 
 // combine all reducers
 const combinedReducers = combineReducers({
@@ -17,7 +18,8 @@ const combinedReducers = combineReducers({
 	 search: searchReducer,
 	 dialogs: dialogReducer,
    comments: commentsReducer,
-   comment: addCommentReducer
+   comment: addCommentReducer,
+   unapproved: unapprovedReducer
 });
 
 // initialize store and initialize redux dev tools

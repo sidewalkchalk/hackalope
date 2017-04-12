@@ -3,6 +3,7 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import {bindActionCreators } from 'redux';
+import { approveResource, getUnapproved } from '../helpers/helpers.js';
 
 //Required Material UI dependancies 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,7 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import axios from 'axios';
 
 
-const Admin = ({comments, dispatch}) => {
+const Admin = ({comments, unapproved, dispatch}) => {
 
   //jsx
 
@@ -21,6 +22,7 @@ const Admin = ({comments, dispatch}) => {
       );
     });
   };
+  
 
   return (
     <MuiThemeProvider>
@@ -37,7 +39,8 @@ const Admin = ({comments, dispatch}) => {
 
 const mapStateToProps = (state) => {
   return {
-    comments: state.comments
+    comments: state.comments,
+    unapproved: state.unapproved
   };
 };
 

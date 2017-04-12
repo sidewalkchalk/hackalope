@@ -62,3 +62,16 @@ exports.updateResourceRating = function (id, rating, modifier) {
     }
   });
 };
+
+//finds all resources still pending approval from an admin
+exports.findUnapprovedResources = function () {
+  return ResourceModel.find({approved: false});
+};
+
+//marks a resource as approved by an administrator
+exports.approveResource = function (id) {
+  ResourceModel.update({_id: id}, {$set: {
+      approved: true
+    }
+  });
+};

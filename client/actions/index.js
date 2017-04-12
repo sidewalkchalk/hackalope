@@ -110,6 +110,13 @@ export const commentsByResource = (comments) => {
         comments
     }
 };
+
+export const unapprovedResources = (resources) => {
+  return {
+    type: 'UNAPPROVED',
+    resources
+  }
+};
 // export const favoritesByUser = ({{prop}}) => {
 //     console.log("Favorites by user", {{prop}});
 //     return {

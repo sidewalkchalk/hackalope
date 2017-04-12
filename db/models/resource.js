@@ -7,6 +7,7 @@ const resourceSchema = new Schema({
   url: String,
   tags: [String],
   language: String,
+  approved: Boolean,
   rating: Number,
   user: {
     type: Schema.Types.ObjectId,

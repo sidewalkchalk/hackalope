@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js'
 // need to put github icon instead of button
@@ -10,8 +9,8 @@ import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js'
 import SignUp from './signup.jsx';
 import SignIn from './login.jsx';
 import { signUpDialog, logInDialog } from '../actions/index.js'
-
 import axios from 'axios';
+
 
 const LoggedOutMenu = ({dispatch}) => {
 
