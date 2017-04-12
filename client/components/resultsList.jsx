@@ -8,31 +8,15 @@ import { selectResult } from '../actions/index.js'
 import {bindActionCreator} from 'redux';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
-
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+// Required Dependencies
+import { renderResults } from '../helpers/helpers.js'
+
 
 const ResultsList = ({ results, dispatch }) => {
-
-  const renderResults = () => {
-    //map result is each card from result.jsx
-    //card has clickable buttons, links to resource rendered on resource page
-    return results.map( result => {
-      return (
-
-        <div key = {result._id}
-          onClick={() => dispatch(selectResult(result))}
-          style={{zDepth: 10}}
-          >
-          <Result key = {result.id} result = {result} />
-          <br/>
-        </div>
-      );
-    });
-  };
 
   const style = {
     marginRight: 10,
@@ -44,16 +28,16 @@ const ResultsList = ({ results, dispatch }) => {
 
   return (
     <MuiThemeProvider>
-      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}> 
+      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
         <Link className="profileView" to="/profile">
         <RaisedButton
         label="MY PROFILE"
         secondary={true}
         style={{margin: 12}}
-        /></Link> 
+        /></Link>
         <div>
           <ul>
-          {renderResults()}
+          {renderResults(results, dispatch)}
           </ul>
         </div>
         <div style={{ alignSelf: 'center', width: '10%' }}>

@@ -1,5 +1,8 @@
 import * as actions from '../actions/index.js';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
+import React from 'react';
+import Result from '../components/result.jsx'
 
 /*--------------------------------
   AUTHENTICATION
@@ -124,16 +127,33 @@ export const titleCase = (str) => {
 };
 
 // search the database for resources
-export const handleSearch = (value, dispatch) => {
+export const handleSearch = (value, dispatch, results) => {
   value.term = titleCase(value.term);
   axios.post('/', value)
     .then (response => {
-      dispatch(actions.clearSearch());
-      dispatch(actions.searchResults(response.data))
+      Promise.all([dispatch(actions.clearSearch()),
+        dispatch(actions.searchResults(response.data))])
+          .then(results => {
+            hashHistory.push('/results');
+          })
     })
     .catch( err => {
       console.error(err)
     });
+};
+
+export const renderResults = (results, dispatch) => {
+  return results.resources.map( result => {
+    return (
+      <div key = {result._id}
+        onClick={() => dispatch(actions.selectResult(result))}
+        style={{zDepth: 10}}
+        >
+        <Result key = {result.id} result = {result} />
+        <br/>
+      </div>
+    );
+  });
 };
 
 

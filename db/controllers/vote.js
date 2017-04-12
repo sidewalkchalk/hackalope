@@ -5,9 +5,9 @@ exports.newVote = function (vote) {
   return VoteModel.create(vote);
 };
 
-// find the status of a user's vote on a particular resource
-exports.getVote = function (resourceId, userId) {
-  return VoteModel.find({resource: resourceId}, {user: userId});
+// gets all of a user's votes
+exports.getVotesByUser = function (userId) {
+  return VoteModel.find({user: userId});
 };
 
 // deletes a user's vote on a resource
@@ -16,10 +16,11 @@ exports.deleteVote = function (resourceId, userId) {
 };
 
 exports.updateVote = function (resourceId, userId, newVote) {
-  console.log('I WAS CALLED AND MY VOTE IS : ', newVote)
-  console.log('I WAS CALLED AND MY USERID IS : ', userId)
-  console.log('I WAS CALLED AND MY RESOURCE ID IS : ', resourceId)
   return VoteModel.findOneAndUpdate({resource: resourceId, user: userId}, {$set: {
     vote: newVote
   }});
-}
+};
+
+exports.getUserVotesForResources = function (array, userId) {
+  return VoteModel.find({resource: {$in: array}, user: userId})
+};

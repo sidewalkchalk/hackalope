@@ -15,7 +15,6 @@ router.post('/:id', function (req, res) {
           user: req.user._id,
           vote: req.body.vote
         }
-        console.log(vote);
         voteController.newVote(vote)
           .then (response => {
             resourceController.updateResourceRating(req.params.id, req.body.vote)

@@ -69,14 +69,12 @@ const Search = ({search, dispatch}) => {
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}
       />
-      <Link className="searching" to="/results">
         <RaisedButton
         label="Let's go!"
         secondary={true}
         style={{margin: 12}}
         onClick={() => handleSearch(search, dispatch)}
         />
-      </Link>
     </div>
     </MuiThemeProvider>
   );

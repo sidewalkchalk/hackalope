@@ -71,9 +71,4 @@ router.put('/favorites', utils.checkAuth, function (req, res) {
 
 });
 
-// handles a user's vote on a resource
-router.put('/vote', utils.checkAuth, function (req, res) {
-
-});
-
 module.exports = router;
