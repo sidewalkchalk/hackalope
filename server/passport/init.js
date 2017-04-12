@@ -16,6 +16,14 @@ module.exports = function (passport) {
         done(err, null);
       });
   });
+  // passport.serializeUser(function(user, done) {
+  // done(null, user);
+  // });
+  //
+  // passport.deserializeUser(function(obj, done) {
+  // done(null, obj);
+  // });
+
   login(passport);
   signup(passport);
 };

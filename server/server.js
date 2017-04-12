@@ -6,6 +6,8 @@ var session = require('express-session');
 var passport = require('passport');
 var path = require('path');
 var mongoose = require('mongoose');
+var methodOverride = require('method-override');
+var cors = require('cors');
 
 // ROUTES
 var auth = require('./routes/auth.js');
@@ -24,9 +26,10 @@ mongoose.connect('mongodb://localhost/hackalope');
 
 // MIDDLEWARE
 // TODO: implement passport
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(morgan('combined'));
+app.use(methodOverride());
 app.use(session({
   secret: 'hackalope-666',
   resave: false,
@@ -35,6 +38,7 @@ app.use(session({
 ));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
 // INITIALIZE SERIALIZE/DESERIALIZE FUNCTIONS
 require('./passport/init.js')(passport);
@@ -42,6 +46,12 @@ require('./passport/init.js')(passport);
 // SERVE STATIC FILES
 app.use('/public', express.static(path.join(__dirname, '/../client/')));
 app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
+
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Referrer-Policy', 'no-referrer');
+  next();
+});
 
 // ROUTING
 app.use('/auth', auth(passport));
