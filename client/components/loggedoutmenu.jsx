@@ -2,7 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { connect } from 'react-redux';
-import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js'
+import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js';
 
 const LoggedOutMenu = ({dispatch}) => {
 

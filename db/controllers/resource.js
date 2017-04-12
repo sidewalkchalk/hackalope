@@ -73,5 +73,5 @@ exports.approveResource = function (id) {
   ResourceModel.update({_id: id}, {$set: {
       approved: true
     }
-  })
+  });
 };

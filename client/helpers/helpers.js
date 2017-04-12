@@ -186,16 +186,31 @@ export const addComment = (e, user, result, comment, dispatch) => {
     .catch ( err => {
       console.error(err)
   })
+  };
+
 /*--------------------------------
   ADMIN 
 --------------------------------*/
 // handles approving an unapproved resource
-export const approveResource = () =>  {
-
+export const approveResource = (resultId) =>  {
+  axios.put('/admin/', resultId)
+  .then( response => {
+    console.log(response);
+  })
+  .catch( err => {
+    console.error(err);
+  });
 };
 
 // fetches unapproved resources up for review
-export const getUnapproved = () => {
-
+export const getUnapproved = (dispatch) => {
+  axios.get('/admin/')
+  .then( responses => {
+    console.log(responses);
+    dispatch(actions.unapprovedResources(responses));
+  })
+  .catch( err => {
+    console.error(err);
+  });
 
 };
