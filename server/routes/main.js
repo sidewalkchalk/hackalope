@@ -15,7 +15,6 @@ router.post('/', function (req, res) {
     .then ( resources => {
       // if nothing was entered in the search bar, search all resources
       if (!req.body.term) {
-        console.log('here i am')
         res.status(201).send(resources);
         // otherwise, filter by search term
       } else {
