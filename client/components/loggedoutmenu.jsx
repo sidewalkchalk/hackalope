@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import { connect } from 'react-redux';
 import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js'
 // need to put github icon instead of button
 // import IconButton from 'material-ui/IconButton';
