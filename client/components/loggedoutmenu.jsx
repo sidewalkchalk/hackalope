@@ -53,7 +53,7 @@ const LoggedOutMenu = ({dispatch}) => {
       <RaisedButton label="Sign In"
         secondary={true}
         style={{margin: 12}}
-        onTouchTap={() => handleLoginOpen(dispatch)} />
+        onTouchTap={() => handleLoginOpen(dispatch)}
       />
 
       <RaisedButton
