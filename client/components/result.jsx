@@ -27,7 +27,8 @@ const Result = ({ result, user, dispatch }) => {
   return (
 
     <MuiThemeProvider>
-    <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+
         <CardHeader
           avatar={result.thumbnail}
           title= {result.title}
@@ -37,50 +38,51 @@ const Result = ({ result, user, dispatch }) => {
           style={{position: 'relative', width: '60%', display: 'inline' }}
         />
 
-        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+          <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-               <span> { result.rating } </span>
-            </div>
-            <div>
-
-              <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
-                <div>
-                    <IconButton tooltip="Upvote">
-                      <ArrowDropUp />
-                    </IconButton>
-                </div>
-                <div style={{ alignSelf: 'center' }}>
-                   <IconButton tooltip="Downvote">
-                    <ArrowDropDown />
-                  </IconButton>
-                </div>
+              <span> { result.rating } </span>
             </div>
 
+            <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
+              <IconButton tooltip="Upvote">
+                <ArrowDropUp />
+              </IconButton>
+              <IconButton tooltip="Downvote">
+                <ArrowDropDown />
+              </IconButton>
             </div>
+
+
             <div style={{ alignSelf: 'center' }}>
-                <Checkbox
-                  defaultChecked={isFavorite(user, result)}
-                  onCheck={() => handleCheck({id: result._id})}
-                  checkedIcon={<ActionFavorite />}
-                  uncheckedIcon={<ActionFavoriteBorder />}
-                  style={styles.checkbox}
-                />
+              <Checkbox
+                defaultChecked={isFavorite(user, result)}
+                onCheck={() => handleCheck({id: result._id})}
+                checkedIcon={<ActionFavorite />}
+                uncheckedIcon={<ActionFavoriteBorder />}
+                style={styles.checkbox}
+              />
             </div>
-        </div>
-      <CardActions>
-        <RaisedButton
-          label="Details"
-          labelPosition="before"
-          primary={true}
-          icon={<DetailIcon />}
-          style={styles.button}
-          containerElement={<Link to={`results/${result._id}`} />}
-          onClick={() => getComments(result._id, dispatch)}
-        />
-      </CardActions>
-      <CardText expandable={true}>
-          {result.description}
+
+          </div>
+
+        <CardActions>
+          <RaisedButton
+            label="Details"
+            labelPosition="before"
+            primary={true}
+            icon={<DetailIcon />}
+            style={styles.button}
+            containerElement={<Link to={`results/${result._id}`} />}
+            onClick={() => getComments(result._id, dispatch)}
+          />
+        </CardActions>
+
+        <CardText expandable={true}>
+          <a href={`${result.url}`} >LINK</a><br /> <br />
+          {result.description} <br />
         </CardText>
+
       </Card>
     </MuiThemeProvider>
   );

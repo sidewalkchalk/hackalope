@@ -82,9 +82,12 @@ export const handleSubmitClose = (dispatch) => {
 
 // correct casing on submission tags
 export const titleCaseArray = (str) => {
-    return str.replace(/\w\S*/g,
-      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
-      .split(', ');
+  if (!str) {
+    return;
+  }
+  return str.replace(/\w\S*/g,
+    function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
+    .split(', ');
 };
 
 // post new submission to the server
@@ -189,7 +192,7 @@ export const addComment = (e, user, result, comment, dispatch) => {
   };
 
 /*--------------------------------
-  ADMIN 
+  ADMIN
 --------------------------------*/
 // handles approving an unapproved resource
 export const approveResource = (resultId) =>  {
