@@ -7,12 +7,12 @@ exports.insertResource = function (resource) {
 
 // finds all resources for a specified language
 exports.findResourcesByLanguage = function (language) {
-  return ResourceModel.find({language: language});
+  return ResourceModel.find({language: language, approved: true});
 };
 
 // finds a resource with a specified id
 exports.findResourceById = function (id) {
-  return ResourceModel.findOne({_id: id});
+  return ResourceModel.findOne({_id: id, approved: true});
 };
 
 exports.findFavorites = function (favorites) {
@@ -27,16 +27,16 @@ exports.findResourcesByTag = function (language, tag) {
 
 // finds all resources submitted by a user
 exports.findResourcesByUser = function (userId) {
-  return ResourceModel.find({user: userId});
+  return ResourceModel.find({user: userId, approved: true});
 };
 
 exports.findResourceByUrl = function (url) {
-  return ResourceModel.findOne({url: url});
+  return ResourceModel.findOne({url: url, approved: true});
 };
 
 // deletes a resource by id
 exports.deleteResourceById = function (id) {
-  return ResourceModel.remove({_id: id});
+  return ResourceModel.findByIdAndRemove({ _id: id }, function(){});
 };
 
 // deletes a resource by name
@@ -57,7 +57,7 @@ exports.updateResourceInfo = function (id, title, description, url) {
 // updates a resource's rating
 exports.updateResourceRating = function (id, rating, modifier) {
   var newRating = rating + modifier;
-  ResourceModel.update({_id: id}, {$set: {
+  ResourceModel.findOneAndUpdate({_id: id}, {$set: {
       rating: newRating
     }
   });
@@ -70,8 +70,11 @@ exports.findUnapprovedResources = function () {
 
 //marks a resource as approved by an administrator
 exports.approveResource = function (id) {
-  ResourceModel.update({_id: id}, {$set: {
+  return ResourceModel.findOneAndUpdate({_id: id}, {$set: {
       approved: true
     }
   });
+
+
+
 };
