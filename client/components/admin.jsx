@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import {bindActionCreators } from 'redux';
-import { approveResource, getUnapproved } from '../helpers/helpers.js';
+import { approveResource, unapproveResource, getUnapproved } from '../helpers/helpers.js';
 
 //Required Material UI dependancies 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -33,11 +33,12 @@ const Admin = ({comments, unapproved, dispatch}) => {
               />
               <CardTitle title={resource.title} subtitle={resource.url} />
               <CardText>
+              id = {resource._id}<br/>
                 {resource.description}
               </CardText>
               <CardActions>
-                <RaisedButton backgroundColor="#74FF1E" label="Yuh" onClick={() => approveResource(resource._id)} />
-                <RaisedButton backgroundColor="#FF3439" label="Nah" />
+                <RaisedButton backgroundColor="#74FF1E" label="Approve" onClick={() => approveResource(resource._id, dispatch)} />
+                <RaisedButton backgroundColor="#FF3439" label="Delete" onClick={() => unapproveResource(resource._id, dispatch)} />
               </CardActions>
             </Card>
 

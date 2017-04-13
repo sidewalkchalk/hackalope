@@ -40,6 +40,7 @@
     "mongoose": "^4.9.2",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react": "15.4.2",

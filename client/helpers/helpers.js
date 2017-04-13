@@ -192,12 +192,25 @@ export const addComment = (e, user, result, comment, dispatch) => {
   ADMIN 
 --------------------------------*/
 // handles approving an unapproved resource
-export const approveResource = (resultId) =>  {
+export const approveResource = (resultId, dispatch) =>  {
   axios.put('/admin', {resultId: resultId})
   .then( response => {
     console.log(response);
+    getUnapproved(dispatch);
   })
   .catch( err => {
+    console.error(err);
+  });
+};
+
+// deletes a resource deemeed unapproved 
+export const unapproveResource = (resultId, dispatch) => {
+  axios.delete('/admin', {data: {resultId: resultId}})
+  .then( response => {
+    console.log(response);
+    getUnapproved(dispatch);
+  })
+  .catch(err => {
     console.error(err);
   });
 };
