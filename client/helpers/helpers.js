@@ -198,6 +198,20 @@ export const getComments = (resultId, dispatch) => {
 };
 
 
+
+// get all comments for a user
+export const getUserComments = (userId, dispatch) => {
+  axios.get('/comments/' + userId)
+    .then (response => {
+      console.log(response);
+      dispatch(actions.commentsByUser(response.data))
+    })
+    .catch (err => {
+      console.error(err);
+    });
+};
+
+
 // add a new comment on a resource
 export const addComment = (e, user, result, comment, dispatch) => {
   e.preventDefault();

@@ -19,7 +19,8 @@ const combinedReducers = combineReducers({
 	 dialogs: dialogReducer,
    comments: commentsReducer,
    comment: addCommentReducer,
-   unapproved: unapprovedReducer
+   unapproved: unapprovedReducer,
+   userComments: userCommentsReducer
 });
 
 // initialize store and initialize redux dev tools

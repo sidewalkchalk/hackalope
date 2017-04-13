@@ -92,7 +92,7 @@ export const commentsByUser = (comments) => {
     console.log("Comments by user ", comments );
     return {
         type: 'COMMENTS_USER',
-        commments
+        userCommments
     }
 };
 

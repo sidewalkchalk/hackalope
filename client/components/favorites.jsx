@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 //import { findResourceById } from '../helpers/helpers.js'
 
 

@@ -4,12 +4,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Comments from './comments.jsx';
+import UserComments from './userComments.jsx';
 import Favorites from './favorites.jsx';
 import { connect } from 'react-redux';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-
 
 
 const Profile = ({user, dispatch}) => {
@@ -44,11 +43,11 @@ const Profile = ({user, dispatch}) => {
         <br></br>      
       </CardText>
       </Card> 
-        <h4>Favorites component V </h4>
+        <h4>Favorites component</h4>
         <Favorites />
         <hr></hr> 
-        <h4>Comments component V</h4>
-        <Comments />
+        <h4>Comments component</h4>
+        <UserComments />
       </div>
     </MuiThemeProvider>    
   )  
