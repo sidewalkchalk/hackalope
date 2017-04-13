@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect } from 'react-router';
-import { commentsByAll} from '../actions/index.js';
 import { createStore , bindActionCreators} from 'redux';
 import { userProfile } from '../actions/index.js'
+import { getUserProfile } from '../helpers/helpers.js';
+
 
 //Required Material-UI components
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';

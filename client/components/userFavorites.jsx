@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import { userProfile } from '../actions/index.js'
-
+import { getUserProfile } from '../helpers/helpers.js';
 
 const Favorites = ({profile, dispatch}) => {
 

@@ -1,4 +1,4 @@
-const userProfileReducer = (state = {}, action) => {
+const ProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case 'USER_PROFILE':
       return Object.assign({}, state, action.userProfile);
@@ -7,5 +7,5 @@ const userProfileReducer = (state = {}, action) => {
   }
 };
 
-export default userCommentsReducer;
+export default ProfileReducer;
 

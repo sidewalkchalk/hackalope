@@ -272,7 +272,7 @@ export const getUnapproved = (dispatch) => {
   FAVORITES
 --------------------------------*/
 
-export const getUnapproved = (dispatch) => {
+export const getUserProfile = (dispatch) => {
   axios.get('/profile/')
   .then( responses => {
     console.log(responses);
