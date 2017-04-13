@@ -9,12 +9,13 @@ router.post('/:id', function (req, res) {
   voteController.getVote(req.params.id, req.user._id)
     .then (found => {
       // if they haven't, let them vote and change total votes on resource
-      if (!found.length) {
+      if (!found) {
         vote = {
           resource: req.params.id,
           user: req.user._id,
           vote: req.body.vote
         }
+
         voteController.newVote(vote)
           .then (response => {
             resourceController.updateResourceRating(req.params.id, req.body.vote)

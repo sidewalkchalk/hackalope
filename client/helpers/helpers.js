@@ -243,35 +243,41 @@ export const isFavorite = (user, result) => {
   VOTES
 --------------------------------*/
 // handles user click to vote on a resource
-export const handleVote = (resourceId, vote) => {
-  axios.post('/votes/' + resourceId, vote)
+export const handleVote = (resourceId, votes, newVote, dispatch) => {
+  dispatch(actions.updateVote(resourceId, votes, newVote));
+  axios.post('/votes/' + resourceId, newVote)
     .then(response => {
       console.log(response);
-
+      var updatedResource = response.data;
+      dispatch(actions.updateResource(updatedResource));
     })
     .catch(err => {
       console.error(err);
     })
 }
 
+// return bool for status of upvote button
 export const isUpvoted = (user, result, votes) => {
+  var upvoted = false;
   if (user._id) {
     votes.forEach(vote => {
-      if (vote.resource === result._id) {
-        return true;
-      }
-    })
-  }
-  return false;
+      if (vote.resource === result._id && vote.vote === 1) {
+        upvoted = true;
+      };
+    });
+  };
+  return upvoted;
 };
 
+// return bool for status of downvote button
 export const isDownvoted = (user, result, votes) => {
+  var downvoted = false;
   if (user._id) {
     votes.forEach(vote => {
-      if (vote.resource === result._id) {
-        return true;
-      }
-    })
-  }
-  return false;
+      if (vote.resource === result._id && vote.vote === -1) {
+        downvoted = true;
+      };
+    });
+  };
+  return downvoted;
 };

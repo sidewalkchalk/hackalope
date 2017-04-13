@@ -12,7 +12,7 @@ exports.getVotesByUser = function (userId) {
 
 // deletes a user's vote on a resource
 exports.deleteVote = function (resourceId, userId) {
-  return VoteModel.remove({user: userId}, {resource: resourceId});
+  return VoteModel.remove({user: userId, resource: resourceId});
 };
 
 exports.updateVote = function (resourceId, userId, newVote) {
@@ -26,5 +26,5 @@ exports.getUserVotesForResources = function (array, userId) {
 };
 
 exports.getVote = function (resourceId, userId) {
-  return VoteModel.find({user: userId, resource: resourceId});
+  return VoteModel.findOne({user: userId, resource: resourceId});
 };

@@ -117,6 +117,22 @@ export const unapprovedResources = (resources) => {
     resources
   }
 };
+
+export const updateResource = (updatedResource) => {
+  return {
+    type: 'UPDATE_RESOURCE',
+    updatedResource
+  };
+};
+
+export const updateVote = (resourceId, votes, newVote) => {
+  return {
+    type: 'UPDATE_VOTE',
+    resourceId,
+    votes,
+    newVote
+  }
+}
 // export const favoritesByUser = ({{prop}}) => {
 //     console.log("Favorites by user", {{prop}});
 //     return {

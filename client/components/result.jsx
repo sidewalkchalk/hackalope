@@ -7,6 +7,7 @@ import { commentsByResource } from '../actions/index.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -50,7 +51,7 @@ const Result = ({ result, user, results, dispatch }) => {
                 <div>
                     <Checkbox
                       defaultChecked={isUpvoted(user, result, results.votes)}
-                      onCheck={() => handleVote(result._id, {vote: 1})}
+                      onCheck={() => handleVote(result._id, results.votes, {vote: 1}, dispatch)}
                       checkedIcon={<ArrowDropUp />}
                       uncheckedIcon={<ArrowDropUp />}
                       />
@@ -58,7 +59,7 @@ const Result = ({ result, user, results, dispatch }) => {
                 <div style={{ alignSelf: 'center' }}>
                   <Checkbox
                     defaultChecked={isDownvoted(user, result, results.votes)}
-                    onCheck={() => handleVote(result._id, {vote: -1})}
+                    onCheck={() => handleVote(result._id, results.votes, {vote: -1}, dispatch)}
                     checkedIcon={<ArrowDropDown />}
                     uncheckedIcon={<ArrowDropDown />}
                     />
