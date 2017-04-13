@@ -30,19 +30,6 @@ const topics = [
 
 const Search = ({search, dispatch}) => {
 
-  // const handleSearch = (value) => {
-  //   value.term = titleCase(value.term);
-  //
-  //   axios.post('/', value)
-  //     .then (response => {
-  //       dispatch(clearSearch());
-  //       dispatch(searchResults(response.data))
-  //     })
-  //     .catch( err => {
-  //       console.error(err)
-  //     });
-  // };
-
   return (
     <MuiThemeProvider>
     <div id ='search' style={{alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
@@ -69,14 +56,12 @@ const Search = ({search, dispatch}) => {
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus={true}
       />
-      <Link className="searching" to="/results">
         <RaisedButton
         label="Let's go!"
         secondary={true}
         style={{margin: 12}}
         onClick={() => handleSearch(search, dispatch)}
         />
-      </Link>
     </div>
     </MuiThemeProvider>
   );

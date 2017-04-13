@@ -7,6 +7,7 @@ import { commentsByResource } from '../actions/index.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -20,9 +21,9 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import { handleCheck, isFavorite, getComments } from '../helpers/helpers.js'
+import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
-const Result = ({ result, user, dispatch }) => {
+const Result = ({ result, user, results, dispatch }) => {
 
   return (
 
@@ -39,20 +40,23 @@ const Result = ({ result, user, dispatch }) => {
         />
 
           <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-              <span> { result.rating } </span>
+               <span> { result.rating } </span>
             </div>
-
-            <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
-              <IconButton tooltip="Upvote">
-                <ArrowDropUp />
-              </IconButton>
-              <IconButton tooltip="Downvote">
-                <ArrowDropDown />
-              </IconButton>
-            </div>
-
+              <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
+                  <Checkbox
+                    defaultChecked={isUpvoted(user, result, results.votes)}
+                    onCheck={() => handleVote(result._id, results.votes, {vote: 1}, dispatch)}
+                    checkedIcon={<ArrowDropUp />}
+                    uncheckedIcon={<ArrowDropUp />}
+                    />
+                  <Checkbox
+                    defaultChecked={isDownvoted(user, result, results.votes)}
+                    onCheck={() => handleVote(result._id, results.votes, {vote: -1}, dispatch)}
+                    checkedIcon={<ArrowDropDown />}
+                    uncheckedIcon={<ArrowDropDown />}
+                    />
+              </div>
 
             <div style={{ alignSelf: 'center' }}>
               <Checkbox
@@ -63,7 +67,6 @@ const Result = ({ result, user, dispatch }) => {
                 style={styles.checkbox}
               />
             </div>
-
           </div>
 
         <CardActions>
@@ -82,7 +85,6 @@ const Result = ({ result, user, dispatch }) => {
           <a href={`${result.url}`} >LINK</a><br /> <br />
           {result.description} <br />
         </CardText>
-
       </Card>
     </MuiThemeProvider>
   );
@@ -100,6 +102,7 @@ const styles = {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    results: state.results
   }
 }
 

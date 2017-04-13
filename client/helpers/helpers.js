@@ -1,5 +1,8 @@
 import * as actions from '../actions/index.js';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
+import React from 'react';
+import Result from '../components/result.jsx'
 
 /*--------------------------------
   AUTHENTICATION
@@ -124,36 +127,35 @@ export const titleCase = (str) => {
 };
 
 // search the database for resources
-export const handleSearch = (value, dispatch) => {
+export const handleSearch = (value, dispatch, results) => {
   value.term = titleCase(value.term);
   axios.post('/', value)
     .then (response => {
-      dispatch(actions.clearSearch());
-      dispatch(actions.searchResults(response.data))
+      Promise.all([dispatch(actions.clearSearch()),
+        dispatch(actions.searchResults(response.data))])
+          .then(results => {
+            hashHistory.push('/results');
+          })
     })
     .catch( err => {
       console.error(err)
     });
 };
 
-/*--------------------------------
-  FAVORITES
---------------------------------*/
-// handles user click to favorite or unfavorite a resource
-export const handleCheck = (id) => {
-  axios.put('/profile/favorites', id)
-    .then (response => {
-      console.log(response);
-    })
-    .catch (err => {
-      console.error(err)
-    });
+export const renderResults = (results, dispatch) => {
+  return results.resources.map( result => {
+    return (
+      <div key = {result._id}
+        onClick={() => dispatch(actions.selectResult(result))}
+        style={{zDepth: 10}}
+        >
+        <Result key = {result.id} result = {result} />
+        <br/>
+      </div>
+    );
+  });
 };
 
-// adds default check to resources user has favorited
-export const isFavorite = (user, result) => {
-  return user._id ? user.favorites.includes(result._id) : false
-};
 
 /*--------------------------------
   COMMENTS
@@ -229,4 +231,66 @@ export const getUnapproved = (dispatch) => {
     console.error(err);
   });
 
+};
+
+/*--------------------------------
+FAVORITES
+--------------------------------*/
+// handles user click to favorite or unfavorite a resource
+export const handleCheck = (id) => {
+  axios.put('/profile/favorites', id)
+  .then (response => {
+    console.log(response);
+  })
+  .catch (err => {
+    console.error(err)
+  });
+};
+
+// adds default check to resources user has favorited
+export const isFavorite = (user, result) => {
+  return user._id ? user.favorites.includes(result._id) : false
+};
+
+/*--------------------------------
+  VOTES
+--------------------------------*/
+// handles user click to vote on a resource
+export const handleVote = (resourceId, votes, newVote, dispatch) => {
+  dispatch(actions.updateVote(resourceId, votes, newVote));
+  axios.post('/votes/' + resourceId, newVote)
+    .then(response => {
+      console.log(response);
+      var updatedResource = response.data;
+      dispatch(actions.updateResource(updatedResource));
+    })
+    .catch(err => {
+      console.error(err);
+    })
+}
+
+// return bool for status of upvote button
+export const isUpvoted = (user, result, votes) => {
+  var upvoted = false;
+  if (user._id) {
+    votes.forEach(vote => {
+      if (vote.resource === result._id && vote.vote === 1) {
+        upvoted = true;
+      };
+    });
+  };
+  return upvoted;
+};
+
+// return bool for status of downvote button
+export const isDownvoted = (user, result, votes) => {
+  var downvoted = false;
+  if (user._id) {
+    votes.forEach(vote => {
+      if (vote.resource === result._id && vote.vote === -1) {
+        downvoted = true;
+      };
+    });
+  };
+  return downvoted;
 };
