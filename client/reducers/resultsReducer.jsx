@@ -12,22 +12,30 @@ const resultsReducer = (state = [], action) => {
       });
       return Object.assign({}, state, {resources: update});
     case 'UPDATE_VOTE':
-      //resourceId, votes, newVote = -1 or 1
-      var update = state.votes.map(vote => {
-        // find the vote that needs to be altered
+      var change = false;
+      // create new state with changes
+      var updateArray = state.votes.map(vote => {
         if (action.resourceId === vote.resource) {
-          // if it's the same as the existing vote
+          change = true;
           if (vote.vote === action.newVote.vote) {
-            // cancel it out
             vote.vote = 0;
-
           } else {
             vote.vote = action.newVote.vote;
           }
         }
         return vote;
       });
-      return Object.assign({}, state, {votes: update});
+
+      // if there are no changes, or if the array is empty
+      // add the vote to the store
+      if (!updateArray.length || !change) {
+        update = {
+          resource: action.resourceId,
+          vote: action.newVote.vote
+        };
+        updateArray.push(update);
+      }
+      return Object.assign({}, state, {votes: updateArray});
     default:
       return state;
   }

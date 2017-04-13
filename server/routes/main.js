@@ -53,8 +53,6 @@ router.post('/', function (req, res) {
           var ids = filteredResources.map(item => {
             return item._id;
           })
-          console.log('IDS are: ', ids)
-          console.log('USER IS: ', req.user._id)
           voteController.getUserVotesForResources(ids, req.user._id)
             .then(votes => {
               filteredData.votes = votes;

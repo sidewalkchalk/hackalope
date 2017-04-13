@@ -40,32 +40,23 @@ const Result = ({ result, user, results, dispatch }) => {
         />
 
           <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-
                <span> { result.rating } </span>
             </div>
-            <div>
-
               <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
-                <div>
-                    <Checkbox
-                      defaultChecked={isUpvoted(user, result, results.votes)}
-                      onCheck={() => handleVote(result._id, results.votes, {vote: 1}, dispatch)}
-                      checkedIcon={<ArrowDropUp />}
-                      uncheckedIcon={<ArrowDropUp />}
-                      />
-                </div>
-                <div style={{ alignSelf: 'center' }}>
+                  <Checkbox
+                    defaultChecked={isUpvoted(user, result, results.votes)}
+                    onCheck={() => handleVote(result._id, results.votes, {vote: 1}, dispatch)}
+                    checkedIcon={<ArrowDropUp />}
+                    uncheckedIcon={<ArrowDropUp />}
+                    />
                   <Checkbox
                     defaultChecked={isDownvoted(user, result, results.votes)}
                     onCheck={() => handleVote(result._id, results.votes, {vote: -1}, dispatch)}
                     checkedIcon={<ArrowDropDown />}
                     uncheckedIcon={<ArrowDropDown />}
                     />
-                </div>
-
-            </div>
+              </div>
 
             <div style={{ alignSelf: 'center' }}>
               <Checkbox
@@ -76,7 +67,6 @@ const Result = ({ result, user, results, dispatch }) => {
                 style={styles.checkbox}
               />
             </div>
-
           </div>
 
         <CardActions>
@@ -95,7 +85,6 @@ const Result = ({ result, user, results, dispatch }) => {
           <a href={`${result.url}`} >LINK</a><br /> <br />
           {result.description} <br />
         </CardText>
-
       </Card>
     </MuiThemeProvider>
   );
