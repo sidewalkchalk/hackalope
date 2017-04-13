@@ -49,38 +49,44 @@ const Resource = ({result, dispatch}) => {
 
   return (
     <MuiThemeProvider>
-    <div>
-      <Link className="profileView" to="/profile">
-      <RaisedButton
-        label="MY PROFILE"
-        secondary={true}
-        style={{margin: 12}}
-      /></Link>
-      <Link className="searching" to="/results">
-      <RaisedButton
-        label="BACK TO RESULTS"
-        secondary={true}
-        style={{ margin: 12}}
-      /></Link>
-    <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-      <CardHeader
-        title= {result.title}
-        subtitle= {result.language}
-        style={{position: 'relative', width: '60%', display: 'inline' }}
-    />
-      <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-      </div>
-    <CardText>
-      {result.description} <br></br>
       <div>
-        <ul>
-        {renderTags()}
-        </ul>
+
+        <Link className="profileView" to="/profile">
+          <RaisedButton
+            label="MY PROFILE"
+            secondary={true}
+            style={{margin: 12}}
+          />
+        </Link>
+
+        <Link className="searching" to="/results">
+          <RaisedButton
+            label="BACK TO RESULTS"
+            secondary={true}
+            style={{ margin: 12}}
+          />
+        </Link>
+
+        <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+          <CardHeader
+            title= {result.title}
+            subtitle= {result.language}
+            style={{position: 'relative', width: '60%', display: 'inline' }}
+          />
+
+          <CardText>
+            <a href={`${result.url}`} >LINK</a>
+            <br /> <br />
+            {result.description} <br />
+            <ul>
+              {renderTags()}
+            </ul>
+          </CardText>
+        </Card>
+
+        <Comments />
+
       </div>
-      </CardText>
-    </Card>
-    <Comments />
-    </div>
     </MuiThemeProvider>
   )
 }
