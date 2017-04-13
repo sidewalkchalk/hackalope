@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+//import { findResourceById } from '../helpers/helpers.js'
 
 
 const Favorites = ({user, result, results, dispatch}) => {
+
   const renderFavorites = () => {
     return user.favorites.map(favorite => {
       return (
-        <li key = {favorite.index} >
+        <ul key = {favorite} >
            <Card>
             <CardHeader
               title={favorite}
@@ -16,18 +18,17 @@ const Favorites = ({user, result, results, dispatch}) => {
             />
             <CardText>
                 Favorite info 
-              <br></br>
             </CardText>
           </Card>
-        </li>
+        </ul>
       );
     })
   };
   return (
     <div>
-      <ul style={{ 'listStyleType': 'none' }}>
-      {renderFavorites()}
-      </ul>
+      <li style={{ 'listStyleType': 'none' }}>
+        {renderFavorites()}
+      </li>
     </div>
   )
 };

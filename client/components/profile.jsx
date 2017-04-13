@@ -7,28 +7,29 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Comments from './comments.jsx';
 import Favorites from './favorites.jsx';
 import { connect } from 'react-redux';
-import { createStore } from 'redux';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 
-//import Favorites from './favorites.jsx';
 
 const Profile = ({user, dispatch}) => {
-    const style = {
+  
+  const style = {
     marginRight: 10,
     top: 'auto',
     right: 20,
     bottom: 20,
     position: 'fixed'
   };
+
   return(
     <MuiThemeProvider>    
       <div>
         <Link className="searching" to="/results">
-        <RaisedButton
+        <FlatButton
         label="BACK TO RESULTS"
-        secondary={true}
-        style={{margin: 12}}
+        primary={true}
+        style={{margin: 12, marginLeft: 147.42}}
         /></Link> 
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
       <CardHeader
@@ -43,11 +44,11 @@ const Profile = ({user, dispatch}) => {
         <br></br>      
       </CardText>
       </Card> 
-      <h4>Favorites component V </h4>
-      <Favorites />
-      <hr></hr> 
-      <h4>Comments component V</h4>
-      <Comments />
+        <h4>Favorites component V </h4>
+        <Favorites />
+        <hr></hr> 
+        <h4>Comments component V</h4>
+        <Comments />
       </div>
     </MuiThemeProvider>    
   )  
