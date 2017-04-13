@@ -18,6 +18,7 @@ router.get('/', function (req, res) {
   
 //approves a resource
 router.put('/', function (req, res) {
+  console.log(req.body);
   resourceController.approveResource(req.body.resultId)
     .then(function (response) {
       console.log(response);

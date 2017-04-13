@@ -63,7 +63,7 @@ app.use(function (req, res, next) {
 // LISTEN
 var port = process.env.port || 1337; // also in serverConfig
 app.listen(port, function () {
-  console.log('Lucifer is listening on port: ' + port + '. Build like hell minions!');
+  console.log('Lucifer is listening on port: ' + port + '. Build like hell, minions!');
 });
 
 module.exports = app;

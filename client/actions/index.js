@@ -117,6 +117,13 @@ export const unapprovedResources = (resources) => {
     resources
   }
 };
+
+export const approveResource = (resource) => {
+  return {
+    type: 'APPROVE',
+    resource
+  }
+};
 // export const favoritesByUser = ({{prop}}) => {
 //     console.log("Favorites by user", {{prop}});
 //     return {
