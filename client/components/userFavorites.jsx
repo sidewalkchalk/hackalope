@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-//import { findResourceById } from '../helpers/helpers.js'
+import { userProfile } from '../actions/index.js'
 
 
-const Favorites = ({user, result, results, dispatch}) => {
+const Favorites = ({profile, dispatch}) => {
 
-  const renderFavorites = () => {
-    return user.favorites.map(favorite => {
+  const renderUserFavorites = () => {
+    return profile.favorites.map(favorite => {
       return (
         <ul key = {favorite} >
            <Card>
@@ -27,7 +27,7 @@ const Favorites = ({user, result, results, dispatch}) => {
   return (
     <div>
       <li style={{ 'listStyleType': 'none' }}>
-        {renderFavorites()}
+        {renderUserFavorites()}
       </li>
     </div>
   )
@@ -36,9 +36,7 @@ const Favorites = ({user, result, results, dispatch}) => {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    results:state.results,
-    result:state.result
+    profile:state.profile
   }
 };
 

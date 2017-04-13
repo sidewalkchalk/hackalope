@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { commentsByAll} from '../actions/index.js';
 import { createStore , bindActionCreators} from 'redux';
-
+import { userProfile } from '../actions/index.js'
 
 //Required Material-UI components
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-const UserComments = ({comments, dispatch}) => {
+const UserComments = ({profile, dispatch}) => {
 
-  const renderComments = () => {
-    return comments.map(comment => {
+  const renderUserComments = () => {
+    return profile.comments.map(comment => {
       return (
         <li key = {comment._id} >
 
@@ -33,14 +33,14 @@ const UserComments = ({comments, dispatch}) => {
   return (
     <div style={{ width: "100%", marginRight: 'auto', marginLeft: 'auto' }} >
       <ul style={{ 'listStyleType': 'none' }}>
-      {renderComments()}
+      {renderUserComments()}
       </ul>
     </div>
   )
 };
 function mapStateToProps(state) {
   return {
-    userComments: state.userComments
+    profile:state.profile
   }
 };
 export default connect(mapStateToProps)(UserComments);

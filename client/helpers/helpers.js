@@ -2,7 +2,7 @@ import * as actions from '../actions/index.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import React from 'react';
-import Result from '../components/result.jsx'
+import Result from '../components/result.jsx';
 
 /*--------------------------------
   AUTHENTICATION
@@ -197,8 +197,6 @@ export const getComments = (resultId, dispatch) => {
     });
 };
 
-
-
 // get all comments for a user
 export const getUserComments = (userId, dispatch) => {
   axios.get('/comments/' + userId)
@@ -268,7 +266,21 @@ export const getUnapproved = (dispatch) => {
   .catch( err => {
     console.error(err);
   });
+};
 
+/*--------------------------------
+  FAVORITES
+--------------------------------*/
+
+export const getUnapproved = (dispatch) => {
+  axios.get('/profile/')
+  .then( responses => {
+    console.log(responses);
+    dispatch(actions.userProfile(responses));
+  })
+  .catch( err => {
+    console.error(err);
+  });
 };
 
 /*--------------------------------
@@ -332,3 +344,4 @@ export const isDownvoted = (user, result, votes) => {
   };
   return downvoted;
 };
+

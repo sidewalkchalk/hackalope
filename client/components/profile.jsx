@@ -4,8 +4,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import UserComments from './userComments.jsx';
-import Favorites from './favorites.jsx';
+import Comments from './userComments.jsx';
+import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
@@ -22,32 +22,37 @@ const Profile = ({user, dispatch}) => {
   };
 
   return(
+
     <MuiThemeProvider>    
+      
       <div>
+        
         <Link className="searching" to="/results">
-        <FlatButton
-        label="BACK TO RESULTS"
-        primary={true}
-        style={{margin: 12, marginLeft: 147.42}}
-        /></Link> 
+          <FlatButton
+            label="BACK TO RESULTS"
+            primary={true}
+            style={{margin: 12, marginLeft: 147.42}}
+          />
+        </Link> 
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-      <CardHeader
-        title= {user.name}
-        subtitle= {user.username}
-        style={{position: 'relative', width: '60%', display: 'inline' }}
-      />
-        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-        </div>
-      <CardText>
-        This is where the users profile info goes!
-        <br></br>      
-      </CardText>
+        <CardHeader
+          title= {user.name}
+          subtitle= {user.username}
+          style={{position: 'relative', width: '60%', display: 'inline' }}
+        />
+      <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+      </div>
+        <CardText>
+          This is where the users profile info goes!
+          <br></br>      
+        </CardText>
       </Card> 
+
         <h4>Favorites component</h4>
         <Favorites />
         <hr></hr> 
         <h4>Comments component</h4>
-        <UserComments />
+        <Comments />
       </div>
     </MuiThemeProvider>    
   )  

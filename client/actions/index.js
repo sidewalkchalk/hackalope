@@ -88,11 +88,10 @@ export const logInDialog = (dialogs) => {
   };
 };
 
-export const commentsByUser = (comments) => {
-    console.log("Comments by user ", comments );
-    return {
-        type: 'COMMENTS_USER',
-        userCommments
+export const userProfile = (profile) => {  
+  return {
+    type: 'USER_PROFILE',
+    profile    
     }
 };
 
