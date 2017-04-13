@@ -24,3 +24,7 @@ exports.updateVote = function (resourceId, userId, newVote) {
 exports.getUserVotesForResources = function (array, userId) {
   return VoteModel.find({resource: {$in: array}, user: userId})
 };
+
+exports.getVote = function (resourceId, userId) {
+  return VoteModel.find({user: userId, resource: resourceId});
+};

@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
           var ids = resources.map(item => {
             return item._id;
           })
-          voteController.getUserVotesForResources(ids, req.body._id)
+          voteController.getUserVotesForResources(ids, req.user._id)
             .then(votes => {
               sendData.votes = votes;
               res.status(201).send(sendData);
@@ -53,7 +53,9 @@ router.post('/', function (req, res) {
           var ids = filteredResources.map(item => {
             return item._id;
           })
-          voteController.getUserVotesForResources(ids, req.body._id)
+          console.log('IDS are: ', ids)
+          console.log('USER IS: ', req.user._id)
+          voteController.getUserVotesForResources(ids, req.user._id)
             .then(votes => {
               filteredData.votes = votes;
               res.status(201).send(filteredData);

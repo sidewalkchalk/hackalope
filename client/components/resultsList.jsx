@@ -29,12 +29,6 @@ const ResultsList = ({ results, dispatch }) => {
   return (
     <MuiThemeProvider>
       <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
-        <Link className="profileView" to="/profile">
-        <RaisedButton
-        label="MY PROFILE"
-        secondary={true}
-        style={{margin: 12}}
-        /></Link>
         <div>
           <ul>
           {renderResults(results, dispatch)}

@@ -254,10 +254,24 @@ export const handleVote = (resourceId, vote) => {
     })
 }
 
-export const isUpvoted = (user, resource) => {
-
+export const isUpvoted = (user, result, votes) => {
+  if (user._id) {
+    votes.forEach(vote => {
+      if (vote.resource === result._id) {
+        return true;
+      }
+    })
+  }
+  return false;
 };
 
-export const isDownvoted = (user, resource) => {
-
+export const isDownvoted = (user, result, votes) => {
+  if (user._id) {
+    votes.forEach(vote => {
+      if (vote.resource === result._id) {
+        return true;
+      }
+    })
+  }
+  return false;
 };

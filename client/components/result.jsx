@@ -20,9 +20,9 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import { handleCheck, isFavorite, getComments, handleVote } from '../helpers/helpers.js'
+import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
-const Result = ({ result, user, dispatch }) => {
+const Result = ({ result, user, results, dispatch }) => {
 
   return (
 
@@ -49,6 +49,7 @@ const Result = ({ result, user, dispatch }) => {
               <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
                 <div>
                     <Checkbox
+                      defaultChecked={isUpvoted(user, result, results.votes)}
                       onCheck={() => handleVote(result._id, {vote: 1})}
                       checkedIcon={<ArrowDropUp />}
                       uncheckedIcon={<ArrowDropUp />}
@@ -56,6 +57,7 @@ const Result = ({ result, user, dispatch }) => {
                 </div>
                 <div style={{ alignSelf: 'center' }}>
                   <Checkbox
+                    defaultChecked={isDownvoted(user, result, results.votes)}
                     onCheck={() => handleVote(result._id, {vote: -1})}
                     checkedIcon={<ArrowDropDown />}
                     uncheckedIcon={<ArrowDropDown />}
@@ -110,6 +112,7 @@ const styles = {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    results: state.results
   }
 }
 
