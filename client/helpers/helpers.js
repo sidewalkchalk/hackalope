@@ -196,7 +196,7 @@ export const addComment = (e, user, result, comment, dispatch) => {
 --------------------------------*/
 // handles approving an unapproved resource
 export const approveResource = (resultId) =>  {
-  axios.put('/admin/', resultId)
+  axios.put('/admin', {resultId: resultId})
   .then( response => {
     console.log(response);
   })
@@ -210,7 +210,7 @@ export const getUnapproved = (dispatch) => {
   axios.get('/admin/')
   .then( responses => {
     console.log(responses);
-    dispatch(actions.unapprovedResources(responses));
+    dispatch(actions.unapprovedResources(responses.data));
   })
   .catch( err => {
     console.error(err);

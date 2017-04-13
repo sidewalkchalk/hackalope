@@ -57,7 +57,7 @@ exports.updateResourceInfo = function (id, title, description, url) {
 // updates a resource's rating
 exports.updateResourceRating = function (id, rating, modifier) {
   var newRating = rating + modifier;
-  ResourceModel.update({_id: id}, {$set: {
+  ResourceModel.findOneAndUpdate({_id: id}, {$set: {
       rating: newRating
     }
   });
@@ -70,8 +70,11 @@ exports.findUnapprovedResources = function () {
 
 //marks a resource as approved by an administrator
 exports.approveResource = function (id) {
-  ResourceModel.update({_id: id}, {$set: {
+  return ResourceModel.findOneAndUpdate({_id: id}, {$set: {
       approved: true
     }
   });
+
+
+
 };
