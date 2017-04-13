@@ -133,6 +133,13 @@ export const updateVote = (resourceId, votes, newVote) => {
     newVote
   }
 }
+
+export const approveResource = (resource) => {
+  return {
+    type: 'APPROVE',
+    resource
+  }
+};
 // export const favoritesByUser = ({{prop}}) => {
 //     console.log("Favorites by user", {{prop}});
 //     return {
