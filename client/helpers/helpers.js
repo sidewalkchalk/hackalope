@@ -94,27 +94,51 @@ export const titleCaseArray = (str) => {
 };
 
 // post new submission to the server
-export const submit = (e, user, submission, dispatch) => {
+export const submit = (e, user, submission, preview, dispatch) => {
   var tagArray = titleCaseArray(submission.tags);
-
-  e.preventDefault();
-  var newEntry = {
-    user: user._id,
-    title: submission.title,
-    url: submission.url,
-    description: submission.description,
-    language: submission.language,
-    tags: tagArray
+  var config = {
+    headers: {
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Expose-Headers': '*',
+      'Access-Control-Allow-Origin': '*'
+    },
   };
-  axios.post('/submit', newEntry)
-    .then( response => {
-      console.log(response);
-      dispatch(actions.submitDialog({submit: false}));
-      dispatch(actions.clearSubmissionData());
+
+  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + submission.url, config)
+    .then( res => {
+      preview = {
+        description: res.data.description,
+        image: res.data.image,
+        title: res.data.title,
+        url: res.data.url
+      };
+      console.log("Site preview: ", preview);
     })
-    .catch ( err => {
+    .then(() => {
+      var newEntry = {
+        user: user._id,
+        title: preview.title,
+        url: submission.url,
+        description: preview.description,
+        language: submission.language,
+        tags: tagArray,
+        image: preview.image
+      };
+      axios.post('/submit', newEntry)
+        .then( response => {
+          console.log("Submit Response: ", response);
+          dispatch(actions.submitDialog({submit: false}));
+          dispatch(actions.clearSubmissionData());
+        })
+        .catch ( err => {
+          console.error(err)
+        })
+      })
+    .catch( err => {
       console.error(err)
     })
+
+  e.preventDefault();
 };
 
 /*--------------------------------
@@ -208,7 +232,7 @@ export const approveResource = (resultId, dispatch) =>  {
   });
 };
 
-// deletes a resource deemeed unapproved 
+// deletes a resource deemeed unapproved
 export const unapproveResource = (resultId, dispatch) => {
   axios.delete('/admin', {data: {resultId: resultId}})
   .then( response => {

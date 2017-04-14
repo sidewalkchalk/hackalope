@@ -9,6 +9,7 @@ const resourceSchema = new Schema({
   language: String,
   approved: Boolean,
   rating: Number,
+  image: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'

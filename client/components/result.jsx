@@ -23,31 +23,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
-// var config = {
-//   headers: {
-//     'Access-Control-Allow-Headers': '*',
-//     'Access-Control-Expose-Headers': '*',
-//     'Access-Control-Allow-Origin': '*'
-//   },
-// };
 
 const Result = ({ result, user, results, dispatch }) => {
-
-  // TODO: place this call in the back end.
-
-  // axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + result.url, config)
-  // .then( res => {
-  //   var preview = {
-  //     description: res.data.description,
-  //     image: res.data.image,
-  //     title: res.data.title,
-  //     url: res.data.url
-  //   };
-  //   console.log(preview);
-  // })
-  // .catch( err => {
-  //   console.error(err)
-  // })
 
   return (
 
