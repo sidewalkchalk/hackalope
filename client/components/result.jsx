@@ -39,10 +39,13 @@ const Result = ({ result, user, results, dispatch }) => {
           showExpandableButton={true}
           style={{position: 'relative', width: '60%', display: 'inline' }}
         />
+        <div style={{ verticalAlign: 'middle', position: 'relative', left: '-50%', display: 'inline-flex', float: 'right'}}>
+          <img src={`${result.image}`} height="40" />
+        </div>
 
           <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
             <div style={{ alignSelf: 'center', marginLeft: 16 }}>
-               <span> { result.rating } </span>
+              <span> { result.rating } </span>
             </div>
               <div style={{ display: 'inline-flex', flexDirection: 'column'}}>
                   <Checkbox

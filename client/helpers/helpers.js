@@ -118,7 +118,7 @@ export const submit = (e, user, submission, preview, dispatch) => {
       var newEntry = {
         user: user._id,
         title: preview.title,
-        url: submission.url,
+        url: preview.url,
         description: preview.description,
         language: submission.language,
         tags: tagArray,
