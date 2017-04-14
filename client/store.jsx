@@ -9,6 +9,8 @@ import resultsReducer from './reducers/resultsReducer.jsx';
 import addCommentReducer from './reducers/addCommentReducer.jsx';
 import unapprovedReducer from './reducers/unapprovedReducer.jsx';
 import profileReducer from './reducers/profileReducer.jsx';
+import snackbarReducer from './reducers/snackbarReducer.jsx';
+
 // combine all reducers
 const combinedReducers = combineReducers({
    results: resultsReducer,
@@ -21,6 +23,7 @@ const combinedReducers = combineReducers({
    comment: addCommentReducer,
    unapproved: unapprovedReducer,
    profile: profileReducer
+   snackbar: snackbarReducer
 });
 
 // initialize store and initialize redux dev tools
