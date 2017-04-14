@@ -24,9 +24,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { selectResult } from '../actions/index.js';
 import Comments from './comments.jsx';
 
-//not using right now but will need once comments reducers/actions are made
-//import Comment from './comment.jsx';
-
 const Resource = ({result, dispatch}) => {
 
   const renderTags = () => {

@@ -8,7 +8,7 @@ exports.insertResource = function (resource) {
 // finds all resources for a specified language
 
 exports.findResourcesByLanguage = function (language) {
-  return ResourceModel.find({language: language});
+  return ResourceModel.find({language: language, approved : true });
   //had approved : true as a parameter, but can't use right now
   //need to seperate into two controllers allResourcesByLanguage and approvedResources
 
