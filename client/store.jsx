@@ -22,7 +22,7 @@ const combinedReducers = combineReducers({
    comments: commentsReducer,
    comment: addCommentReducer,
    unapproved: unapprovedReducer,
-   profile: profileReducer
+   profile: profileReducer,
    snackbar: snackbarReducer
 });
 

@@ -263,7 +263,6 @@ export const getUnapproved = (dispatch) => {
   .then( responses => {
     console.log(responses);
     dispatch(actions.unapprovedResources(responses.data));
-    openPendingSnackbar(dispatch);
   })
   .catch( err => {
     console.error(err);

@@ -9,7 +9,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
 
 // Required Dependencies
-import { logout, getUnapproved, getProfile } from '../helpers/helpers.js'
+import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js'
 
 const LoggedInMenu = ({ user, dispatch}) => {
 
@@ -21,7 +21,7 @@ const LoggedInMenu = ({ user, dispatch}) => {
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-      {user.admin ? <Link to="admin" ><MenuItem primaryText="Admin" onClick={() => getUnapproved(dispatch)} /></Link>: null}
+      {user.admin ? <Link to="admin" ><MenuItem primaryText="Admin" onClick={() => {getUnapproved(dispatch); openPendingSnackbar(dispatch);}} /></Link>: null}
       <MenuItem primaryText="MyProfile" onClick={() => getProfile(dispatch)} />
       <MenuItem
         primaryText="Sign Out"
