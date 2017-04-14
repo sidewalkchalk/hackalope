@@ -68,21 +68,10 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
       <form onSubmit={(e) => submit(e, user, submission, dispatch)}>
         <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
           <div>
-            <TextField name="Title"
-              value={submission.title}
-              floatingLabelText="Title"
-              onChange={e => dispatch(submissionData({title: e.target.value}))}
-            /><br/>
             <TextField name="url"
               value={submission.url}
               floatingLabelText="URL"
               onChange={e => dispatch(submissionData({url: e.target.value}))}
-            /><br/>
-            <TextField name="Description"
-              value={submission.description}
-              floatingLabelText="Description"
-              multiLine={true}
-              onChange={e => dispatch(submissionData({description: e.target.value}))}
             /><br/>
           </div>
 
