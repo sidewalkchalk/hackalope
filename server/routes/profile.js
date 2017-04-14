@@ -73,4 +73,6 @@ router.put('/favorites', utils.checkAuth, function (req, res) {
 
 });
 
+router.get
+
 module.exports = router;
