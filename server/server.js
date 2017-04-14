@@ -49,10 +49,12 @@ require('./passport/init.js')(passport);
 app.use('/public', express.static(path.join(__dirname, '/../client/')));
 app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Referrer-Policy', 'no-referrer');
-  next();
+app.all("/*/*", function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+  res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
+  res.setHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin");
+  return next();
 });
 
 // ROUTING
