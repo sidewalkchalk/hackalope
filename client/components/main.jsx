@@ -13,7 +13,9 @@ const Main = (props) => {
 	return (
     <div>
       <Nav />
-      <Search />
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', verticalAlign: '-200px' }}>
+        <div><Search /></div>
+      </div>
       <Submit />
 			<SignUp />
       <Login />
