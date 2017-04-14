@@ -23,8 +23,6 @@ router.get('/', utils.checkAuth, function (req, res, next) {
               resourceController.findFavorites(user.favorites)
                 .then ( favorites => {
                   profile.favorites = favorites;
-                  console.log("DATAAAAAAA", profile);
-                //  This is working
                   res.json(profile);
                   res.status(201).send(profile);
 

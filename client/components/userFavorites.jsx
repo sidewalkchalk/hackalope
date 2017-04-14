@@ -3,7 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
 import { userProfile } from '../actions/index.js'
-import { getUserProfile } from '../helpers/helpers.js';
+import { getUserProfile, renderUserFavorites} from '../helpers/helpers.js';
+
 
 //Required Material UI dependancies 
 import {Card, CardHeader, CardText} from 'material-ui/Card';

@@ -38,6 +38,7 @@ const Profile = ({user, dispatch}) => {
         <CardHeader
           title= {user.name}
           subtitle= {user.username}
+          avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
           style={{position: 'relative', width: '60%', display: 'inline' }}
         />
       <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>

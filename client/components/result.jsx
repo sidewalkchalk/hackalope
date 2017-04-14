@@ -3,7 +3,9 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
+// Functions
 import { commentsByResource } from '../actions/index.js'
+import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -20,8 +22,6 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
 
 const Result = ({ result, user, results, dispatch }) => {

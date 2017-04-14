@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
 import { userProfile } from '../actions/index.js'
-import { getUserProfile } from '../helpers/helpers.js';
 
 //Required Material UI dependancies 
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -35,6 +34,7 @@ const UserComments = ({profile, dispatch}) => {
     </div>
   )
 };
+
 function mapStateToProps(state) {
   return {
     profile:state.profile
