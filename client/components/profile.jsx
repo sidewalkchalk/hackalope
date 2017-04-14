@@ -4,50 +4,55 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Comments from './comments.jsx';
-import Favorites from './favorites.jsx';
+import Comments from './userComments.jsx';
+import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
-import { createStore } from 'redux';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
-
-//import Favorites from './favorites.jsx';
 
 const Profile = ({user, dispatch}) => {
-    const style = {
+  
+  const style = {
     marginRight: 10,
     top: 'auto',
     right: 20,
     bottom: 20,
     position: 'fixed'
   };
+
   return(
+
     <MuiThemeProvider>    
+      
       <div>
+        
         <Link className="searching" to="/results">
-        <RaisedButton
-        label="BACK TO RESULTS"
-        secondary={true}
-        style={{margin: 12}}
-        /></Link> 
+          <RaisedButton
+            label="BACK TO RESULTS"
+            secondary={true}
+            style={{margin: 12}}
+          />
+        </Link> 
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-      <CardHeader
-        title= {user.name}
-        subtitle= {user.username}
-        style={{position: 'relative', width: '60%', display: 'inline' }}
-      />
-        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-        </div>
-      <CardText>
-        This is where the users profile info goes!
-        <br></br>      
-      </CardText>
+        <CardHeader
+          title= {user.name}
+          subtitle= {user.username}
+          style={{position: 'relative', width: '60%', display: 'inline' }}
+        />
+      <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+      </div>
+        <CardText>
+          This is where the users profile info goes!
+          <br></br>      
+        </CardText>
       </Card> 
-      <h4>Favorites component V </h4>
-      <Favorites />
-      <hr></hr> 
-      <h4>Comments component V</h4>
-      <Comments />
+
+        <h4>Favorites component</h4>
+        <Favorites />
+        <hr></hr> 
+        <h4>Comments component</h4>
+        <Comments />
       </div>
     </MuiThemeProvider>    
   )  

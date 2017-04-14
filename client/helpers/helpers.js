@@ -2,7 +2,7 @@ import * as actions from '../actions/index.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import React from 'react';
-import Result from '../components/result.jsx'
+import Result from '../components/result.jsx';
 
 /*--------------------------------
   AUTHENTICATION
@@ -168,13 +168,13 @@ export const handleSearch = (value, dispatch, results) => {
 
 export const renderResults = (results, dispatch) => {
   return results.resources.map( result => {
+
     return (
       <div key = {result._id}
         onClick={() => dispatch(actions.selectResult(result))}
         style={{zDepth: 10}}
-        >
+      >
         <Result key = {result.id} result = {result} />
-        <br/>
       </div>
     );
   });
@@ -191,6 +191,18 @@ export const getComments = (resultId, dispatch) => {
       console.log(response);
       // set the comments in the store using dispatch
       dispatch(actions.commentsByResource(response.data))
+    })
+    .catch (err => {
+      console.error(err);
+    });
+};
+
+// get all comments for a user
+export const getUserComments = (userId, dispatch) => {
+  axios.get('/comments/' + userId)
+    .then (response => {
+      console.log(response);
+      dispatch(actions.commentsByUser(response.data))
     })
     .catch (err => {
       console.error(err);
@@ -254,12 +266,24 @@ export const getUnapproved = (dispatch) => {
   .catch( err => {
     console.error(err);
   });
-
 };
 
 /*--------------------------------
-FAVORITES
+  FAVORITES
 --------------------------------*/
+//gets user profile info on sign in
+export const getProfile = (dispatch) => {
+  axios.get('/profile/')
+  .then( responses => {
+    console.log(responses);
+    dispatch(actions.userProfile(responses.data));
+    hashHistory.push('/profile');
+  })
+  .catch( err => {
+    console.error(err);
+  });
+};
+
 // handles user click to favorite or unfavorite a resource
 export const handleCheck = (id) => {
   axios.put('/profile/favorites', id)
@@ -318,3 +342,4 @@ export const isDownvoted = (user, result, votes) => {
   };
   return downvoted;
 };
+

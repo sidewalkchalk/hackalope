@@ -8,22 +8,26 @@ var commentController = require('../../db/controllers/comment.js');
 // gets data for user's profile page
 // TODO: rewrite all this bullshit
 router.get('/', utils.checkAuth, function (req, res, next) {
-  var profileData = {};
+  var profile = {};
   // get all resources submitted by a user
   resourceController.findResourcesByUser(req.user._id)
     .then ( resources => {
-      profileData.resources = resources;
+      profile.resources = resources;
       // get all comments submitted by a user
       commentController.findCommentsByUserId(req.user._id)
         .then ( comments => {
-          profileData.comments = comments;
+          profile.comments = comments;
           // get the user's array of favorites
           userController.findUserById(req.user._id)
             .then ( user => {
               resourceController.findFavorites(user.favorites)
                 .then ( favorites => {
-                  profileData.favorites = favorites;
-                  res.json(profileData);
+                  profile.favorites = favorites;
+                  console.log("DATAAAAAAA", profile);
+                //  This is working
+                  res.json(profile);
+                  res.status(201).send(profile);
+
                 })
                 .catch (err => {
                   console.error(err);

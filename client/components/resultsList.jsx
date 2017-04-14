@@ -7,6 +7,7 @@ import { selectResult } from '../actions/index.js'
 // V this is used for an action on redux
 import {bindActionCreator} from 'redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';

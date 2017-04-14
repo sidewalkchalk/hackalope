@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Avatar from 'material-ui/Avatar';
@@ -50,14 +51,6 @@ const Resource = ({result, dispatch}) => {
   return (
     <MuiThemeProvider>
       <div>
-
-        <Link className="profileView" to="/profile">
-          <RaisedButton
-            label="MY PROFILE"
-            secondary={true}
-            style={{margin: 12}}
-          />
-        </Link>
 
         <Link className="searching" to="/results">
           <RaisedButton

@@ -13,6 +13,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   resourceController.findResourcesByLanguage(req.body.language)
     .then ( resources => {
+      console.log(resources);
       // if nothing was entered in the search bar, search all resources
       if (!req.body.term) {
         var sendData = {

@@ -1,5 +1,3 @@
-//Need to standardize nomenclature between actions and reducers
-
 export const selectResult = (result) => {
   return {
     type: 'RESULT_SELECTED',
@@ -88,11 +86,10 @@ export const logInDialog = (dialogs) => {
   };
 };
 
-export const commentsByUser = (comments) => {
-    console.log("Comments by user ", comments );
-    return {
-        type: 'COMMENTS_USER',
-        commments
+export const userProfile = (profile) => {  
+  return {
+    type: 'USER_PROFILE',
+    profile    
     }
 };
 
@@ -140,10 +137,4 @@ export const approveResource = (resource) => {
     resource
   }
 };
-// export const favoritesByUser = ({{prop}}) => {
-//     console.log("Favorites by user", {{prop}});
-//     return {
-//         type: 'FAVORITES_USER',
-//         {{prop}}
-//     }
-// };
+
