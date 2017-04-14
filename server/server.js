@@ -12,6 +12,7 @@ var cors = require('cors');
 // ROUTES
 var auth = require('./routes/auth.js');
 var main = require('./routes/main.js');
+var search = require('./routes/search.js');
 var results = require('./routes/results.js');
 var submit = require('./routes/submit.js');
 var profile = require('./routes/profile.js');
@@ -65,6 +66,7 @@ app.use('/profile', profile);
 app.use('/comments', comments);
 app.use('/admin', admin);
 app.use('/votes', votes);
+app.use('/search', search);
 app.use('/', main);
 
 // CATCH 404 ERRORS

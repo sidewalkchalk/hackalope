@@ -66,12 +66,8 @@ export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
     console.log(response)
-<<<<<<< HEAD
     dispatch(actions.clearUser());
     openLoggedOutSnackbar(dispatch);
-=======
-    dispatch(actions.logout());
->>>>>>> Refactor router.
   })
   .catch (err => {
     console.log(err);
@@ -121,6 +117,10 @@ export const submit = (e, user, submission, dispatch) => {
         title: res.data.title,
         url: res.data.url
       };
+<<<<<<< HEAD
+=======
+
+>>>>>>> Refactored server.
       var newEntry = {
         user: user._id,
         title: preview.title,
@@ -135,8 +135,11 @@ export const submit = (e, user, submission, dispatch) => {
             console.log("Submit Response: ", response);
             dispatch(actions.submitDialog({submit: false}));
             dispatch(actions.clearSubmissionData());
+<<<<<<< HEAD
             openSubmitSnackbar(dispatch);
 
+=======
+>>>>>>> Refactored server.
           })
           .catch ( err => {
             console.error(err)
@@ -156,10 +159,18 @@ export const titleCase = (str) => {
       function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
+export const buildQuery = (value) => {
+  return value.term ?
+    'language=' + value.language + '&term=' + value.term :
+    'language=' + value.language;
+};
+
 // search the database for resources
 export const handleSearch = (value, dispatch) => {
   value.term = titleCase(value.term);
-  axios.post('/', value)
+  value = buildQuery(value);
+
+  axios.get('/search?' + value)
     .then (response => {
       Promise.all([dispatch(actions.clearSearch()),
         dispatch(actions.searchResults(response.data))])
