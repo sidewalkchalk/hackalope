@@ -1,4 +1,5 @@
-import { createStore, combineReducers} from 'redux';
+import { compose, createStore, combineReducers} from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
 import activeResult from './reducers/activeResult.jsx'
 import authReducer from './reducers/authreducer.jsx';
 import submissionReducer from './reducers/submissionReducer.jsx';
@@ -10,6 +11,7 @@ import addCommentReducer from './reducers/addCommentReducer.jsx';
 import unapprovedReducer from './reducers/unapprovedReducer.jsx';
 import profileReducer from './reducers/profileReducer.jsx';
 import snackbarReducer from './reducers/snackbarReducer.jsx';
+import rootReducer from './reducers/rootReducer.jsx';
 
 // combine all reducers
 const combinedReducers = combineReducers({
@@ -27,9 +29,15 @@ const combinedReducers = combineReducers({
 });
 
 // initialize store and initialize redux dev tools
-const store = createStore(combinedReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+  combinedReducers,
+  undefined,
+  compose(
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+
 
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 export default store;
-

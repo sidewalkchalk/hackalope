@@ -26,9 +26,9 @@ export const userFormData = (userFormData) => {
   }
 };
 
-export const clearUser = () => {
+export const logout = () => {
   return {
-    type: 'CLEAR_USER'
+    type: 'LOGOUT'
   }
 };
 

@@ -49,7 +49,9 @@ const Resource = ({result, dispatch}) => {
     <MuiThemeProvider>
       <div>
 
+
         <Link className="searching" to="/results">
+
           <RaisedButton
             label="BACK TO RESULTS"
             secondary={true}

@@ -70,6 +70,16 @@ const Result = ({ result, user, results, dispatch }) => {
               style={styles.checkbox}
             />
           </div>
+        <CardActions>
+          <RaisedButton
+            label="Details"
+            labelPosition="before"
+            primary={true}
+            icon={<DetailIcon />}
+            style={styles.button}
+            onClick={() => getComments(result._id, dispatch)}
+          />
+        </CardActions>
 
           <div style={{position: 'relative', width: "50%", float: 'right'}}>
             <CardActions>

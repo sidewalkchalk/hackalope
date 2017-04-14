@@ -28,6 +28,7 @@ export const login = (e, user, dispatch) => {
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(userData));
       openLoggedInSnackbar(dispatch);
+      hashHistory.push('/main');
     })
     .catch ( err => {
       console.error(err)
@@ -53,6 +54,7 @@ export const signup = (e, user, dispatch) => {
       var newUser = response.data
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(newUser));
+      hashHistory.push('/main');
     })
     .catch ( err => {
       console.error(err)
@@ -64,11 +66,15 @@ export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
     console.log(response)
+<<<<<<< HEAD
     dispatch(actions.clearUser());
     openLoggedOutSnackbar(dispatch);
+=======
+    dispatch(actions.logout());
+>>>>>>> Refactor router.
   })
   .catch (err => {
-    console.log(error);
+    console.log(err);
   });
 };
 
@@ -151,14 +157,14 @@ export const titleCase = (str) => {
 };
 
 // search the database for resources
-export const handleSearch = (value, dispatch, results) => {
+export const handleSearch = (value, dispatch) => {
   value.term = titleCase(value.term);
   axios.post('/', value)
     .then (response => {
       Promise.all([dispatch(actions.clearSearch()),
         dispatch(actions.searchResults(response.data))])
           .then(results => {
-            hashHistory.push('/results');
+            hashHistory.push('/main/results');
           })
     })
     .catch( err => {
@@ -191,6 +197,7 @@ export const getComments = (resultId, dispatch) => {
       console.log(response);
       // set the comments in the store using dispatch
       dispatch(actions.commentsByResource(response.data))
+      hashHistory.push('/resource/' + resultId)
     })
     .catch (err => {
       console.error(err);
