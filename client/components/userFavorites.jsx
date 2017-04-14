@@ -1,34 +1,37 @@
+// Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
 import { userProfile } from '../actions/index.js'
 import { getUserProfile } from '../helpers/helpers.js';
+
+//Required Material UI dependancies 
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 const Favorites = ({profile, dispatch}) => {
 
   const renderUserFavorites = () => {
     return profile.favorites.map(favorite => {
       return (
-        <ul key = {favorite} >
+        <li key = {favorite._id} >
            <Card>
             <CardHeader
-              title={favorite}
-              subtitle={favorite}
+              title={favorite.title}
+              subtitle={favorite.url}
             />
             <CardText>
-                Favorite info 
+              {favorite.rating} 
             </CardText>
           </Card>
-        </ul>
+        </li>
       );
     })
   };
   return (
-    <div>
-      <li style={{ 'listStyleType': 'none' }}>
-        {renderUserFavorites()}
-      </li>
+    <div style={{ width: "100%", marginRight: 'auto', marginLeft: 'auto' }} >
+      <ul style={{ 'listStyleType': 'none' }}>
+      {renderUserFavorites()}
+      </ul>
     </div>
   )
 };

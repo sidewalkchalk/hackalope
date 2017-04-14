@@ -1,11 +1,11 @@
-const ProfileReducer = (state = {}, action) => {
+const profileReducer = (state = {}, action) => {
   switch (action.type) {
     case 'USER_PROFILE':
-      return Object.assign({}, state, action.userProfile);
+      return Object.assign({}, state, action.profile);
     default:
       return state;
   }
 };
 
-export default ProfileReducer;
+export default profileReducer;
 

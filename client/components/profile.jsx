@@ -28,10 +28,10 @@ const Profile = ({user, dispatch}) => {
       <div>
         
         <Link className="searching" to="/results">
-          <FlatButton
+          <RaisedButton
             label="BACK TO RESULTS"
-            primary={true}
-            style={{margin: 12, marginLeft: 147.42}}
+            secondary={true}
+            style={{margin: 12}}
           />
         </Link> 
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>

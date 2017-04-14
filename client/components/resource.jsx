@@ -52,14 +52,6 @@ const Resource = ({result, dispatch}) => {
     <MuiThemeProvider>
       <div>
 
-        <Link className="profileView" to="/profile">
-          <RaisedButton
-            label="MY PROFILE"
-            secondary={true}
-            style={{margin: 12}}
-          />
-        </Link>
-
         <Link className="searching" to="/results">
           <RaisedButton
             label="BACK TO RESULTS"

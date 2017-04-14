@@ -168,13 +168,13 @@ export const handleSearch = (value, dispatch, results) => {
 
 export const renderResults = (results, dispatch) => {
   return results.resources.map( result => {
+
     return (
       <div key = {result._id}
         onClick={() => dispatch(actions.selectResult(result))}
         style={{zDepth: 10}}
-        >
+      >
         <Result key = {result.id} result = {result} />
-        <br/>
       </div>
     );
   });
@@ -271,21 +271,19 @@ export const getUnapproved = (dispatch) => {
 /*--------------------------------
   FAVORITES
 --------------------------------*/
-
-export const getUserProfile = (dispatch) => {
+//gets user profile info on sign in
+export const getProfile = (dispatch) => {
   axios.get('/profile/')
   .then( responses => {
     console.log(responses);
-    dispatch(actions.userProfile(responses));
+    dispatch(actions.userProfile(responses.data));
+    hashHistory.push('/profile');
   })
   .catch( err => {
     console.error(err);
   });
 };
 
-/*--------------------------------
-FAVORITES
---------------------------------*/
 // handles user click to favorite or unfavorite a resource
 export const handleCheck = (id) => {
   axios.put('/profile/favorites', id)

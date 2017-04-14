@@ -1,5 +1,3 @@
-//Need to standardize nomenclature between actions and reducers
-
 export const selectResult = (result) => {
   return {
     type: 'RESULT_SELECTED',
@@ -139,10 +137,4 @@ export const approveResource = (resource) => {
     resource
   }
 };
-// export const favoritesByUser = ({{prop}}) => {
-//     console.log("Favorites by user", {{prop}});
-//     return {
-//         type: 'FAVORITES_USER',
-//         {{prop}}
-//     }
-// };
+
