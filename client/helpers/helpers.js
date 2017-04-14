@@ -418,4 +418,3 @@ export const closePendingSnackbar = (dispatch) => {
   dispatch(actions.pendingSnackbar({pending: false}));
 };
 
-
