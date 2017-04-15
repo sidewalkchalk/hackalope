@@ -37,7 +37,7 @@ const LoggedOutMenu = ({dispatch}) => {
   const handleSubmit = () => {
     axios.get('auth/github')
       .then ( response => {
-        console.log(response);
+        return window.location.href = response.request.responseURL;
       })
       .catch ( err => {
         console.error(err);
