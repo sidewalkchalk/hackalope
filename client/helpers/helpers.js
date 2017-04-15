@@ -17,8 +17,12 @@ export const handleLoginClose = (dispatch) => {
   dispatch(actions.logInDialog({login: false}));
 };
 
+export const reloadResources = (search, dispatch) => {
+  handleSearch(search.query, dispatch)
+}
+
 // handle request for authentication
-export const login = (e, user, dispatch) => {
+export const login = (e, user, search, dispatch) => {
   e.preventDefault();
   handleLoginClose(dispatch);
   axios.post('/auth/login', user)
@@ -26,9 +30,17 @@ export const login = (e, user, dispatch) => {
       console.log("THIS IS THE DATA", response.data);
       var userData = response.data
       // change the store to add the name, username, admin, _id, favorites
-      dispatch(actions.selectUser(userData));
-      openLoggedInSnackbar(dispatch);
-      hashHistory.push('/main');
+
+      if (window.location.hash === '#/main/results') {
+        return Promise.all([reloadResources(search, dispatch)])
+          .then(resolve => {
+            dispatch(actions.selectUser(userData));
+            openLoggedInSnackbar(dispatch);
+          })
+          .catch(err => {
+            console.error(err);
+          });
+        };
     })
     .catch ( err => {
       console.error(err)
@@ -46,7 +58,7 @@ export const handleSignUpClose = (dispatch) => {
 };
 
 // handle request to create new account
-export const signup = (e, user, dispatch) => {
+export const signup = (e, user, search, dispatch) => {
   e.preventDefault();
   handleSignUpClose(dispatch);
   axios.post('/auth/signup', user)
@@ -117,10 +129,7 @@ export const submit = (e, user, submission, dispatch) => {
         title: res.data.title,
         url: res.data.url
       };
-<<<<<<< HEAD
-=======
 
->>>>>>> Refactored server.
       var newEntry = {
         user: user._id,
         title: preview.title,
@@ -135,11 +144,8 @@ export const submit = (e, user, submission, dispatch) => {
             console.log("Submit Response: ", response);
             dispatch(actions.submitDialog({submit: false}));
             dispatch(actions.clearSubmissionData());
-<<<<<<< HEAD
             openSubmitSnackbar(dispatch);
 
-=======
->>>>>>> Refactored server.
           })
           .catch ( err => {
             console.error(err)
@@ -166,17 +172,19 @@ export const buildQuery = (value) => {
 };
 
 // search the database for resources
-export const handleSearch = (value, dispatch) => {
-  value.term = titleCase(value.term);
-  value = buildQuery(value);
-
-  axios.get('/search?' + value)
+export const handleSearch = (query, dispatch) => {
+  query.term = titleCase(query.term);
+  // store the current search query
+  console.log(query);
+  dispatch(actions.searchQuery(query))
+  // build query string and search
+  query = buildQuery(query);
+  axios.get('/search?' + query)
     .then (response => {
-      Promise.all([dispatch(actions.clearSearch()),
-        dispatch(actions.searchResults(response.data))])
-          .then(results => {
-            hashHistory.push('/main/results');
-          })
+      console.log(response);
+      dispatch(actions.clearSearch()),
+      dispatch(actions.searchResults(response.data, ))
+      hashHistory.push('/main/results');
     })
     .catch( err => {
       console.error(err)
@@ -297,7 +305,7 @@ export const getProfile = (dispatch) => {
   .then( responses => {
     console.log(responses);
     dispatch(actions.userProfile(responses.data));
-    hashHistory.push('/profile');
+    hashHistory.push('/user/profile');
   })
   .catch( err => {
     console.error(err);

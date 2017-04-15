@@ -12,6 +12,13 @@ export const searchResults = (results) => {
   };
 };
 
+export const searchQuery = (query) => {
+  return {
+    type: 'STORE_QUERY',
+    query
+  }
+}
+
 export const selectUser = (user) => {
   return {
     type: 'STORE_USER',
@@ -86,10 +93,10 @@ export const logInDialog = (dialogs) => {
   };
 };
 
-export const userProfile = (profile) => {  
+export const userProfile = (profile) => {
   return {
     type: 'USER_PROFILE',
-    profile    
+    profile
     }
 };
 
@@ -186,5 +193,3 @@ export const pendingSnackbar = (snackbar) => {
     snackbar
   }
 }
-
-

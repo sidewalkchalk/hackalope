@@ -7,9 +7,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-
 
 const Profile = ({user, dispatch}) => {
 
@@ -22,37 +21,25 @@ const Profile = ({user, dispatch}) => {
   };
 
   return(
-
-
     <MuiThemeProvider>
-
       <div>
-
-        <Link className="searching" to="/results">
-          <RaisedButton
-            label="BACK TO RESULTS"
-            secondary={true}
-            style={{margin: 12}}
-        /></Link>
-      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-      <CardHeader
-        title= {user.name}
-        subtitle= {user.username}
-        style={{position: 'relative', width: '60%', display: 'inline' }}
-      />
-        <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
-        </div>
-      <CardText>
-        This is where the users profile info goes!
-        <br></br>
-      </CardText>
-      </Card>
-      <h4>Favorites component V </h4>
-      <Favorites />
-      <hr></hr>
-      <h4>Comments component V</h4>
-      <Comments />
-
+        <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+          <CardHeader
+            title= {user.name}
+            subtitle= {user.username}
+            style={{position: 'relative', width: '60%', display: 'inline' }}
+          />
+            <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}} />
+              <CardText>
+                This is where the users profile info goes!
+                <br></br>
+              </CardText>
+        </Card>
+        <h4>Favorites component V </h4>
+        <Favorites />
+        <hr></hr>
+        <h4>Comments component V</h4>
+        <Comments />
       </div>
     </MuiThemeProvider>
   )
