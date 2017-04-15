@@ -8,17 +8,22 @@ import commentsReducer from './commentsReducer.jsx';
 import resultsReducer from './resultsReducer.jsx';
 import addCommentReducer from './addCommentReducer.jsx';
 import unapprovedReducer from './unapprovedReducer.jsx';
+import profileReducer from './profileReducer.jsx';
+import snackbarReducer from './snackBarReducer.jsx'
 
+// combine all reducers
 const appReducer = combineReducers({
-  results: resultsReducer,
-  result: activeResult,
-  user: authReducer,
-  submission: submissionReducer,
-  search: searchReducer,
-  dialogs: dialogReducer,
-  comments: commentsReducer,
-  comment: addCommentReducer,
-  unapproved: unapprovedReducer
+   results: resultsReducer,
+   result: activeResult,
+   user: authReducer,
+	 submission: submissionReducer,
+	 search: searchReducer,
+	 dialogs: dialogReducer,
+   comments: commentsReducer,
+   comment: addCommentReducer,
+   unapproved: unapprovedReducer,
+   profile: profileReducer,
+   snackbar: snackbarReducer,
 });
 
 const rootReducer = (state, action) => {
