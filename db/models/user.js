@@ -12,7 +12,8 @@ const userSchema = new Schema({
   favorites: [{
     type: Schema.Types.ObjectId,
     ref: 'Resource'
-  }]
+  }],
+  avatar: String
 });
 
 // hash password before saving it to the db
