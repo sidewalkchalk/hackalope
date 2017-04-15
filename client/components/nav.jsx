@@ -53,10 +53,12 @@ const Nav = ({user, snackbar, unapproved, dispatch}) => {
       open={snackbar.login}
       message="Successfully Logged In"
       autoHideDuration={1300}
-      onRequestClose={() => {closeLoggedInSnackbar(dispatch);
-                              if(user.admin){
-                                openAdminSnackbar(dispatch);
-                              }}}
+      onRequestClose={() => {
+        closeLoggedInSnackbar(dispatch);
+        if (user.admin) {
+          openAdminSnackbar(dispatch);
+        }
+      }}
     />
     <Snackbar
       open={snackbar.logout}

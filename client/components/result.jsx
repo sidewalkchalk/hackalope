@@ -12,6 +12,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
+import ContentLink from 'material-ui/svg-icons/content/link.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
@@ -71,7 +72,8 @@ const Result = ({ result, user, results, dispatch }) => {
             />
           </div>
 
-          <div style={{ position: 'relative', width: "50%", float: 'right'}}>
+          <div style={{ position: 'absolute', alignContent: 'flex-end', width: "50%", float: 'right', bottom: '0', right: '0'}}>
+          <span style={{position: 'relative', float: 'right'}}>
             <CardActions>
               <RaisedButton
                 label="Details"
@@ -85,12 +87,14 @@ const Result = ({ result, user, results, dispatch }) => {
               <RaisedButton
                 label="Link"
                 labelPosition="before"
+                icon={<ContentLink />}
                 primary={true}
                 style={styles.button}
                 href={`${result.url}`}
                 target="_blank"
               />
             </CardActions>
+            </span>
           </div>
       </Card>
     </MuiThemeProvider>
