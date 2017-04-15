@@ -1,6 +1,7 @@
 // Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
+
 // need to put github icon instead of button
 // import IconButton from 'material-ui/IconButton';
 // import FontIcon from 'material-ui/FontIcon';
@@ -12,7 +13,7 @@ import { signUpDialog, logInDialog } from '../actions/index.js';
 import axios from 'axios';
 import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js';
 
-//Required Material UI dependancies 
+//Required Material UI dependancies
 import RaisedButton from 'material-ui/RaisedButton';
 
 
@@ -35,13 +36,7 @@ const LoggedOutMenu = ({dispatch}) => {
   };
 
   const handleSubmit = () => {
-    axios.get('auth/github')
-      .then ( response => {
-        return window.location.href = response.request.responseURL;
-      })
-      .catch ( err => {
-        console.error(err);
-      })
+
   };
 
   return (
@@ -58,13 +53,14 @@ const LoggedOutMenu = ({dispatch}) => {
         style={{margin: 12}}
         onTouchTap={() => handleLoginOpen(dispatch)}
       />
-
+    <a href='/auth/github'>
       <RaisedButton
         style={{margin: 12}}
         label="github"
         secondary={true}
-        onTouchTap={(e) => handleSubmit(e)}
-      />
+        onClick={() => handleSubmit()}
+        />
+    </a>
     </div>
   );
 }
