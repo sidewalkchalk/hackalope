@@ -3,10 +3,6 @@ import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
-// Required Dependencies
-
-
 //Required Material UI dependancies 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -15,7 +11,7 @@ import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+
 
 const Profile = ({user, dispatch}) => {
 

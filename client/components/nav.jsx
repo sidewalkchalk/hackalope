@@ -1,9 +1,7 @@
 // Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
-         closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
-         closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/helpers.js';
+
 import { Link, hashHistory } from 'react-router';
 
 // Required Dependencies
@@ -11,26 +9,18 @@ import Login from './login.jsx';
 import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
 import axios from 'axios';
+import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
+         closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
+         closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/helpers.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import Toggle from 'material-ui/Toggle';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import FontIcon from 'material-ui/FontIcon';
-import {fullWhite} from 'material-ui/styles/colors';
-import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
-
-
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
