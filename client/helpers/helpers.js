@@ -29,16 +29,21 @@ export const login = (e, user, search, dispatch) => {
     .then( response => {
       var userData = response.data
       // change the store to add the name, username, admin, _id, favorites
-      dispatch(actions.selectUser(userData));
-      openLoggedInSnackbar(dispatch);
-      if (window.location.hash === '#/main/results') {
-        return Promise.all([reloadResources(search, dispatch)])
+      return Promise.all([
+        dispatch(actions.selectUser(userData)),
+        openLoggedInSnackbar(dispatch)])
           .then(resolve => {
+            if (window.location.hash === '#/main/results') {
+              return Promise.all([reloadResources(search, dispatch)])
+              .then(resolve => {
+                console.log(resolve)
+              })
+              .catch(err => {
+                console.error(err);
+              });
+            };
+
           })
-          .catch(err => {
-            console.error(err);
-          });
-        };
     })
     .catch ( err => {
       console.error(err)
@@ -346,7 +351,7 @@ export const handleVote = (resourceId, votes, newVote, dispatch) => {
 // return bool for status of upvote button
 export const isUpvoted = (user, result, votes) => {
   var upvoted = false;
-  if (user._id) {
+  if (user._id && votes) {
     votes.forEach(vote => {
       if (vote.resource === result._id && vote.vote === 1) {
         upvoted = true;
@@ -359,7 +364,7 @@ export const isUpvoted = (user, result, votes) => {
 // return bool for status of downvote button
 export const isDownvoted = (user, result, votes) => {
   var downvoted = false;
-  if (user._id) {
+  if (user._id && votes) {
     votes.forEach(vote => {
       if (vote.resource === result._id && vote.vote === -1) {
         downvoted = true;
