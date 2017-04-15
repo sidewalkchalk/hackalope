@@ -56,7 +56,7 @@ export const handleSignUpClose = (dispatch) => {
 };
 
 // handle request to create new account
-export const signup = (e, user, search, dispatch) => {
+export const signup = (e, user, dispatch) => {
   e.preventDefault();
   handleSignUpClose(dispatch);
   axios.post('/auth/signup', user)
@@ -76,8 +76,9 @@ export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
     console.log(response)
-    dispatch(actions.clearUser());
+    dispatch(actions.logout());
     openLoggedOutSnackbar(dispatch);
+    hashHistory.push('/');
   })
   .catch (err => {
     console.log(err);
