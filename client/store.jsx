@@ -7,10 +7,12 @@ const store = createStore(
   rootReducer,
   undefined,
   compose(
+    autoRehydrate(),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 
+persistStore(store);
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 export default store;
