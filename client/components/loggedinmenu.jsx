@@ -12,12 +12,9 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
 
-<<<<<<< HEAD
 // Required Dependencies
 import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js'
 
-=======
->>>>>>> refactor and cleanup of components, part one
 const LoggedInMenu = ({ user, dispatch}) => {
 
   return (
