@@ -23,9 +23,11 @@ export const login = (e, user, dispatch) => {
   handleLoginClose(dispatch);
   axios.post('/auth/login', user)
     .then( response => {
+      console.log("THIS IS THE DATA", response.data);
       var userData = response.data
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(userData));
+      openLoggedInSnackbar(dispatch);
     })
     .catch ( err => {
       console.error(err)
@@ -63,6 +65,7 @@ export const logout = (dispatch) => {
   .then( response => {
     console.log(response)
     dispatch(actions.clearUser());
+    openLoggedOutSnackbar(dispatch);
   })
   .catch (err => {
     console.log(error);
@@ -94,7 +97,8 @@ export const titleCaseArray = (str) => {
 };
 
 // post new submission to the server
-export const submit = (e, user, submission, preview, dispatch) => {
+export const submit = (e, user, submission, dispatch) => {
+  e.preventDefault();
   var tagArray = titleCaseArray(submission.tags);
   var config = {
     headers: {
@@ -103,18 +107,14 @@ export const submit = (e, user, submission, preview, dispatch) => {
       'Access-Control-Allow-Origin': '*'
     },
   };
-
   axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + submission.url, config)
     .then( res => {
-      preview = {
+      var preview = {
         description: res.data.description,
         image: res.data.image,
         title: res.data.title,
         url: res.data.url
       };
-      console.log("Site preview: ", preview);
-    })
-    .then(() => {
       var newEntry = {
         user: user._id,
         title: preview.title,
@@ -124,21 +124,20 @@ export const submit = (e, user, submission, preview, dispatch) => {
         tags: tagArray,
         image: preview.image
       };
-      axios.post('/submit', newEntry)
-        .then( response => {
-          console.log("Submit Response: ", response);
-          dispatch(actions.submitDialog({submit: false}));
-          dispatch(actions.clearSubmissionData());
+        axios.post('/submit', newEntry)
+          .then( response => {
+            console.log("Submit Response: ", response);
+            dispatch(actions.submitDialog({submit: false}));
+            dispatch(actions.clearSubmissionData());
+            openSubmitSnackbar(dispatch);
+          })
+          .catch ( err => {
+            console.error(err)
         })
-        .catch ( err => {
-          console.error(err)
-        })
-      })
+    })
     .catch( err => {
       console.error(err)
     })
-
-  e.preventDefault();
 };
 
 /*--------------------------------
@@ -238,6 +237,7 @@ export const approveResource = (resultId, dispatch) =>  {
   .then( response => {
     console.log(response);
     getUnapproved(dispatch);
+    openApprovedSnackbar(dispatch);
   })
   .catch( err => {
     console.error(err);
@@ -250,6 +250,7 @@ export const unapproveResource = (resultId, dispatch) => {
   .then( response => {
     console.log(response);
     getUnapproved(dispatch);
+    openUnapprovedSnackbar(dispatch);
   })
   .catch(err => {
     console.error(err);
@@ -341,5 +342,78 @@ export const isDownvoted = (user, result, votes) => {
     });
   };
   return downvoted;
+};
+
+/*--------------------------------
+  SNACKBARS - located in nav component
+--------------------------------*/
+// open logged in snackbar
+export const openLoggedInSnackbar = (dispatch) => {
+  dispatch(actions.loginSnackbar({login: true}));
+};
+
+// close logged in snackbar
+export const closeLoggedInSnackbar = (dispatch) => {
+  dispatch(actions.loginSnackbar({login: false}));
+};
+
+// open logged out snackbar
+export const openLoggedOutSnackbar = (dispatch) => {
+  dispatch(actions.logoutSnackbar({logout: true}));
+};
+
+// close logged out snackbar
+export const closeLoggedOutSnackbar = (dispatch) => {
+  dispatch(actions.logoutSnackbar({logout: false}));
+};
+
+// open admin snackbar
+export const openAdminSnackbar = (dispatch) => {
+  dispatch(actions.adminSnackbar({admin: true}));
+};
+
+// close admin snackbar
+export const closeAdminSnackbar = (dispatch) => {
+  dispatch(actions.adminSnackbar({admin: false}));
+};
+
+// open new submission snackbar
+export const openSubmitSnackbar = (dispatch) => {
+  dispatch(actions.submitSnackbar({submit: true}));
+};
+
+// close new submission snackbar
+export const closeSubmitSnackbar = (dispatch) => {
+  dispatch(actions.submitSnackbar({submit: false}));
+};
+
+// open approved snackbar
+export const openApprovedSnackbar = (dispatch) => {
+  dispatch(actions.approveSnackbar({approved: true}));
+};
+
+// close approved snackbar
+export const closeApprovedSnackbar = (dispatch) => {
+  dispatch(actions.approveSnackbar({approved: false}));
+};
+
+// open unapproved snackbar
+export const openUnapprovedSnackbar = (dispatch) => {
+  dispatch(actions.unapproveSnackbar({unapproved: true}));
+};
+
+// close unapproved snackbar
+export const closeUnapprovedSnackbar = (dispatch) => {
+  dispatch(actions.unapproveSnackbar({unapproved: false}));
+};
+
+// open pending resource reviews snackbar
+export const openPendingSnackbar = (dispatch) => {
+  dispatch(actions.pendingSnackbar({pending: true}));
+};
+
+// close pending resource reviews snackbar
+export const closePendingSnackbar = (dispatch) => {
+  dispatch(actions.pendingSnackbar({pending: false}));
 };
 

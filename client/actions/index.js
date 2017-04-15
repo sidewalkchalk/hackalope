@@ -30,7 +30,7 @@ export const clearUser = () => {
   return {
     type: 'CLEAR_USER'
   }
-}
+};
 
 export const submissionData = (submission) => {
   return {
@@ -98,7 +98,7 @@ export const newComment = (comment) => {
     type: 'ADD_COMMENT',
     comment
   }
-}
+};
 
 export const commentsByResource = (comments) => {
     //console.log("Comments by resource ", {{prop}});
@@ -129,7 +129,7 @@ export const updateVote = (resourceId, votes, newVote) => {
     votes,
     newVote
   }
-}
+};
 
 export const approveResource = (resource) => {
   return {
@@ -137,4 +137,54 @@ export const approveResource = (resource) => {
     resource
   }
 };
+
+export const loginSnackbar = (snackbar) => {
+  return {
+    type: 'LOGIN_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const logoutSnackbar = (snackbar) => {
+  return {
+    type: 'LOGOUT_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const adminSnackbar = (snackbar)=> {
+  return {
+    type: 'ADMIN_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const submitSnackbar = (snackbar) => {
+  return {
+    type: 'SUBMIT_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const approveSnackbar = (snackbar) => {
+  return {
+    type: 'APPROVE_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const unapproveSnackbar = (snackbar) => {
+  return {
+    type: 'UNAPPROVE_SNACKBAR_OPEN',
+    snackbar
+  }
+};
+
+export const pendingSnackbar = (snackbar) => {
+  return {
+    type: 'PENDING_SNACKBAR_OPEN',
+    snackbar
+  }
+}
+
 
