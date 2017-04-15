@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import activeResult from './activeResult.jsx'
+import activeResult from './activeResult.jsx';
 import authReducer from './authreducer.jsx';
 import submissionReducer from './submissionReducer.jsx';
 import searchReducer from './searchReducer.jsx';
@@ -9,7 +9,7 @@ import resultsReducer from './resultsReducer.jsx';
 import addCommentReducer from './addCommentReducer.jsx';
 import unapprovedReducer from './unapprovedReducer.jsx';
 import profileReducer from './profileReducer.jsx';
-import snackbarReducer from './snackBarReducer.jsx'
+import snackbarReducer from './snackBarReducer.jsx';
 
 // combine all reducers
 const appReducer = combineReducers({
@@ -23,7 +23,7 @@ const appReducer = combineReducers({
    comment: addCommentReducer,
    unapproved: unapprovedReducer,
    profile: profileReducer,
-   snackbar: snackbarReducer,
+   snackbar: snackbarReducer
 });
 
 const rootReducer = (state, action) => {
