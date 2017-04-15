@@ -30,13 +30,13 @@ const Result = ({ result, user, results, dispatch }) => {
     <MuiThemeProvider>
       <Card style={{ position: 'relative', width: '100%', minHeight: 100, padding: 10 }}>
 
-        <div style={{ paddingTop: "10px", verticalAlign: 'middle', position: 'relative', top: "-50%", left: 50, display: 'inline-block', float: 'left'}}>
+        <div style={{ paddingTop: "10px", verticalAlign: 'middle', position: 'relative', top: "-50%", left: 60, display: 'inline-block', float: 'left'}}>
           <img src={`${result.image}`} width="40"/>
         </div>
         <CardHeader
           title= {result.title}
           subtitle= {result.language}
-          style={{position: 'relative', left: 100, width: "60%", display: 'inline' }}
+          style={{position: 'relative', left: 90, width: "60%", display: 'inline' }}
         />
 
           <div style={{ position: 'absolute', left: 0, display: 'inline-flex', float: 'left'}}>
@@ -105,7 +105,7 @@ const styles = {
   },
   checkbox: {
     marginBottom: 0,
-  },
+  }
 };
 
 const mapStateToProps = (state) => {

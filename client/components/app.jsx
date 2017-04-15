@@ -14,19 +14,19 @@ import Main from './main.jsx';
 import User from './user.jsx';
 
 const App = (props) => (
-    <Router history={hashHistory}>
-      <Route path='/' component={Landing} />
-      <Route path='/main' component={Main}>
-        <Route path='/main/results' component={ResultsList} />
-        <Route path='/login' component={Login} />
-        <Route path='/submit' component={Submit} />
-      </Route>
-      <Route path='/resource/:id' component={ResourceContainer} />
-      <Route path='/user' component={User}>
-        <Route path='/user/profile' component={Profile} />
-        <Route path='/user/admin' component = {Admin} />
-      </Route>
-    </Router>
+  <Router history={hashHistory}>
+    <Route path='/' component={Landing} />
+    <Route path='/main' component={Main}>
+      <Route path='/main/results' component={ResultsList} />
+      <Route path='/login' component={Login} />
+      <Route path='/submit' component={Submit} />
+    </Route>
+    <Route path='/resource/:id' component={ResourceContainer} />
+    <Route path='/user' component={User}>
+      <Route path='/user/profile' component={Profile} />
+      <Route path='/user/admin' component = {Admin} />
+    </Route>
+  </Router>
 );
 
 export default App;
