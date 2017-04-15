@@ -1,8 +1,11 @@
 // Required React Components
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { selectUser, userFormData, signUpDialog } from '../actions/index.js';
+
+// Required Dependencies
+import { signup, handleSignUpClose } from '../helpers/helpers.js';
+import { userFormData } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,8 +13,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
-// Required Dependencies
-import { signup, handleSignUpClose } from '../helpers/helpers.js'
+
 
 const SignUp = ({ user, dialogs, dispatch }) => {
 
@@ -39,7 +41,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
         actions={actions}
         modal={false}
         open={dialogs.signup}
-        onRequestClose={() => handleClose(dispatch)}
+        onRequestClose={() => handleSignUpClose(dispatch)}
       >
         <form onSubmit={(e) => signup(e, user, dispatch)}>
           <TextField name="name"

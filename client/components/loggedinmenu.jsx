@@ -1,15 +1,17 @@
+// Required React Components
 import React from 'react';
 import { clearUser } from '../actions/index.js'
 import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
 
+// Required Dependencies
+import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js';
+
+//Required Material UI dependancies 
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
-
-// Required Dependencies
-import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js'
 
 const LoggedInMenu = ({ user, dispatch}) => {
 

@@ -3,18 +3,16 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
-// Functions
+// Required Dependencies
 import { commentsByResource } from '../actions/index.js'
 import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
 import ArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up.js';
 import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down.js';
 import Checkbox from 'material-ui/Checkbox';

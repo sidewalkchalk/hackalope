@@ -1,13 +1,11 @@
 // Required React Components
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
-
-// Required Modules
+// Required Dependencies
 import Landing from './landing.jsx';
 import ResultsList from './resultsList.jsx';
 import ResourceContainer from './resourceContainer.jsx';
-import SignUp from './signup.jsx';
 import Login from './login.jsx';
 import Submit from './submit.jsx';
 import Admin from './admin.jsx';

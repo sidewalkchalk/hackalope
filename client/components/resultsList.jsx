@@ -1,21 +1,13 @@
+// Required React Components
 import React from 'react';
 import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
-import Result from './result.jsx';
-import {bindActionCreators } from 'redux';
-import { selectResult } from '../actions/index.js'
-// V this is used for an action on redux
-import {bindActionCreator} from 'redux';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Required Dependencies
 import { renderResults } from '../helpers/helpers.js'
 
+//Required Material UI dependancies 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const ResultsList = ({ results, dispatch }) => {
 

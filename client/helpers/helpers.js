@@ -233,7 +233,6 @@ export const getUserComments = (userId, dispatch) => {
     });
 };
 
-
 // add a new comment on a resource
 export const addComment = (e, user, result, comment, dispatch) => {
   e.preventDefault();
@@ -251,7 +250,7 @@ export const addComment = (e, user, result, comment, dispatch) => {
     .catch ( err => {
       console.error(err)
   })
-  };
+};
 
 /*--------------------------------
   ADMIN

@@ -2,7 +2,6 @@
 import React from 'react';
 import { Router, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { searchTerm, clearSearch, searchResults } from '../actions/index.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,7 +13,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // Required Dependencies
-import { handleSearch } from '../helpers/helpers.js'
+import { handleSearch } from '../helpers/helpers.js';
+import { searchTerm } from '../actions/index.js';
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [
