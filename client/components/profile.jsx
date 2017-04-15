@@ -12,7 +12,6 @@ import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 
-
 const Profile = ({user, dispatch}) => {
 
   const style = {

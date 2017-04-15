@@ -1,11 +1,13 @@
 // Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStore , bindActionCreators} from 'redux';
+import { createStore } from 'redux';
+
+// Required Dependencies
 import { userProfile } from '../actions/index.js'
 
 //Required Material UI dependancies 
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 const UserComments = ({profile, dispatch}) => {
 

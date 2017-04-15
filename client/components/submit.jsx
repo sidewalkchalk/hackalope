@@ -4,13 +4,12 @@ import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required Dependencies
-import { submitDialog, submissionData, clearSubmissionData } from '../actions/index.js';
+import { submissionData } from '../actions/index.js';
 import TagSelector from './tagselector.jsx';
 import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js';
 
 // Required Material UI Components
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -18,7 +17,6 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import TextField from 'material-ui/TextField';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Snackbar from 'material-ui/Snackbar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 

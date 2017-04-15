@@ -2,20 +2,12 @@
 import React from 'react';
 import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
-import Result from './result.jsx';
 
 // Required Dependencies
 import { renderResults } from '../helpers/helpers.js'
-import { selectResult } from '../actions/index.js'
 
 //Required Material UI dependancies 
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-
 
 const ResultsList = ({ results, dispatch }) => {
 

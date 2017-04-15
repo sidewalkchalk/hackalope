@@ -3,12 +3,9 @@ import React from 'react';
 import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
 // Required Dependencies
-
-import Main from './main.jsx';
 import Landing from './landing.jsx';
 import ResultsList from './resultsList.jsx';
 import ResourceContainer from './resourceContainer.jsx';
-import SignUp from './signup.jsx';
 import Login from './login.jsx';
 import Submit from './submit.jsx';
 import Admin from './admin.jsx';

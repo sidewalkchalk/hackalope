@@ -13,7 +13,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const Admin = ({comments, unapproved, dispatch}) => {
+const Admin = ({unapproved, dispatch}) => {
 
   const renderPending = () => {
     return unapproved.map( resource => {
@@ -58,7 +58,6 @@ const Admin = ({comments, unapproved, dispatch}) => {
 
 const mapStateToProps = (state) => {
   return {
-    comments: state.comments,
     unapproved: state.unapproved
   };
 };

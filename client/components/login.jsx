@@ -1,6 +1,6 @@
 // Required React Components
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { userFormData } from '../actions/index.js';
 
