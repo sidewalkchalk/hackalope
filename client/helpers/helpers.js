@@ -130,6 +130,7 @@ export const submit = (e, user, submission, dispatch) => {
             dispatch(actions.submitDialog({submit: false}));
             dispatch(actions.clearSubmissionData());
             openSubmitSnackbar(dispatch);
+
           })
           .catch ( err => {
             console.error(err)
@@ -416,4 +417,3 @@ export const openPendingSnackbar = (dispatch) => {
 export const closePendingSnackbar = (dispatch) => {
   dispatch(actions.pendingSnackbar({pending: false}));
 };
-
