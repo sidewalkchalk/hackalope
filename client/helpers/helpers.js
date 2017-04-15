@@ -17,17 +17,28 @@ export const handleLoginClose = (dispatch) => {
   dispatch(actions.logInDialog({login: false}));
 };
 
+export const reloadResources = (search, dispatch) => {
+  handleSearch(search.query, dispatch)
+}
+
 // handle request for authentication
-export const login = (e, user, dispatch) => {
+export const login = (e, user, search, dispatch) => {
   e.preventDefault();
   handleLoginClose(dispatch);
   axios.post('/auth/login', user)
     .then( response => {
-      console.log("THIS IS THE DATA", response.data);
       var userData = response.data
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(userData));
       openLoggedInSnackbar(dispatch);
+      if (window.location.hash === '#/main/results') {
+        return Promise.all([reloadResources(search, dispatch)])
+          .then(resolve => {
+          })
+          .catch(err => {
+            console.error(err);
+          });
+        };
     })
     .catch ( err => {
       console.error(err)
@@ -45,7 +56,7 @@ export const handleSignUpClose = (dispatch) => {
 };
 
 // handle request to create new account
-export const signup = (e, user, dispatch) => {
+export const signup = (e, user, search, dispatch) => {
   e.preventDefault();
   handleSignUpClose(dispatch);
   axios.post('/auth/signup', user)
@@ -53,6 +64,7 @@ export const signup = (e, user, dispatch) => {
       var newUser = response.data
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(newUser));
+      hashHistory.push('/main');
     })
     .catch ( err => {
       console.error(err)
@@ -68,7 +80,7 @@ export const logout = (dispatch) => {
     openLoggedOutSnackbar(dispatch);
   })
   .catch (err => {
-    console.log(error);
+    console.log(err);
   });
 };
 
@@ -115,6 +127,7 @@ export const submit = (e, user, submission, dispatch) => {
         title: res.data.title,
         url: res.data.url
       };
+
       var newEntry = {
         user: user._id,
         title: preview.title,
@@ -150,16 +163,26 @@ export const titleCase = (str) => {
       function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
+export const buildQuery = (value) => {
+  return value.term ?
+    'language=' + value.language + '&term=' + value.term :
+    'language=' + value.language;
+};
+
 // search the database for resources
-export const handleSearch = (value, dispatch, results) => {
-  value.term = titleCase(value.term);
-  axios.post('/', value)
+export const handleSearch = (query, dispatch) => {
+  query.term = titleCase(query.term);
+  // store the current search query
+  console.log(query);
+  dispatch(actions.searchQuery(query))
+  // build query string and search
+  query = buildQuery(query);
+  axios.get('/search?' + query)
     .then (response => {
-      Promise.all([dispatch(actions.clearSearch()),
-        dispatch(actions.searchResults(response.data))])
-          .then(results => {
-            hashHistory.push('/results');
-          })
+      console.log(response);
+      dispatch(actions.clearSearch()),
+      dispatch(actions.searchResults(response.data, ))
+      hashHistory.push('/main/results');
     })
     .catch( err => {
       console.error(err)
@@ -191,6 +214,7 @@ export const getComments = (resultId, dispatch) => {
       console.log(response);
       // set the comments in the store using dispatch
       dispatch(actions.commentsByResource(response.data))
+      hashHistory.push('/resource/' + resultId)
     })
     .catch (err => {
       console.error(err);
@@ -279,7 +303,7 @@ export const getProfile = (dispatch) => {
   .then( responses => {
     console.log(responses);
     dispatch(actions.userProfile(responses.data));
-    hashHistory.push('/profile');
+    hashHistory.push('/user/profile');
   })
   .catch( err => {
     console.error(err);

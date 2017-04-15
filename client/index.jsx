@@ -22,6 +22,5 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-
 //store.suscribe(render);
 App.contextTypes = { store: React.PropTypes.object };

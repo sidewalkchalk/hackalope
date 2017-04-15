@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, browserHistory, Redirect, Link } from 'react-router';
+import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 import Result from './result.jsx';
 import {bindActionCreators } from 'redux';
@@ -27,7 +27,7 @@ const ResultsList = ({ results, dispatch }) => {
     position: 'fixed'
   };
 
-  return (
+  return results.resources ? (
     <MuiThemeProvider>
       <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
         <div>
@@ -39,7 +39,7 @@ const ResultsList = ({ results, dispatch }) => {
         </div>
       </div>
     </MuiThemeProvider>
-  );
+  ) : <h5>Oops! There aren't any results to display. Try searching again!</h5>;
 }
 
 const mapStateToProps = (state) => {

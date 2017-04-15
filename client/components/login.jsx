@@ -14,7 +14,7 @@ import Dialog from 'material-ui/Dialog';
 // Required Dependencies
 import { login, handleLoginClose } from '../helpers/helpers.js'
 
-const Login = ({ user, dialogs, dispatch }) => {
+const Login = ({ user, search, dialogs, dispatch }) => {
 
   const actions = [
     <FlatButton
@@ -26,7 +26,7 @@ const Login = ({ user, dialogs, dispatch }) => {
       label="Login"
       primary={true}
       keyboardFocused={true}
-      onTouchTap={(e) => login(e, user, dispatch)}
+      onClick={(e) => login(e, user, search, dispatch)}
       />
   ];
 
@@ -62,7 +62,8 @@ const Login = ({ user, dialogs, dispatch }) => {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    dialogs: state.dialogs
+    dialogs: state.dialogs,
+    search: state.search
   }
 };
 

@@ -1,10 +1,10 @@
 // Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar, 
+import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
          closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
          closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/helpers.js';
+import { Link, hashHistory } from 'react-router';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,6 +14,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -39,6 +40,12 @@ const Nav = ({user, snackbar, unapproved, dispatch}) => {
     <MuiThemeProvider>
     <div>
       <AppBar
+        iconElementLeft={
+          <IconButton>
+            <ArrowBack
+              onClick={hashHistory.goBack}/>
+
+          </IconButton>}
         title={<Link style={{"color": "inherit", "textDecoration": "none"}} to='/'>hackalope.io</Link>}
         iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
       />
