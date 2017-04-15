@@ -1,8 +1,12 @@
+// Required React Components
 import React from 'react';
 import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+
+// Required Dependencies
 import { submissionData } from '../actions/index.js';
 
+//Required Material UI dependancies 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 

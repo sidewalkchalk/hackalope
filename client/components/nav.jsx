@@ -6,6 +6,12 @@ import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
          closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/helpers.js';
 import { Link, hashHistory } from 'react-router';
 
+// Required Dependencies
+import Login from './login.jsx';
+import LoggedInMenu from './loggedinmenu.jsx';
+import LoggedOutMenu from './loggedoutmenu.jsx';
+import axios from 'axios';
+
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
@@ -24,13 +30,7 @@ import {fullWhite} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
 
-// Required Modules
-import Login from './login.jsx';
-import LoggedInMenu from './loggedinmenu.jsx';
-import LoggedOutMenu from './loggedoutmenu.jsx';
 
-// Required Dependencies
-import axios from 'axios';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 

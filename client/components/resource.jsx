@@ -4,6 +4,10 @@ import { createStore } from 'redux';
 import { Route, browserHistory, Redirect, Link  } from 'react-router';
 import { connect } from 'react-redux';
 
+// Required Dependencies
+import { selectResult } from '../actions/index.js';
+import Comments from './comments.jsx';
+
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -20,9 +24,7 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-// Required Components
-import { selectResult } from '../actions/index.js';
-import Comments from './comments.jsx';
+
 
 const Resource = ({result, dispatch}) => {
 

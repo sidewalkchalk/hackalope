@@ -3,21 +3,17 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import {bindActionCreators } from 'redux';
-import { approveResource, unapproveResource, getUnapproved } from '../helpers/helpers.js';
+import { approveResource, unapproveResource } from '../helpers/helpers.js';
+
+// Required Dependencies
+import axios from 'axios';
 
 //Required Material UI dependancies 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
-import axios from 'axios';
-
-
 const Admin = ({comments, unapproved, dispatch}) => {
-
-  //jsx
 
   const renderPending = () => {
     return unapproved.map( resource => {
@@ -48,7 +44,6 @@ const Admin = ({comments, unapproved, dispatch}) => {
     });
   };
   
-
   return (
     <MuiThemeProvider>
     <div>
@@ -59,10 +54,7 @@ const Admin = ({comments, unapproved, dispatch}) => {
     </div>
     </MuiThemeProvider>
   );
-  
-
 };
-
 
 const mapStateToProps = (state) => {
   return {

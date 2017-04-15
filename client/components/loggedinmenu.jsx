@@ -3,14 +3,21 @@ import { clearUser } from '../actions/index.js'
 import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
 
+// Required Dependencies
+import { logout, getUnapproved, getProfile } from '../helpers/helpers.js'
+
+//Required Material UI dependancies 
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
 
+<<<<<<< HEAD
 // Required Dependencies
 import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js'
 
+=======
+>>>>>>> refactor and cleanup of components, part one
 const LoggedInMenu = ({ user, dispatch}) => {
 
   return (

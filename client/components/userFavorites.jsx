@@ -2,9 +2,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStore , bindActionCreators} from 'redux';
-import { userProfile } from '../actions/index.js'
-import { getUserProfile, renderUserFavorites} from '../helpers/helpers.js';
 
+// Required Dependencies
+import { userProfile } from '../actions/index.js'
 
 //Required Material UI dependancies 
 import {Card, CardHeader, CardText} from 'material-ui/Card';
@@ -36,7 +36,6 @@ const Favorites = ({profile, dispatch}) => {
     </div>
   )
 };
-
 
 function mapStateToProps(state) {
   return {

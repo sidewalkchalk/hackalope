@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
-// Functions
+// Required Dependencies
 import { commentsByResource } from '../actions/index.js'
 import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js'
 

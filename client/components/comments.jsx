@@ -1,16 +1,14 @@
+// Required React Components
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, browserHistory, Redirect, Link } from 'react-router';
-import { commentsByAll} from '../actions/index.js';
 import { createStore , bindActionCreators} from 'redux';
 
-
-//Required Material-UI components
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-
+// Required Dependencies
 import AddComment from './addComment.jsx';
 
+//Required Material-UI components
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 const Comments = ({comments, dispatch}) => {
 

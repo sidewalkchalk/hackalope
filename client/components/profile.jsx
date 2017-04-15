@@ -1,6 +1,13 @@
+// Required React Components
 import React from 'react';
-import { Route, browserHistory, Redirect, Link } from 'react-router';
+import { Route, browserHistory, Redirect } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
+
+
+// Required Dependencies
+
+
+//Required Material UI dependancies 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -23,22 +30,25 @@ const Profile = ({user, dispatch}) => {
   return(
     <MuiThemeProvider>
       <div>
-        <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-          <CardHeader
-            title= {user.name}
-            subtitle= {user.username}
-            style={{position: 'relative', width: '60%', display: 'inline' }}
-          />
-            <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}} />
-              <CardText>
-                This is where the users profile info goes!
-                <br></br>
-              </CardText>
-        </Card>
-        <h4>Favorites component V </h4>
+      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+        <CardHeader
+          title= {user.name}
+          subtitle= {user.username}
+          avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
+          style={{position: 'relative', width: '60%', display: 'inline' }}
+        />
+      <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
+      </div>
+        <CardText>
+          This is where the users profile info goes!
+          <br></br>      
+        </CardText>
+      </Card>       
+        <hr></hr> 
+        <h4 style={{fontFamily: 'Roboto' }}>MY FAVORITES</h4>
         <Favorites />
-        <hr></hr>
-        <h4>Comments component V</h4>
+        <hr></hr> 
+        <h4 style={{fontFamily: 'Roboto' }}>MY COMMENTS</h4>
         <Comments />
       </div>
     </MuiThemeProvider>
