@@ -21,7 +21,7 @@ const LoggedInMenu = ({ user, dispatch}) => {
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-      {user.admin ? <Link to="admin" ><MenuItem primaryText="Admin" onClick={() => {getUnapproved(dispatch); openPendingSnackbar(dispatch);}} /></Link>: null}
+      {user.admin ? <Link to="user/admin" ><MenuItem primaryText="Admin" onClick={() => {getUnapproved(dispatch); openPendingSnackbar(dispatch);}} /></Link>: null}
       <MenuItem primaryText="MyProfile" onClick={() => getProfile(dispatch)} />
       <MenuItem
         primaryText="Sign Out"

@@ -27,15 +27,13 @@ export const login = (e, user, search, dispatch) => {
   handleLoginClose(dispatch);
   axios.post('/auth/login', user)
     .then( response => {
-      console.log("THIS IS THE DATA", response.data);
       var userData = response.data
       // change the store to add the name, username, admin, _id, favorites
-
+      dispatch(actions.selectUser(userData));
+      openLoggedInSnackbar(dispatch);
       if (window.location.hash === '#/main/results') {
         return Promise.all([reloadResources(search, dispatch)])
           .then(resolve => {
-            dispatch(actions.selectUser(userData));
-            openLoggedInSnackbar(dispatch);
           })
           .catch(err => {
             console.error(err);
