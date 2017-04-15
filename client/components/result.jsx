@@ -71,7 +71,7 @@ const Result = ({ result, user, results, dispatch }) => {
             />
           </div>
 
-          <div style={{position: 'relative', width: "50%", float: 'right'}}>
+          <div style={{ position: 'relative', width: "50%", float: 'right'}}>
             <CardActions>
               <RaisedButton
                 label="Details"
