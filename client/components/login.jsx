@@ -52,7 +52,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
               onChange={e => dispatch(userFormData({password: e.target.value}))}
             /><br/><br />
             <div style={{textAlign: "center"}}
-                 onTouchTap={() => handleSignUpClose(dispatch)}>
+                 onTouchTap={() => handleLoginClose(dispatch)}>
               <p>Sign in with Github</p>
               <a href='./auth/github'><img src="/public/assets/octocat.png" /></a>
             </div>
