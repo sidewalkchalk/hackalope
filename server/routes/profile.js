@@ -73,6 +73,20 @@ router.put('/favorites', utils.checkAuth, function (req, res) {
 
 });
 
-router.get
+// retrieves user data for user authenticated via github
+router.get('/user', function (req, res) {
+  if (req.user) {
+    var userData = {name: req.user.name,
+      username: req.user.username,
+      password: '',
+      admin: req.user.admin,
+      _id: req.user._id,
+      favorites: req.user.favorites};
+
+   res.status(200).send(userData);
+  } else {
+    res.send(null);
+  }
+});
 
 module.exports = router;

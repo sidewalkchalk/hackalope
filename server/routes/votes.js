@@ -47,7 +47,7 @@ router.post('/:id', function (req, res) {
                     console.error(err);
                     res.status(500).send(err);
                   })
-              } else {
+              } else if (found.vote === -1){
                 resourceController.updateResourceRating(req.params.id, 1)
                   .then(response => {
                     console.log(response)

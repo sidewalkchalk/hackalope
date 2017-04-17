@@ -8,7 +8,7 @@ import Submit from './submit.jsx';
 import SignUp from './signup.jsx';
 import Login from './login.jsx';
 
-const Landing = (props) => {
+const Landing = ({ user, dispatch }) => {
 
 	return (
     <div>
@@ -17,9 +17,14 @@ const Landing = (props) => {
       <Submit />
 			<SignUp />
       <Login />
-      {props.children}
     </div>
 	);
 };
 
-export default connect()(Landing);
+const mapStateToProps = (state) => {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps)(Landing);
