@@ -26,6 +26,13 @@ export const selectUser = (user) => {
   }
 };
 
+export const checkAuth = (checkingAuth) => {
+  return {
+    type: 'CHECK_AUTH',
+    checkingAuth
+  }
+}
+
 export const userFormData = (userFormData) => {
   return {
     type: 'USER_FORM_DATA',

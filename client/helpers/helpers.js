@@ -80,7 +80,6 @@ export const signup = (e, user, dispatch) => {
 export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
-    console.log(response)
     dispatch(actions.logout());
     openLoggedOutSnackbar(dispatch);
     hashHistory.push('/');
@@ -89,6 +88,19 @@ export const logout = (dispatch) => {
     console.log(err);
   });
 };
+
+export const findUser = (user, dispatch) => {
+  if (!user._id) {
+    axios.get('/profile/user')
+    .then(response => {
+      dispatch(actions.selectUser(response.data))
+      dispatch(actions.checkAuth({checkingAuth: false}));
+    })
+    .catch(err => {
+      dispatch(actions.checkAuth({checkingAuth: false}));
+    })
+  }
+}
 
 /*--------------------------------
   NEW SUBMISSIONS

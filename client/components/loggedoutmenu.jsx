@@ -53,7 +53,7 @@ const LoggedOutMenu = ({dispatch}) => {
         style={{margin: 12}}
         onTouchTap={() => handleLoginOpen(dispatch)}
       />
-    <a href='/auth/github'>
+    <a href='./auth/github'>
       <RaisedButton
         style={{margin: 12}}
         label="github"

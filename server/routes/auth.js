@@ -43,8 +43,8 @@ module.exports = function (passport) {
   router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
-
-    res.status(201).send(req.user);
+      console.log(req.user);
+      res.status(201).redirect('/');
   });
 
   // handle logout
