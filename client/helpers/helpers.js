@@ -191,13 +191,11 @@ export const buildQuery = (value) => {
 export const handleSearch = (query, dispatch) => {
   query.term = titleCase(query.term);
   // store the current search query
-  console.log(query);
   dispatch(actions.searchQuery(query))
   // build query string and search
   query = buildQuery(query);
   axios.get('/search?' + query)
     .then (response => {
-      console.log(response);
       dispatch(actions.clearSearch()),
       dispatch(actions.searchResults(response.data, ))
       hashHistory.push('/main/results');
@@ -350,7 +348,6 @@ export const handleVote = (resourceId, votes, newVote, dispatch) => {
   dispatch(actions.updateVote(resourceId, votes, newVote));
   axios.post('/votes/' + resourceId, newVote)
     .then(response => {
-      console.log(response);
       var updatedResource = response.data;
       dispatch(actions.updateResource(updatedResource));
     })

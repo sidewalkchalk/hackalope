@@ -5,7 +5,7 @@ module.exports = function (passport) {
   passport.use('github', new GitHubStrategy({
     clientID: "e71066ab5f16e9b0f7d1",
     clientSecret: "6793f3f23fbe27582cfcb12f18e092cb3996d5ea",
-    callbackURL: "http://127.0.0.1:1337/auth/github/callback",
+    callbackURL: "http://localhost:1337/auth/github/callback",
   },
 
   function(accessToken, refreshToken, profile, done) {
