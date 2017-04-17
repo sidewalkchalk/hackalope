@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStore } from 'redux';
 
 // Required Dependencies
-import { userProfile } from '../actions/index.js'
+import { userProfile } from '../actions/index.js';
 
 //Required Material UI dependancies 
 import {Card, CardHeader, CardText} from 'material-ui/Card';

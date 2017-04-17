@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { userFormData } from '../actions/index.js';
 
 // Required Dependencies
-import { login, handleLoginClose } from '../helpers/helpers.js'
+import { login, handleLoginClose } from '../helpers/helpers.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

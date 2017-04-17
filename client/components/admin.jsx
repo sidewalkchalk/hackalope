@@ -47,7 +47,7 @@ const Admin = ({unapproved, dispatch}) => {
   return (
     <MuiThemeProvider>
     <div>
-    <h2>Administration Panel</h2>
+    <h4 style={{fontFamily: 'Roboto' }}>Administration Panel</h4>
       <ul style={{ 'listStyleType': 'none' }}>
         {renderPending()}
       </ul>

@@ -4,14 +4,15 @@ import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-r
 import { connect } from 'react-redux';
 
 // Required Dependencies
+
 import { commentsByResource } from '../actions/index.js'
 import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted, checkImgIcon } from '../helpers/helpers.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import DetailIcon from 'material-ui/svg-icons/image/details.js'
-import ContentLink from 'material-ui/svg-icons/content/link.js'
+import DetailIcon from 'material-ui/svg-icons/image/details.js';
+import ContentLink from 'material-ui/svg-icons/content/link.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Avatar from 'material-ui/Avatar';
 import ArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up.js';

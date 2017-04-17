@@ -47,7 +47,7 @@ router.post('/:id', function (req, res) {
                     console.error(err);
                     res.status(500).send(err);
                   })
-              } else {
+              } else if (found.vote === -1){
                 resourceController.updateResourceRating(req.params.id, 1)
                   .then(response => {
                     console.log(response)
@@ -67,7 +67,7 @@ router.post('/:id', function (req, res) {
           // if they're voting differently, change their vote and change vote total
           voteController.updateVote(req.params.id, req.user._id, req.body.vote)
             .then (response => {
-              resourceController.updateResourceRating(req.params.id, req.body.vote)
+              resourceController.updateResourceRating(req.params.id, (2 * req.body.vote))
                 .then(response => {
                   console.log(response);
                   res.status(201).send(response);

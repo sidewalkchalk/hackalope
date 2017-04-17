@@ -19,7 +19,7 @@ export const handleLoginClose = (dispatch) => {
 
 export const reloadResources = (search, dispatch) => {
   handleSearch(search.query, dispatch)
-}
+};
 
 // handle request for authentication
 export const login = (e, user, search, dispatch) => {
@@ -80,7 +80,6 @@ export const signup = (e, user, dispatch) => {
 export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
-    console.log(response)
     dispatch(actions.logout());
     openLoggedOutSnackbar(dispatch);
     hashHistory.push('/');
@@ -89,6 +88,19 @@ export const logout = (dispatch) => {
     console.log(err);
   });
 };
+
+export const findUser = (user, dispatch) => {
+  if (!user._id) {
+    axios.get('/profile/user')
+    .then(response => {
+      dispatch(actions.selectUser(response.data))
+      dispatch(actions.checkAuth({checkingAuth: false}));
+    })
+    .catch(err => {
+      dispatch(actions.checkAuth({checkingAuth: false}));
+    })
+  }
+}
 
 /*--------------------------------
   NEW SUBMISSIONS
@@ -179,13 +191,11 @@ export const buildQuery = (value) => {
 export const handleSearch = (query, dispatch) => {
   query.term = titleCase(query.term);
   // store the current search query
-  console.log(query);
   dispatch(actions.searchQuery(query))
   // build query string and search
   query = buildQuery(query);
   axios.get('/search?' + query)
     .then (response => {
-      console.log(response);
       dispatch(actions.clearSearch()),
       dispatch(actions.searchResults(response.data, ))
       hashHistory.push('/main/results');
@@ -208,7 +218,6 @@ export const renderResults = (results, dispatch) => {
     );
   });
 };
-
 
 /*--------------------------------
   COMMENTS
@@ -339,14 +348,13 @@ export const handleVote = (resourceId, votes, newVote, dispatch) => {
   dispatch(actions.updateVote(resourceId, votes, newVote));
   axios.post('/votes/' + resourceId, newVote)
     .then(response => {
-      console.log(response);
       var updatedResource = response.data;
       dispatch(actions.updateResource(updatedResource));
     })
     .catch(err => {
       console.error(err);
     })
-}
+};
 
 // return bool for status of upvote button
 export const isUpvoted = (user, result, votes) => {
