@@ -153,7 +153,8 @@ export const submit = (e, user, submission, dispatch) => {
         description: preview.description,
         language: submission.language,
         tags: tagArray,
-        image: preview.image
+        image: preview.image,
+        impression: submission.impression
       };
         axios.post('/submit', newEntry)
           .then( response => {
@@ -459,7 +460,7 @@ export const closePendingSnackbar = (dispatch) => {
   ICON result helpers
 --------------------------------*/
 
-export const checkImgIcon = (result) => {
+export const checkImgIcon = result => {
   if (!result.image) {
     let letter = result.title.charAt(0).toUpperCase();
     return (

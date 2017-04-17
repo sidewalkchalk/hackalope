@@ -50,11 +50,12 @@ exports.deleteResourceByTitle = function (title) {
 
 // updates a resourceSchema
 // TODO: add ability to update tags
-exports.updateResourceInfo = function (id, title, description, url) {
+exports.updateResourceInfo = function (id, title, description, url, impression) {
   return ResourceModel.find({_id: id}, {$set: {
     title: title,
     description: description,
-    url: url
+    url: url,
+    impression: impression
   }});
 };
 

@@ -10,6 +10,7 @@ const resourceSchema = new Schema({
   approved: Boolean,
   rating: Number,
   image: String,
+  impression: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'

@@ -70,6 +70,12 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
               floatingLabelText="URL"
               onChange={e => dispatch(submissionData({url: e.target.value}))}
             /><br/>
+            <TextField name="impression"
+              value={submission.impression}
+              floatingLabelText="Impression"
+              multiLine={true}
+              onChange={e => dispatch(submissionData({impression: e.target.value}))}
+            /><br/>
           </div>
 
 
