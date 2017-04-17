@@ -446,3 +446,22 @@ export const openPendingSnackbar = (dispatch) => {
 export const closePendingSnackbar = (dispatch) => {
   dispatch(actions.pendingSnackbar({pending: false}));
 };
+
+/*--------------------------------
+  ICON result helpers
+--------------------------------*/
+
+export const checkImgIcon = (result) => {
+  if (!result.image) {
+    let letter = result.title.charAt(0).toUpperCase();
+    return (
+      <div style={{background: "rgb(188, 188, 188)", width: 40, height: 40, lineHeight: '40px', textAlign: 'center'}}>
+        <font color='white' size='5'>
+          {letter}
+        </font>
+      </div>
+    )
+  } else {
+    return <img src={`${result.image}`} width="40"/>
+  }
+}
