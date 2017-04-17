@@ -2,7 +2,7 @@ export const selectResult = (result) => {
   return {
     type: 'RESULT_SELECTED',
     result
-  }
+  };
 };
 
 export const searchResults = (results) => {
@@ -16,14 +16,14 @@ export const searchQuery = (query) => {
   return {
     type: 'STORE_QUERY',
     query
-  }
-}
+  };
+};
 
 export const selectUser = (user) => {
   return {
     type: 'STORE_USER',
     user
-  }
+  };
 };
 
 export const checkAuth = (checkingAuth) => {
@@ -37,13 +37,13 @@ export const userFormData = (userFormData) => {
   return {
     type: 'USER_FORM_DATA',
     userFormData
-  }
+  };
 };
 
 export const logout = () => {
   return {
     type: 'LOGOUT'
-  }
+  };
 };
 
 export const submissionData = (submission) => {
@@ -104,29 +104,29 @@ export const userProfile = (profile) => {
   return {
     type: 'USER_PROFILE',
     profile
-    }
+  };
 };
 
 export const newComment = (comment) => {
   return {
     type: 'ADD_COMMENT',
     comment
-  }
+  };
 };
 
 export const commentsByResource = (comments) => {
     //console.log("Comments by resource ", {{prop}});
-    return {
-        type: 'COMMENTS_RESOURCE',
-        comments
-    }
+  return {
+    type: 'COMMENTS_RESOURCE',
+    comments
+  };
 };
 
 export const unapprovedResources = (resources) => {
   return {
     type: 'UNAPPROVED',
     resources
-  }
+  };
 };
 
 export const updateResource = (updatedResource) => {
@@ -142,61 +142,61 @@ export const updateVote = (resourceId, votes, newVote) => {
     resourceId,
     votes,
     newVote
-  }
+  };
 };
 
 export const approveResource = (resource) => {
   return {
     type: 'APPROVE',
     resource
-  }
+  };
 };
 
 export const loginSnackbar = (snackbar) => {
   return {
     type: 'LOGIN_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const logoutSnackbar = (snackbar) => {
   return {
     type: 'LOGOUT_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const adminSnackbar = (snackbar)=> {
   return {
     type: 'ADMIN_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const submitSnackbar = (snackbar) => {
   return {
     type: 'SUBMIT_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const approveSnackbar = (snackbar) => {
   return {
     type: 'APPROVE_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const unapproveSnackbar = (snackbar) => {
   return {
     type: 'UNAPPROVE_SNACKBAR_OPEN',
     snackbar
-  }
+  };
 };
 
 export const pendingSnackbar = (snackbar) => {
   return {
     type: 'PENDING_SNACKBAR_OPEN',
     snackbar
-  }
-}
+  };
+};

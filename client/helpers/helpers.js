@@ -19,7 +19,7 @@ export const handleLoginClose = (dispatch) => {
 
 export const reloadResources = (search, dispatch) => {
   handleSearch(search.query, dispatch)
-}
+};
 
 // handle request for authentication
 export const login = (e, user, search, dispatch) => {
@@ -221,7 +221,6 @@ export const renderResults = (results, dispatch) => {
   });
 };
 
-
 /*--------------------------------
   COMMENTS
 --------------------------------*/
@@ -358,7 +357,7 @@ export const handleVote = (resourceId, votes, newVote, dispatch) => {
     .catch(err => {
       console.error(err);
     })
-}
+};
 
 // return bool for status of upvote button
 export const isUpvoted = (user, result, votes) => {
