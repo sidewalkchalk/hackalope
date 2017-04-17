@@ -25,6 +25,8 @@ const Profile = ({user, dispatch}) => {
   return(
     <MuiThemeProvider>
       <div>
+        <h4 style={{fontFamily: 'Roboto' }}>MY PROFILE</h4>
+
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
         <CardHeader
           title= {user.name}
