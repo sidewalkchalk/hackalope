@@ -10,10 +10,10 @@ import { userFormData } from '../actions/index.js';
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+import { CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-
-
 
 const SignUp = ({ user, dialogs, dispatch }) => {
 
@@ -58,7 +58,12 @@ const SignUp = ({ user, dialogs, dispatch }) => {
             value={user.password}
             floatingLabelText="Password"
             onChange={e => dispatch(userFormData({password: e.target.value}))}
-            /><br/>
+            /><br/><br />
+          <div style={{textAlign: "center"}}
+               onTouchTap={() => handleSignUpClose(dispatch)}>
+            <p>Sign in with Github</p>
+            <a href='./auth/github'><img src="/public/assets/octocat.png" /></a>
+          </div>
         </form>
       </Dialog>
    </MuiThemeProvider>

@@ -1,12 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var webpack = require('webpack');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
-  filename: 'index.html',
-  inject: 'body'
-})
 
 module.exports = {
   entry: './client/index.jsx',
@@ -20,13 +15,13 @@ module.exports = {
       {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/},
       { test: /\.jpg$/, loader: 'ignore-loader' }
     ]
-  },
-  plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new UnminifiedWebpackPlugin()
-    ]
+  }
+  // plugins: [
+  //       new webpack.optimize.UglifyJsPlugin({
+  //           compress: {
+  //               warnings: false
+  //           }
+  //       }),
+  //       new UnminifiedWebpackPlugin()
+  //   ]
 }

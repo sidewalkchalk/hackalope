@@ -17,27 +17,7 @@ import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
-const LoggedOutMenu = ({dispatch}) => {
-
-  const openDialog = () => {
-    dispatch(signUpDialog({signup: true}));
-  };
-
-  const closeDialog = () => {
-    dispatch(signUpDialog({signup: false}));
-  };
-
-  const openLoginDialog = () => {
-    dispatch(logInDialog({login: true}));
-  };
-
-  const closeLoginDailog = () => {
-    dispatch(logInDialog({login: false}));
-  };
-
-  const handleSubmit = () => {
-
-  };
+const LoggedOutMenu = ({ dispatch }) => {
 
   return (
     <div>
@@ -53,14 +33,6 @@ const LoggedOutMenu = ({dispatch}) => {
         style={{margin: 12}}
         onTouchTap={() => handleLoginOpen(dispatch)}
       />
-    <a href='./auth/github'>
-      <RaisedButton
-        style={{margin: 12}}
-        label="github"
-        secondary={true}
-        onClick={() => handleSubmit()}
-        />
-    </a>
     </div>
   );
 }

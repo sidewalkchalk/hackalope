@@ -79,7 +79,7 @@ const Result = ({ result, user, results, dispatch }) => {
                 primary={true}
                 icon={<DetailIcon />}
                 style={styles.button}
-                containerElement={<Link to={`results/${result._id}`} />}
+                containerElement={<Link to={`resource/${result._id}`} />}
                 onClick={() => getComments(result._id, dispatch)}
               />
               <RaisedButton
