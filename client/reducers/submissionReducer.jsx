@@ -5,7 +5,7 @@ const submissionReducer = (state = {language: 'JavaScript', url: ''}, action) =>
     case 'ADD_TAG':
       return Object.assign({}, state, action.tags);
     case 'CLEAR_SUBMISSION_DATA':
-      return state = {language: 'JavaScript'};
+      return Object.assign({}, state, {language: 'JavaScript', url: ''});
     default:
       return state;
   }

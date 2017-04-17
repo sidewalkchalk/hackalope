@@ -114,6 +114,7 @@ export const handleSubmitOpen = (dispatch) => {
 // close submission dialog
 export const handleSubmitClose = (dispatch) => {
   dispatch(actions.submitDialog({submit: false}));
+  dispatch(actions.clearSubmissionData());
 };
 
 // correct casing on submission tags
