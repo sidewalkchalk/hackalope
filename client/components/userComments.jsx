@@ -19,7 +19,7 @@ const UserComments = ({profile, dispatch}) => {
            <Card>
             <CardHeader
               title={comment.body}
-              subtitle={comment.resource}
+              subtitle={comment.createdAt}
             />
             <CardText>
             </CardText>
