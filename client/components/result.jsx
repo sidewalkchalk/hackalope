@@ -4,8 +4,9 @@ import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-r
 import { connect } from 'react-redux';
 
 // Required Dependencies
-import { commentsByResource } from '../actions/index.js';
-import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted } from '../helpers/helpers.js';
+
+import { commentsByResource } from '../actions/index.js'
+import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted, checkImgIcon } from '../helpers/helpers.js'
 
 // Required Material-UI Components
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -26,12 +27,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const Result = ({ result, user, results, dispatch }) => {
 
   return (
-
     <MuiThemeProvider>
       <Card style={{ position: 'relative', width: '100%', minHeight: 100, padding: 10 }}>
 
         <div style={{ paddingTop: "10px", verticalAlign: 'middle', position: 'relative', top: "-50%", left: 60, display: 'inline-block', float: 'left'}}>
-          <img src={`${result.image}`} width="40"/>
+          {checkImgIcon(result)}
         </div>
         <CardHeader
           title= {result.title}
