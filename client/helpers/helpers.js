@@ -137,7 +137,7 @@ export const submit = (e, user, submission, dispatch) => {
       'Access-Control-Allow-Origin': '*'
     },
   };
-  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + submission.url, config)
+  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + 'http://' + submission.url, config)
     .then( res => {
       var preview = {
         description: res.data.description,
@@ -227,7 +227,6 @@ export const renderResults = (results, dispatch) => {
 export const getComments = (resultId, dispatch) => {
   axios.get('/comments/' + resultId)
     .then (response => {
-      console.log(response);
       // set the comments in the store using dispatch
       dispatch(actions.commentsByResource(response.data))
       hashHistory.push('/resource/' + resultId)
@@ -316,7 +315,6 @@ export const getUnapproved = (dispatch) => {
 export const getProfile = (dispatch) => {
   axios.get('/profile/')
   .then( responses => {
-    console.log(responses);
     dispatch(actions.userProfile(responses.data));
     hashHistory.push('/user/profile');
   })
@@ -328,9 +326,6 @@ export const getProfile = (dispatch) => {
 // handles user click to favorite or unfavorite a resource
 export const handleCheck = (id) => {
   axios.put('/profile/favorites', id)
-  .then (response => {
-    console.log(response);
-  })
   .catch (err => {
     console.error(err)
   });

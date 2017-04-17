@@ -1,23 +1,6 @@
-export const selectResult = (result) => {
-  return {
-    type: 'RESULT_SELECTED',
-    result
-  };
-};
-
-export const searchResults = (results) => {
-  return {
-    type: 'SEARCH_RESULTS',
-    results
-  };
-};
-
-export const searchQuery = (query) => {
-  return {
-    type: 'STORE_QUERY',
-    query
-  };
-};
+/*--------------------------------
+  AUTH/USER
+--------------------------------*/
 
 export const selectUser = (user) => {
   return {
@@ -46,38 +29,35 @@ export const logout = () => {
   };
 };
 
-export const submissionData = (submission) => {
+export const userProfile = (profile) => {
   return {
-    type: 'USER_SUBMISSION_DATA',
-    submission
+    type: 'USER_PROFILE',
+    profile
   };
 };
 
-export const addTag = (tags) => {
+/*--------------------------------
+  COMMENTS
+--------------------------------*/
+
+export const newComment = (comment) => {
   return {
-    type: 'ADD_TAG',
-    tags
+    type: 'ADD_COMMENT',
+    comment
   };
 };
 
-export const clearSubmissionData = () => {
+export const commentsByResource = (comments) => {
+    //console.log("Comments by resource ", {{prop}});
   return {
-    type: 'CLEAR_SUBMISSION_DATA'
+    type: 'COMMENTS_RESOURCE',
+    comments
   };
 };
 
-export const searchTerm = (search) => {
-  return {
-    type: 'SEARCH_TERM',
-    search
-  };
-};
-
-export const clearSearch = () => {
-  return {
-    type: 'CLEAR_SEARCH'
-  };
-};
+/*--------------------------------
+  DIALOGS
+--------------------------------*/
 
 export const signUpDialog = (dialogs) => {
   return {
@@ -100,57 +80,47 @@ export const logInDialog = (dialogs) => {
   };
 };
 
-export const userProfile = (profile) => {
+/*--------------------------------
+  SEARCHES/RESULTS
+--------------------------------*/
+
+export const selectResult = (result) => {
   return {
-    type: 'USER_PROFILE',
-    profile
+    type: 'RESULT_SELECTED',
+    result
   };
 };
 
-export const newComment = (comment) => {
+export const searchTerm = (search) => {
   return {
-    type: 'ADD_COMMENT',
-    comment
+    type: 'SEARCH_TERM',
+    search
   };
 };
 
-export const commentsByResource = (comments) => {
-    //console.log("Comments by resource ", {{prop}});
+export const clearSearch = () => {
   return {
-    type: 'COMMENTS_RESOURCE',
-    comments
+    type: 'CLEAR_SEARCH'
   };
 };
 
-export const unapprovedResources = (resources) => {
+export const searchResults = (results) => {
   return {
-    type: 'UNAPPROVED',
-    resources
+    type: 'SEARCH_RESULTS',
+    results
   };
 };
 
-export const updateResource = (updatedResource) => {
+export const searchQuery = (query) => {
   return {
-    type: 'UPDATE_RESOURCE',
-    updatedResource
+    type: 'STORE_QUERY',
+    query
   };
 };
 
-export const updateVote = (resourceId, votes, newVote) => {
-  return {
-    type: 'UPDATE_VOTE',
-    resourceId,
-    votes,
-    newVote
-  };
-};
-
-export const approveResource = (resource) => {
-  return {
-    type: 'APPROVE',
-    resource
-  };
-};
+/*--------------------------------
+  SNACKBARS
+--------------------------------*/
 
 export const loginSnackbar = (snackbar) => {
   return {
@@ -198,5 +168,63 @@ export const pendingSnackbar = (snackbar) => {
   return {
     type: 'PENDING_SNACKBAR_OPEN',
     snackbar
+  };
+};
+
+/*--------------------------------
+  SUBMISSIONS
+--------------------------------*/
+
+export const submissionData = (submission) => {
+  return {
+    type: 'USER_SUBMISSION_DATA',
+    submission
+  };
+};
+
+export const addTag = (tags) => {
+  return {
+    type: 'ADD_TAG',
+    tags
+  };
+};
+
+export const clearSubmissionData = () => {
+  return {
+    type: 'CLEAR_SUBMISSION_DATA'
+  };
+};
+
+export const updateResource = (updatedResource) => {
+  return {
+    type: 'UPDATE_RESOURCE',
+    updatedResource
+  };
+};
+
+export const unapprovedResources = (resources) => {
+  return {
+    type: 'UNAPPROVED',
+    resources
+  };
+};
+
+export const approveResource = (resource) => {
+  return {
+    type: 'APPROVE',
+    resource
+  };
+};
+
+/*--------------------------------
+  VOTING
+--------------------------------*/
+
+export const updateVote = (resourceId, votes, newVote) => {
+  return {
+    type: 'UPDATE_VOTE',
+    resourceId,
+    votes,
+    newVote
   };
 };

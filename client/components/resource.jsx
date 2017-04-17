@@ -58,15 +58,16 @@ const Resource = ({result, dispatch}) => {
           <CardText>
           <span style={{position: 'relative', float: 'right'}}>
             <CardActions>
-              <RaisedButton
-                label="Link"
-                labelPosition="before"
-                icon={<ContentLink />}
-                primary={true}
-                style={styles.button}
-                href={`${result.url}`}
-                target="_blank"
-              />
+              <a href={`http://${result.url}`}
+                 target="_blank">
+                <RaisedButton
+                  label="Link"
+                  labelPosition="before"
+                  icon={<ContentLink />}
+                  primary={true}
+                  style={styles.button}
+                />
+              </a>
             </CardActions>
             </span>
             <br /> <br />

@@ -1,4 +1,4 @@
-const submissionReducer = (state = {language: 'JavaScript'}, action) => {
+const submissionReducer = (state = {language: 'JavaScript', url: ''}, action) => {
   switch (action.type) {
     case 'USER_SUBMISSION_DATA':
       return Object.assign({}, state, action.submission);
