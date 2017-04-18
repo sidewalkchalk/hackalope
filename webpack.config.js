@@ -1,6 +1,4 @@
 const path = require('path');
-
-// var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
@@ -15,12 +13,4 @@ module.exports = {
       {test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/}
     ]
   }
-  // plugins: [
-  //       new webpack.optimize.UglifyJsPlugin({
-  //           compress: {
-  //               warnings: false
-  //           }
-  //       }),
-  //       new UnminifiedWebpackPlugin()
-  //   ]
 }
