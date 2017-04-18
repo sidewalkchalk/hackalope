@@ -8,7 +8,7 @@ const store = createStore(
   undefined,
   compose(
     autoRehydrate(),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // will need to remove to work in browser without redux tools
   )
 );
 
