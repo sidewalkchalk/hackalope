@@ -19,24 +19,24 @@ const Favorites = ({profile, dispatch}) => {
       return (
       <MuiThemeProvider>
         <li key = {favorite._id} >
-           <Card>
+          <Card>
             <CardHeader
               title={favorite.title}
               subtitle={favorite.description}
             />
-            <div>
-            <CardActions>
-              <RaisedButton
-                label="Link"
-                labelPosition="before"
-                icon={<ContentLink />}
-                primary={true}
-                style={styles.button}
-                href={`${favorite.url}`}
-                target="_blank"
-              />
-            </CardActions>
-            </div>
+              <div>
+              <CardActions>
+                <RaisedButton
+                  label="Link"
+                  labelPosition="before"
+                  icon={<ContentLink />}
+                  primary={true}
+                  style={styles.button}
+                  href={`${favorite.url}`}
+                  target="_blank"
+                />
+              </CardActions>
+              </div>
           </Card>
         </li>
       </MuiThemeProvider>

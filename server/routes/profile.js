@@ -9,35 +9,29 @@ var commentController = require('../../db/controllers/comment.js');
 // TODO: rewrite all this bullshit
 router.get('/', utils.checkAuth, function (req, res, next) {
   var profile = {};
-      // get all comments submitted by a user
+      // get all comments submitted by a user and the resource that its on
       commentController.findCommentsByUserId(req.user._id)
         .sort('-createdAt')
+        .populate('resource')
         .then ( comments => {
           profile.comments = comments;
           // get the user's array of favorites
-          userController.findUserById(req.user._id)
-            .then ( user => {
-              resourceController.findFavorites(user.favorites)
-                .then ( favorites => {
-                  profile.favorites = favorites;
+         userController.findUserById(req.user._id)
+           .then ( user => {
+             resourceController.findFavorites(user.favorites)
+               .then ( favorites => {
+                 profile.favorites = favorites;
                   res.json(profile);
-                  console.log(profile);
                   res.status(201).send(profile);
                 })
                 .catch (err => {
                   console.error(err);
                 })
             })
-            .catch ( err => {
-              console.error(err);
-            })
-        })
         .catch ( err => {
           console.error(err);
         })
-        .catch ( err => {
-          console.error(err);
-        })
+      })  
     });
 // adds a resource ID to the user's favorites
 router.put('/favorites', utils.checkAuth, function (req, res) {

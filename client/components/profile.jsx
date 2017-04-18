@@ -11,6 +11,8 @@ import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+
 
 const Profile = ({user, dispatch}) => {
 
@@ -42,7 +44,7 @@ const Profile = ({user, dispatch}) => {
         </CardText>
       </Card>       
         <hr></hr> 
-        <h4 style={{fontFamily: 'Roboto' }}>MY FAVORITES</h4>
+        <h4 style={{fontFamily: 'Roboto' }}><ActionFavoriteBorder/> MY FAVORITES </h4>
         <Favorites />
         <hr></hr> 
         <h4 style={{fontFamily: 'Roboto' }}>MY COMMENTS</h4>

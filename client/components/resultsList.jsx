@@ -31,7 +31,7 @@ const ResultsList = ({ results, dispatch }) => {
         </div>
       </div>
     </MuiThemeProvider>
-  ) : <h5>Oops! There aren't any results to display. Try searching again!</h5>;
+  ) : <h5 style={{fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
 }
 
 const mapStateToProps = (state) => {
