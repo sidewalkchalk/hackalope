@@ -15,13 +15,15 @@ const UserComments = ({profile, dispatch}) => {
     return profile.comments.map(comment => {
       return (
         <li key = {comment._id} >
-
            <Card>
             <CardHeader
               title={comment.body}
               subtitle={comment.createdAt}
             />
             <CardText>
+              Resource :  {comment.resource.title}
+              <br/>
+              URL :  {comment.resource.url}
             </CardText>
           </Card>
         </li>
