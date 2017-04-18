@@ -1,12 +1,14 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
 import {connect} from 'react-redux';
 
-// Required Dependencies
+// HELPERS AND ACTIONS
 import { newComment } from '../actions/index.js';
-import { addComment, openNotAuthSnackbar } from '../helpers/helpers.js';
+import { openNotAuthSnackbar } from '../helpers/helpers.js';
+import { addComment } from '../helpers/commentHelpers.js';
 
-//Required Material-UI components
+
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';

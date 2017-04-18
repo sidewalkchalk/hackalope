@@ -1,8 +1,8 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
 import { connect } from 'react-redux';
 
-// Required Dependencies
+// COMPONENTS
 import Nav from './nav.jsx';
 import Search from './search.jsx';
 import Submit from './submit.jsx';

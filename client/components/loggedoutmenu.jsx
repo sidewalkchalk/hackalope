@@ -1,21 +1,17 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
 import { connect } from 'react-redux';
 
-// need to put github icon instead of button
-// import IconButton from 'material-ui/IconButton';
-// import FontIcon from 'material-ui/FontIcon';
-
-// Required Dependencies
+// COMPONENTS
 import SignUp from './signup.jsx';
 import SignIn from './login.jsx';
+
+// ACTIONS AND HELPERS
 import { signUpDialog, logInDialog } from '../actions/index.js';
-import axios from 'axios';
-import { handleSignUpOpen, handleLoginOpen } from '../helpers/helpers.js';
+import { handleSignUpOpen, handleLoginOpen } from '../helpers/authHelpers.js';
 
-//Required Material UI dependancies
+// MATERIAL UI
 import RaisedButton from 'material-ui/RaisedButton';
-
 
 const LoggedOutMenu = ({ dispatch }) => {
 

@@ -1,9 +1,9 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Dependencies
+// COMPONENTS
 import Landing from './landing.jsx';
 import ResultsList from './resultsList.jsx';
 import ResourceContainer from './resourceContainer.jsx';
@@ -13,7 +13,9 @@ import Admin from './admin.jsx';
 import Profile from './profile.jsx';
 import Main from './main.jsx';
 import User from './user.jsx';
-import { findUser } from '../helpers/helpers.js';
+
+// ACTIONS AND HELPERS
+import { findUser } from '../helpers/authHelpers.js';
 import { checkAuth } from '../actions/index.js';
 
 class App extends React.Component {

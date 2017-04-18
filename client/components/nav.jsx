@@ -1,19 +1,21 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { Link, hashHistory } from 'react-router';
 
-// Required Dependencies
+// COMPONENTS
 import Login from './login.jsx';
 import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
-import axios from 'axios';
+
+// ACTIONS AND HELPERS
 import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
          closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
-         closeUnapprovedSnackbar, closePendingSnackbar, closeNotAuthSnackbar } from '../helpers/helpers.js';
+         closeNotAuthSnackbar } from '../helpers/helpers.js';
 
-// Required Material UI Components
+import { closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/snackbarHelpers.js';
+
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
