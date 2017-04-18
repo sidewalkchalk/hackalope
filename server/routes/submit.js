@@ -12,7 +12,7 @@ router.post('/', utils.checkAuth, function (req, res) {
       if (response) {
         res.send('This resource has already been posted!')
       } else {
-        var config = {
+        let config = {
           params: {
             key: '58eff68ba74a41677ff8f43415db89c2157e0f9e042aa',
             q: req.body.url
