@@ -27,9 +27,13 @@ export const titleCaseArray = (str) => {
 // post new submission to the server
 export const submit = (e, user, submission, dispatch) => {
   e.preventDefault();
+  dispatch(actions.submissionData({loading: true}))
+
   submission.tags = titleCaseArray(submission.tags);
+
   axios.post('/submit', submission)
     .then( response => {
+      console.log("Submit Response: ", response);
       dispatch(actions.submitDialog({submit: false}));
       dispatch(actions.clearSubmissionData());
       snackbar.openSubmitSnackbar(dispatch);

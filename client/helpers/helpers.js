@@ -1,7 +1,7 @@
 import * as actions from '../actions/index.js';
 import React from 'react';
+import LinearProgress from 'material-ui/LinearProgress';
 
-// displays either avatar or first initial
 export const checkImgIcon = result => {
   if (!result.image) {
     let letter = result.title.charAt(0).toUpperCase();
@@ -17,5 +17,13 @@ export const checkImgIcon = result => {
   }
 }
 
-//open not authorized snackbar
 
+export const submitProgress = (submission) => {
+   if (submission.loading) {
+     return (
+       <div style={{paddingTop: 10}}>
+         <LinearProgress mode="indeterminate" />
+       </div>
+     )
+   }
+ }

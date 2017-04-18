@@ -56,7 +56,7 @@ const Resource = ({result, dispatch}) => {
           <CardText>
           <span style={{position: 'relative', float: 'right'}}>
             <CardActions>
-              <a href={`http://${result.url}`}
+              <a href={`${result.url}`}
                  target="_blank">
                 <RaisedButton
                   label="Link"
