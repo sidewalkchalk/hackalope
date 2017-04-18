@@ -43,3 +43,17 @@ export const addComment = (e, user, result, comment, dispatch) => {
       console.error(err);
     });
 };
+
+//delete a users comments
+export const deleteComment = (comment, dispatch) => {
+  axios.delete('/comments', {data: {comment: comment}})
+    .then( response => {
+      console.log(response);
+      dispatch(actions.trashComment())
+      getUserComments(dispatch)
+    })
+
+    .catch ( err => {
+      console.error(err)
+  })
+};

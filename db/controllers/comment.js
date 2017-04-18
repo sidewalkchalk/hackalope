@@ -5,6 +5,10 @@ exports.insertComment = function (comment) {
   return CommentModel.create(comment);
 };
 
+exports.deleteComment = function (comment) {
+  return CommentModel.remove(comment);
+};
+
 // find all comments by a user's id
 exports.findCommentsByUserId = function (id) {
   return CommentModel.find({ user: id });

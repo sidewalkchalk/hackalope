@@ -30,17 +30,22 @@ export const userProfile = profile => ({
   COMMENTS
 --------------------------------*/
 
+<<<<<<< HEAD
 export const newComment = comment => ({
   type: 'ADD_COMMENT',
   comment,
 });
 
-export const commentsByResource = comments =>
-    // console.log("Comments by resource ", {{prop}});
-   ({
-     type: 'COMMENTS_RESOURCE',
-     comments,
-   });
+export const commentsByResource = comments => ({
+  type: 'COMMENTS_RESOURCE',
+  comments,
+});
+
+export const trashComment = (comment) => ({
+    type: 'DELETE_COMMENT',
+    comment,
+  });
+
 
 /*--------------------------------
   DIALOGS
