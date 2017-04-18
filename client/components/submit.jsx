@@ -34,11 +34,10 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     />,
     <FlatButton
       label="Submit"
+      type="submit"
       primary={true}
       keyboardFocused={true}
-      onTouchTap={(e) => {
-        submit(e, user, submission, dispatch)
-      }}
+      onClick={(e) => submit(e, user, submission, dispatch)}
     />,
   ];
 
@@ -75,7 +74,6 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
             onRequestClose={() => handleSubmitClose()}
           >
 
-            <form onSubmit={(e) => submit(e, user, submission, dispatch)}>
               <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
                 <div>
                   <TextField name="url"
@@ -114,8 +112,7 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
                   <TagSelector />
                 </div>
               </div>
-            </form>
-            {submitProgress(dialogs)}
+            {submitProgress(submission)}
           </Dialog>
         </div>
       </div>
