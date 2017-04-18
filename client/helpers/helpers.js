@@ -1,132 +1,30 @@
 import * as actions from '../actions/index.js';
 import React from 'react';
-import Result from '../components/result.jsx';
 import LinearProgress from 'material-ui/LinearProgress';
 
-<<<<<<< HEAD
-// displays either avatar or first initial
-=======
-/*--------------------------------
-  AUTHENTICATION
---------------------------------*/
-// open login popup
-export const handleLoginOpen = (dispatch) => {
-  dispatch(actions.logInDialog({login: true}));
-};
-
-// close login popup
-export const handleLoginClose = (dispatch) => {
-  dispatch(actions.logInDialog({login: false}));
-};
-
-export const reloadResources = (search, dispatch) => {
-  handleSearch(search.query, dispatch)
-};
-
-// handle request for authentication
-export const login = (e, user, search, dispatch) => {
-  e.preventDefault();
-  handleLoginClose(dispatch);
-  axios.post('/auth/login', user)
-    .then( response => {
-      var userData = response.data
-      // change the store to add the name, username, admin, _id, favorites
-      return Promise.all([
-        dispatch(actions.selectUser(userData)),
-        openLoggedInSnackbar(dispatch)])
-          .then(resolve => {
-            if (window.location.hash === '#/main/results') {
-              return Promise.all([reloadResources(search, dispatch)])
-              .then(resolve => {
-                console.log(resolve)
-              })
-              .catch(err => {
-                console.error(err);
-              });
-            };
-
-          })
-    })
-    .catch ( err => {
-      console.error(err)
-    })
-};
-
-// open signup popup
-export const handleSignUpOpen = (dispatch) => {
-  dispatch(actions.signUpDialog({signup: true}));
-};
-
-// close signup popup
-export const handleSignUpClose = (dispatch) => {
-  dispatch(actions.signUpDialog({signup: false}));
-};
-
-// handle request to create new account
-export const signup = (e, user, dispatch) => {
-  e.preventDefault();
-  handleSignUpClose(dispatch);
-  axios.post('/auth/signup', user)
-    .then( response => {
-      var newUser = response.data
-      // change the store to add the name, username, admin, _id, favorites
-      dispatch(actions.selectUser(newUser));
-      hashHistory.push('/main');
-    })
-    .catch ( err => {
-      console.error(err)
-    })
-};
-
-// destroy session and remove user from store
-export const logout = (dispatch) => {
-  axios.post('/auth/logout')
-  .then( response => {
-    dispatch(actions.logout());
-    openLoggedOutSnackbar(dispatch);
-    hashHistory.push('/');
-  })
-  .catch (err => {
-    console.log(err);
-  });
-};
-
-export const findUser = (user, dispatch) => {
-  if (!user._id) {
-    axios.get('/profile/user')
-    .then(response => {
-      dispatch(actions.selectUser(response.data))
-      dispatch(actions.checkAuth({checkingAuth: false}));
-    })
-    .catch(err => {
-      dispatch(actions.checkAuth({checkingAuth: false}));
-    })
+export const checkImgIcon = result => {
+  if (!result.image) {
+    let letter = result.title.charAt(0).toUpperCase();
+    return (
+      <div style={{background: "rgb(188, 188, 188)", width: 40, height: 40, lineHeight: '40px', textAlign: 'center'}}>
+        <font color='white' size='5'>
+          {letter}
+        </font>
+      </div>
+    )
+  } else {
+    return <img src={`${result.image}`} width="40" />
   }
 }
 
-/*--------------------------------
-  NEW SUBMISSIONS
---------------------------------*/
-
-// open submission dialog
-export const handleSubmitOpen = (dispatch) => {
-  dispatch(actions.submitDialog({submit: true}));
+//open not authorized snackbar
+export const openNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: true}));
 };
 
-// close submission dialog
-export const handleSubmitClose = (dispatch) => {
-  dispatch(actions.submitDialog({submit: false}));
-  dispatch(actions.clearSubmissionData());
-};
-
-// correct casing on submission tags
-export const titleCaseArray = (str) => {
-  if (!str) {
-    return;
-  }
-  return str.replace(/\w\S*/g,
-    function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
-    .split(', ');
+//close not authorized snackbar
+export const closeNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: false}));
 };
 
 // progress bar
@@ -158,6 +56,7 @@ export const submit = (e, user, submission, dispatch) => {
       console.error(err)
     })
 };
+<<<<<<< HEAD
 
 /*--------------------------------
   SEARCH FOR RESOURCES
@@ -459,3 +358,5 @@ export const checkImgIcon = result => {
 
 //open not authorized snackbar
 
+=======
+>>>>>>> pre rebase
