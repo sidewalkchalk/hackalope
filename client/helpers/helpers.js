@@ -1,5 +1,7 @@
 import * as actions from '../actions/index.js';
 import React from 'react';
+import Result from '../components/result.jsx';
+import LinearProgress from 'material-ui/LinearProgress';
 
 // displays either avatar or first initial
 export const checkImgIcon = result => {
