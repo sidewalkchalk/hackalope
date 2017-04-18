@@ -7,6 +7,7 @@ var voteController = require('../../db/controllers/vote.js');
 // handle search request from homepage
 router.get('/', function (req, res) {
   resourceController.findResourcesByLanguage(req.query.language)
+    .sort ('-rating')
     .then ( resources => {
       // if nothing was entered in the search bar, search all resources
       if (!req.query.term) {

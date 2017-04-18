@@ -9,7 +9,7 @@ import resultsReducer from './resultsReducer.jsx';
 import addCommentReducer from './addCommentReducer.jsx';
 import unapprovedReducer from './unapprovedReducer.jsx';
 import profileReducer from './profileReducer.jsx';
-import snackbarReducer from './snackBarReducer.jsx';
+import snackbarReducer from './snackbarReducer.jsx';
 
 // combine all reducers
 const appReducer = combineReducers({
