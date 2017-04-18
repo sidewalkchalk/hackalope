@@ -1,14 +1,11 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
-import {bindActionCreators } from 'redux';
-import { approveResource, unapproveResource } from '../helpers/helpers.js';
 
-// Required Dependencies
-import axios from 'axios';
+// ACTIONS AND HELPERS
+import { approveResource, unapproveResource } from '../helpers/adminHelpers.js';
 
-//Required Material UI dependancies 
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -43,7 +40,7 @@ const Admin = ({unapproved, dispatch}) => {
       );
     });
   };
-  
+
   return (
     <MuiThemeProvider>
     <div>

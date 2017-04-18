@@ -1,15 +1,16 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Route, browserHistory, Redirect } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
+import { connect } from 'react-redux';
 
-//Required Material UI dependancies 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// COMPONENTS
 import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
-import { connect } from 'react-redux';
+
+// MATERIAL UI
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import RaisedButton from 'material-ui/RaisedButton';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
@@ -40,13 +41,15 @@ const Profile = ({user, dispatch}) => {
       </div>
         <CardText>
           This is where the users profile info goes!
-          <br></br>      
+          <br></br>
         </CardText>
-      </Card>       
-        <hr></hr> 
+
+      </Card>
+        <hr></hr>
         <h4 style={{fontFamily: 'Roboto' }}><ActionFavoriteBorder/> MY FAVORITES </h4>
+
         <Favorites />
-        <hr></hr> 
+        <hr></hr>
         <h4 style={{fontFamily: 'Roboto' }}>MY COMMENTS</h4>
         <Comments />
       </div>

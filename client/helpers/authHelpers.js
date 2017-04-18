@@ -1,4 +1,5 @@
 import * as actions from '../actions/index.js';
+import * as snackbar from './snackbarHelpers.js'
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import React from 'react';
@@ -26,7 +27,7 @@ export const login = (e, user, search, dispatch) => {
       // change the store to add the name, username, admin, _id, favorites
       return Promise.all([
         dispatch(actions.selectUser(userData)),
-        openLoggedInSnackbar(dispatch)])
+        snackbar.openLoggedInSnackbar(dispatch)])
           .then(resolve => {
             if (window.location.hash === '#/main/results') {
               return Promise.all([reloadResources(search, dispatch)])
@@ -76,7 +77,7 @@ export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then( response => {
     dispatch(actions.logout());
-    openLoggedOutSnackbar(dispatch);
+    snackbar.openLoggedOutSnackbar(dispatch);
     hashHistory.push('/');
   })
   .catch (err => {

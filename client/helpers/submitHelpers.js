@@ -1,4 +1,5 @@
 import * as actions from '../actions/index.js';
+import * as snackbar from './snackbarHelpers.js'
 import axios from 'axios';
 import React from 'react';
 
@@ -31,7 +32,7 @@ export const submit = (e, user, submission, dispatch) => {
     .then( response => {
       dispatch(actions.submitDialog({submit: false}));
       dispatch(actions.clearSubmissionData());
-      openSubmitSnackbar(dispatch);
+      snackbar.openSubmitSnackbar(dispatch);
     })
     .catch ( err => {
       console.error(err)

@@ -1,4 +1,5 @@
 import * as actions from '../actions/index.js';
+import * as snackbar from './snackbarHelpers.js'
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import React from 'react';
@@ -8,7 +9,7 @@ export const approveResource = (resultId, dispatch) =>  {
   axios.put('/admin', {resultId: resultId})
   .then( response => {
     getUnapproved(dispatch);
-    openApprovedSnackbar(dispatch);
+    snackbar.openApprovedSnackbar(dispatch);
   })
   .catch( err => {
     console.error(err);
@@ -20,7 +21,7 @@ export const unapproveResource = (resultId, dispatch) => {
   axios.delete('/admin', {data: {resultId: resultId}})
   .then( response => {
     getUnapproved(dispatch);
-    openUnapprovedSnackbar(dispatch);
+    snackbar.openUnapprovedSnackbar(dispatch);
   })
   .catch(err => {
     console.error(err);

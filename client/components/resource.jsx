@@ -1,13 +1,11 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { createStore } from 'redux';
-import { Route, browserHistory, Redirect, Link  } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Dependencies
+// COMPONENTS
 import Comments from './comments.jsx';
 
-// Required Material-UI Components
+// MATERIAL UI
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentLink from 'material-ui/svg-icons/content/link.js'
