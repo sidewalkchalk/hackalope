@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 // COMPONENTS
 import TagSelector from './tagselector.jsx';
+import { openNotAuthSnackbar } from '../helpers/helpers.js';
 
 // ACTIONS AND HELPERS
 import { submissionData } from '../actions/index.js';
@@ -50,7 +51,14 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     <div>
       <FloatingActionButton
       secondary={true} style={style}
-      onTouchTap={() => handleSubmitOpen(dispatch)}>
+      onTouchTap={() => {
+          if(user._id){
+            handleSubmitOpen(dispatch);
+          }
+          else {
+            openNotAuthSnackbar(dispatch);  
+          }
+      }}>
       <ContentAdd />
       </FloatingActionButton>
       <div>

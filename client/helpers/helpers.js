@@ -13,6 +13,16 @@ export const checkImgIcon = result => {
       </div>
     )
   } else {
-    return <img src={`${result.image}`} width="40"/>
+    return <img src={`${result.image}`} width="40" />
   }
 }
+
+//open not authorized snackbar
+export const openNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: true}));
+};
+
+//close not authorized snackbar
+export const closeNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: false}));
+};

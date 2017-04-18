@@ -171,6 +171,13 @@ export const pendingSnackbar = (snackbar) => {
   };
 };
 
+export const notAuthSnackbar = (snackbar) => {
+  return {
+    type: 'NOT_LOGGED_IN_SNACKBAR_OPEN',
+    snackbar
+  };
+};
+
 /*--------------------------------
   SUBMISSIONS
 --------------------------------*/
