@@ -70,3 +70,12 @@ export const openPendingSnackbar = (dispatch) => {
 export const closePendingSnackbar = (dispatch) => {
   dispatch(actions.pendingSnackbar({pending: false}));
 };
+
+export const openNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: true}));
+};
+
+//close not authorized snackbar
+export const closeNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: false}));
+};

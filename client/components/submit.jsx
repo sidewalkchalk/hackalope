@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // COMPONENTS
 import TagSelector from './tagselector.jsx';
-import { openNotAuthSnackbar } from '../helpers/helpers.js';
+import { openNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
 
 // ACTIONS AND HELPERS
 import { submissionData } from '../actions/index.js';

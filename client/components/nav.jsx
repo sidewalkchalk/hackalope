@@ -9,11 +9,10 @@ import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
 
 // ACTIONS AND HELPERS
-import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
-         closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
-         closeNotAuthSnackbar } from '../helpers/helpers.js';
-
-import { closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/snackbarHelpers.js';
+import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar, 
+         closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar, 
+         closeSubmitSnackbar, closeApprovedSnackbar,
+         closeNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
 
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

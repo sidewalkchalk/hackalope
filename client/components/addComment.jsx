@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 // HELPERS AND ACTIONS
 import { newComment } from '../actions/index.js';
-import { openNotAuthSnackbar } from '../helpers/helpers.js';
+import { openNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
 import { addComment } from '../helpers/commentHelpers.js';
 
 

@@ -18,11 +18,4 @@ export const checkImgIcon = result => {
 }
 
 //open not authorized snackbar
-export const openNotAuthSnackbar = (dispatch) => {
-  dispatch(actions.notAuthSnackbar({notAuth: true}));
-};
 
-//close not authorized snackbar
-export const closeNotAuthSnackbar = (dispatch) => {
-  dispatch(actions.notAuthSnackbar({notAuth: false}));
-};
