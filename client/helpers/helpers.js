@@ -130,45 +130,17 @@ export const titleCaseArray = (str) => {
 // post new submission to the server
 export const submit = (e, user, submission, dispatch) => {
   e.preventDefault();
-  var tagArray = titleCaseArray(submission.tags);
-  var config = {
-    headers: {
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Expose-Headers': '*',
-      'Access-Control-Allow-Origin': '*'
-    },
-  };
-  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + submission.url, config)
-    .then( res => {
-      var preview = {
-        description: res.data.description,
-        image: res.data.image,
-        title: res.data.title,
-        url: res.data.url
-      };
 
-      var newEntry = {
-        user: user._id,
-        title: preview.title,
-        url: preview.url,
-        description: preview.description,
-        language: submission.language,
-        tags: tagArray,
-        image: preview.image,
-        impression: submission.impression
-      };
-        axios.post('/submit', newEntry)
-          .then( response => {
-            console.log("Submit Response: ", response);
-            dispatch(actions.submitDialog({submit: false}));
-            dispatch(actions.clearSubmissionData());
-            openSubmitSnackbar(dispatch);
-          })
-          .catch ( err => {
-            console.error(err)
-        })
+  submission.tags = titleCaseArray(submission.tags);
+  
+  axios.post('/submit', submission)
+    .then( response => {
+      console.log("Submit Response: ", response);
+      dispatch(actions.submitDialog({submit: false}));
+      dispatch(actions.clearSubmissionData());
+      openSubmitSnackbar(dispatch);
     })
-    .catch( err => {
+    .catch ( err => {
       console.error(err)
     })
 };

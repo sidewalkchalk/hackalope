@@ -1,36 +1,45 @@
 var express = require('express');
 var router = express.Router();
-var utils = require('../utils.js')
+var utils = require('../utils.js');
+var axios = require('axios');
 
 var resourceController = require('../../db/controllers/resource.js');
 
-// serve user submission?
-// TODO: is this necessary? maybe, to handle auth
-// or, maybe handle auth client-side
-router.get('/', function (req, res) {
-
-});
-
 // handles user's submitted resources
 router.post('/', utils.checkAuth, function (req, res) {
-  console.log(req.body)
   resourceController.findResourceByUrl(req.body.url)
     .then (function (response) {
       if (response) {
         res.send('This resource has already been posted!')
       } else {
-          // set user's ID in request body and add 0 rating for new submission
-          req.body.user = req.user._id;
-          req.body.rating = 0;
-          req.body.approved = false;
-          resourceController.insertResource(req.body)
-            .then (function (response) {
+        axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + req.body.url)
+          .then( response => {
+            var newEntry = {
+              user: req.user._id,
+              title: response.data.title,
+              url: response.data.url,
+              description: response.data.description,
+              language: req.body.language,
+              tags: req.body.tags,
+              image: response.data.image,
+              impression: req.body.impression,
+              user: req.user._id,
+              rating: 0,
+              approved: false
+            };
+
+            resourceController.insertResource(newEntry)
+            .then (response => {
               console.log(response);
-              res.send(response)
+              res.status(201).send(response)
             })
-            .catch (function (err) {
+            .catch (err => {
               console.log(err);
             })
+          })
+          .catch(err => {
+            console.error(err);
+          });
       }
     })
     .catch (function (err) {

@@ -9,8 +9,6 @@ exports.insertResource = function (resource) {
 
 exports.findResourcesByLanguage = function (language) {
   return ResourceModel.find({language: language, approved : true });
-  //had approved : true as a parameter, but can't use right now
-  //need to seperate into two controllers allResourcesByLanguage and approvedResources
 
 };
 
@@ -75,7 +73,4 @@ exports.approveResource = function (id) {
       approved: true
     }
   });
-
-
-
 };
