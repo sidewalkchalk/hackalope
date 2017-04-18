@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 // Required Dependencies
 import { newComment } from '../actions/index.js';
-import { addComment } from '../helpers/helpers.js';
+import { addComment, openNotAuthSnackbar } from '../helpers/helpers.js';
 
 //Required Material-UI components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -26,7 +26,15 @@ const AddComment = ({dispatch, comment, user, result}) => {
       <MuiThemeProvider>
         <div>
           <Paper style={style} zDepth={2}>
-            <form onSubmit={(e) => addComment(e, user, result, comment, dispatch)}>
+            <form onSubmit={(e) => {
+                    if(user._id){
+                      addComment(e, user, result, comment, dispatch)
+                    }
+                    else{
+                      openNotAuthSnackbar(dispatch);
+                    }
+
+                  }}>
               <TextField
                 value={comment.body}
                 fullWidth={true}

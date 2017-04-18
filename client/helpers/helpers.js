@@ -423,6 +423,16 @@ export const closePendingSnackbar = (dispatch) => {
   dispatch(actions.pendingSnackbar({pending: false}));
 };
 
+//open not authorized snackbar
+export const openNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: true}));
+};
+
+//close not authorized snackbar
+export const closeNotAuthSnackbar = (dispatch) => {
+  dispatch(actions.notAuthSnackbar({notAuth: false}));
+};
+
 /*--------------------------------
   ICON result helpers
 --------------------------------*/

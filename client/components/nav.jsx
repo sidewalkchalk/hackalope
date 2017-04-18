@@ -11,7 +11,7 @@ import LoggedOutMenu from './loggedoutmenu.jsx';
 import axios from 'axios';
 import { closeLoggedInSnackbar, closeLoggedOutSnackbar, openAdminSnackbar,
          closeAdminSnackbar, closeSubmitSnackbar, closeApprovedSnackbar,
-         closeUnapprovedSnackbar, closePendingSnackbar } from '../helpers/helpers.js';
+         closeUnapprovedSnackbar, closePendingSnackbar, closeNotAuthSnackbar } from '../helpers/helpers.js';
 
 // Required Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -43,6 +43,7 @@ const Nav = ({user, snackbar, unapproved, dispatch}) => {
     <Snackbar
       open={snackbar.login}
       message="Successfully Logged In"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => {
         closeLoggedInSnackbar(dispatch);
@@ -54,38 +55,52 @@ const Nav = ({user, snackbar, unapproved, dispatch}) => {
     <Snackbar
       open={snackbar.logout}
       message="Successfully Logged Out"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closeLoggedOutSnackbar(dispatch)}
     />
     <Snackbar
       open={snackbar.admin}
       message="Administrator Privilideges Activated"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closeAdminSnackbar(dispatch)}
     />
     <Snackbar
       open={snackbar.submit}
       message="Resource Submitted For Review"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closeSubmitSnackbar(dispatch)}
     />
     <Snackbar
       open={snackbar.approved}
       message="Submission Approved"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closeApprovedSnackbar(dispatch)}
     />
     <Snackbar
       open={snackbar.unapproved}
       message="Submission Deleted"
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closeUnapprovedSnackbar(dispatch)}
     />
     <Snackbar
       open={snackbar.pending}
       message={`Submissions Pending Review: ${unapproved.length}`}
+      contentStyle={{'textAlign': 'center'}}
       autoHideDuration={1300}
       onRequestClose={() => closePendingSnackbar(dispatch)}
+    />
+    <Snackbar
+      open={snackbar.notAuth}
+      message="Please Sign In First"
+      bodyStyle={{'background': '#c41b07'}}
+      contentStyle={{'textAlign': 'center'}}
+      autoHideDuration={1300}
+      onRequestClose={() => closeNotAuthSnackbar(dispatch)}
     />
     </div>
     </MuiThemeProvider>

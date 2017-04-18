@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 // Required Dependencies
 import { submissionData } from '../actions/index.js';
 import TagSelector from './tagselector.jsx';
-import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js';
+import { submit, handleSubmitClose, handleSubmitOpen, openNotAuthSnackbar } from '../helpers/helpers.js';
 
 // Required Material UI Components
 import FlatButton from 'material-ui/FlatButton';
@@ -49,7 +49,14 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
     <div>
       <FloatingActionButton
       secondary={true} style={style}
-      onTouchTap={() => handleSubmitOpen(dispatch)}>
+      onTouchTap={() => {
+          if(user._id){
+            handleSubmitOpen(dispatch);
+          }
+          else {
+            openNotAuthSnackbar(dispatch);  
+          }
+      }}>
       <ContentAdd />
       </FloatingActionButton>
       <div>
