@@ -130,6 +130,7 @@ export const titleCaseArray = (str) => {
 // post new submission to the server
 export const submit = (e, user, submission, dispatch) => {
   e.preventDefault();
+
   submission.tags = titleCaseArray(submission.tags);
   
   axios.post('/submit', submission)
