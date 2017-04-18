@@ -138,7 +138,7 @@ export const submit = (e, user, submission, dispatch) => {
       'Access-Control-Allow-Origin': '*'
     },
   };
-  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + 'http://' + submission.url, config)
+  axios.get('http://api.linkpreview.net/?key=58eff68ba74a41677ff8f43415db89c2157e0f9e042aa&q=' + submission.url, config)
     .then( res => {
       var preview = {
         description: res.data.description,
@@ -163,7 +163,6 @@ export const submit = (e, user, submission, dispatch) => {
             dispatch(actions.submitDialog({submit: false}));
             dispatch(actions.clearSubmissionData());
             openSubmitSnackbar(dispatch);
-
           })
           .catch ( err => {
             console.error(err)

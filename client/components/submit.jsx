@@ -66,9 +66,9 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
         <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
           <div>
             <TextField name="url"
-              value={`http://${submission.url}`}
+              value={`${submission.url}`}
               floatingLabelText="URL"
-              onChange={e => dispatch(submissionData({url: e.target.value.substring(7)}))}
+              onChange={e => dispatch(submissionData({url: e.target.value}))}
             /><br/>
             <TextField name="impression"
               value={submission.impression}
