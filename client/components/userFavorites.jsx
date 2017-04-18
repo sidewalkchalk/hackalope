@@ -1,12 +1,11 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStore } from 'redux';
 
-// Required Dependencies
+// ACTIONS AND HELPERS
 import { userProfile } from '../actions/index.js';
 
-//Required Material UI dependancies 
+// MATERIAL UI
 import {Card, CardHeader, CardActions, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

@@ -1,14 +1,15 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Route, browserHistory, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Dependencies
-import { submissionData } from '../actions/index.js';
+// COMPONENTS
 import TagSelector from './tagselector.jsx';
-import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/helpers.js';
 
-// Required Material UI Components
+// ACTIONS AND HELPERS
+import { submissionData } from '../actions/index.js';
+import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/submitHelpers.js';
+
+// MATERIAL UI
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

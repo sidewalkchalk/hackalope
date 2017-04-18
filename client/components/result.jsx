@@ -1,15 +1,17 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Dependencies
-
+// ACTIONS AND HELPERS
 import { commentsByResource } from '../actions/index.js'
-import { handleCheck, isFavorite, getComments, handleVote, isUpvoted, isDownvoted, checkImgIcon } from '../helpers/helpers.js'
+import { checkImgIcon } from '../helpers/helpers.js'
+import { handleCheck, isFavorite } from '../helpers/favoriteHelpers.js'
+import { handleVote, isUpvoted, isDownvoted } from '../helpers/voteHelpers.js'
+import { getComments } from '../helpers/commentHelpers.js'
 
-// Required Material-UI Components
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+// MATERIAL UI
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js';
 import ContentLink from 'material-ui/svg-icons/content/link.js';

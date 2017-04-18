@@ -1,13 +1,16 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { clearUser } from '../actions/index.js';
 import { connect } from 'react-redux';
-import { Route, browserHistory, Redirect, Link } from 'react-router';
+import { Link } from 'react-router';
 
-// Required Dependencies
-import { logout, getUnapproved, openPendingSnackbar, getProfile } from '../helpers/helpers.js';
+// ACTIONS AND HELPERS
+import { logout } from '../helpers/authHelpers.js';
+import { getUnapproved } from '../helpers/adminHelpers.js';
+import { openPendingSnackbar } from '../helpers/snackbarHelpers.js';
+import { getProfile } from '../helpers/favoriteHelpers.js';
+import { clearUser } from '../actions/index.js';
 
-//Required Material UI dependancies 
+// MATERIAL UI
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';

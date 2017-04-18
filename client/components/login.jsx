@@ -1,13 +1,12 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
+
+// ACTIONS AND HELPERS
+import { login, handleLoginClose } from '../helpers/authHelpers.js';
 import { userFormData } from '../actions/index.js';
 
-// Required Dependencies
-import { login, handleLoginClose } from '../helpers/helpers.js';
-
-// Required Material UI Components
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';

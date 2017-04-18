@@ -1,9 +1,12 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Router, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Material UI Components
+// ACTIONS AND HELPERS
+import { handleSearch } from '../helpers/searchHelpers.js';
+import { searchTerm } from '../actions/index.js';
+
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -12,9 +15,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-// Required Dependencies
-import { handleSearch } from '../helpers/helpers.js';
-import { searchTerm } from '../actions/index.js';
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
 const topics = [

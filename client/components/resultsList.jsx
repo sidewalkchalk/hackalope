@@ -1,12 +1,11 @@
-// Required React Components
+// REACT/REDUX
 import React from 'react';
-import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// Required Dependencies
-import { renderResults } from '../helpers/helpers.js';
+// ACTIONS AND HELPERS
+import { renderResults } from '../helpers/searchHelpers.js';
 
-//Required Material UI dependancies 
+// MATERIAL UI 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const ResultsList = ({ results, dispatch }) => {
