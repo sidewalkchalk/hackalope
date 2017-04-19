@@ -7,6 +7,7 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 
 // COMPONENTS
 import AddComment from './addComment.jsx';
+import moment from 'moment';
 
 const Comments = ({ comments }) => {
   const renderComments = () => comments.map(comment => (
@@ -14,7 +15,7 @@ const Comments = ({ comments }) => {
       <Card>
         <CardHeader
           title={comment.user}
-          subtitle={comment.createdAt}
+          subtitle={moment(comment.createdAt).format('L, h:mm a')}
           avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
         />
         <CardText>

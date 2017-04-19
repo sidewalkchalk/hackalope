@@ -4,20 +4,20 @@ import { connect } from 'react-redux';
 
 // ACTIONS AND HELPERS
 import { deleteComment } from '../helpers/commentHelpers.js';
-
+import moment from 'moment';
 // MATERIAL UI
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Delete from 'material-ui/svg-icons/action/delete.js';
 
 
-const UserComments = ({ profile }) => {
+const UserComments = ({ profile, dispatch }) => {
   const renderUserComments = () => profile.comments.map(comment => (
 
         <li key = {comment._id} >
            <Card>
             <CardHeader
               title={comment.body}
-              subtitle={comment.createdAt}
+              subtitle={moment(comment.createdAt).format('L, h:mm a')}
             />
             <CardText>
               Resource :  {comment.resource.title}
