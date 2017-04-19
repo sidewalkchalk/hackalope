@@ -13,23 +13,23 @@ import snackbarReducer from './snackbarReducer.jsx';
 
 // combine all reducers
 const appReducer = combineReducers({
-   results: resultsReducer,
-   result: activeResult,
-   user: authReducer,
+  results: resultsReducer,
+  result: activeResult,
+  user: authReducer,
 	 submission: submissionReducer,
 	 search: searchReducer,
 	 dialogs: dialogReducer,
-   comments: commentsReducer,
-   comment: addCommentReducer,
-   unapproved: unapprovedReducer,
-   profile: profileReducer,
-   snackbar: snackbarReducer
+  comments: commentsReducer,
+  comment: addCommentReducer,
+  unapproved: unapprovedReducer,
+  profile: profileReducer,
+  snackbar: snackbarReducer,
 });
 
 const rootReducer = (state, action) => {
   if (action.type === 'LOGOUT') {
     state = undefined;
-  };
+  }
   return appReducer(state, action);
 };
 

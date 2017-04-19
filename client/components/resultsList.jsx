@@ -5,38 +5,34 @@ import { connect } from 'react-redux';
 // ACTIONS AND HELPERS
 import { renderResults } from '../helpers/searchHelpers.js';
 
-// MATERIAL UI 
+// MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const ResultsList = ({ results, dispatch }) => {
-
   const style = {
     marginRight: 10,
     top: 'auto',
     right: 20,
     bottom: 20,
-    position: 'fixed'
+    position: 'fixed',
   };
 
   return results.resources ? (
     <MuiThemeProvider>
-      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%'}}>
+      <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%' }}>
         <div>
           <ul>
-          {renderResults(results, dispatch)}
+            {renderResults(results, dispatch)}
           </ul>
         </div>
-        <div style={{ alignSelf: 'center', width: '10%' }}>
-        </div>
+        <div style={{ alignSelf: 'center', width: '10%' }} />
       </div>
     </MuiThemeProvider>
-  ) : <h5 style={{fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
-}
-
-const mapStateToProps = (state) => {
-  return {
-    results: state.results,
-  };
+  ) : <h5 style={{ fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
 };
 
-export default connect (mapStateToProps)(ResultsList);
+const mapStateToProps = state => ({
+  results: state.results,
+});
+
+export default connect(mapStateToProps)(ResultsList);

@@ -13,61 +13,62 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
 const Login = ({ user, search, dialogs, dispatch }) => {
-
   const actions = [
     <FlatButton
       label="Cancel"
-      primary={true}
+      primary
       onTouchTap={() => handleLoginClose(dispatch)}
-      />,
+    />,
     <FlatButton
       label="Login"
-      primary={true}
-      keyboardFocused={true}
-      onClick={(e) => login(e, user, search, dispatch)}
-      />
+      primary
+      keyboardFocused
+      onClick={e => login(e, user, search, dispatch)}
+    />,
   ];
 
   return (
-    <div style={{alignContent: 'center'}}>
+    <div style={{ alignContent: 'center' }}>
       <MuiThemeProvider>
         <Dialog
-          autoScrollBodyContent={true}
+          autoScrollBodyContent
           title="Sign In"
           actions={actions}
           modal={false}
           open={dialogs.login}
-          onRequestClose={() => dispatch(signUpDialog({signUpDialog: false}))}
+          onRequestClose={() => dispatch(signUpDialog({ signUpDialog: false }))}
         >
-          <form onSubmit={(e) => login(e, user, dispatch)}>
-            <TextField name="username"
+          <form onSubmit={e => login(e, user, dispatch)}>
+            <TextField
+              name="username"
               value={user.username}
               floatingLabelText="Username"
-              onChange={e => dispatch(userFormData({username: e.target.value}))}
-            /><br/>
-            <TextField name="password"
+              onChange={e => dispatch(userFormData({ username: e.target.value }))}
+            /><br />
+            <TextField
+              name="password"
               value={user.password}
               floatingLabelText="Password"
-              onChange={e => dispatch(userFormData({password: e.target.value}))}
-            /><br/><br />
-            <div style={{textAlign: "center"}}
-                 onTouchTap={() => handleLoginClose(dispatch)}>
+              onChange={e => dispatch(userFormData({ password: e.target.value }))}
+            /><br /><br />
+            <div
+              style={{ textAlign: 'center' }}
+              onTouchTap={() => handleLoginClose(dispatch)}
+            >
               <p>Sign in with Github</p>
-              <a href='./auth/github'><img src="/public/assets/octocat.png" /></a>
+              <a href="./auth/github"><img src="/public/assets/octocat.png" /></a>
             </div>
           </form>
         </Dialog>
       </MuiThemeProvider>
     </div>
-  )
-}
-
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    dialogs: state.dialogs,
-    search: state.search
-  }
+  );
 };
 
-export default connect (mapStateToProps)(Login);
+const mapStateToProps = state => ({
+  user: state.user,
+  dialogs: state.dialogs,
+  search: state.search,
+});
+
+export default connect(mapStateToProps)(Login);

@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 // handle request for search results
-router.post('/', function (req, res) {
+router.post('/', (req, res) => {
   // query db for results
-  
-})
+
+});
 
 module.exports = router;

@@ -6,15 +6,12 @@ import { connect } from 'react-redux';
 import Nav from './nav.jsx';
 import Submit from './submit.jsx';
 
-const Main = (props) => {
-
-	return (
-    <div>
-      <Nav />
-      <Submit />
-      {props.children}
-    </div>
+const Main = props => (
+  <div>
+    <Nav />
+    <Submit />
+    {props.children}
+  </div>
 	);
-};
 
 export default connect()(Main);

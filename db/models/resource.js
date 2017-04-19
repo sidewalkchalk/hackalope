@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const resourceSchema = new Schema({
   title: String,
@@ -13,12 +13,12 @@ const resourceSchema = new Schema({
   impression: String,
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 
 });
 

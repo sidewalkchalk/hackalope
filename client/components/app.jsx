@@ -19,44 +19,42 @@ import { findUser } from '../helpers/authHelpers.js';
 import { checkAuth } from '../actions/index.js';
 
 class App extends React.Component {
-  constructor (props) {
-    super (props)
-  };
+  constructor(props) {
+    super(props);
+  }
 
-  componentDidMount () {
-    this.props.dispatch(checkAuth({checkingAuth: true}));
-    findUser(this.props.user, this.props.dispatch)
-  };
+  componentDidMount() {
+    this.props.dispatch(checkAuth({ checkingAuth: true }));
+    findUser(this.props.user, this.props.dispatch);
+  }
 
-  render () {
+  render() {
     return this.props.user.checkingAuth ? null : (
       <Router history={hashHistory}>
         {routes}
       </Router>
     );
-  };
+  }
 }
 
 const routes = (
   <div>
-    <Route path='/' component={Landing} />
-    <Route path='/main' component={Main}>
-      <Route path='/main/results' component={ResultsList} />
-      <Route path='/login' component={Login} />
-      <Route path='/submit' component={Submit} />
+    <Route path="/" component={Landing} />
+    <Route path="/main" component={Main}>
+      <Route path="/main/results" component={ResultsList} />
+      <Route path="/login" component={Login} />
+      <Route path="/submit" component={Submit} />
     </Route>
-    <Route path='/resource/:id' component={ResourceContainer} />
-    <Route path='/user' component={User}>
-      <Route path='/user/profile' component={Profile} />
-      <Route path='/user/admin' component = {Admin} />
+    <Route path="/resource/:id" component={ResourceContainer} />
+    <Route path="/user" component={User}>
+      <Route path="/user/profile" component={Profile} />
+      <Route path="/user/admin" component={Admin} />
     </Route>
   </div>
 );
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-}
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 export default connect(mapStateToProps)(App);

@@ -1,8 +1,8 @@
-var expect = chai.expect;
-var should = chai.should();
+const expect = chai.expect;
+const should = chai.should();
 
-describe("Client", function() {
-  it('shoud run mocha/chai client tests', function() {
+describe('Client', () => {
+  it('shoud run mocha/chai client tests', () => {
     expect(true).to.equal(true);
   });
 });

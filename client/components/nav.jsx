@@ -9,8 +9,8 @@ import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
 
 // ACTIONS AND HELPERS
-import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar, 
-         closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar, 
+import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
+         closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar,
          closeSubmitSnackbar, closeApprovedSnackbar,
          closeNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
 
@@ -26,94 +26,90 @@ import Snackbar from 'material-ui/Snackbar';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
-const Nav = ({user, snackbar, unapproved, dispatch}) => {
-
-  return (
-    <MuiThemeProvider>
+const Nav = ({ user, snackbar, unapproved, dispatch }) => (
+  <MuiThemeProvider>
     <div>
       <AppBar
         iconElementLeft={
           <IconButton>
             <ArrowBack
-              onClick={hashHistory.goBack}/>
+              onClick={hashHistory.goBack}
+            />
 
           </IconButton>}
-        title={<Link style={{"color": "inherit", "textDecoration": "none"}} to='/'>hackalope.io</Link>}
+        title={<Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">hackalope.io</Link>}
         iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
       />
-    <Snackbar
-      open={snackbar.login}
-      message="Successfully Logged In"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => {
-        closeLoggedInSnackbar(dispatch);
-        if (user.admin) {
-          openAdminSnackbar(dispatch);
-        }
-      }}
-    />
-    <Snackbar
-      open={snackbar.logout}
-      message="Successfully Logged Out"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeLoggedOutSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.admin}
-      message="Administrator Privilideges Activated"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeAdminSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.submit}
-      message="Resource Submitted For Review"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeSubmitSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.approved}
-      message="Submission Approved"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeApprovedSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.unapproved}
-      message="Submission Deleted"
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeUnapprovedSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.pending}
-      message={`Submissions Pending Review: ${unapproved.length}`}
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closePendingSnackbar(dispatch)}
-    />
-    <Snackbar
-      open={snackbar.notAuth}
-      message="Please Sign In First"
-      bodyStyle={{'background': '#c41b07'}}
-      contentStyle={{'textAlign': 'center'}}
-      autoHideDuration={1300}
-      onRequestClose={() => closeNotAuthSnackbar(dispatch)}
-    />
+      <Snackbar
+        open={snackbar.login}
+        message="Successfully Logged In"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => {
+          closeLoggedInSnackbar(dispatch);
+          if (user.admin) {
+            openAdminSnackbar(dispatch);
+          }
+        }}
+      />
+      <Snackbar
+        open={snackbar.logout}
+        message="Successfully Logged Out"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeLoggedOutSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.admin}
+        message="Administrator Privilideges Activated"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeAdminSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.submit}
+        message="Resource Submitted For Review"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeSubmitSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.approved}
+        message="Submission Approved"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeApprovedSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.unapproved}
+        message="Submission Deleted"
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeUnapprovedSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.pending}
+        message={`Submissions Pending Review: ${unapproved.length}`}
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closePendingSnackbar(dispatch)}
+      />
+      <Snackbar
+        open={snackbar.notAuth}
+        message="Please Sign In First"
+        bodyStyle={{ background: '#c41b07' }}
+        contentStyle={{ textAlign: 'center' }}
+        autoHideDuration={1300}
+        onRequestClose={() => closeNotAuthSnackbar(dispatch)}
+      />
     </div>
-    </MuiThemeProvider>
+  </MuiThemeProvider>
 	);
-};
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    snackbar: state.snackbar,
-    unapproved: state.unapproved
-  };
-};
+const mapStateToProps = state => ({
+  user: state.user,
+  snackbar: state.snackbar,
+  unapproved: state.unapproved,
+});
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps)(Nav);

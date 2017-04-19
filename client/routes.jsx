@@ -13,15 +13,15 @@ import Admin from './components/admin.jsx';
 
 
 const routes = (
-	<Route>
-    <Route path = '/' component = {Main}></Route>
-    <Route path = '/login' component = {LogIn}></Route>
-    <Route path = '/signup' component = {SignUp}></Route>
-    <Route path = '/results' component = {ResultsList}></Route>
-    <Route path = '/:resultId' component = {Resource}></Route>
-    <Route path = '/:user' component = {Profile}></Route>
-    <Route path = '/submit' component = {Submit}></Route>
-    <Route path = '/admin' component = {Admin}></Route>
+  <Route>
+    <Route path="/" component={Main} />
+    <Route path="/login" component={LogIn} />
+    <Route path="/signup" component={SignUp} />
+    <Route path="/results" component={ResultsList} />
+    <Route path="/:resultId" component={Resource} />
+    <Route path="/:user" component={Profile} />
+    <Route path="/submit" component={Submit} />
+    <Route path="/admin" component={Admin} />
   </Route>
 );
 
