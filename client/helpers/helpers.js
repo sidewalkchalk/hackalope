@@ -15,6 +15,20 @@ export const checkImgIcon = (result) => {
   return <img src={`${result.image}`} alt={`${result.title}`} width="40" />;
 };
 
+export const checkAvatar = user => {
+  if (!user.avatar) {
+    let letter = user.name.charAt(0).toUpperCase() || user.username.charat(0).toUpperCase();
+    return (
+      <div style={{background: "rgb(188, 188, 188)", width: 40, height: 40, lineHeight: '40px', textAlign: 'center'}}>
+        <font color='white' size='5'>
+          {letter}
+        </font>
+      </div>
+    )
+  } else {
+    return <img src={`${user.avatar}`} width="40" />
+  }
+}
 
 export const submitProgress = (submission) => {
   if (submission.loading) {

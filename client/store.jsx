@@ -8,7 +8,7 @@ const store = createStore(
   undefined,
   compose(
     autoRehydrate(),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // will need to remove to work in browser without redux tools
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
 
@@ -16,3 +16,7 @@ persistStore(store);
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 export default store;
+
+// For deployment, remove redux dev tools extension from compose function.
+// Then remove function call before export statement. This will ensure that
+// the app will work on all browsers.

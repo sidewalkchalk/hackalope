@@ -14,6 +14,7 @@ module.exports = function (passport) {
         username: req.user.username,
         password: '',
         admin: req.user.admin,
+        avatar: req.user.avatar || null,
         _id: req.user._id,
         favorites: req.user.favorites };
       res.status(201).send(userData);
@@ -27,6 +28,7 @@ module.exports = function (passport) {
         username: req.user.username,
         password: '',
         admin: req.user.admin,
+        avatar: req.user.avatar || null,
         _id: req.user._id,
         favorites: req.user.favorites };
       res.status(201).send(userData);

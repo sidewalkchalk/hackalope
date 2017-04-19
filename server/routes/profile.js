@@ -30,9 +30,10 @@ router.get('/', utils.checkAuth, (req, res, next) => {
            })
         .catch((err) => {
           console.error(err);
-        });
-        });
+        })
+      })
 });
+
 // adds a resource ID to the user's favorites
 router.put('/favorites', utils.checkAuth, (req, res) => {
   userController.findUserById(req.user._id)
@@ -68,6 +69,7 @@ router.get('/user', (req, res) => {
       username: req.user.username,
       password: '',
       admin: req.user.admin,
+      avatar: req.user.avatar || null,
       _id: req.user._id,
       favorites: req.user.favorites };
 

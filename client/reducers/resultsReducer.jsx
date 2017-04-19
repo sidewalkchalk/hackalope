@@ -1,7 +1,9 @@
-const resultsReducer = (state = {}, action) => {
+const resultsReducer = (state = {resources: [], loaded: true}, action) => {
   switch (action.type) {
     case 'SEARCH_RESULTS':
       return action.results;
+    case 'RESULTS_LOADED':
+      return Object.assign({}, state, action.loaded);
     case 'UPDATE_RESOURCE':
       let update = state.resources.map((element) => {
         if (element._id !== action.updatedResource._id) {
