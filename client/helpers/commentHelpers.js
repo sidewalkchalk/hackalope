@@ -43,17 +43,16 @@ export const addComment = (e, user, result, comment, dispatch) => {
     });
 };
 
-//delete a users comments
+// delete a users comments
 export const deleteComment = (commentId, userId, dispatch) => {
-  axios.delete('/comments', {data: {commentId} })
+  axios.delete('/comments', { data: { commentId } })
   .then((response) => {
-    //reload users comments
-    getProfile(dispatch)
-      //creates action to trash comment
-    //dispatch(actions.trashComment(commentId))
-    
-    })
-    .catch ( err => {
-    console.error(err)
+    // reload users comments
+    getProfile(dispatch);
+      // creates action to trash comment
+    // dispatch(actions.trashComment(commentId))
   })
+    .catch((err) => {
+      console.error(err);
+    });
 };

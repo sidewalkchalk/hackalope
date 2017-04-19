@@ -42,12 +42,14 @@ const SignUp = ({ user, dialogs, dispatch }) => {
           <form onSubmit={e => signup(e, user, dispatch)}>
             <TextField
               name="name"
+              errorText="Required"
               value={user.name}
               floatingLabelText="Name"
               onChange={e => dispatch(userFormData({ name: e.target.value }))}
             /><br />
             <TextField
               name="username"
+              errorText="Required"
               value={user.username}
               floatingLabelText="Username"
               onChange={e => dispatch(userFormData({ username: e.target.value }))}
@@ -55,6 +57,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
             <TextField
               name="password"
               type="password"
+              errorText="Required"
               value={user.password}
               floatingLabelText="Password"
               onChange={e => dispatch(userFormData({ password: e.target.value }))}

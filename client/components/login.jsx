@@ -41,6 +41,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
           <form onSubmit={e => login(e, user, dispatch)}>
             <TextField
               name="username"
+              errorText="Required"
               value={user.username}
               floatingLabelText="Username"
               onChange={e => dispatch(userFormData({ username: e.target.value }))}
@@ -48,6 +49,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
             <TextField
               name="password"
               type="password"
+              errorText="Required"
               value={user.password}
               floatingLabelText="Password"
               onChange={e => dispatch(userFormData({ password: e.target.value }))}
