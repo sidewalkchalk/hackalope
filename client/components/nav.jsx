@@ -95,7 +95,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => (
       />
       <Snackbar
         open={snackbar.notAuth}
-        message="Please Sign In First"
+        message="You need to be signed in to do that!"
         bodyStyle={{ background: '#c41b07' }}
         contentStyle={{ textAlign: 'center' }}
         autoHideDuration={1300}

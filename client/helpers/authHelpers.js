@@ -74,9 +74,9 @@ export const signup = (e, user, dispatch) => {
 export const logout = (dispatch) => {
   axios.post('/auth/logout')
   .then(() => {
+    hashHistory.push('/');
     dispatch(actions.logout());
     snackbar.openLoggedOutSnackbar(dispatch);
-    hashHistory.push('/');
   })
   .catch((err) => {
     console.log(err);
