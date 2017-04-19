@@ -3,8 +3,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, hashHistory } from 'react-router';
 
+// MATERIAL UI
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import Snackbar from 'material-ui/Snackbar';
+
 // COMPONENTS
-import Login from './login.jsx';
 import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
 
@@ -12,17 +19,9 @@ import LoggedOutMenu from './loggedoutmenu.jsx';
 import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
          closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar,
          closeSubmitSnackbar, closeApprovedSnackbar,
-         closeNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
+         closeNotAuthSnackbar,
+       } from '../helpers/snackbarHelpers.js';
 
-// MATERIAL UI
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Snackbar from 'material-ui/Snackbar';
 
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
@@ -104,7 +103,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => (
       />
     </div>
   </MuiThemeProvider>
-	);
+);
 
 const mapStateToProps = state => ({
   user: state.user,

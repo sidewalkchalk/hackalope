@@ -1,7 +1,7 @@
-import * as actions from '../actions/index.js';
+import React from 'react';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
-import React from 'react';
+import * as actions from '../actions/index.js';
 import Result from '../components/result.jsx';
 
 // set title case for searchTerm
@@ -21,7 +21,7 @@ export const handleSearch = (query, dispatch) => {
   query = buildQuery(query);
   axios.get(`/search?${query}`)
     .then((response) => {
-      dispatch(actions.clearSearch()),
+      dispatch(actions.clearSearch());
       dispatch(actions.searchResults(response.data));
       hashHistory.push('/main/results');
     })

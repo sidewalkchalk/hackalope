@@ -1,7 +1,6 @@
-import * as actions from '../actions/index.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
-import React from 'react';
+import * as actions from '../actions/index.js';
 
 // get all comments on a resource
 export const getComments = (resultId, dispatch) => {
@@ -47,7 +46,7 @@ export const addComment = (e, user, result, comment, dispatch) => {
     resource: result._id,
   };
   axios.post('/comments', newComment)
-    .then((response) => {
+    .then(() => {
       getComments(result._id, dispatch);
     })
     .catch((err) => {

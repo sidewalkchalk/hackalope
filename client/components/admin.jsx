@@ -2,13 +2,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { approveResource, unapproveResource } from '../helpers/adminHelpers.js';
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
+
+// ACTIONS AND HELPERS
+import { approveResource, unapproveResource } from '../helpers/adminHelpers';
 
 const Admin = ({ unapproved, dispatch }) => {
   const renderPending = () => unapproved.map(resource => (

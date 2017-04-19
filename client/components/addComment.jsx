@@ -2,17 +2,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// HELPERS AND ACTIONS
-import { newComment } from '../actions/index.js';
-import { openNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
-import { addComment } from '../helpers/commentHelpers.js';
-
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+
+// HELPERS AND ACTIONS
+import { newComment } from '../actions';
+import { openNotAuthSnackbar } from '../helpers/snackbarHelpers';
+import { addComment } from '../helpers/commentHelpers';
 
 const AddComment = ({ dispatch, comment, user, result }) => {
   const style = {

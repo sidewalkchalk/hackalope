@@ -1,5 +1,4 @@
 import * as actions from '../actions/index.js';
-import React from 'react';
 
 // open logged in snackbar
 export const openLoggedInSnackbar = (dispatch) => {

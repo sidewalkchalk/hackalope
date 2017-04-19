@@ -12,6 +12,6 @@ const Main = props => (
     <Submit />
     {props.children}
   </div>
-	);
+);
 
 export default connect()(Main);

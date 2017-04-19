@@ -2,19 +2,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// COMPONENTS
-import Comments from './comments.jsx';
-
 // MATERIAL UI
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentLink from 'material-ui/svg-icons/content/link.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Avatar from 'material-ui/Avatar';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-const Resource = ({ result, dispatch }) => {
+// COMPONENTS
+import Comments from './comments.jsx';
+
+const Resource = ({ result }) => {
   const renderTags = () => {
     // maps over each tag
     if (!result.tags) {
@@ -27,12 +24,10 @@ const Resource = ({ result, dispatch }) => {
       ));
   };
 
-  const style = {
-    marginRight: 10,
-    top: 'auto',
-    right: 20,
-    bottom: 20,
-    position: 'fixed',
+  const styles = {
+    button: {
+      maxWidth: 250,
+    },
   };
 
   return (
@@ -56,6 +51,7 @@ const Resource = ({ result, dispatch }) => {
                 <a
                   href={`${result.url}`}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <RaisedButton
                     label="Link"
@@ -80,12 +76,6 @@ const Resource = ({ result, dispatch }) => {
       </div>
     </MuiThemeProvider>
   );
-};
-
-const styles = {
-  button: {
-    maxWidth: 250,
-  },
 };
 
 const mapStateToProps = state => ({

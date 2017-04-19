@@ -2,6 +2,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// MATERIAL UI
+import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import TextField from 'material-ui/TextField';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
+
 // COMPONENTS
 import TagSelector from './tagselector.jsx';
 import { openNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
@@ -10,19 +20,6 @@ import { openNotAuthSnackbar } from '../helpers/snackbarHelpers.js';
 import { submissionData } from '../actions/index.js';
 import { submit, handleSubmitClose, handleSubmitOpen } from '../helpers/submitHelpers.js';
 import { submitProgress } from '../helpers/helpers.js';
-
-// MATERIAL UI
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import TextField from 'material-ui/TextField';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
-import LinearProgress from 'material-ui/LinearProgress';
 
 const Submit = ({ user, submission, dialogs, dispatch }) => {
   const actions = [

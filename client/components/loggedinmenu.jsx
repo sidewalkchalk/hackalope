@@ -3,18 +3,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-// ACTIONS AND HELPERS
-import { logout } from '../helpers/authHelpers.js';
-import { getUnapproved } from '../helpers/adminHelpers.js';
-import { openPendingSnackbar } from '../helpers/snackbarHelpers.js';
-import { getProfile } from '../helpers/favoriteHelpers.js';
-import { clearUser } from '../actions/index.js';
-
 // MATERIAL UI
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem';
+
+// ACTIONS AND HELPERS
+import { logout } from '../helpers/authHelpers.js';
+import { getUnapproved } from '../helpers/adminHelpers.js';
+import { openPendingSnackbar } from '../helpers/snackbarHelpers.js';
+import { getProfile } from '../helpers/favoriteHelpers.js';
 
 const LoggedInMenu = ({ user, dispatch }) => (
   <IconMenu

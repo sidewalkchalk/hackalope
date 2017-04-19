@@ -1,13 +1,22 @@
+import axios from 'axios';
 import * as actions from '../actions/index.js';
 import * as snackbar from './snackbarHelpers.js';
-import axios from 'axios';
-import { hashHistory } from 'react-router';
-import React from 'react';
+
+// fetches unapproved resources up for review
+export const getUnapproved = (dispatch) => {
+  axios.get('/admin/')
+  .then((responses) => {
+    dispatch(actions.unapprovedResources(responses.data));
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+};
 
 // handles approving an unapproved resource
 export const approveResource = (resultId, dispatch) => {
   axios.put('/admin', { resultId })
-  .then((response) => {
+  .then(() => {
     getUnapproved(dispatch);
     snackbar.openApprovedSnackbar(dispatch);
   })
@@ -19,20 +28,9 @@ export const approveResource = (resultId, dispatch) => {
 // deletes a resource deemeed unapproved
 export const unapproveResource = (resultId, dispatch) => {
   axios.delete('/admin', { data: { resultId } })
-  .then((response) => {
+  .then(() => {
     getUnapproved(dispatch);
     snackbar.openUnapprovedSnackbar(dispatch);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-};
-
-// fetches unapproved resources up for review
-export const getUnapproved = (dispatch) => {
-  axios.get('/admin/')
-  .then((responses) => {
-    dispatch(actions.unapprovedResources(responses.data));
   })
   .catch((err) => {
     console.error(err);

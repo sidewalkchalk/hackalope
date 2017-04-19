@@ -16,14 +16,14 @@ const appReducer = combineReducers({
   results: resultsReducer,
   result: activeResult,
   user: authReducer,
-	 submission: submissionReducer,
-	 search: searchReducer,
-	 dialogs: dialogReducer,
-   comments: commentsReducer,
-   comment: commentReducer,
-   unapproved: unapprovedReducer,
-   profile: profileReducer,
-   snackbar: snackbarReducer
+  submission: submissionReducer,
+  search: searchReducer,
+  dialogs: dialogReducer,
+  comments: commentsReducer,
+  comment: addCommentReducer,
+  unapproved: unapprovedReducer,
+  profile: profileReducer,
+  snackbar: snackbarReducer,
 });
 
 const rootReducer = (state, action) => {

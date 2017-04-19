@@ -20,6 +20,6 @@ const Main = props => (
     <Login />
     {props.children}
   </div>
-	);
+);
 
 export default connect()(Main);

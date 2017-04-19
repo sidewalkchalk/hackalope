@@ -2,12 +2,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { submissionData } from '../actions/index.js';
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+
+// ACTIONS AND HELPERS
+import { submissionData } from '../actions/index.js';
 
 const TagSelector = ({ submission, dispatch }) =>
 

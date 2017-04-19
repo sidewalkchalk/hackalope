@@ -18,6 +18,6 @@ const ResourceContainer = props => (
     <Login />
     {props.children}
   </div>
-	);
+);
 
 export default connect()(ResourceContainer);

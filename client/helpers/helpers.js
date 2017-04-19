@@ -1,6 +1,5 @@
-import * as actions from '../actions/index.js';
-import React from 'react';
 import LinearProgress from 'material-ui/LinearProgress';
+import React from 'react';
 
 export const checkImgIcon = (result) => {
   if (!result.image) {
@@ -13,7 +12,7 @@ export const checkImgIcon = (result) => {
       </div>
     );
   }
-  return <img src={`${result.image}`} width="40" />;
+  return <img src={`${result.image}`} alt={`${result.title}`} width="40" />;
 };
 
 

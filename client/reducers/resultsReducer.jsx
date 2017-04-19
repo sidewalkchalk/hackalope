@@ -3,7 +3,7 @@ const resultsReducer = (state = {}, action) => {
     case 'SEARCH_RESULTS':
       return action.results;
     case 'UPDATE_RESOURCE':
-      var update = state.resources.map((element) => {
+      let update = state.resources.map((element) => {
         if (element._id !== action.updatedResource._id) {
           return element;
         }
@@ -11,9 +11,9 @@ const resultsReducer = (state = {}, action) => {
       });
       return Object.assign({}, state, { resources: update });
     case 'UPDATE_VOTE':
-      var change = false;
+      let change = false;
       // create new state with changes
-      var updateArray = state.votes.map((vote) => {
+      const updateArray = state.votes.map((vote) => {
         if (action.resourceId === vote.resource) {
           change = true;
           if (vote.vote === action.newVote.vote) {

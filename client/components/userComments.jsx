@@ -3,15 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // ACTIONS AND HELPERS
-import { userProfile } from '../actions/index.js';
 import { deleteComment } from '../helpers/commentHelpers.js';
 
 // MATERIAL UI
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Delete from 'material-ui/svg-icons/action/delete.js';
 
-const UserComments = ({profile, dispatch}) => {
 
+const UserComments = ({ profile }) => {
   const renderUserComments = () => profile.comments.map(comment => (
 
         <li key = {comment._id} >
