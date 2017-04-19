@@ -9,18 +9,28 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // ACTIONS AND HELPERS
 import { renderResults } from '../helpers/searchHelpers.js';
 
-const ResultsList = ({ results, dispatch }) => results.resources ? (
-  <MuiThemeProvider>
-    <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%' }}>
-      <div>
-        <ul>
-          {renderResults(results, dispatch)}
-        </ul>
-      </div>
-      <div style={{ alignSelf: 'center', width: '10%' }} />
-    </div>
-  </MuiThemeProvider>
-) : <h5 style={{ fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
+const ResultsList = ({ results, dispatch }) => (
+
+  if (results.loaded && results.resources.length) {
+    return (
+      <MuiThemeProvider>
+        <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%' }}>
+          <div>
+            <ul>
+              {renderResults(results, dispatch)}
+            </ul>
+          </div>
+          <div style={{ alignSelf: 'center', width: '10%' }} />
+        </div>
+      </MuiThemeProvider>
+    )
+  }
+  else if (results.loaded && !results.resources.length) {
+    return <h5 style={{ fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
+  } else {
+    return null;
+  }
+);
 
 const mapStateToProps = state => ({
   results: state.results,

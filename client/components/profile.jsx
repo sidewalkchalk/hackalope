@@ -2,8 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-<<<<<<< HEAD
-=======
 // ACTIONS AND HELPERS
 import { checkAvatar } from '../helpers/helpers.js';
 
@@ -11,7 +9,6 @@ import { checkAvatar } from '../helpers/helpers.js';
 import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
 
->>>>>>> Pre-major rebase
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
