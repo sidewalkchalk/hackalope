@@ -174,6 +174,11 @@ export const approveResource = resource => ({
   resource,
 });
 
+export const editUnapproved = edit => ({
+  type: 'EDIT_UNAPPROVED',
+  edit
+})
+
 /*--------------------------------
   VOTING
 --------------------------------*/

@@ -1,12 +1,14 @@
+import React from 'react';
 import axios from 'axios';
 import * as actions from '../actions/index.js';
 import * as snackbar from './snackbarHelpers.js';
+import UnapprovedResource from '../components/unapprovedResource.jsx';
 
 // fetches unapproved resources up for review
 export const getUnapproved = (dispatch) => {
   axios.get('/admin/')
-  .then((responses) => {
-    dispatch(actions.unapprovedResources(responses.data));
+  .then((response) => {
+    dispatch(actions.unapprovedResources(response.data));
   })
   .catch((err) => {
     console.error(err);
@@ -36,3 +38,13 @@ export const unapproveResource = (resultId, dispatch) => {
     console.error(err);
   });
 };
+
+// handle rendering of unapproved resources
+export const renderUnapproved = (unapproved) => unapproved.map((resource, index) =>
+  <div
+    key={resource._id}
+    style={{ zDepth: 10 }}
+  >
+    <UnapprovedResource key={resource._id} resource={resource} index={index}/>
+  </div>
+);
