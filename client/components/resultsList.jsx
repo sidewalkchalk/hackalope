@@ -1,8 +1,9 @@
-// REACT/REDUX
+// Required React Components
 import React from 'react';
+import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
+// Required Dependencies
 import { renderResults } from '../helpers/searchHelpers.js';
 
 // MATERIAL UI
