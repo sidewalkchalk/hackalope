@@ -2,6 +2,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// ACTIONS AND HELPERS
+import { checkAvatar } from '../helpers/helpers.js';
+
 // COMPONENTS
 import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
@@ -27,19 +30,27 @@ const Profile = ({ user, dispatch }) => {
   return (
     <MuiThemeProvider>
       <div>
+
         <h4 style={{fontFamily: 'Roboto' }}>MY PROFILE</h4>
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
         <CardHeader
           title= {user.name}
           subtitle= {user.username}
-          avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
+          avatar={checkAvatar(user)}
           style={{position: 'relative', width: '60%', display: 'inline' }}
         />
       <div style={{ position: 'relative', display: 'inline-flex', float: 'right'}}>
       </div>
       </Card>
-        <hr></hr>
-        <h4 style={{fontFamily: 'Roboto' }}><ActionFavoriteBorder/> MY FAVORITES </h4>
+        <CardText>
+          This is where the users profile info goes!
+          <br />
+          </CardText>
+
+        </Card>
+        <hr />
+        <h4 style={{ fontFamily: 'Roboto' }}><ActionFavoriteBorder /> MY FAVORITES </h4>
+
         <Favorites />
         <hr />
         <h4 style={{ fontFamily: 'Roboto' }}>MY COMMENTS</h4>
