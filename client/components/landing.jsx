@@ -24,7 +24,7 @@ const Landing = ({ user, dispatch }) => {
       <Login />
     </div>
 	);
-
+};
 
 const mapStateToProps = state => ({
   user: state.user,
