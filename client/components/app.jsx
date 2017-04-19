@@ -26,22 +26,6 @@ class App extends React.Component {
   }
 
   render() {
-    const routes = (
-      <div>
-        <Route path="/" component={Landing} />
-        <Route path="/main" component={Main}>
-          <Route path="/main/results" component={ResultsList} />
-          <Route path="/login" component={Login} />
-          <Route path="/submit" component={Submit} />
-        </Route>
-        <Route path="/resource/:id" component={ResourceContainer} />
-        <Route path="/user" component={User}>
-          <Route path="/user/profile" component={Profile} />
-          <Route path="/user/admin" component={Admin} />
-        </Route>
-      </div>
-    );
-
     return this.props.user.checkingAuth ? null : (
       <Router history={hashHistory}>
         {routes}
@@ -49,6 +33,22 @@ class App extends React.Component {
     );
   }
 }
+
+const routes = (
+  <div>
+    <Route path="/" component={Landing} />
+    <Route path="/main" component={Main}>
+      <Route path="/main/results" component={ResultsList} />
+      <Route path="/login" component={Login} />
+      <Route path="/submit" component={Submit} />
+    </Route>
+    <Route path="/resource/:id" component={ResourceContainer} />
+    <Route path="/user" component={User}>
+      <Route path="/user/profile" component={Profile} />
+      <Route path="/user/admin" component={Admin} />
+    </Route>
+  </div>
+);
 
 const mapStateToProps = state => ({
   user: state.user,

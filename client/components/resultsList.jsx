@@ -9,7 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // ACTIONS AND HELPERS
 import { renderResults } from '../helpers/searchHelpers.js';
 
-const ResultsList = ({ results, dispatch }) => (
+const ResultsList = ({ results, dispatch }) => {
 
   if (results.loaded && results.resources.length) {
     return (
@@ -30,7 +30,7 @@ const ResultsList = ({ results, dispatch }) => (
   } else {
     return null;
   }
-);
+};
 
 const mapStateToProps = state => ({
   results: state.results,

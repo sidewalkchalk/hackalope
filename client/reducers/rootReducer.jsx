@@ -20,7 +20,7 @@ const appReducer = combineReducers({
   search: searchReducer,
   dialogs: dialogReducer,
   comments: commentsReducer,
-  comment: addCommentReducer,
+  comment: commentReducer,
   unapproved: unapprovedReducer,
   profile: profileReducer,
   snackbar: snackbarReducer,

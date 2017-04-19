@@ -14,10 +14,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
-// COMPONENTS
-import Comments from './userComments.jsx';
-import Favorites from './userFavorites.jsx';
-
 const Profile = ({ user }) => (
   <MuiThemeProvider>
     <div>
