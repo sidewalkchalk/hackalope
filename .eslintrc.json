@@ -7,9 +7,10 @@
       "mocha": true
     },
     "plugins": [
+        "node",
         "react",
         "jsx-a11y",
         "import",
         "html"
-    ],
+    ]
 }

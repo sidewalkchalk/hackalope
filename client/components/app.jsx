@@ -18,22 +18,6 @@ import User from './user.jsx';
 import { findUser } from '../helpers/authHelpers';
 import { checkAuth } from '../actions';
 
-class App extends React.Component {
-
-  componentDidMount() {
-    this.props.dispatch(checkAuth({ checkingAuth: true }));
-    findUser(this.props.user, this.props.dispatch);
-  }
-
-  render() {
-    return this.props.user.checkingAuth ? null : (
-      <Router history={hashHistory}>
-        {routes}
-      </Router>
-    );
-  }
-}
-
 const routes = (
   <div>
     <Route path="/" component={Landing} />
@@ -49,6 +33,22 @@ const routes = (
     </Route>
   </div>
 );
+
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(checkAuth({ checkingAuth: true }));
+    findUser(this.props.user, this.props.dispatch);
+  }
+
+  render() {
+    return this.props.user.checkingAuth ? null : (
+      <Router history={hashHistory}>
+        {routes}
+      </Router>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   user: state.user,
