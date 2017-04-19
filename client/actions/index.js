@@ -92,6 +92,11 @@ export const searchQuery = query => ({
   query,
 });
 
+export const resultsLoaded = loaded => ({
+  type: 'RESULTS_LOADED',
+  loaded,
+})
+
 /*--------------------------------
   SNACKBARS
 --------------------------------*/
