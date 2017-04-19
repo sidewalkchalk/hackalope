@@ -9,6 +9,7 @@ import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/
 
 // ACTIONS AND HELPERS
 import { approveResource, unapproveResource } from '../helpers/adminHelpers';
+import moment from 'moment';
 
 const Admin = ({ unapproved, dispatch }) => {
   const renderPending = () => unapproved.map(resource => (
@@ -18,7 +19,7 @@ const Admin = ({ unapproved, dispatch }) => {
         <Card>
           <CardHeader
             title={`Created by: ${resource.user.name} Username: ${resource.user.username}`}
-            subtitle={`Created on: ${resource.createdAt}`}
+            subtitle={`Created on: ${moment(resource.createdAt).format('L, h:mm a')}`}
             avatar="https://avatars0.githubusercontent.com/u/8547538?v=3&s=460"
           />
           <CardTitle title={resource.title} subtitle={resource.url} />

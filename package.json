@@ -38,6 +38,7 @@
     "material-ui": "^0.17.2",
     "method-override": "^2.3.8",
     "mocha": "^3.2.0",
+    "moment": "^2.18.1",
     "mongoose": "^4.9.2",
     "morgan": "^1.8.1",
     "mozjpeg": "^4.1.1",
