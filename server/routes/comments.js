@@ -37,4 +37,16 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/', function (req, res) {
+  commentController.deleteComment(req.body.comment._id)
+  .then(function (response) {
+    console.log(response);
+    res.status(201).send(response);
+  })
+  .catch(function (err) {
+    console.error(err);
+  })
+});
+
+
 module.exports = router;

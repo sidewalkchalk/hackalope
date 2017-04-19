@@ -45,12 +45,14 @@ export const addComment = (e, user, result, comment, dispatch) => {
 };
 
 //delete a users comments
-export const deleteComment = (comment, dispatch) => {
-  axios.delete('/comments', {data: {comment: comment}})
+export const deleteComment = (commentId, dispatch) => {
+  axios.delete('/comments', {data: {commentId: commentId}})
     .then( response => {
       console.log(response);
-      dispatch(actions.trashComment())
-      getUserComments(dispatch)
+      //creates action to trash comment
+      dispatch(actions.trashComment(response))
+      //reload users comments
+      getUserComments(user._id, dispatch)
     })
 
     .catch ( err => {
