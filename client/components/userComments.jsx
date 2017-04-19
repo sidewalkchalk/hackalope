@@ -2,13 +2,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { userProfile } from '../actions/index.js';
-
 // MATERIAL UI
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 
-const UserComments = ({ profile, dispatch }) => {
+const UserComments = ({ profile }) => {
   const renderUserComments = () => profile.comments.map(comment => (
     <li key={comment._id} >
       <Card>

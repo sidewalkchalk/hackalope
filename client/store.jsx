@@ -1,4 +1,4 @@
-import { compose, createStore, combineReducers } from 'redux';
+import { compose, createStore } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import rootReducer from './reducers/rootReducer.jsx';
 

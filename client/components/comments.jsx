@@ -2,16 +2,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// COMPONENTS
-import AddComment from './addComment.jsx';
-
 // MATERIAL UI
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 
-const Comments = ({ comments, dispatch }) => {
+// COMPONENTS
+import AddComment from './addComment.jsx';
+
+const Comments = ({ comments }) => {
   const renderComments = () => comments.map(comment => (
     <li key={comment._id} >
-
       <Card>
         <CardHeader
           title={comment.user}

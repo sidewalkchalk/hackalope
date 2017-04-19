@@ -9,18 +9,18 @@ import Submit from './submit.jsx';
 import SignUp from './signup.jsx';
 import Login from './login.jsx';
 
-const Landing = () => (
+const Landing = ({ user, dispatch }) => (
   <div>
     <Nav />
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto', position: 'absolute', top: '0', left: '0', bottom: '0', right: '0' }}>
-      <div style={{ alignSelf: 'center', display: 'inline-block' }} ><img alt="hackalope" src="/public/assets/logo.jpg" style={{ width: '320px', height: '320px' }} /></div>
+      <div style={{ alignSelf: 'center', display: 'inline-block' }} ><img src="/public/assets/logo.jpg" style={{ width: '320px', height: '320px' }} /></div>
       <div style={{ alignSelf: 'center', display: 'inline-block' }} ><Search /></div>
     </div>
     <Submit />
     <SignUp />
     <Login />
   </div>
-);
+	);
 
 
 const mapStateToProps = state => ({

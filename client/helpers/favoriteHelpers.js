@@ -1,7 +1,6 @@
-import * as actions from '../actions/index.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
-import React from 'react';
+import * as actions from '../actions/index.js';
 
 // gets user profile info on sign in
 export const getProfile = (dispatch) => {

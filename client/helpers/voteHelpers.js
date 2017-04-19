@@ -1,7 +1,5 @@
-import * as actions from '../actions/index.js';
 import axios from 'axios';
-import { hashHistory } from 'react-router';
-import React from 'react';
+import * as actions from '../actions/index.js';
 
 // handles user click to vote on a resource
 export const handleVote = (resourceId, votes, newVote, dispatch) => {

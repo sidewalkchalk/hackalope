@@ -3,28 +3,32 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { commentsByResource } from '../actions/index.js';
-import { checkImgIcon } from '../helpers/helpers.js';
-import { handleCheck, isFavorite } from '../helpers/favoriteHelpers.js';
-import { handleVote, isUpvoted, isDownvoted } from '../helpers/voteHelpers.js';
-import { getComments } from '../helpers/commentHelpers.js';
-
 // MATERIAL UI
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import DetailIcon from 'material-ui/svg-icons/image/details.js';
 import ContentLink from 'material-ui/svg-icons/content/link.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Avatar from 'material-ui/Avatar';
 import ArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up.js';
 import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down.js';
 import Checkbox from 'material-ui/Checkbox';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+// ACTIONS AND HELPERS
+import { checkImgIcon } from '../helpers/helpers.js';
+import { handleCheck, isFavorite } from '../helpers/favoriteHelpers.js';
+import { handleVote, isUpvoted, isDownvoted } from '../helpers/voteHelpers.js';
+import { getComments } from '../helpers/commentHelpers.js';
+
+const styles = {
+  button: {
+    maxWidth: 250,
+  },
+  checkbox: {
+    marginBottom: 0,
+  },
+};
 
 const Result = ({ result, user, results, dispatch }) => (
   <MuiThemeProvider>
@@ -96,16 +100,7 @@ const Result = ({ result, user, results, dispatch }) => (
       </div>
     </Card>
   </MuiThemeProvider>
-  );
-
-const styles = {
-  button: {
-    maxWidth: 250,
-  },
-  checkbox: {
-    marginBottom: 0,
-  },
-};
+);
 
 const mapStateToProps = state => ({
   user: state.user,

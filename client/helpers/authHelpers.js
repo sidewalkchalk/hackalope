@@ -1,8 +1,7 @@
-import * as actions from '../actions/index.js';
-import * as snackbar from './snackbarHelpers.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
-import React from 'react';
+import * as actions from '../actions/index.js';
+import * as snackbar from './snackbarHelpers.js';
 
 export const handleLoginOpen = (dispatch) => {
   dispatch(actions.logInDialog({ login: true }));
@@ -14,7 +13,7 @@ export const handleLoginClose = (dispatch) => {
 };
 
 export const reloadResources = (search, dispatch) => {
-  handleSearch(search.query, dispatch);
+  handleSearch(search.query, dispatch); // TODO: handleSearch is not defined
 };
 
 // handle request for authentication
@@ -28,11 +27,11 @@ export const login = (e, user, search, dispatch) => {
       return Promise.all([
         dispatch(actions.selectUser(userData)),
         snackbar.openLoggedInSnackbar(dispatch)])
-          .then((resolve) => {
+          .then(() => {
             if (window.location.hash === '#/main/results') {
               return Promise.all([reloadResources(search, dispatch)])
-              .then((resolve) => {
-                console.log(resolve);
+              .then(() => {
+                //
               })
               .catch((err) => {
                 console.error(err);
@@ -74,7 +73,7 @@ export const signup = (e, user, dispatch) => {
 // destroy session and remove user from store
 export const logout = (dispatch) => {
   axios.post('/auth/logout')
-  .then((response) => {
+  .then(() => {
     dispatch(actions.logout());
     snackbar.openLoggedOutSnackbar(dispatch);
     hashHistory.push('/');
@@ -91,7 +90,7 @@ export const findUser = (user, dispatch) => {
       dispatch(actions.selectUser(response.data));
       dispatch(actions.checkAuth({ checkingAuth: false }));
     })
-    .catch((err) => {
+    .catch(() => {
       dispatch(actions.checkAuth({ checkingAuth: false }));
     });
   }

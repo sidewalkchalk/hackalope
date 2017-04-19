@@ -2,17 +2,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { signup, handleSignUpClose } from '../helpers/authHelpers.js';
-import { userFormData } from '../actions/index.js';
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import { CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+
+// ACTIONS AND HELPERS
+import { signup, handleSignUpClose } from '../helpers/authHelpers.js';
+import { userFormData } from '../actions/index.js';
 
 const SignUp = ({ user, dialogs, dispatch }) => {
   const actions = [
@@ -65,7 +63,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
               onTouchTap={() => handleSignUpClose(dispatch)}
             >
               <p>Sign in with Github</p>
-              <a href="./auth/github"><img src="/public/assets/octocat.png" /></a>
+              <a href="./auth/github"><img src="/public/assets/octocat.png" alt="github" /></a>
             </div>
           </form>
         </Dialog>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/server-spec.js",
-    "start": "webpack-dev-server"
+    "start": "webpack --watch & nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -56,6 +56,7 @@
     "babel-preset-stage-1": "^6.22.0",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",

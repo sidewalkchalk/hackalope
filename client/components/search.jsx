@@ -2,18 +2,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { handleSearch } from '../helpers/searchHelpers.js';
-import { searchTerm } from '../actions/index.js';
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+// ACTIONS AND HELPERS
+import { handleSearch } from '../helpers/searchHelpers.js';
+import { searchTerm } from '../actions/index.js';
 
 
 // Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
