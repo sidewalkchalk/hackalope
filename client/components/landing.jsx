@@ -22,7 +22,6 @@ const Landing = () => (
   </div>
 );
 
-
 const mapStateToProps = state => ({
   user: state.user,
 });

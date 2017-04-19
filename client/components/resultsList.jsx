@@ -1,5 +1,6 @@
-// REACT/REDUX
+// Required React Components
 import React from 'react';
+import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // MATERIAL UI

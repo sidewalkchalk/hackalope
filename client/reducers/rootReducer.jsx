@@ -6,7 +6,7 @@ import searchReducer from './searchReducer.jsx';
 import dialogReducer from './dialogReducer.jsx';
 import commentsReducer from './commentsReducer.jsx';
 import resultsReducer from './resultsReducer.jsx';
-import addCommentReducer from './addCommentReducer.jsx';
+import commentReducer from './commentReducer.jsx';
 import unapprovedReducer from './unapprovedReducer.jsx';
 import profileReducer from './profileReducer.jsx';
 import snackbarReducer from './snackbarReducer.jsx';

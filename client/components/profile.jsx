@@ -39,6 +39,7 @@ const Profile = ({ user }) => (
       <Comments />
     </div>
   </MuiThemeProvider>
+
   );
 
 const mapStateToProps = state => ({
