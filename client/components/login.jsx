@@ -47,6 +47,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
             /><br />
             <TextField
               name="password"
+              type="password"
               value={user.password}
               floatingLabelText="Password"
               onChange={e => dispatch(userFormData({ password: e.target.value }))}
