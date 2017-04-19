@@ -10,7 +10,7 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Delete from 'material-ui/svg-icons/action/delete.js';
 
 
-const UserComments = ({ profile }) => {
+const UserComments = ({ profile, dispatch }) => {
   const renderUserComments = () => profile.comments.map(comment => (
 
         <li key = {comment._id} >
