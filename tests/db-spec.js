@@ -9,8 +9,6 @@ const Promise = require('bluebird');
 // set Bluebird as default promise library
 mongoose.Promise = Promise;
 
-// TODO: refactor all mocha tests to use ES6
-
 describe('MongoDB tests', (done) => {
   beforeEach((done) => {
     mongoose.connect('mongodb://localhost/hackalope');
