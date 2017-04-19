@@ -36,19 +36,23 @@ const Resource = ({ result }) => {
     <MuiThemeProvider>
       <div>
 
-        <Card style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto', padding: 10 }}>
+        <Card style={{ width: '72%', marginRight: 'auto', marginLeft: 'auto', padding: 10 }}>
 
-          <div style={{ paddingTop: '10px', verticalAlign: 'middle', position: 'relative', top: '-40%', left: 10, display: 'inline-block', float: 'left' }}>
-            <img src={`${result.image}`} width="40" />
-          </div>
-          <CardHeader
-            title={result.title}
-            subtitle={result.language}
-            style={{ position: 'relative', top: 10, width: '60%', display: 'inline' }}
-          />
 
-          <CardText>
-            <span style={{ position: 'relative', float: 'right' }}>
+          <div id="wrapper" style={{ width: '100%' }} >
+
+            <div id="div1" style={{ float: 'left', width: '70%' }}>
+              <div style={{ paddingTop: '10px', verticalAlign: 'middle', position: 'relative', top: '-40%', left: 10, display: 'inline-block', float: 'left' }}>
+                <img src={`${result.image}`} width="40" />
+              </div>
+              <CardHeader
+                title={result.title}
+                subtitle={result.language}
+                style={{ position: 'relative', top: 10, width: '60%', display: 'inline' }}
+              />
+            </div>
+
+            <div id="div2" style={{ float: 'right', width: '30%' }} >
               <CardActions>
                 <a
                   href={`${result.url}`}
@@ -56,7 +60,7 @@ const Resource = ({ result }) => {
                   rel="noopener noreferrer"
                 >
                   <RaisedButton
-                    label="Link"
+                    label="Link to Resource"
                     labelPosition="before"
                     icon={<ContentLink />}
                     primary
@@ -64,9 +68,21 @@ const Resource = ({ result }) => {
                   />
                 </a>
               </CardActions>
+            </div>
+            <br />
+            <br />
+
+          </div>
+
+          <CardText>
+            <span style={{ position: 'relative', float: 'right' }}>
+
             </span>
             <br /> <br />
-            {result.description} <br />
+            <div style={{ width: '100%', wordWrap: 'break-word' }} >
+              {result.description}
+            </div>
+            <br />
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 10 }}>
               {renderTags()}
             </div>
