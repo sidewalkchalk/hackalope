@@ -1,44 +1,44 @@
-var express = require('express');
-var router = express.Router();
-var utils = require('../utils.js');
-var resourceController = require('../../db/controllers/resource.js');
+const express = require('express');
+const router = express.Router();
+const utils = require('../utils.js');
+const resourceController = require('../../db/controllers/resource.js');
 
-//returns unapproved resources
-router.get('/', function (req, res) {
+// returns unapproved resources
+router.get('/', (req, res) => {
   resourceController.findUnapprovedResources()
     .populate('user')
-    .then(function (response) {
+    .then((response) => {
       console.log(response);
       res.status(201).send(response);
     })
-    .catch (function (err) {
+    .catch((err) => {
       console.error(err);
-    })
+    });
 });
-  
-//approves a resource
-router.put('/', function (req, res) {
+
+// approves a resource
+router.put('/', (req, res) => {
   console.log(req.body);
   resourceController.approveResource(req.body.resultId)
-    .then(function (response) {
+    .then((response) => {
     //  console.log(response);
       res.status(201).send(response);
     })
-    .catch(function (err) {
+    .catch((err) => {
       console.error(err);
-    })
+    });
 });
 
-//delete a resource that was not approved
-router.delete('/', function (req, res) {
+// delete a resource that was not approved
+router.delete('/', (req, res) => {
   resourceController.deleteResourceById(req.body.resultId)
-  .then(function (response) {
+  .then((response) => {
     console.log(response);
     res.status(201).send(response);
   })
-  .catch(function (err) {
+  .catch((err) => {
     console.error(err);
-  })
+  });
 });
 
 module.exports = router;

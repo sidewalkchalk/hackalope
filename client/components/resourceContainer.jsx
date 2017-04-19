@@ -9,18 +9,15 @@ import SignUp from './signup.jsx';
 import Login from './login.jsx';
 import Resource from './resource.jsx';
 
-const ResourceContainer = (props) => {
-
-	return (
-    <div>
-      <Nav />
-      <Resource />
-      <Submit />
-			<SignUp />
-      <Login />
-      {props.children}
-    </div>
+const ResourceContainer = props => (
+  <div>
+    <Nav />
+    <Resource />
+    <Submit />
+    <SignUp />
+    <Login />
+    {props.children}
+  </div>
 	);
-};
 
 export default connect()(ResourceContainer);

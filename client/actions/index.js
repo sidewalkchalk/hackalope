@@ -2,236 +2,177 @@
   AUTH/USER
 --------------------------------*/
 
-export const selectUser = (user) => {
-  return {
-    type: 'STORE_USER',
-    user
-  };
-};
+export const selectUser = user => ({
+  type: 'STORE_USER',
+  user,
+});
 
-export const checkAuth = (checkingAuth) => {
-  return {
-    type: 'CHECK_AUTH',
-    checkingAuth
-  }
-}
+export const checkAuth = checkingAuth => ({
+  type: 'CHECK_AUTH',
+  checkingAuth,
+});
 
-export const userFormData = (userFormData) => {
-  return {
-    type: 'USER_FORM_DATA',
-    userFormData
-  };
-};
+export const userFormData = userFormData => ({
+  type: 'USER_FORM_DATA',
+  userFormData,
+});
 
-export const logout = () => {
-  return {
-    type: 'LOGOUT'
-  };
-};
+export const logout = () => ({
+  type: 'LOGOUT',
+});
 
-export const userProfile = (profile) => {
-  return {
-    type: 'USER_PROFILE',
-    profile
-  };
-};
+export const userProfile = profile => ({
+  type: 'USER_PROFILE',
+  profile,
+});
 
 /*--------------------------------
   COMMENTS
 --------------------------------*/
 
-export const newComment = (comment) => {
-  return {
-    type: 'ADD_COMMENT',
-    comment
-  };
-};
+export const newComment = comment => ({
+  type: 'ADD_COMMENT',
+  comment,
+});
 
-export const commentsByResource = (comments) => {
-    //console.log("Comments by resource ", {{prop}});
-  return {
-    type: 'COMMENTS_RESOURCE',
-    comments
-  };
-};
+export const commentsByResource = comments =>
+    // console.log("Comments by resource ", {{prop}});
+   ({
+     type: 'COMMENTS_RESOURCE',
+     comments,
+   });
 
 /*--------------------------------
   DIALOGS
 --------------------------------*/
 
-export const signUpDialog = (dialogs) => {
-  return {
-    type: 'SIGNUP_DIALOG_OPEN',
-    dialogs
-  };
-};
+export const signUpDialog = dialogs => ({
+  type: 'SIGNUP_DIALOG_OPEN',
+  dialogs,
+});
 
-export const submitDialog = (dialogs) => {
-  return {
-    type: 'SUBMIT_DIALOG_OPEN',
-    dialogs
-  };
-};
+export const submitDialog = dialogs => ({
+  type: 'SUBMIT_DIALOG_OPEN',
+  dialogs,
+});
 
-export const logInDialog = (dialogs) => {
-  return {
-    type: 'LOGIN_DIALOG_OPEN',
-    dialogs
-  };
-};
+export const logInDialog = dialogs => ({
+  type: 'LOGIN_DIALOG_OPEN',
+  dialogs,
+});
 
 /*--------------------------------
   SEARCHES/RESULTS
 --------------------------------*/
 
-export const selectResult = (result) => {
-  return {
-    type: 'RESULT_SELECTED',
-    result
-  };
-};
+export const selectResult = result => ({
+  type: 'RESULT_SELECTED',
+  result,
+});
 
-export const searchTerm = (search) => {
-  return {
-    type: 'SEARCH_TERM',
-    search
-  };
-};
+export const searchTerm = search => ({
+  type: 'SEARCH_TERM',
+  search,
+});
 
-export const clearSearch = () => {
-  return {
-    type: 'CLEAR_SEARCH'
-  };
-};
+export const clearSearch = () => ({
+  type: 'CLEAR_SEARCH',
+});
 
-export const searchResults = (results) => {
-  return {
-    type: 'SEARCH_RESULTS',
-    results
-  };
-};
+export const searchResults = results => ({
+  type: 'SEARCH_RESULTS',
+  results,
+});
 
-export const searchQuery = (query) => {
-  return {
-    type: 'STORE_QUERY',
-    query
-  };
-};
+export const searchQuery = query => ({
+  type: 'STORE_QUERY',
+  query,
+});
 
 /*--------------------------------
   SNACKBARS
 --------------------------------*/
 
-export const loginSnackbar = (snackbar) => {
-  return {
-    type: 'LOGIN_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const loginSnackbar = snackbar => ({
+  type: 'LOGIN_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const logoutSnackbar = (snackbar) => {
-  return {
-    type: 'LOGOUT_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const logoutSnackbar = snackbar => ({
+  type: 'LOGOUT_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const adminSnackbar = (snackbar)=> {
-  return {
-    type: 'ADMIN_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const adminSnackbar = snackbar => ({
+  type: 'ADMIN_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const submitSnackbar = (snackbar) => {
-  return {
-    type: 'SUBMIT_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const submitSnackbar = snackbar => ({
+  type: 'SUBMIT_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const approveSnackbar = (snackbar) => {
-  return {
-    type: 'APPROVE_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const approveSnackbar = snackbar => ({
+  type: 'APPROVE_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const unapproveSnackbar = (snackbar) => {
-  return {
-    type: 'UNAPPROVE_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const unapproveSnackbar = snackbar => ({
+  type: 'UNAPPROVE_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const pendingSnackbar = (snackbar) => {
-  return {
-    type: 'PENDING_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const pendingSnackbar = snackbar => ({
+  type: 'PENDING_SNACKBAR_OPEN',
+  snackbar,
+});
 
-export const notAuthSnackbar = (snackbar) => {
-  return {
-    type: 'NOT_LOGGED_IN_SNACKBAR_OPEN',
-    snackbar
-  };
-};
+export const notAuthSnackbar = snackbar => ({
+  type: 'NOT_LOGGED_IN_SNACKBAR_OPEN',
+  snackbar,
+});
 
 /*--------------------------------
   SUBMISSIONS
 --------------------------------*/
 
-export const submissionData = (submission) => {
-  return {
-    type: 'USER_SUBMISSION_DATA',
-    submission
-  };
-};
+export const submissionData = submission => ({
+  type: 'USER_SUBMISSION_DATA',
+  submission,
+});
 
-export const addTag = (tags) => {
-  return {
-    type: 'ADD_TAG',
-    tags
-  };
-};
+export const addTag = tags => ({
+  type: 'ADD_TAG',
+  tags,
+});
 
-export const clearSubmissionData = () => {
-  return {
-    type: 'CLEAR_SUBMISSION_DATA'
-  };
-};
+export const clearSubmissionData = () => ({
+  type: 'CLEAR_SUBMISSION_DATA',
+});
 
-export const updateResource = (updatedResource) => {
-  return {
-    type: 'UPDATE_RESOURCE',
-    updatedResource
-  };
-};
+export const updateResource = updatedResource => ({
+  type: 'UPDATE_RESOURCE',
+  updatedResource,
+});
 
-export const unapprovedResources = (resources) => {
-  return {
-    type: 'UNAPPROVED',
-    resources
-  };
-};
+export const unapprovedResources = resources => ({
+  type: 'UNAPPROVED',
+  resources,
+});
 
-export const approveResource = (resource) => {
-  return {
-    type: 'APPROVE',
-    resource
-  };
-};
+export const approveResource = resource => ({
+  type: 'APPROVE',
+  resource,
+});
 
 /*--------------------------------
   VOTING
 --------------------------------*/
 
-export const updateVote = (resourceId, votes, newVote) => {
-  return {
-    type: 'UPDATE_VOTE',
-    resourceId,
-    votes,
-    newVote
-  };
-};
+export const updateVote = (resourceId, votes, newVote) => ({
+  type: 'UPDATE_VOTE',
+  resourceId,
+  votes,
+  newVote,
+});

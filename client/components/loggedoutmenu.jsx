@@ -13,24 +13,22 @@ import { handleSignUpOpen, handleLoginOpen } from '../helpers/authHelpers.js';
 // MATERIAL UI
 import RaisedButton from 'material-ui/RaisedButton';
 
-const LoggedOutMenu = ({ dispatch }) => {
+const LoggedOutMenu = ({ dispatch }) => (
+  <div>
+    <RaisedButton
+      label="Sign Up"
+      secondary
+      style={{ margin: 12 }}
+      onTouchTap={() => handleSignUpOpen(dispatch)}
+    />
 
-  return (
-    <div>
-      <RaisedButton
-        label="Sign Up"
-        secondary={true}
-        style={{margin: 12}}
-        onTouchTap={() => handleSignUpOpen(dispatch)}
-      />
-
-      <RaisedButton label="Sign In"
-        secondary={true}
-        style={{margin: 12}}
-        onTouchTap={() => handleLoginOpen(dispatch)}
-      />
-    </div>
+    <RaisedButton
+      label="Sign In"
+      secondary
+      style={{ margin: 12 }}
+      onTouchTap={() => handleLoginOpen(dispatch)}
+    />
+  </div>
   );
-}
 
 export default connect()(LoggedOutMenu);

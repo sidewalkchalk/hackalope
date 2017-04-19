@@ -24,25 +24,24 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import LinearProgress from 'material-ui/LinearProgress';
 
-const Submit = ({user, submission, dialogs, dispatch}) => {
-
+const Submit = ({ user, submission, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
-      primary={true}
+      primary
       onTouchTap={() => handleSubmitClose(dispatch)}
     />,
     <FlatButton
       label="Submit"
       type="submit"
-      primary={true}
-      keyboardFocused={true}
-      onClick={(e) => submit(e, user, submission, dispatch)}
+      primary
+      keyboardFocused
+      onClick={e => submit(e, user, submission, dispatch)}
     />,
   ];
 
   const style = {
-   marginRight: 10,
+    marginRight: 10,
     top: 'auto',
     right: 20,
     bottom: 20,
@@ -51,22 +50,22 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
 
   return (
     <MuiThemeProvider>
-    <div>
-      <FloatingActionButton
-      secondary={true} style={style}
-      onTouchTap={() => {
-          if(user._id){
-            handleSubmitOpen(dispatch);
-          }
-          else {
-            openNotAuthSnackbar(dispatch);
-          }
-      }}>
-      <ContentAdd />
-      </FloatingActionButton>
+      <div>
+        <FloatingActionButton
+          secondary style={style}
+          onTouchTap={() => {
+            if (user._id) {
+              handleSubmitOpen(dispatch);
+            } else {
+              openNotAuthSnackbar(dispatch);
+            }
+          }}
+        >
+          <ContentAdd />
+        </FloatingActionButton>
         <div>
           <Dialog
-            autoScrollBodyContent={true}
+            autoScrollBodyContent
             title="Submit a Resource"
             actions={actions}
             modal={false}
@@ -74,44 +73,46 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
             onRequestClose={() => handleSubmitClose()}
           >
 
-              <div style={{ display: 'inline-flex', flexDirection: 'row'}}>
-                <div>
-                  <TextField name="url"
-                    value={`${submission.url}`}
-                    floatingLabelText="URL"
-                    onChange={e => dispatch(submissionData({url: e.target.value}))}
-                  /><br/>
-                  <TextField name="impression"
-                    value={submission.impression}
-                    floatingLabelText="Impression"
-                    multiLine={true}
-                    onChange={e => dispatch(submissionData({impression: e.target.value}))}
-                  /><br/>
-                </div>
-
-
-                <div style={{ marginTop: 37, marginLeft: 15 }}> Language: </div>
-                <div style={{ alignSelf: 'top', marginTop: 16 }}>
-
-
-                  <DropDownMenu
-                    id='submit-dropdown'
-                    onChange={(event, index, value) => dispatch(submissionData({language: value}))}
-                    autoWidth={true}
-                    value={submission.language}
-                  >
-                    <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
-                    <MenuItem value={'Python'} primaryText="Python" />
-                    <MenuItem value={'Ruby'} primaryText='Ruby' />
-                    <MenuItem value={'HTML'} primaryText='HTML/CSS' />
-                    <MenuItem value={'Swift'} primaryText="Swift" />
-                    <MenuItem value={'Objective-C'} primaryText="Objective-C" />
-                    <MenuItem value={'Java'} primaryText="Java" />
-                  </DropDownMenu>
-
-                  <TagSelector />
-                </div>
+            <div style={{ display: 'inline-flex', flexDirection: 'row' }}>
+              <div>
+                <TextField
+                  name="url"
+                  value={`${submission.url}`}
+                  floatingLabelText="URL"
+                  onChange={e => dispatch(submissionData({ url: e.target.value }))}
+                /><br />
+                <TextField
+                  name="impression"
+                  value={submission.impression}
+                  floatingLabelText="Impression"
+                  multiLine
+                  onChange={e => dispatch(submissionData({ impression: e.target.value }))}
+                /><br />
               </div>
+
+
+              <div style={{ marginTop: 37, marginLeft: 15 }}> Language: </div>
+              <div style={{ alignSelf: 'top', marginTop: 16 }}>
+
+
+                <DropDownMenu
+                  id="submit-dropdown"
+                  onChange={(event, index, value) => dispatch(submissionData({ language: value }))}
+                  autoWidth
+                  value={submission.language}
+                >
+                  <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
+                  <MenuItem value={'Python'} primaryText="Python" />
+                  <MenuItem value={'Ruby'} primaryText="Ruby" />
+                  <MenuItem value={'HTML'} primaryText="HTML/CSS" />
+                  <MenuItem value={'Swift'} primaryText="Swift" />
+                  <MenuItem value={'Objective-C'} primaryText="Objective-C" />
+                  <MenuItem value={'Java'} primaryText="Java" />
+                </DropDownMenu>
+
+                <TagSelector />
+              </div>
+            </div>
             {submitProgress(submission)}
           </Dialog>
         </div>
@@ -120,12 +121,10 @@ const Submit = ({user, submission, dialogs, dispatch}) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    dialogs: state.dialogs,
-    submission: state.submission,
-    user: state.user
-  }
-}
+const mapStateToProps = state => ({
+  dialogs: state.dialogs,
+  submission: state.submission,
+  user: state.user,
+});
 
 export default connect(mapStateToProps)(Submit);

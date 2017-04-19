@@ -28,49 +28,44 @@ const topics = [
   'Node',
 ];
 
-const Search = ({search, dispatch}) => {
-
-  return (
-    <MuiThemeProvider>
-    <div id ='search' style={{alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center'}}>
+const Search = ({ search, dispatch }) => (
+  <MuiThemeProvider>
+    <div id="search" style={{ alignContent: 'center', alignSelf: 'center', position: 'relative', display: 'inline-flex', float: 'center' }}>
       <DropDownMenu
-        id='search-dropdown'
+        id="search-dropdown"
         value={search.language}
-        onChange={(event, index, value) => dispatch(searchTerm({language: value}))}
-        autoWidth={true}
+        onChange={(event, index, value) => dispatch(searchTerm({ language: value }))}
+        autoWidth
       >
         <MenuItem value={'JavaScript'} primaryText="JavaScript" default />
         <MenuItem value={'Python'} primaryText="Python" />
-        <MenuItem value={'Ruby'} primaryText='Ruby' />
-        <MenuItem value={'HTML'} primaryText='HTML/CSS' />
+        <MenuItem value={'Ruby'} primaryText="Ruby" />
+        <MenuItem value={'HTML'} primaryText="HTML/CSS" />
         <MenuItem value={'Swift'} primaryText="Swift" />
         <MenuItem value={'Objective-C'} primaryText="Objective-C" />
         <MenuItem value={'Java'} primaryText="Java" />
       </DropDownMenu>
       <AutoComplete
-        style={{alignSelf: 'center'}}
+        style={{ alignSelf: 'center' }}
         hintText="What would you like to learn today?"
         searchText={search.term}
-        onUpdateInput={e => dispatch(searchTerm({term: e}))}
+        onUpdateInput={e => dispatch(searchTerm({ term: e }))}
         dataSource={topics}
         filter={AutoComplete.caseInsensitiveFilter}
-        openOnFocus={true}
+        openOnFocus
       />
-        <RaisedButton
+      <RaisedButton
         label="Let's go!"
-        secondary={true}
-        style={{margin: 12}}
+        secondary
+        style={{ margin: 12 }}
         onClick={() => handleSearch(search, dispatch)}
-        />
+      />
     </div>
-    </MuiThemeProvider>
+  </MuiThemeProvider>
   );
-}
 
-const mapStateToProps = (state) => {
-  return {
-    search: state.search
-  };
-};
+const mapStateToProps = state => ({
+  search: state.search,
+});
 
 export default connect(mapStateToProps)(Search);

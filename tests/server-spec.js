@@ -1,23 +1,24 @@
-var request = require('supertest')
-var app = require('../server/server.js');
-var express = require('express');
-var chai = require('chai'), expect = chai.expect, should = chai.should();
+const request = require('supertest');
+const app = require('../server/server.js');
+const express = require('express');
+let chai = require('chai'),
+  expect = chai.expect,
+  should = chai.should();
 
 
 describe('Users', () => {
-
-  it ('should be able to log in a user', done => {
+  it('should be able to log in a user', (done) => {
     request(app)
       .post('/auth/login')
       .send({
         username: 'jgranny',
-        password: 'jgranny'
+        password: 'jgranny',
       })
       .expect(201)
-      .end(done)
+      .end(done);
   });
-  
-  it ('should be able to access a user\'s profile page', done => {
+
+  it('should be able to access a user\'s profile page', (done) => {
     request(app)
       .get('/profile')
       .expect(200)

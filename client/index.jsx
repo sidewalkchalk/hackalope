@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, Link, IndexRoute, IndexLink, hashHistory } from 'react-router';
 
 // Required Modules
-import store  from './store.jsx';
+import store from './store.jsx';
 import Routes from './routes.jsx';
 import App from './components/app.jsx';
 import ResultsList from './components/resultsList.jsx';
@@ -19,8 +19,8 @@ ReactDOM.render(
     <App />
   </Provider>,
 
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 
-//store.suscribe(render);
+// store.suscribe(render);
 App.contextTypes = { store: React.PropTypes.object };

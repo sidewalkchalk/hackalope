@@ -1,4 +1,4 @@
-import { compose, createStore, combineReducers} from 'redux';
+import { compose, createStore, combineReducers } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import rootReducer from './reducers/rootReducer.jsx';
 
@@ -8,11 +8,11 @@ const store = createStore(
   undefined,
   compose(
     autoRehydrate(),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // will need to remove to work in browser without redux tools
-  )
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // will need to remove to work in browser without redux tools
+  ),
 );
 
 persistStore(store);
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 export default store;
