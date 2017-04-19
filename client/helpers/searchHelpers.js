@@ -32,11 +32,6 @@ export const handleSearch = (query, dispatch) => {
     });
 };
 
-// load user favorites and votes on login
-export const reloadResources = (search, dispatch) => {
-  handleSearch(search.query, dispatch);
-};
-
 export const renderResults = (results, dispatch) => results.resources.map(result => (
   <div
     key={result._id}
