@@ -36,7 +36,7 @@ const Resource = ({ result }) => {
     <MuiThemeProvider>
       <div>
 
-        <Card style={{ position: 'relative', width: '65%', alignSelf: 'center', padding: 10 }}>
+        <Card style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto', padding: 10 }}>
 
           <div style={{ paddingTop: '10px', verticalAlign: 'middle', position: 'relative', top: '-40%', left: 10, display: 'inline-block', float: 'left' }}>
             <img src={`${result.image}`} width="40" />
