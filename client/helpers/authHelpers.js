@@ -1,5 +1,6 @@
 import * as actions from '../actions/index.js';
 import * as snackbar from './snackbarHelpers.js';
+import { handleSearch } from './searchHelpers.js';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import React from 'react';
