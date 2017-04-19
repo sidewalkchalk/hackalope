@@ -20,7 +20,7 @@ const TagSelector = ({ submission, dispatch }) =>
          <TextField
            name="Tag"
            value={submission.tags}
-           floatingLabelText="Add a tag"
+           floatingLabelText="Add tags seperated by commas"
            multiLine
            onChange={e => dispatch(submissionData({ tags: e.target.value }))}
          /><br />

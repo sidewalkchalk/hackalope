@@ -75,13 +75,13 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
                 <TextField
                   name="url"
                   value={`${submission.url}`}
-                  floatingLabelText="URL"
+                  floatingLabelText="Resource URL"
                   onChange={e => dispatch(submissionData({ url: e.target.value }))}
                 /><br />
                 <TextField
                   name="impression"
                   value={submission.impression}
-                  floatingLabelText="Impression"
+                  floatingLabelText="What did this teach you?"
                   multiLine
                   onChange={e => dispatch(submissionData({ impression: e.target.value }))}
                 /><br />
@@ -107,7 +107,9 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
                   <MenuItem value={'Java'} primaryText="Java" />
                 </DropDownMenu>
 
-                <TagSelector />
+                <div style={{ marginLeft: 22 }}>
+                  <TagSelector />
+                </div>
               </div>
             </div>
             {submitProgress(submission)}

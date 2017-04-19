@@ -7,6 +7,8 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentLink from 'material-ui/svg-icons/content/link.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Chip from 'material-ui/Chip';
+
 
 // COMPONENTS
 import Comments from './comments.jsx';
@@ -18,9 +20,9 @@ const Resource = ({ result }) => {
       return;
     }
     return result.tags.map(tag => (
-      <li key={tag}>
+      <Chip style={{ margin: 4 }} >
         {tag}
-      </li>
+      </Chip>
       ));
   };
 
@@ -34,7 +36,7 @@ const Resource = ({ result }) => {
     <MuiThemeProvider>
       <div>
 
-        <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+        <Card style={{ position: 'relative', width: '65%', alignSelf: 'center', padding: 10 }}>
 
           <div style={{ paddingTop: '10px', verticalAlign: 'middle', position: 'relative', top: '-40%', left: 10, display: 'inline-block', float: 'left' }}>
             <img src={`${result.image}`} width="40" />
@@ -65,9 +67,9 @@ const Resource = ({ result }) => {
             </span>
             <br /> <br />
             {result.description} <br />
-            <ul>
+            <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 10 }}>
               {renderTags()}
-            </ul>
+            </div>
           </CardText>
         </Card>
 
