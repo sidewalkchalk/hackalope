@@ -27,7 +27,7 @@ const Comments = ({ comments }) => {
   return (
     <div style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto' }} >
       <AddComment />
-      <ul style={{ listStyleType: 'none' }}>
+      <ul style={{ listStyleType: 'none', webkitPaddingStart: 0 }}>
         {renderComments()}
       </ul>
     </div>

@@ -15,7 +15,7 @@ import { addComment } from '../helpers/commentHelpers';
 
 const AddComment = ({ dispatch, comment, user, result }) => {
   const style = {
-    margin: 20,
+    margin: 0,
     padding: 20,
     width: '100%',
     textAlign: 'center',
@@ -23,31 +23,34 @@ const AddComment = ({ dispatch, comment, user, result }) => {
   };
 
   return (
-    <MuiThemeProvider>
-      <div>
-        <Paper style={style} zDepth={2}>
-          <form
-            onSubmit={(e) => {
-              if (user._id) {
-                addComment(e, user, result, comment, dispatch);
-              } else {
-                openNotAuthSnackbar(dispatch);
-              }
-            }}
-          >
-            <TextField
-              value={comment.body}
-              fullWidth
-              hintText="Add a comment"
-              multiLine
-              rows={1}
-              onChange={e => dispatch(newComment({ body: e.target.value }))}
-            />
-            <RaisedButton type="submit" secondary label="Submit" />
-          </form>
-        </Paper>
-      </div>
+    <div>
+      <br />
+      <MuiThemeProvider>
+        <div>
+          <Paper style={style} zDepth={2}>
+            <form
+              onSubmit={(e) => {
+                if (user._id) {
+                  addComment(e, user, result, comment, dispatch);
+                } else {
+                  openNotAuthSnackbar(dispatch);
+                }
+              }}
+            >
+              <TextField
+                value={comment.body}
+                fullWidth
+                hintText="Add a comment"
+                multiLine
+                rows={1}
+                onChange={e => dispatch(newComment({ body: e.target.value }))}
+              />
+              <RaisedButton type="submit" secondary label="Comment" />
+            </form>
+          </Paper>
+        </div>
     </MuiThemeProvider>
+    </div>
   );
 };
 
