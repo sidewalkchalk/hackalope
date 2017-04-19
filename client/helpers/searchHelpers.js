@@ -15,6 +15,7 @@ export const buildQuery = value => value.term ?
 // search the database for resources
 export const handleSearch = (query, dispatch) => {
   query.term = titleCase(query.term);
+  dispatch(actions.resultsLoaded({loaded: false}))
   // store the current search query
   dispatch(actions.searchQuery(query));
   // build query string and search
@@ -23,6 +24,7 @@ export const handleSearch = (query, dispatch) => {
     .then((response) => {
       dispatch(actions.clearSearch()),
       dispatch(actions.searchResults(response.data));
+      dispatch(actions.resultsLoaded({loaded: true}));
       hashHistory.push('/main/results');
     })
     .catch((err) => {

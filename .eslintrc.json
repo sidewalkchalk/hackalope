@@ -11,5 +11,6 @@
         "jsx-a11y",
         "import",
         "html"
-    ]
+    ],
+    "parser": "babel-eslint"
 }
