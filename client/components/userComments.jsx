@@ -26,7 +26,7 @@ const UserComments = ({profile, dispatch}) => {
               URL :  {comment.resource.url}
             </CardText>
             <Delete 
-              onClick={() => deleteComment(comment._id, dispatch)}
+              onClick={() => deleteComment(comment._id, comment.user, dispatch)}
             />
           </Card>
         </li>

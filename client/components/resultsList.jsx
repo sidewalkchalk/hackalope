@@ -4,7 +4,7 @@ import { Route, hashHistory, Redirect, Link } from 'react-router';
 import { connect } from 'react-redux';
 
 // Required Dependencies
-import { renderResults } from '../helpers/helpers.js';
+import { renderResults } from '../helpers/searchHelpers.js';
 
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/', function (req, res) {
-  commentController.deleteComment(req.body.comment._id)
+  commentController.deleteComment(req.body.commentId)
   .then(function (response) {
     console.log(response);
     res.status(201).send(response);
