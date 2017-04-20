@@ -21,14 +21,14 @@ const Profile = ({ user }) => (
   <MuiThemeProvider>
     <div>
       <h4 style={{ fontFamily: 'Roboto', textAlign: 'center' }}>MY PROFILE</h4>
-      <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
-        <div>
-          {checkAvatar(user)}
-        </div>
+      <Card style={{ display: 'block', marginRight: 'auto',  textAlign: 'center', marginLeft: 'auto', width: '40%', padding: 10 }}>
         <CardHeader
-          title={user.name}
-          subtitle={user.username}
-          style={{ position: 'relative', width: '80%', display: 'inline', left: 50 }}
+          title= {user.name}
+          subtitle= {user.username}
+          avatar={checkAvatar(user)}
+          avatarStyle={{float: 'center'}}
+          titleStyle={{ fontSize: '20px',  textAlign: 'center' }}
+          style={{width: '50%', display: 'block',}}
         />
       </Card>
       <h4 style={{ fontFamily: 'Roboto', textAlign: 'center' }}><ActionFavoriteBorder /> MY FAVORITES </h4>
