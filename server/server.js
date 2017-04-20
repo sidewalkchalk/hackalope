@@ -7,7 +7,6 @@ const passport = require('passport');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const cors = require('cors');
 
 // ROUTES
 const auth = require('./routes/auth.js');
@@ -36,9 +35,8 @@ app.use(methodOverride());
 app.use(session({
   secret: 'hackalope-666',
   resave: false,
-  saveUninitialized: false,
-},
-));
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
