@@ -1,18 +1,18 @@
-var LocalStrategy = require('passport-local');
-var users = require('../../db/controllers/user.js');
+const LocalStrategy = require('passport-local');
+const users = require('../../db/controllers/user.js');
 
-module.exports = function (passport) {
+module.exports = (passport) => {
   passport.use('login', new LocalStrategy({
-    passReqToCallback: true
+    passReqToCallback: true,
   },
-  function (req, username, password, done) {
+  (req, username, password, done) => {
     users.findUserByUsername(username)
-      .then(function (user) {
+      .then((user) => {
         if (!user) {
           return done(null, false);
         }
-        return user.comparePassword (password)
-          .then(function (match) {
+        return user.comparePassword(password)
+          .then((match) => {
             if (match) {
               done(null, user);
             } else {
@@ -20,8 +20,8 @@ module.exports = function (passport) {
             }
           });
       })
-      .catch(function (err) {
-        console.log('Error signing up!')
+      .catch((err) => {
+        console.error('Error signing up!');
         done(err);
       });
   }

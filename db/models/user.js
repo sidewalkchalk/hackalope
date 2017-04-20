@@ -17,21 +17,20 @@ const userSchema = new Schema({
 });
 
 // hash password before saving it to the db
-userSchema.pre('save', function (next) {
+userSchema.pre('save', (next) => {
   const user = this;
 
   bcrypt.hash(user.password, null, null, (err, hash) => {
     if (err) {
       return next(err);
     }
-
     user.password = hash;
     next();
   });
 });
 
 // promise-based password compare
-userSchema.methods.comparePassword = function (password) {
+userSchema.methods.comparePassword = (password) => {
   const user = this;
 
   return new Promise((fulfill, reject) => {
