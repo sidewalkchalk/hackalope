@@ -79,10 +79,10 @@ const Resource = ({ result }) => {
             <br /> <br />
             <div style={{ width: '100%', wordWrap: 'break-word' }} >
               <span style={{ fontSize: '15px', fontWeight: 500 }} >Site Description:</span><br /><br />
-              {result.description}
+              <div style={{ marginLeft: 10 }}>{result.description}</div>
               <br /><br />
               <span style={{ fontSize: '15px', fontWeight: 500 }} >What&apos;s it about?</span><br /><br />
-              {result.impression}
+              <div style={{ marginLeft: 10 }}>{result.impression}</div>
             </div>
             <br />
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 10 }}>

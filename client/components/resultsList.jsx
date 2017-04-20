@@ -14,9 +14,9 @@ const ResultsList = ({ results, dispatch }) => {
   if (results.loaded && results.resources.length) {
     return (
       <MuiThemeProvider>
-        <div style={{ display: 'inline-flex', flexDirection: 'column', width: '90%' }}>
+        <div style={{ display: 'inline-flex', position: 'relative', flexDirection: 'column', width: '72%', left: '50%', transform: 'translateX(-50%)' }}>
           <div>
-            <ul>
+            <ul style={{ alignSelf: 'center', position: 'relative', float: 'center' }} >
               {renderResults(results, dispatch)}
             </ul>
           </div>
