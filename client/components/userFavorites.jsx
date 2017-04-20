@@ -45,7 +45,7 @@ const Favorites = ({ profile }) => {
     </MuiThemeProvider>
       ));
   return (
-    <div style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }} >
+    <div style={{ width: '80%', marginRight: 'auto', marginLeft: 'auto' }} >
       <ul style={{ listStyleType: 'none' }}>
         {renderUserFavorites()}
       </ul>
