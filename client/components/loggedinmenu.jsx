@@ -27,7 +27,6 @@ const LoggedInMenu = ({ user, dispatch }) => (
           <MoreVertIcon />
         </IconButton>
       }
-
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       iconStyle={{ fill: 'white' }}
