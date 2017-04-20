@@ -17,7 +17,12 @@ const SignUp = ({ user, dialogs, dispatch }) => {
     <FlatButton
       label="Cancel"
       primary
-      onTouchTap={() => handleSignUpClose(dispatch)}
+      onTouchTap={() => {
+        handleSignUpClose(dispatch);
+        dispatch(userFormData({ name: '' }));
+        dispatch(userFormData({ username: '' }));
+        dispatch(userFormData({ password: '' }));
+      }}
     />,
     <FlatButton
       label="Submit"
