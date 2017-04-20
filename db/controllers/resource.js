@@ -45,17 +45,6 @@ exports.deleteResourceByTitle = function (title) {
   return ResourceModel.remove({ title });
 };
 
-// updates a resourceSchema
-// TODO: add ability to update tags
-exports.updateResourceInfo = function (id, title, description, url, impression) {
-  return ResourceModel.find({ _id: id }, { $set: {
-    title,
-    description,
-    url,
-    impression,
-  } });
-};
-
 // updates a resource's rating
 exports.updateResourceRating = function (id, modifier) {
   return ResourceModel.findOneAndUpdate({ _id: id }, { $inc: { rating: modifier } }, { new: true });
@@ -66,9 +55,14 @@ exports.findUnapprovedResources = function () {
   return ResourceModel.find({ approved: false });
 };
 
-// marks a resource as approved by an administrator
-exports.approveResource = function (id) {
-  return ResourceModel.findOneAndUpdate({ _id: id }, { $set: {
+// updates a resource and marks it approved by an administrator
+exports.approveResource = function (update) {
+  return ResourceModel.findOneAndUpdate({ _id: update._id }, { $set: {
+    title: update.title,
+    description: update.description,
+    url: update.url,
+    language: update.language,
+    tags: update.tags,
     approved: true,
   },
   });

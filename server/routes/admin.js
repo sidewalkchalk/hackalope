@@ -6,9 +6,8 @@ const resourceController = require('../../db/controllers/resource.js');
 // returns unapproved resources
 router.get('/', (req, res) => {
   resourceController.findUnapprovedResources()
-    .populate('user')
+    .populate('user', ['name', 'username'])
     .then((response) => {
-      console.log(response);
       res.status(201).send(response);
     })
     .catch((err) => {
@@ -19,9 +18,8 @@ router.get('/', (req, res) => {
 // approves a resource
 router.put('/', (req, res) => {
   console.log(req.body);
-  resourceController.approveResource(req.body.resultId)
+  resourceController.approveResource(req.body)
     .then((response) => {
-    //  console.log(response);
       res.status(201).send(response);
     })
     .catch((err) => {

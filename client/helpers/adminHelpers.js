@@ -3,12 +3,17 @@ import axios from 'axios';
 import * as actions from '../actions/index.js';
 import * as snackbar from './snackbarHelpers.js';
 import UnapprovedResource from '../components/unapprovedResource.jsx';
+import { titleCaseArray } from './submitHelpers.js';
 
 // fetches unapproved resources up for review
 export const getUnapproved = (dispatch) => {
   axios.get('/admin/')
   .then((response) => {
-    dispatch(actions.unapprovedResources(response.data));
+    var editedResponse = response.data.map(resource => {
+      resource.tags = resource.tags.join(', ');
+      return resource
+    })
+    dispatch(actions.unapprovedResources(editedResponse));
   })
   .catch((err) => {
     console.error(err);
@@ -16,8 +21,10 @@ export const getUnapproved = (dispatch) => {
 };
 
 // handles approving an unapproved resource
-export const approveResource = (resultId, dispatch) => {
-  axios.put('/admin', { resultId })
+export const approveResource = (result, dispatch) => {
+  result.tags = titleCaseArray(result.tags);
+  console.log(result);
+  axios.put('/admin', result)
   .then(() => {
     getUnapproved(dispatch);
     snackbar.openApprovedSnackbar(dispatch);
