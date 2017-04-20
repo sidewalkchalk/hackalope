@@ -18,7 +18,7 @@ import { checkAvatar } from '../helpers/helpers.js';
 
 const LoggedInMenu = ({ user, dispatch }) => (
   <div>
-    <div style={{ position: 'absolute', right: 90, top: 12 }}>
+    <div style={{ position: 'absolute', right: 100, top: 12 }}>
       {checkAvatar(user)}
     </div>
     <IconMenu
