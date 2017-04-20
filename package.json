@@ -56,6 +56,7 @@
     "supertest": "^3.0.0"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.23.0",
     "babel-preset-stage-1": "^6.22.0",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
