@@ -32,6 +32,7 @@ const AddComment = ({ dispatch, comment, user, result }) => {
               onSubmit={(e) => {
                 if (user._id) {
                   addComment(e, user, result, comment, dispatch);
+                  dispatch(newComment({ body: '' }))
                 } else {
                   openNotAuthSnackbar(dispatch);
                 }

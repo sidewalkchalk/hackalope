@@ -13,18 +13,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { handleSearch } from '../helpers/searchHelpers.js';
 import { searchTerm } from '../actions/index.js';
 
-
-// Temporary topics being rendered in search (once redux is ready these should be global and dynamic)
-const topics = [
-  'Objects',
-  'Arrays',
-  'ES6',
-  'React',
-  'AngularJS',
-  'Redux',
-  'Webpack',
-  'Node',
-];
+import Topics from './topics.jsx';
 
 const Search = ({ search, dispatch }) => (
   <MuiThemeProvider>
@@ -48,7 +37,8 @@ const Search = ({ search, dispatch }) => (
         hintText="What would you like to learn today?"
         searchText={search.term}
         onUpdateInput={e => dispatch(searchTerm({ term: e }))}
-        dataSource={topics}
+        dataSource={Topics}
+        maxSearchResults={6}
         filter={AutoComplete.caseInsensitiveFilter}
         openOnFocus
       />
