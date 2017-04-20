@@ -14,17 +14,20 @@ const Comments = ({ comments }) => {
   const renderComments = () => comments.map(comment => (
     <li key={comment._id} >
       <Card>
+        <span style={{ position: 'relative', left: 10, top: 12 }}>
+          {checkAvatar(comment)}
+        </span>
         <CardHeader
           title={comment.user}
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
-          avatar=""
+          style={{ left: 50 }}
         />
         <CardText>
           {comment.body}
         </CardText>
       </Card>
     </li>
-      ));
+  ));
   return (
     <div style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto' }} >
       <AddComment />
