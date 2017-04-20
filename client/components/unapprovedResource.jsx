@@ -31,7 +31,7 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
               multiLine={true}
               style={{width: "50%"}}
               floatingLabelText="Edit Title"
-              onChange={(e) => dispatch(editUnapproved({title: e.target.value}, index))}
+              onChange={(e) => dispatch(editUnapproved({title: e.target.value, type: 'title', index: index}))}
             /><br />
 
             <TextField
@@ -39,7 +39,7 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
               value={resource.url}
               style={{width: "50%"}}
               floatingLabelText="Edit URL"
-              onChange={(e) => dispatch(editUnapproved({url: e.target.value}, index))}
+              onChange={(e) => dispatch(editUnapproved({url: e.target.value, type: 'url', index: index}))}
             /><br />
 
             <TextField
@@ -48,7 +48,7 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
               multiLine={true}
               style={{width: "50%"}}
               floatingLabelText="Edit Description"
-              onChange={(e) => dispatch(editUnapproved({description: e.target.value}, index))}
+              onChange={(e) => dispatch(editUnapproved({description: e.target.value, type: 'description', index: index}))}
             /><br />
 
             <TextField
@@ -57,16 +57,16 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
               multiLine={true}
               style={{width: "50%"}}
               floatingLabelText="Edit Language"
-              onChange={(e) => dispatch(editUnapproved({language: e.target.value}, index))}
+              onChange={(e) => dispatch(editUnapproved({language: e.target.value, type: 'language', index: index}))}
             /><br />
 
             <TextField
               name="Tags"
-              value={resource.tags.join(', ')}
+              value={resource.tags}
               multiLine={true}
               style={{width: "50%"}}
               floatingLabelText="Add, Edit, or Remove Tags"
-              onChange={(e) => dispatch(editUnapproved({tags: e.target.value}, index))}
+              onChange={(e) => dispatch(editUnapproved({tags: e.target.value, type: 'tags', index: index}))}
             /><br />
           </CardText>
 

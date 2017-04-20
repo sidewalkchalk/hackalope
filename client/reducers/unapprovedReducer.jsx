@@ -4,13 +4,13 @@ const unapprovedReducer = (state = [], action) => {
       return action.resources;
     case 'EDIT_UNAPPROVED':
       return state.map((resource, index) => {
-        if (resource.index === actions.index) {
-        
+        if (index === action.edit.index) {
+          resource[action.edit.type] = action.edit[action.edit.type];
+          return resource;
         } else {
-          return resource
-        }
-
-      })
+          return resource;
+        };
+      });
     default:
       return state;
   }
