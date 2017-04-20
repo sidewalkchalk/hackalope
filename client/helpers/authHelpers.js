@@ -84,14 +84,17 @@ export const logout = (dispatch) => {
 };
 
 export const findUser = (user, dispatch) => {
-  if (!user._id) {
-    axios.get('/profile/user')
-    .then((response) => {
+  axios.get('/profile/user')
+  .then((response) => {
+    console.log(response)
+    if (response.data) {
       dispatch(actions.selectUser(response.data));
-      dispatch(actions.checkAuth({ checkingAuth: false }));
-    })
-    .catch(() => {
-      dispatch(actions.checkAuth({ checkingAuth: false }));
-    });
-  }
+    } else {
+      dispatch(actions.clearUser());
+    }
+    dispatch(actions.checkAuth({ checkingAuth: false }));
+  })
+  .catch(() => {
+    dispatch(actions.checkAuth({ checkingAuth: false }));
+  });
 };

@@ -26,6 +26,10 @@ export const userProfile = profile => ({
   profile,
 });
 
+export const clearUser = () => ({
+  type: 'CLEAR_USER',
+});
+
 /*--------------------------------
   COMMENTS
 --------------------------------*/
