@@ -5,8 +5,11 @@ import { connect } from 'react-redux';
 // ACTIONS AND HELPERS
 import { renderUnapproved } from '../helpers/adminHelpers';
 
+// COMPONENTS
+import UnapprovedResource from './unapprovedResource.jsx';
+
 const Admin = ({ unapproved, dispatch }) => unapproved.length ? (
-  <div style={{ paddingLeft: '20' }}>
+  <div style={{ paddingLeft: 20 }}>
     <h4 style={{ fontFamily: 'Roboto' }}>Administration Panel</h4>
     <ul style={{ listStyleType: 'none' }}>
       {renderUnapproved(unapproved)}

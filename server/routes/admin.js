@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const utils = require('../utils.js');
 const resourceController = require('../../db/controllers/resource.js');
 
 // returns unapproved resources
 router.get('/', (req, res) => {
   resourceController.findUnapprovedResources()
-    .populate('user', ['name', 'username'])
+    .populate('user', ['name', 'username', 'avatar'])
     .then((response) => {
       res.status(201).send(response);
     })
@@ -17,7 +16,6 @@ router.get('/', (req, res) => {
 
 // approves a resource
 router.put('/', (req, res) => {
-  console.log(req.body);
   resourceController.approveResource(req.body)
     .then((response) => {
       res.status(201).send(response);

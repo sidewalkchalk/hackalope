@@ -2,24 +2,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// ACTIONS AND HELPERS
-import { editUnapproved } from '../actions/index';
-import { checkAvatar } from '../helpers/helpers';
-import { approveResource, unapproveResource } from '../helpers/adminHelpers';
-
 // MATERIAL UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 
+// ACTIONS AND HELPERS
+import { editUnapproved } from '../actions/index';
+import { checkAvatar } from '../helpers/helpers';
+import { approveResource, unapproveResource } from '../helpers/adminHelpers';
+
 export const UnapprovedResource = ({ resource, dispatch, index }) => (
   <MuiThemeProvider>
     <li key={index} >
       <Card>
+        <div style={{ position: 'relative', left: 20, top: 10 }}>
+          {checkAvatar(resource.user)}
+        </div>
         <CardHeader
+          style={{ left: 70 }}
           title={`Submitted by ${resource.user.username} on ${resource.createdAt}`}
-          avatar={checkAvatar(resource.user)}
         />
         <CardTitle title={resource.title} subtitle={resource.url} />
         <CardText>
@@ -71,8 +74,16 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
         </CardText>
 
         <CardActions>
-          <RaisedButton backgroundColor="#74FF1E" label="Approve" onClick={() => approveResource(resource, dispatch)} />
-          <RaisedButton backgroundColor="#FF3439" label="Delete" onClick={() => unapproveResource(resource._id, dispatch)} />
+          <RaisedButton
+            backgroundColor="#74FF1E"
+            label="Approve"
+            onClick={() => approveResource(resource, dispatch)}
+          />
+          <RaisedButton
+            backgroundColor="#FF3439"
+            label="Delete"
+            onClick={() => unapproveResource(resource._id, dispatch)}
+          />
         </CardActions>
       </Card>
     </li>
