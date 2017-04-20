@@ -22,6 +22,7 @@ const LoggedInMenu = ({ user, dispatch }) => (
       }
     targetOrigin={{ horizontal: 'right', vertical: 'top' }}
     anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+    iconStyle={{ fill: 'white' }}
   >
     {user.admin ? <Link to="user/admin" ><MenuItem primaryText="Admin" onClick={() => { getUnapproved(dispatch); openPendingSnackbar(dispatch); }} /></Link> : null}
     <MenuItem primaryText="MyProfile" onClick={() => getProfile(dispatch)} />

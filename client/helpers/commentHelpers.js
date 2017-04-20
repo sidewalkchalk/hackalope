@@ -25,17 +25,6 @@ export const getProfile = (dispatch) => {
     console.error(err);
   });
 };
-//should not be currently in use
-// get all comments for a user
-// export const getUserComments = (userId, dispatch) => {
-//   axios.get(`/comments/${userId}`)
-//     .then((response) => {
-//       dispatch(actions.commentsByUser(response.data));
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// };
 
 // add a new comment on a resource
 export const addComment = (e, user, result, comment, dispatch) => {
@@ -54,17 +43,16 @@ export const addComment = (e, user, result, comment, dispatch) => {
     });
 };
 
-//delete a users comments
+// delete a users comments
 export const deleteComment = (commentId, userId, dispatch) => {
-  axios.delete('/comments', {data: {commentId} })
+  axios.delete('/comments', { data: { commentId } })
   .then((response) => {
-    getProfile(dispatch)
-    console.log('THIS IS THE DELETE BUTTON!!! ALL HAIL THE DELETE BUTTON',response);
-      //creates action to trash comment
-    //dispatch(actions.trashComment(commentId))
-      //reload users comments
-    })
-    .catch ( err => {
-    console.error(err)
+    // reload users comments
+    getProfile(dispatch);
+      // creates action to trash comment
+    // dispatch(actions.trashComment(commentId))
   })
+    .catch((err) => {
+      console.error(err);
+    });
 };

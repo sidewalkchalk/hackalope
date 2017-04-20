@@ -15,24 +15,21 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const Profile = ({ user }) => (
+ 
   <MuiThemeProvider>
     <div>
-      <h4 style={{ fontFamily: 'Roboto' }}>MY PROFILE</h4>
+      <h4 style={{ fontFamily: 'Roboto', textAlign: 'center' }}>MY PROFILE</h4>
       <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
         <CardHeader
           title= {user.name}
           subtitle= {user.username}
           avatar={checkAvatar(user)}
-          style={{position: 'relative', width: '60%', display: 'inline' }}
+          style={{position: 'relative', width: '80%', display: 'inline' }}
         />
       </Card>
-
-      <hr />
-      <h4 style={{ fontFamily: 'Roboto' }}><ActionFavoriteBorder /> MY FAVORITES </h4>
-
+      <h4 style={{ fontFamily: 'Roboto', textAlign: 'center'}}><ActionFavoriteBorder /> MY FAVORITES </h4>
       <Favorites />
-      <hr />
-      <h4 style={{ fontFamily: 'Roboto' }}>MY COMMENTS</h4>
+      <h4 style={{ fontFamily: 'Roboto',textAlign: 'center' }}>MY COMMENTS</h4>
       <Comments />
     </div>
   </MuiThemeProvider>
