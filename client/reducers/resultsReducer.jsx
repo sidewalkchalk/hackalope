@@ -1,4 +1,4 @@
-const resultsReducer = (state = {resources: [], loaded: true}, action) => {
+const resultsReducer = (state = { resources: [], loaded: true }, action) => {
   switch (action.type) {
     case 'SEARCH_RESULTS':
       return action.results;

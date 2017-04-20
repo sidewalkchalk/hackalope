@@ -10,7 +10,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { renderResults } from '../helpers/searchHelpers.js';
 
 const ResultsList = ({ results, dispatch }) => {
-
   if (results.loaded && results.resources.length) {
     return (
       <MuiThemeProvider>
@@ -23,13 +22,11 @@ const ResultsList = ({ results, dispatch }) => {
           <div style={{ alignSelf: 'center', width: '10%' }} />
         </div>
       </MuiThemeProvider>
-    )
-  }
-  else if (results.loaded && !results.resources.length) {
+    );
+  } else if (results.loaded && !results.resources.length) {
     return <h5 style={{ fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
-  } else {
-    return null;
   }
+  return null;
 };
 
 const mapStateToProps = state => ({

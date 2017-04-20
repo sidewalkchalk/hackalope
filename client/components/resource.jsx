@@ -12,6 +12,7 @@ import Chip from 'material-ui/Chip';
 
 // COMPONENTS
 import Comments from './comments.jsx';
+import { checkImgIcon } from '../helpers/helpers.js';
 
 const Resource = ({ result }) => {
   const renderTags = () => {
@@ -35,15 +36,12 @@ const Resource = ({ result }) => {
   return (
     <MuiThemeProvider>
       <div>
-
         <Card style={{ width: '72%', marginRight: 'auto', marginLeft: 'auto', padding: 10 }}>
-
-
           <div id="wrapper" style={{ width: '100%' }} >
 
             <div id="div1" style={{ float: 'left', width: '70%' }}>
               <div style={{ paddingTop: '10px', verticalAlign: 'middle', position: 'relative', top: '-40%', left: 10, display: 'inline-block', float: 'left' }}>
-                <img src={`${result.image}`} width="40" />
+                {checkImgIcon(result)}
               </div>
               <CardHeader
                 title={result.title}
@@ -51,7 +49,6 @@ const Resource = ({ result }) => {
                 style={{ position: 'relative', top: 10, width: '60%', display: 'inline' }}
               />
             </div>
-
             <div id="div2" style={{ float: 'right', width: '30%' }} >
               <CardActions>
                 <a
@@ -73,9 +70,7 @@ const Resource = ({ result }) => {
           </div>
 
           <CardText>
-            <span style={{ position: 'relative', float: 'right' }}>
-
-            </span>
+            <span style={{ position: 'relative', float: 'right' }} />
             <br /> <br />
             <div style={{ width: '100%', wordWrap: 'break-word' }} >
               <span style={{ fontSize: '15px', fontWeight: 500 }} >Site Description:</span><br /><br />

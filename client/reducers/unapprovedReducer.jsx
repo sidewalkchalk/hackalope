@@ -7,9 +7,8 @@ const unapprovedReducer = (state = [], action) => {
         if (index === action.edit.index) {
           resource[action.edit.type] = action.edit[action.edit.type];
           return resource;
-        } else {
-          return resource;
-        };
+        }
+        return resource;
       });
     default:
       return state;
