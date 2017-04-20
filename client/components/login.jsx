@@ -28,9 +28,10 @@ const Login = ({ user, search, dialogs, dispatch }) => {
   ];
 
   return (
-    <div style={{ alignContent: 'center' }}>
+    <div>
       <MuiThemeProvider>
         <Dialog
+          contentStyle={{ width: '30%' }}
           autoScrollBodyContent
           title="Sign In"
           actions={actions}
@@ -38,30 +39,28 @@ const Login = ({ user, search, dialogs, dispatch }) => {
           open={dialogs.login}
           onRequestClose={() => dispatch(signUpDialog({ signUpDialog: false }))}
         >
-          <form onSubmit={e => login(e, user, dispatch)}>
-            <TextField
-              name="username"
-              errorText="Required"
-              value={user.username}
-              floatingLabelText="Username"
-              onChange={e => dispatch(userFormData({ username: e.target.value }))}
-            /><br />
-            <TextField
-              name="password"
-              type="password"
-              errorText="Required"
-              value={user.password}
-              floatingLabelText="Password"
-              onChange={e => dispatch(userFormData({ password: e.target.value }))}
-            /><br /><br />
-            <div
-              style={{ textAlign: 'center' }}
-              onTouchTap={() => handleLoginClose(dispatch)}
-            >
-              <p>Sign in with Github</p>
-              <a href="./auth/github"><img src="/public/assets/octocat.png" alt="github" /></a>
-            </div>
-          </form>
+          <TextField
+            name="username"
+            errorText="Required"
+            value={user.username}
+            floatingLabelText="Username"
+            onChange={e => dispatch(userFormData({ username: e.target.value }))}
+          /><br />
+          <TextField
+            name="password"
+            type="password"
+            errorText="Required"
+            value={user.password}
+            floatingLabelText="Password"
+            onChange={e => dispatch(userFormData({ password: e.target.value }))}
+          />
+          <div
+            style={{ textAlign: 'center' }}
+            onTouchTap={() => handleLoginClose(dispatch)}
+          >
+            <p>Sign in with Github</p>
+            <a href="./auth/github"><img src="/public/assets/octocat.png" alt="github" width="40" /></a>
+          </div>
         </Dialog>
       </MuiThemeProvider>
     </div>
