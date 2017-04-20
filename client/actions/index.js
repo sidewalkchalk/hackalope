@@ -44,9 +44,9 @@ export const commentsByResource = comments => ({
   comments,
 });
 
-export const trashComment = comment => ({
-  type: 'DELETE_COMMENT',
-  comment,
+export const trashComment = (comment) => ({
+    type: 'DELETE_COMMENT',
+    comment,
 });
 
 /*--------------------------------
@@ -99,7 +99,7 @@ export const searchQuery = query => ({
 export const resultsLoaded = loaded => ({
   type: 'RESULTS_LOADED',
   loaded,
-});
+})
 
 /*--------------------------------
   SNACKBARS
@@ -180,8 +180,8 @@ export const approveResource = resource => ({
 
 export const editUnapproved = edit => ({
   type: 'EDIT_UNAPPROVED',
-  edit,
-});
+  edit
+})
 
 /*--------------------------------
   VOTING

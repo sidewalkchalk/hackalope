@@ -7,7 +7,7 @@ import rootReducer from './reducers/rootReducer.jsx';
 // this is done as a promise authentication to enable
 // authenticaion check when app component loads
 
-export default function configureStore() {
+export default function configureStore () {
   return new Promise((resolve, reject) => {
     try {
       const store = createStore(
@@ -21,15 +21,15 @@ export default function configureStore() {
 
       persistStore(
         store,
-        { storage: localStorage },
-        () => resolve(store),
-      );
+        {storage: localStorage},
+        () => resolve(store)
+      )
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-    } catch (e) {
-      reject(e);
+    } catch (e){
+      reject(e)
     }
   });
-}
+};
 
 // For deployment, remove redux dev tools extension from compose function.
 // Then remove function call before export statement. This will ensure that

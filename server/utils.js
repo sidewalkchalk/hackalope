@@ -1,5 +1,5 @@
 // middleware for verifying authentication
-exports.checkAuth = (req, res, next) => {
+exports.checkAuth = function (req, res, next) {
   if (req.isAuthenticated()) {
     next();
   } else {

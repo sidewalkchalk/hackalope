@@ -30,8 +30,8 @@ router.get('/', utils.checkAuth, (req, res, next) => {
            })
         .catch((err) => {
           console.error(err);
-        });
-        });
+        })
+      })
 });
 
 // adds a resource ID to the user's favorites

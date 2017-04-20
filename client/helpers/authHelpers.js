@@ -86,6 +86,7 @@ export const logout = (dispatch) => {
 export const findUser = (user, dispatch) => {
   axios.get('/profile/user')
   .then((response) => {
+    console.log(response)
     if (response.data) {
       dispatch(actions.selectUser(response.data));
     } else {

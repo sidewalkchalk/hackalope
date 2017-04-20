@@ -49,7 +49,7 @@ const AddComment = ({ dispatch, comment, user, result }) => {
             </form>
           </Paper>
         </div>
-      </MuiThemeProvider>
+    </MuiThemeProvider>
     </div>
   );
 };

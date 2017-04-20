@@ -8,7 +8,7 @@ import configureStore from './store.jsx';
 import App from './components/app.jsx';
 
 // this is the new index that is a jsx for redux and has the <Provider>
-async function init() {
+async function init(){
   const store = await configureStore();
 
   ReactDOM.render(

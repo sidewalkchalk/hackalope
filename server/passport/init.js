@@ -1,19 +1,19 @@
-const login = require('./login.js');
-const signup = require('./signup.js');
-const users = require('../../db/controllers/user.js');
-const github = require('./github.js');
+var login = require('./login.js');
+var signup = require('./signup.js');
+var users = require('../../db/controllers/user.js');
+var github = require('./github.js')
 
-module.exports = (passport) => {
-  passport.serializeUser((user, done) => {
-    done(null, user._id);
+module.exports = function (passport) {
+  passport.serializeUser(function (user, done) {
+    done(null, user._id)
   });
 
-  passport.deserializeUser((id, done) => {
+  passport.deserializeUser(function (id, done) {
     users.findUserById(id)
-      .then((user) => {
+      .then(function (user) {
         done(null, user);
       })
-      .catch((err) => {
+      .catch(function (err) {
         done(err, null);
       });
   });
