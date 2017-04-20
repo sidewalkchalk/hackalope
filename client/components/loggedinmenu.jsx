@@ -14,23 +14,40 @@ import { logout } from '../helpers/authHelpers.js';
 import { getUnapproved } from '../helpers/adminHelpers.js';
 import { openPendingSnackbar } from '../helpers/snackbarHelpers.js';
 import { getProfile } from '../helpers/favoriteHelpers.js';
+import { checkAvatar } from '../helpers/helpers.js';
 
 const LoggedInMenu = ({ user, dispatch }) => (
-  <IconMenu
-    iconButtonElement={
-      <IconButton><MoreVertIcon /></IconButton>
+  <div>
+    <div style={{ position: 'absolute', right: 90, top: 12 }}>
+      {checkAvatar(user)}
+    </div>
+    <IconMenu
+      iconButtonElement={
+        <IconButton>
+          <MoreVertIcon />
+        </IconButton>
       }
-    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-    anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-    iconStyle={{ fill: 'white' }}
-  >
-    {user.admin ? <Link to="user/admin" ><MenuItem primaryText="Admin" onClick={() => { getUnapproved(dispatch); openPendingSnackbar(dispatch); }} /></Link> : null}
-    <MenuItem primaryText="MyProfile" onClick={() => getProfile(dispatch)} />
-    <MenuItem
-      primaryText="Sign Out"
-      onClick={() => logout(dispatch)}
-    />
-  </IconMenu>
+
+      targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+      anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+      iconStyle={{ fill: 'white' }}
+    >
+      {user.admin ? <Link to="user/admin" style={{ textDecoration: 'none' }}>
+        <MenuItem
+          primaryText="Admin"
+          onClick={() => { getUnapproved(dispatch); openPendingSnackbar(dispatch); }}
+        /></Link> : null}
+      <MenuItem
+        primaryText="MyProfile"
+        onClick={() => getProfile(dispatch)}
+      />
+      <MenuItem
+        primaryText="Sign Out"
+        onClick={() => logout(dispatch)}
+      />
+    </IconMenu>
+  </div>
+
   );
 
 LoggedInMenu.muiName = 'IconMenu';
