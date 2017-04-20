@@ -67,7 +67,7 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
             actions={actions}
             modal={false}
             open={dialogs.submit}
-            onRequestClose={() => handleSubmitClose()}
+            onRequestClose={() => handleSubmitClose(dispatch)}
           >
 
             <div style={{ display: 'inline-flex', flexDirection: 'row' }}>
