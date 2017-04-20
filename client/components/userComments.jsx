@@ -11,34 +11,33 @@ import Delete from 'material-ui/svg-icons/action/delete.js';
 
 
 const UserComments = ({ profile, dispatch }) => {
- 
   const renderUserComments = () => profile.comments.map(comment => (
-    
-    <li key = {comment._id} >
+
+    <li key={comment._id} >
       <Card>
         <CardHeader
-          style={{position: 'relative', width: '80%', marginTop: '20px', display: 'inline' }}
+          style={{ position: 'relative', width: '80%', marginTop: '20px', display: 'inline' }}
           title={comment.body}
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
         />
         <Delete
-          style={{float:'right', marginTop: '20px'}}   
+          style={{ float: 'right', marginTop: '20px' }}
           onClick={() => deleteComment(comment._id, comment.user, dispatch)}
-        /> 
+        />
         <CardText>
-          Resource :  {comment.resource.title}
-          <br></br>
-          URL :  {comment.resource.url}
+          Resource : {comment.resource.title}
+          <br />
+          URL : {comment.resource.url}
         </CardText>
- 
+
       </Card>
     </li>
   ));
 
   return (
-    <div style={{ width: "80%", marginRight: 'auto', marginLeft: 'auto' }} >      
-      <ul style={{ 'listStyleType': 'none' }}>
-      {renderUserComments()}
+    <div style={{ width: '80%', marginRight: 'auto', marginLeft: 'auto' }} >
+      <ul style={{ listStyleType: 'none' }}>
+        {renderUserComments()}
       </ul>
     </div>
   );

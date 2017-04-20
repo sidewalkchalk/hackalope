@@ -5,9 +5,9 @@ exports.insertComment = function (comment) {
   return CommentModel.create(comment);
 };
 
-//deletes a users comment
+// deletes a users comment
 exports.deleteComment = function (commentId) {
-  return CommentModel.findByIdAndRemove({_id:commentId}, ()=> {});
+  return CommentModel.findByIdAndRemove({ _id: commentId }, () => {});
 };
 
 // find all comments by a user's id
