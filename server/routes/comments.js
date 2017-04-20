@@ -14,6 +14,7 @@ router.get('/:id', (req, res) => {
       const commentData = response.map(comment => ({
         user: comment.user.username,
         body: comment.body,
+        avatar: comment.user.avatar,
         _id: comment._id,
         createdAt: comment.createdAt,
       }));

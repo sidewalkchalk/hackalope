@@ -38,5 +38,7 @@ export const submit = (e, user, submission, dispatch) => {
     })
     .catch((err) => {
       console.error(err);
+      snackbar.openNotAuthSnackbar(disaptch);
+      dispatch(actions.logout());
     });
 };
