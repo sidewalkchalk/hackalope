@@ -9,10 +9,10 @@ import { titleCaseArray } from './submitHelpers.js';
 export const getUnapproved = (dispatch) => {
   axios.get('/admin/')
   .then((response) => {
-    var editedResponse = response.data.map(resource => {
+    const editedResponse = response.data.map((resource) => {
       resource.tags = resource.tags.join(', ');
-      return resource
-    })
+      return resource;
+    });
     dispatch(actions.unapprovedResources(editedResponse));
   })
   .catch((err) => {
@@ -23,7 +23,6 @@ export const getUnapproved = (dispatch) => {
 // handles approving an unapproved resource
 export const approveResource = (result, dispatch) => {
   result.tags = titleCaseArray(result.tags);
-  console.log(result);
   axios.put('/admin', result)
   .then(() => {
     getUnapproved(dispatch);
@@ -47,11 +46,11 @@ export const unapproveResource = (resultId, dispatch) => {
 };
 
 // handle rendering of unapproved resources
-export const renderUnapproved = (unapproved) => unapproved.map((resource, index) =>
+export const renderUnapproved = unapproved => unapproved.map((resource, index) =>
   <div
     key={resource._id}
     style={{ zDepth: 10 }}
   >
-    <UnapprovedResource key={resource._id} resource={resource} index={index}/>
-  </div>
+    <UnapprovedResource key={resource._id} resource={resource} index={index} />
+  </div>,
 );
