@@ -11,14 +11,16 @@ import { checkAvatar } from '../helpers/helpers.js';
 import moment from 'moment';
 
 const Comments = ({ comments }) => {
-  console.log(comments);
   const renderComments = () => comments.map(comment => (
     <li key={comment._id} >
       <Card>
+        <span style={{ position: 'relative', left: 10, top: 12 }}>
+          {checkAvatar(comment)}
+        </span>
         <CardHeader
           title={comment.user}
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
-          avatar=""
+          style={{ left: 50 }}
         />
         <CardText>
           {comment.body}
