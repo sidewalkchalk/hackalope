@@ -11,6 +11,7 @@ import { checkAvatar } from '../helpers/helpers.js';
 import moment from 'moment';
 
 const Comments = ({ comments }) => {
+  console.log(comments);
   const renderComments = () => comments.map(comment => (
     <li key={comment._id} >
       <Card>
@@ -24,7 +25,7 @@ const Comments = ({ comments }) => {
         </CardText>
       </Card>
     </li>
-      ));
+  ));
   return (
     <div style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto' }} >
       <AddComment />
