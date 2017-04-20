@@ -8,7 +8,7 @@ import moment from 'moment';
 // MATERIAL UI
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Delete from 'material-ui/svg-icons/action/delete.js';
-
+import IconButton from 'material-ui/IconButton';
 
 const UserComments = ({ profile, dispatch }) => {
   const renderUserComments = () => profile.comments.map(comment => (
@@ -16,18 +16,22 @@ const UserComments = ({ profile, dispatch }) => {
     <li key={comment._id} >
       <Card>
         <CardHeader
-          style={{ position: 'relative', width: '80%', marginTop: '20px', display: 'inline' }}
+          style={{position: 'relative', width: '80%', display: 'block' }}
           title={comment.body}
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
         />
-        <Delete
-          style={{ float: 'right', marginTop: '20px' }}
-          onClick={() => deleteComment(comment._id, comment.user, dispatch)}
-        />
-        <CardText>
-          Resource : {comment.resource.title}
-          <br />
-          URL : {comment.resource.url}
+          <IconButton 
+            style={{float: 'right'}}
+          >
+            <Delete
+              style={{position: 'relative', marginTop: '20px'}}   
+              onClick={() => deleteComment(comment._id, comment.user, dispatch)}
+            />
+          </IconButton>
+        <CardText>  
+          Resource :  {comment.resource.title}
+          <br></br>
+          URL :  {comment.resource.url}
         </CardText>
 
       </Card>
