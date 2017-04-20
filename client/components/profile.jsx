@@ -17,6 +17,7 @@ import Favorites from './userFavorites.jsx';
 
 const Profile = ({ user }) => (
 
+  user._id ? (
   <MuiThemeProvider>
     <div>
       <h4 style={{ fontFamily: 'Roboto', textAlign: 'center' }}>MY PROFILE</h4>
@@ -36,6 +37,7 @@ const Profile = ({ user }) => (
       <Comments />
     </div>
   </MuiThemeProvider>
+  ) : null
 );
 
 const mapStateToProps = state => ({

@@ -21,7 +21,6 @@ router.get('/', utils.checkAuth, (req, res, next) => {
              resourceController.findFavorites(user.favorites)
                .then((favorites) => {
                  profile.favorites = favorites;
-                 res.json(profile);
                  res.status(201).send(profile);
                })
                 .catch((err) => {

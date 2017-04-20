@@ -2,6 +2,7 @@ import axios from 'axios';
 import { hashHistory } from 'react-router';
 import * as actions from '../actions/index.js';
 import * as snackbar from './snackbarHelpers.js';
+import { handleSearch } from './searchHelpers.js';
 
 export const handleLoginOpen = (dispatch) => {
   dispatch(actions.logInDialog({ login: true }));
@@ -13,7 +14,7 @@ export const handleLoginClose = (dispatch) => {
 };
 
 export const reloadResources = (search, dispatch) => {
-  handleSearch(search.query, dispatch); // TODO: handleSearch is not defined
+  handleSearch(search.query, dispatch);
 };
 
 // handle request for authentication
