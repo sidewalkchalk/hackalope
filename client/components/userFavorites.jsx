@@ -19,31 +19,31 @@ const styles = {
 
 const Favorites = ({ profile }) => {
   const renderUserFavorites = () => profile.favorites.map(favorite => (
-    <MuiThemeProvider>
-      <li
-        key={favorite.createdAt}
-      >
-        <Card>
-          <CardHeader
-            title={favorite.title}
-            subtitle={favorite.description}
-          />
-          <div>
-            <CardActions>
-              <RaisedButton
-                label="Link"
-                labelPosition="before"
-                icon={<ContentLink />}
-                primary
-                style={styles.button}
-                href={`${favorite.url}`}
-                target="_blank"
+    <div key={favorite.createdAt}>
+      <MuiThemeProvider>
+        <li>
+          <Card>
+            <CardHeader
+              title={favorite.title}
+              subtitle={favorite.description}
               />
-            </CardActions>
-          </div>
-        </Card>
-      </li>
-    </MuiThemeProvider>
+            <div>
+              <CardActions>
+                <RaisedButton
+                  label="Link"
+                  labelPosition="before"
+                  icon={<ContentLink />}
+                  primary
+                  style={styles.button}
+                  href={`${favorite.url}`}
+                  target="_blank"
+                  />
+              </CardActions>
+            </div>
+          </Card>
+        </li>
+      </MuiThemeProvider>
+    </div>
       ));
   return (
     <div style={{ width: '80%', marginRight: 'auto', marginLeft: 'auto' }} >
