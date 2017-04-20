@@ -2,6 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// MATERIAL UI
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Card, CardHeader } from 'material-ui/Card';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+
 // ACTIONS AND HELPERS
 import { checkAvatar } from '../helpers/helpers.js';
 
@@ -9,10 +14,6 @@ import { checkAvatar } from '../helpers/helpers.js';
 import Comments from './userComments.jsx';
 import Favorites from './userFavorites.jsx';
 
-// MATERIAL UI
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
-import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const Profile = ({ user }) => (
 
