@@ -17,7 +17,11 @@ const Login = ({ user, search, dialogs, dispatch }) => {
     <FlatButton
       label="Cancel"
       primary
-      onTouchTap={() => handleLoginClose(dispatch)}
+      onClick={() => {
+        handleLoginClose(dispatch);
+        dispatch(userFormData({ username: '' }));
+        dispatch(userFormData({ password: '' }));
+      }}
     />,
     <FlatButton
       label="Login"
@@ -59,7 +63,8 @@ const Login = ({ user, search, dialogs, dispatch }) => {
             onTouchTap={() => handleLoginClose(dispatch)}
           >
             <p>Sign in with Github</p>
-            <a href="./auth/github"><img src="/public/assets/octocat.png" alt="github" width="40" /></a>
+            <a href="./auth/github"><img src="/public/assets/octocat.png" alt="github" width="40" />
+            </a>
           </div>
         </Dialog>
       </MuiThemeProvider>
