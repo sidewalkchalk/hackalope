@@ -73,7 +73,9 @@ const Resource = ({ result }) => {
           </div>
 
           <CardText>
-            <span style={{ position: 'relative', float: 'right' }} />
+            <span style={{ position: 'relative', float: 'right' }}>
+
+            </span>
             <br /> <br />
             <div style={{ width: '100%', wordWrap: 'break-word' }} >
               <span style={{ fontSize: '15px', fontWeight: 500 }} >Site Description:</span><br /><br />

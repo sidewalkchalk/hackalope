@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
   req.body.user = req.user._id;
   commentController.insertComment(req.body)
     .then((response) => {
+      console.log(response);
       res.status(201).send(response);
     })
     .catch((err) => {
@@ -36,15 +37,15 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/', function (req, res) {
   commentController.deleteComment(req.body.commentId)
-  .then((response) => {
+  .then(function (response) {
     console.log(response);
     res.status(201).send(response);
   })
-  .catch((err) => {
+  .catch(function (err) {
     console.error(err);
-  });
+  })
 });
 
 

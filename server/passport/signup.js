@@ -1,29 +1,29 @@
-const LocalStrategy = require('passport-local');
-const users = require('../../db/controllers/user.js');
+var LocalStrategy = require('passport-local');
+var users = require('../../db/controllers/user.js');
 
-module.exports = (passport) => {
+module.exports = function (passport) {
   passport.use('signup', new LocalStrategy({
-    passReqToCallback: true,
+    passReqToCallback: true
   },
-  (req, username, password, done) => {
-    process.nextTick(() => {
+  function (req, username, password, done) {
+    process.nextTick(function () {
       // new users cannot be administrators
       req.body.admin = false;
 
       users.findUserByUsername(username)
-        .then((user) => {
+        .then(function (user) {
           if (user) {
             return done(null, false);
           }
-          return users.insertUser(req.body);
+          return users.insertUser(req.body)
         })
-        .then((newUser) => {
+        .then (function (newUser) {
           done(null, newUser);
         })
-        .catch((err) => {
+        .catch (function (err) {
           console.log('Error signing up!');
           done(err);
-        });
+        })
     });
   }));
 };
