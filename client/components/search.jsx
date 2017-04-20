@@ -20,7 +20,7 @@ const topics = [
   'Arrays',
   'ES6',
   'React',
-  'Angular',
+  'AngularJS',
   'Redux',
   'Webpack',
   'Node',
