@@ -43,7 +43,7 @@ const Result = ({ result, user, results, dispatch }) => (
         style={{ position: 'relative', left: 90, width: '60%', display: 'inline' }}
         titleStyle={{ fontSize: '20px' }}
         subtitleStyle={{ width: '10%', display: 'inline' }}
-        showExpandableButton={true}
+        showExpandableButton
       />
 
       <div style={{ position: 'absolute', left: 0, display: 'inline-flex', float: 'left' }}>
@@ -77,7 +77,7 @@ const Result = ({ result, user, results, dispatch }) => (
         />
       </div>
 
-      <CardText expandable={true}>
+      <CardText expandable>
         <div style={{ height: 'auto', overflow: 'hidden', lineHeight: 1, maxHeight: 40, width: '75%', postition: 'relative', marginRight: '35%', marginLeft: 'black' }} >
           {result.impression}
         </div>
