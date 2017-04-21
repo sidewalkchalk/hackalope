@@ -10,19 +10,14 @@ import Dialog from 'material-ui/Dialog';
 
 // ACTIONS AND HELPERS
 import { signup, handleSignUpClose } from '../helpers/authHelpers.js';
-import { userFormData } from '../actions/index.js';
+import { userFormData, clearUser } from '../actions/index.js';
 
 const SignUp = ({ user, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
       primary
-      onTouchTap={() => {
-        handleSignUpClose(dispatch);
-        dispatch(userFormData({ name: '' }));
-        dispatch(userFormData({ username: '' }));
-        dispatch(userFormData({ password: '' }));
-      }}
+      onTouchTap={() => handleSignUpClose(dispatch)}
     />,
     <FlatButton
       label="Submit"

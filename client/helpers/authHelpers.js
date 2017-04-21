@@ -11,6 +11,7 @@ export const handleLoginOpen = (dispatch) => {
 // close login popup
 export const handleLoginClose = (dispatch) => {
   dispatch(actions.logInDialog({ login: false }));
+  dispatch(actions.clearUser());
 };
 
 export const reloadResources = (search, dispatch) => {
@@ -54,6 +55,8 @@ export const handleSignUpOpen = (dispatch) => {
 // close signup popup
 export const handleSignUpClose = (dispatch) => {
   dispatch(actions.signUpDialog({ signup: false }));
+  dispatch(actions.clearUser());
+
 };
 
 // handle request to create new account

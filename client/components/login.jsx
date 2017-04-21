@@ -17,11 +17,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
     <FlatButton
       label="Cancel"
       primary
-      onClick={() => {
-        handleLoginClose(dispatch);
-        dispatch(userFormData({ username: '' }));
-        dispatch(userFormData({ password: '' }));
-      }}
+      onClick={() => handleLoginClose(dispatch)}
     />,
     <FlatButton
       label="Login"
@@ -41,7 +37,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
           actions={actions}
           modal={false}
           open={dialogs.login}
-          onRequestClose={() => dispatch(signUpDialog({ signUpDialog: false }))}
+          onRequestClose={() => handleLoginClose(dispatch)}
         >
           <TextField
             name="username"
