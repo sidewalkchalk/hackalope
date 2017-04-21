@@ -12,7 +12,7 @@ export const checkImgIcon = (result) => {
       </div>
     );
   }
-  return <img src={`${result.image}`} alt={`${result.title}`} width="40" />;
+  return <img src={`${result.image}`} alt={`${result.title}`} width="40" height="60" />;
 };
 
 export const checkAvatar = (user) => {
