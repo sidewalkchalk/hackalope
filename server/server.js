@@ -66,7 +66,7 @@ app.use((req, res, next) => {
 });
 
 // LISTEN
-const port = process.env.port || 1337; // also in serverConfig
+const port = process.env.port || 1337;
 app.listen(port, () => {
   console.log(`Lucifer is listening on port: ${port}. Build like hell, minions!`);
 });
