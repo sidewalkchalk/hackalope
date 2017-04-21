@@ -41,7 +41,7 @@ const Result = ({ result, user, results, dispatch }) => (
         title={result.title}
         subtitle={result.language}
         style={{ position: 'relative', left: 90, width: '60%', display: 'inline' }}
-        titleStyle={{ fontSize: '20px' }}
+        titleStyle={{ fontSize: '17px' }}
         subtitleStyle={{ width: '10%', display: 'inline' }}
         showExpandableButton
       />
