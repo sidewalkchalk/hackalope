@@ -19,7 +19,7 @@ import LoggedOutMenu from './loggedoutmenu.jsx';
 import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
          closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar,
          closeSubmitSnackbar, closeApprovedSnackbar,
-         closeNotAuthSnackbar,
+         closeNotAuthSnackbar, closeWrongSnackbar,
        } from '../helpers/snackbarHelpers.js';
 
 
@@ -108,6 +108,14 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeNotAuthSnackbar(dispatch)}
+        />
+        <Snackbar
+          open={snackbar.wrong}
+          message="Incorrect login credentials"
+          bodyStyle={{ background: '#c41b07' }}
+          contentStyle={{ textAlign: 'center' }}
+          autoHideDuration={1300}
+          onRequestClose={() => closeWrongSnackbar(dispatch)}
         />
       </div>
     </MuiThemeProvider>
