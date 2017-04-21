@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/sidewalkchalk/hackalope.png?label=ready&title=Ready)](https://waffle.io/sidewalkchalk/hackalope)
 # hackalope.io
 
-> Coding resource review site
+> Share, save, submit, and vote on user-submitted coding resources
 
 ## Team
 
@@ -12,50 +12,44 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
+1. [Stack](#stack)
+1. [Installing Dependencies](#installing-dependencies)
 1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
 ## Usage
 
-> hackalope.io is a coding resource review site where users can search coding topics and find resources sorted by how useful other coders found them to be. Logged in users can submit additional coding resources and provide feedback on resources usefulness.
+> at hackalope.io, users can share and search resources on a range of programming languages and topics. users who create an account can save their favorite resources, and vote on those submitted by other users, and leave comments on resources. search results are sorted by by the aggregate user rating, calculated by upvotes and downvotes. users can also submit resources for consideration by hackalope moderators.
 
-## Requirements
+## Stack
 
-- Mongo DB
-
-## Development
-
-clone repo from https://github.com/sidewalkchalk/hackalope
-
-In shell run to install dependencies
-```sh
-npm install 
-```
-
-In shell run
-```sh
-webpack --watch
-```
-
-In new shell run
-```sh
-mongod
-```
-
-In new shell run
-```sh
-nodemon server/server.js
-```
+- React (Redux)
+- MongoDB
+- Node.js
+- Express.js
 
 ### Installing Dependencies
 
 ```sh
 npm install
 ```
+
+## Development
+
+fork/clone repo from https://github.com/sidewalkchalk/hackalope
+
+start up mongodb with:
+```sh
+mongod
+```
+
+to run webpack and the node.js server:
+```sh
+npm start
+```
+
+the above script will set webpack to watch for changes on bundled files and will start the server with nodemon.
 
 ### Roadmap
 
