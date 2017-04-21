@@ -7,7 +7,7 @@ const authReducer = (state = {}, action) => {
     case 'CHECK_AUTH':
       return Object.assign({}, state, action.checkingAuth);
     case 'CLEAR_USER':
-      return Object.assign({}, state, {name: '', username: '', password: ''});
+      return Object.assign({}, undefined);
     default:
       return state;
   }

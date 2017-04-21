@@ -17,8 +17,8 @@ export const getComments = (resultId, dispatch) => {
 
 export const getProfile = (dispatch) => {
   axios.get('/profile/')
-  .then((responses) => {
-    dispatch(actions.userProfile(responses.data));
+  .then((response) => {
+    dispatch(actions.userProfile(response.data));
     hashHistory.push('/user/profile');
   })
   .catch((err) => {
