@@ -12,7 +12,7 @@ import Dialog from 'material-ui/Dialog';
 import { signup, handleSignUpClose } from '../helpers/authHelpers.js';
 import { userFormData, clearUser } from '../actions/index.js';
 
-const SignUp = ({ user, dialogs, dispatch }) => {
+const SignUp = ({ form, user, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
@@ -23,7 +23,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
       label="Submit"
       primary
       keyboardFocused
-      onTouchTap={e => signup(e, user, dispatch)}
+      onTouchTap={e => signup(e, form, dispatch)}
     />,
   ];
 
@@ -43,14 +43,14 @@ const SignUp = ({ user, dialogs, dispatch }) => {
           <TextField
             name="name"
             errorText="Required"
-            value={user.name}
+            value={form.name}
             floatingLabelText="Name"
             onChange={e => dispatch(userFormData({ name: e.target.value }))}
           /><br />
           <TextField
             name="username"
             errorText="Required"
-            value={user.username}
+            value={form.username}
             floatingLabelText="Username"
             onChange={e => dispatch(userFormData({ username: e.target.value }))}
           /><br />
@@ -58,7 +58,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
             name="password"
             type="password"
             errorText="Required"
-            value={user.password}
+            value={form.password}
             floatingLabelText="Password"
             onChange={e => dispatch(userFormData({ password: e.target.value }))}
           />
@@ -77,6 +77,7 @@ const SignUp = ({ user, dialogs, dispatch }) => {
 
 
 const mapStateToProps = state => ({
+  form: state.form,
   user: state.user,
   dialogs: state.dialogs,
 });

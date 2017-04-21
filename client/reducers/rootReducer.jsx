@@ -10,12 +10,14 @@ import commentReducer from './commentReducer.jsx';
 import unapprovedReducer from './unapprovedReducer.jsx';
 import profileReducer from './profileReducer.jsx';
 import snackbarReducer from './snackbarReducer.jsx';
+import formReducer from './formReducer.jsx';
 
 // combine all reducers
 const appReducer = combineReducers({
   results: resultsReducer,
   result: activeResult,
   user: authReducer,
+  form: formReducer,
   submission: submissionReducer,
   search: searchReducer,
   dialogs: dialogReducer,

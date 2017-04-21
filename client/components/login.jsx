@@ -12,7 +12,7 @@ import Dialog from 'material-ui/Dialog';
 import { login, handleLoginClose } from '../helpers/authHelpers.js';
 import { userFormData, signUpDialog } from '../actions/index.js';
 
-const Login = ({ user, search, dialogs, dispatch }) => {
+const Login = ({ form, user, search, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
@@ -23,7 +23,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
       label="Login"
       primary
       keyboardFocused
-      onClick={e => login(e, user, search, dispatch)}
+      onClick={e => login(e, form, search, dispatch)}
     />,
   ];
 
@@ -42,7 +42,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
           <TextField
             name="username"
             errorText="Required"
-            value={user.username}
+            value={form.username}
             floatingLabelText="Username"
             onChange={e => dispatch(userFormData({ username: e.target.value }))}
           /><br />
@@ -50,7 +50,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
             name="password"
             type="password"
             errorText="Required"
-            value={user.password}
+            value={form.password}
             floatingLabelText="Password"
             onChange={e => dispatch(userFormData({ password: e.target.value }))}
           />
@@ -69,6 +69,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
 };
 
 const mapStateToProps = state => ({
+  form: state.form,
   user: state.user,
   dialogs: state.dialogs,
   search: state.search,
