@@ -28,7 +28,7 @@ const Login = ({ user, search, dialogs, dispatch }) => {
       type="submit"
       primary
       keyboardFocused
-      onSubmit={e => login(e, user, search, dispatch)}
+      onClick={e => login(e, user, search, dispatch)}
     />,
   ];
 

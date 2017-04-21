@@ -19,7 +19,6 @@ const ResultsList = ({ results, dispatch }) => {
               {renderResults(results, dispatch)}
             </ul>
           </div>
-          <br />
         </div>
       </MuiThemeProvider>
     );
