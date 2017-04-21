@@ -15,7 +15,7 @@ export default function configureStore() {
         undefined,
         compose(
           autoRehydrate(),
-          window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+          // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
         ),
       );
 
@@ -24,7 +24,7 @@ export default function configureStore() {
         { storage: localStorage },
         () => resolve(store),
       );
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+      // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
     } catch (e) {
       reject(e);
     }
