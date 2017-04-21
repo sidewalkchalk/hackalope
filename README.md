@@ -20,7 +20,7 @@
 
 ## Usage
 
-> at hackalope.io, users can share and search resources on a range of programming languages and topics. users who create an account can save their favorite resources, and vote on those submitted by other users, and leave comments on resources. search results are sorted by by the aggregate user rating, calculated by upvotes and downvotes. users can also submit resources for consideration by hackalope moderators.
+> there are hundreds of great websites and resources dedicated to teaching content and helping the developer community. there are so many, in fact, that it is often difficult to find the best resources and those who are new to coding can spend hours trying to find the ones that meet their needs. at hackalope.io, users can share and search resources on a range of programming languages and topics. users who create an account can submit and save their favorite resources, vote on resources submitted by other users, and leave feedback on resources. search results are sorted by by the aggregate user rating, calculated by upvotes and downvotes. users can also submit resources for consideration by hackalope moderators. hackalope is inspired by sites like reddit and yelp, where the community of users generates the majority of the content.
 
 ## Stack
 
