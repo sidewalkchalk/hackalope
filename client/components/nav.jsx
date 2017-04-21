@@ -118,7 +118,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
           onRequestClose={() => closeWrongSnackbar(dispatch)}
         />
         <Snackbar
-          open={snackbar.wrong}
+          open={snackbar.taken}
           message="Username already taken"
           bodyStyle={{ background: '#c41b07' }}
           contentStyle={{ textAlign: 'center' }}
