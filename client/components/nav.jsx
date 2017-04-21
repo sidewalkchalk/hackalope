@@ -19,7 +19,7 @@ import LoggedOutMenu from './loggedoutmenu.jsx';
 import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
          closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar,
          closeSubmitSnackbar, closeApprovedSnackbar,
-         closeNotAuthSnackbar, closeWrongSnackbar,
+         closeNotAuthSnackbar, closeWrongSnackbar, closeTakenSnackbar,
        } from '../helpers/snackbarHelpers.js';
 
 
@@ -116,6 +116,14 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeWrongSnackbar(dispatch)}
+        />
+        <Snackbar
+          open={snackbar.wrong}
+          message="Username already taken"
+          bodyStyle={{ background: '#c41b07' }}
+          contentStyle={{ textAlign: 'center' }}
+          autoHideDuration={1300}
+          onRequestClose={() => closeTakenSnackbar(dispatch)}
         />
       </div>
     </MuiThemeProvider>

@@ -68,6 +68,7 @@ export const signup = (e, user, dispatch) => {
       hashHistory.push('/main');
     })
     .catch((err) => {
+      dispatch(actions.takenSnackbar({ taken: true }));
       console.error(err);
     });
 };
