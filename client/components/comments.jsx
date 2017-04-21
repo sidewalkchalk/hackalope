@@ -23,7 +23,9 @@ const Comments = ({ comments }) => {
           style={{ left: 50 }}
         />
         <CardText>
-          {comment.body}
+          <span style={{ position: 'relative', left: 60 }}>
+            {comment.body}
+          </span>
         </CardText>
       </Card>
     </li>

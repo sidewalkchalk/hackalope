@@ -30,9 +30,10 @@ const AddComment = ({ dispatch, comment, user, result }) => {
           <Paper style={style} zDepth={2}>
             <form
               onSubmit={(e) => {
+                e.preventDefault();
                 if (user._id) {
                   addComment(e, user, result, comment, dispatch);
-                  dispatch(newComment({ body: '' }))
+                  dispatch(newComment({ body: '' }));
                 } else {
                   openNotAuthSnackbar(dispatch);
                 }
