@@ -19,12 +19,16 @@ const ResultsList = ({ results, dispatch }) => {
               {renderResults(results, dispatch)}
             </ul>
           </div>
-          <div style={{ alignSelf: 'center', width: '10%' }} />
+          <br />
         </div>
       </MuiThemeProvider>
     );
   } else if (results.loaded && !results.resources.length) {
-    return <h5 style={{ fontFamily: 'Roboto' }}>Oops! There aren't any results to display. Try searching again!</h5>;
+    return (
+      <h5 style={{ fontFamily: 'Roboto' }}>
+        Oops! There aren&apos;t any results to display. Try searching again!
+      </h5>
+    );
   }
   return null;
 };

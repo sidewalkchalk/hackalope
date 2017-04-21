@@ -25,9 +25,10 @@ const Login = ({ user, search, dialogs, dispatch }) => {
     />,
     <FlatButton
       label="Login"
+      type="submit"
       primary
       keyboardFocused
-      onClick={e => login(e, user, search, dispatch)}
+      onSubmit={e => login(e, user, search, dispatch)}
     />,
   ];
 
