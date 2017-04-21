@@ -82,3 +82,7 @@ export const closeNotAuthSnackbar = (dispatch) => {
 export const closeWrongSnackbar = (dispatch) => {
   dispatch(actions.wrongSnackbar({ wrong: false }));
 };
+
+export const closeTakenSnackbar = (dispatch) => {
+  dispatch(actions.takenSnackbar({ taken: false }));
+};

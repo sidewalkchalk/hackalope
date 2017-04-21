@@ -1,4 +1,4 @@
-const snackbarReducer = (state = { login: false, logout: false, admin: false, submit: false, approved: false, unapproved: false, pending: false, notAuth: false, wrong: false }, action) => {
+const snackbarReducer = (state = { login: false, logout: false, admin: false, submit: false, approved: false, unapproved: false, pending: false, notAuth: false, wrong: false, taken: false }, action) => {
   switch (action.type) {
     case 'LOGIN_SNACKBAR_OPEN':
       return Object.assign({}, state, action.snackbar);
@@ -17,6 +17,8 @@ const snackbarReducer = (state = { login: false, logout: false, admin: false, su
     case 'NOT_LOGGED_IN_SNACKBAR_OPEN':
       return Object.assign({}, state, action.snackbar);
     case 'WRONG_SNACKBAR_OPEN':
+      return Object.assign({}, state, action.snackbar);
+    case 'TAKEN_SNACKBAR_OPEN':
       return Object.assign({}, state, action.snackbar);
     default:
       return state;

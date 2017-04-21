@@ -150,6 +150,11 @@ export const wrongSnackbar = snackbar => ({
   snackbar,
 });
 
+export const takenSnackbar = snackbar => ({
+  type: 'TAKEN_SNACKBAR_OPEN',
+  snackbar,
+});
+
 /*--------------------------------
   SUBMISSIONS
 --------------------------------*/
