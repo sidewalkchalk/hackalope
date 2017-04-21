@@ -41,6 +41,7 @@ export const login = (e, user, search, dispatch) => {
           });
     })
     .catch((err) => {
+      dispatch(actions.wrongSnackbar({ wrong: true }));
       console.error(err);
     });
 };

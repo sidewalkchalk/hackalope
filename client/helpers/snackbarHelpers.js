@@ -78,3 +78,7 @@ export const openNotAuthSnackbar = (dispatch) => {
 export const closeNotAuthSnackbar = (dispatch) => {
   dispatch(actions.notAuthSnackbar({ notAuth: false }));
 };
+
+export const closeWrongSnackbar = (dispatch) => {
+  dispatch(actions.wrongSnackbar({ wrong: false }));
+};
