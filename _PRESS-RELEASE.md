@@ -32,19 +32,13 @@ Once the project moves into development, the press release can be used as a touc
   > This app compiles coding resources submitted by programmers and allows users to rate and comment on their usefulness. This makes it easy for programmers to find resources that fit their needs.
 
 ## Quote from You ##
-  > ""
-  A quote from a spokesperson in your company.
+  > "All of us at Hackalope started learning to code on our own. In doing so, we found some really great resources, but also lost a lot of time working with not-so-great ones. We created Hackalope because it's the kind of site we wish we had when we were getting started. Happy hacking!"
 
 ## How to Get Started ##
-  > Search by language and topics to find the best resources for your programming needs!
-
-  Describe how easy it is to get started.
+  > Search by language and topics to find the best resources for your programming needs! If you want to contribute to the site, just create an account. You'll be able to submit and save resources, vote on resources submitted by other users, and leave your feedback on resources you have used.
 
 ## Customer Quote ##
-  > 
-  
-  Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I love Hackalope! It's the first place I go when I need to learn something new. Just this week I was trying to develop my chops in React. Hackalope pointed me to a lot of great resources after one quick search." --Nathan Turinski, Software Engineer 
 
 ## Closing and Call to Action ##
-  >
-   Wrap it up and give pointers where the reader should go next.
+  > Go to hackalope.io to get started!
