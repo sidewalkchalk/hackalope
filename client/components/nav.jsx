@@ -26,24 +26,22 @@ import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
 injectTapEventPlugin(); // Initialize Tap/Click Events
 
 const Nav = ({ user, snackbar, unapproved, dispatch }) => {
-
   if (window.location.hash !== '#/') {
-      let show = 'none';
+    const show = 'none';
   } else {
-    let show = 'block';
+    const show = 'block';
   }
 
   return (
     <MuiThemeProvider>
       <div>
         <AppBar
+          style={{ backgroundColor: 'maroon' }}
           iconElementLeft={window.location.hash !== '#/' ? <IconButton id="backButton">
             <ArrowBack
               onClick={hashHistory.goBack}
             />
-          </IconButton> : <div style={{ width: '48px' }} ></div>}
-
-
+          </IconButton> : <div style={{ width: '48px' }} />}
           title={<Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">hackalope.io</Link>}
           iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
         />

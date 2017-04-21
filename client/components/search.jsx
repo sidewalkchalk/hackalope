@@ -44,7 +44,7 @@ const Search = ({ search, dispatch }) => (
       />
       <RaisedButton
         label="Let's go!"
-        secondary
+        primary
         style={{ margin: 12 }}
         onClick={() => handleSearch(search, dispatch)}
       />
