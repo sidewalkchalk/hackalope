@@ -17,28 +17,34 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > hackalope.io -> a coding resource review site.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Coder reviews and recommendations on programming resources.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > While there are numerous coding resources available, it is often difficult to find resources which specifically meet your learning needs without relentless googling. With hackalope.io, our objective is to make that process more efficient by compiling resources, submitted and rated by fellow programmers. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > There is an overabundance of coding resources/documentation. Hackalope.io aims to help the coders efficiently find the best resources to suit their needs. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This app compiles coding resources submitted by programmers and allows users to rate and comment on their usefulness. This makes it easy for programmers to find resources that fit their needs.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > ""
+  A quote from a spokesperson in your company.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Search by language and topics to find the best resources for your programming needs!
+
+  Describe how easy it is to get started.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > 
+  
+  Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  >
+   Wrap it up and give pointers where the reader should go next.
