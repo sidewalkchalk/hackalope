@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         }
         // otherwise, filter by search term
       } else {
-        filteredResources = resources.filter(resource => resource.tags.includes(req.query.term));
+        filteredResources = resources.filter(resource => resource.tags.indexOf(req.query.term) > -1);
 
         const filteredData = {
           resources: filteredResources,
