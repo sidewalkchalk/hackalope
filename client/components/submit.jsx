@@ -25,13 +25,10 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
-      primary
       onTouchTap={() => handleSubmitClose(dispatch)}
     />,
     <FlatButton
       label="Submit"
-      type="submit"
-      primary
       keyboardFocused
       onClick={e => submit(e, user, submission, dispatch)}
     />,
@@ -49,7 +46,7 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
     <MuiThemeProvider>
       <div>
         <FloatingActionButton
-          secondary style={style}
+          style={style}
           onTouchTap={() => {
             if (user._id) {
               handleSubmitOpen(dispatch);
