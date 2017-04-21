@@ -11,7 +11,7 @@ export const handleLoginOpen = (dispatch) => {
 // close login popup
 export const handleLoginClose = (dispatch) => {
   dispatch(actions.logInDialog({ login: false }));
-  dispatch(actions.clearUser());
+  dispatch(actions.clearAuthForm());
 };
 
 export const reloadResources = (search, dispatch) => {
@@ -28,7 +28,8 @@ export const login = (e, user, search, dispatch) => {
       // change the store to add the name, username, admin, _id, favorites
       return Promise.all([
         dispatch(actions.selectUser(userData)),
-        snackbar.openLoggedInSnackbar(dispatch)])
+        snackbar.openLoggedInSnackbar(dispatch),
+        dispatch(actions.clearAuthForm())])
           .then(() => {
             if (window.location.hash === '#/main/results') {
               return Promise.all([reloadResources(search, dispatch)])
@@ -55,7 +56,7 @@ export const handleSignUpOpen = (dispatch) => {
 // close signup popup
 export const handleSignUpClose = (dispatch) => {
   dispatch(actions.signUpDialog({ signup: false }));
-  dispatch(actions.clearUser());
+  dispatch(actions.clearAuthForm());
 
 };
 
@@ -68,6 +69,7 @@ export const signup = (e, user, dispatch) => {
       const newUser = response.data;
       // change the store to add the name, username, admin, _id, favorites
       dispatch(actions.selectUser(newUser));
+      dispatch(actions.clearAuthForm());
       hashHistory.push('/main');
     })
     .catch((err) => {

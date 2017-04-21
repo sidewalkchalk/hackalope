@@ -30,6 +30,11 @@ export const clearUser = () => ({
   type: 'CLEAR_USER',
 });
 
+export const clearAuthForm = () => ({
+  type: 'CLEAR_AUTH_FORM',
+});
+
+
 /*--------------------------------
   COMMENTS
 --------------------------------*/

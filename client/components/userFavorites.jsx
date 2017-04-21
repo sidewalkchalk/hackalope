@@ -19,7 +19,7 @@ const styles = {
 
 const Favorites = ({ profile }) => {
   const renderUserFavorites = () => profile.favorites.map(favorite => (
-    <div key={favorite.createdAt}>
+    <div key={favorite._id}>
       <MuiThemeProvider>
         <li>
           <Card>
