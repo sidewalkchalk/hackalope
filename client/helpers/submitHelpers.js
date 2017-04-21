@@ -31,14 +31,14 @@ export const submit = (e, user, submission, dispatch) => {
   submission.tags = titleCaseArray(submission.tags);
 
   axios.post('/submit', submission)
-    .then((response) => {
+    .then(() => {
       dispatch(actions.submitDialog({ submit: false }));
       dispatch(actions.clearSubmissionData());
       snackbar.openSubmitSnackbar(dispatch);
     })
     .catch((err) => {
       console.error(err);
-      snackbar.openNotAuthSnackbar(disaptch);
+      snackbar.openNotAuthSnackbar(dispatch);
       dispatch(actions.logout());
     });
 };
