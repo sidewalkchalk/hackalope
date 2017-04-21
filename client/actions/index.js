@@ -145,6 +145,11 @@ export const notAuthSnackbar = snackbar => ({
   snackbar,
 });
 
+export const wrongSnackbar = snackbar => ({
+  type: 'WRONG_SNACKBAR_OPEN',
+  snackbar,
+});
+
 /*--------------------------------
   SUBMISSIONS
 --------------------------------*/
