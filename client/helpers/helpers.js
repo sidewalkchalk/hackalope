@@ -17,7 +17,7 @@ export const checkImgIcon = (result) => {
 
 export const checkAvatar = (user) => {
   if (!user.avatar) {
-    const letter = user.name.charAt(0).toUpperCase() || user.username.charat(0).toUpperCase();
+    const letter = user.name.charAt(0).toUpperCase() || user.username.charAt(0).toUpperCase();
     return (
       <span
         style={{

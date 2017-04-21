@@ -12,7 +12,8 @@ router.get('/:id', (req, res) => {
     .populate('user')
     .then((response) => {
       const commentData = response.map(comment => ({
-        user: comment.user.username,
+        username: comment.user.username,
+        name: comment.user.name,
         body: comment.body,
         avatar: comment.user.avatar,
         _id: comment._id,
