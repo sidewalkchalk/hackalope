@@ -5,7 +5,7 @@ module.exports = function (passport) {
   passport.use('github', new GitHubStrategy({
     clientID: 'e71066ab5f16e9b0f7d1',
     clientSecret: '6793f3f23fbe27582cfcb12f18e092cb3996d5ea',
-    callbackURL: 'http://localhost:1337/auth/github/callback',
+    callbackURL: 'http://hackalope.io/auth/github/callback',
   },
 
   (accessToken, refreshToken, profile, done) => {
@@ -14,28 +14,26 @@ module.exports = function (passport) {
         .then((user) => {
           if (!user) {
             // add the user to the database
-            var githubUser = {
+            const githubUser = {
               name: profile.displayName,
               username: profile.username,
               avatar: profile._json.avatar_url,
-              admin: false
-            }
+              admin: false,
+            };
             users.insertUser(githubUser)
-              .then((newUser) => {
-                return done(null, newUser);
-              })
+              .then(newUser => done(null, newUser))
               .catch((err) => {
                 console.error(err);
               });
           } else {
             // log the user in with their github username
-            return done(null, user)
+            return done(null, user);
           }
         })
         .catch((err) => {
           done(err);
         });
     });
-  }
+  },
 ));
 };
