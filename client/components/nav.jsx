@@ -36,13 +36,13 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
     <MuiThemeProvider>
       <div>
         <AppBar
-          style={{ backgroundColor: 'maroon' }}
+          style={{ backgroundColor: '#2D3047', textColor:'#1A535C', fontFamily: 'Roboto Condensed'}}
           iconElementLeft={window.location.hash !== '#/' ? <IconButton id="backButton">
             <ArrowBack
               onClick={hashHistory.goBack}
             />
           </IconButton> : <div style={{ width: '48px' }} />}
-          title={<Link style={{ color: 'inherit', textDecoration: 'none' }} to="/">hackalope.io</Link>}
+          title={<Link style={{ color: '#F7F7F8', textDecoration: 'none', fontSize:'33px' }} to="/">HACKALOPE :  a coding resource review site</Link>}
           iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
         />
         <Snackbar
@@ -66,7 +66,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
         />
         <Snackbar
           open={snackbar.admin}
-          message="Administrator Privilideges Activated"
+          message="Administrator Privileges Activated"
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeAdminSnackbar(dispatch)}
@@ -102,7 +102,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
         <Snackbar
           open={snackbar.notAuth}
           message="You need to be signed in to do that!"
-          bodyStyle={{ background: '#c41b07' }}
+          bodyStyle={{ background: '#BB0A21' }}
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeNotAuthSnackbar(dispatch)}
@@ -110,7 +110,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
         <Snackbar
           open={snackbar.wrong}
           message="Incorrect login credentials"
-          bodyStyle={{ background: '#c41b07' }}
+          bodyStyle={{ background: '#BB0A21' }}
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeWrongSnackbar(dispatch)}
@@ -118,7 +118,7 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
         <Snackbar
           open={snackbar.taken}
           message="Username already taken"
-          bodyStyle={{ background: '#c41b07' }}
+          bodyStyle={{ background: '#BB0A21' }}
           contentStyle={{ textAlign: 'center' }}
           autoHideDuration={1300}
           onRequestClose={() => closeTakenSnackbar(dispatch)}

@@ -47,7 +47,11 @@ const AddComment = ({ dispatch, comment, user, result }) => {
                 rows={1}
                 onChange={e => dispatch(newComment({ body: e.target.value }))}
               />
-              <RaisedButton type="submit" primary label="Comment" />
+              <RaisedButton 
+                type="submit" 
+                backgroundColor="#258EA6"
+                labelColor='white' 
+                label="Comment" />
             </form>
           </Paper>
         </div>

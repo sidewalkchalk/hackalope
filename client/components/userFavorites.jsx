@@ -30,10 +30,11 @@ const Favorites = ({ profile }) => {
             <div>
               <CardActions>
                 <RaisedButton
-                  label="Link"
+                  label="Link to Resource"
                   labelPosition="before"
                   icon={<ContentLink />}
-                  primary
+                  backgroundColor="#2D3047"
+                  labelColor='white'
                   style={styles.button}
                   href={`${favorite.url}`}
                   target="_blank"

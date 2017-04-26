@@ -16,13 +16,13 @@ const Login = ({ form, user, search, dialogs, dispatch }) => {
   const actions = [
     <FlatButton
       label="Cancel"
-      primary
+      labelColor='#BB0A21'
       onClick={() => handleLoginClose(dispatch)}
     />,
     <FlatButton
       label="Login"
       type="submit"
-      primary
+      labelColor='#2D3047'
       keyboardFocused
       onClick={e => login(e, form, search, dispatch)}
     />,

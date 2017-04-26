@@ -12,14 +12,16 @@ const LoggedOutMenu = ({ dispatch }) => (
   <div>
     <RaisedButton
       label="Sign Up"
-      primary
+      backgroundColor='#F7F7F8'
+      labelColor='#252627'
       style={{ margin: 12 }}
       onTouchTap={() => handleSignUpOpen(dispatch)}
     />
 
     <RaisedButton
       label="Sign In"
-      primary
+      backgroundColor='#F7F7F8'
+      labelColor='#252627'
       style={{ margin: 12 }}
       onTouchTap={() => handleLoginOpen(dispatch)}
     />

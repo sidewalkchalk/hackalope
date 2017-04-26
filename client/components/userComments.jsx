@@ -21,6 +21,7 @@ const UserComments = ({ profile, dispatch }) => {
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
         />
           <IconButton 
+            labelColor='blue'
             style={{float: 'right'}}
           >
             <Delete
