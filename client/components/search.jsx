@@ -44,7 +44,8 @@ const Search = ({ search, dispatch }) => (
       />
       <RaisedButton
         label="Let's go!"
-        primary
+        backgroundColor="#BB0A21"
+        labelColor='white'
         style={{ margin: 12 }}
         onClick={() => handleSearch(search, dispatch)}
       />

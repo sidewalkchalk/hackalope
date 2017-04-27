@@ -77,11 +77,14 @@ export const UnapprovedResource = ({ resource, dispatch, index }) => (
           <RaisedButton
             backgroundColor="#74FF1E"
             label="Approve"
+            backgroundColor="#4DAA57"
+            labelColor='white'
             onClick={() => approveResource(resource, dispatch)}
           />
           <RaisedButton
-            backgroundColor="#FF3439"
             label="Delete"
+            backgroundColor="#BB0A21"
+            labelColor='white'
             onClick={() => unapproveResource(resource._id, dispatch)}
           />
         </CardActions>

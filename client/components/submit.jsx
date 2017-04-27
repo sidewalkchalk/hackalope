@@ -47,6 +47,7 @@ const Submit = ({ user, submission, dialogs, dispatch }) => {
       <div>
         <FloatingActionButton
           style={style}
+          backgroundColor='#BB0A21'
           onTouchTap={() => {
             if (user._id) {
               handleSubmitOpen(dispatch);

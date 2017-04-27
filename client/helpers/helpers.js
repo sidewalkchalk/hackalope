@@ -23,7 +23,7 @@ export const checkAvatar = (user) => {
         style={{
           position: 'absolute',
           borderRadius: '50%',
-          background: 'rgb(188, 188, 188)',
+          background: '#BB0A21',
           width: 40,
           height: 40,
           lineHeight: '40px',

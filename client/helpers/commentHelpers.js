@@ -8,6 +8,7 @@ export const getComments = (resultId, dispatch) => {
     .then((response) => {
       // set the comments in the store using dispatch
       dispatch(actions.commentsByResource(response.data));
+    //could use saga here rather than hashHistory for async
       hashHistory.push(`/resource/${resultId}`);
     })
     .catch((err) => {
@@ -19,6 +20,7 @@ export const getProfile = (dispatch) => {
   axios.get('/profile/')
   .then((response) => {
     dispatch(actions.userProfile(response.data));
+    //could use saga here rather than hashHistory for async
     hashHistory.push('/user/profile');
   })
   .catch((err) => {

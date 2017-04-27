@@ -33,7 +33,7 @@ const Landing = () => (
       >
         <img
           alt="hackalope"
-          src="/public/assets/landhack.png"
+          src="/public/assets/ABC320x320_edited-1.jpg"
           style={{ width: '320px',
             height: '320px',
           }}

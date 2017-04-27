@@ -60,7 +60,8 @@ const Resource = ({ result }) => {
                     label="Link to Resource"
                     labelPosition="before"
                     icon={<ContentLink />}
-                    primary
+                    backgroundColor="#2D3047"
+                    labelColor='white'
                     style={styles.button}
                   />
                 </a>

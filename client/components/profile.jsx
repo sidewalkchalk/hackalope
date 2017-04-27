@@ -21,7 +21,7 @@ const Profile = ({ user }) => (
     <MuiThemeProvider>
       <div>
         <h4 style={{ fontFamily: 'Roboto', textAlign: 'center' }}>MY PROFILE</h4>
-        <Card style={{ position: 'relative', width: '100%', padding: 10 }}>
+        <Card style={{ position: 'relative', width: '40%', marginRight: 'auto', marginLeft: 'auto', padding: '40px'}}>
           <div>
             {checkAvatar(user)}
           </div>

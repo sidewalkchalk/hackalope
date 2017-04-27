@@ -25,6 +25,7 @@ export const handleSearch = (query, dispatch) => {
       dispatch(actions.clearSearch());
       dispatch(actions.searchResults(response.data));
       dispatch(actions.resultsLoaded({ loaded: true }));
+     //could use saga here rather than hashHistory for async
       hashHistory.push('/main/results');
     })
     .catch((err) => {
