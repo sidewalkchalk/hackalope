@@ -68,3 +68,26 @@ export const landingStyles = {
     height: '320px',
   },
 };
+
+export const loggedinmenuStyles = {
+  avatarStyle: {
+    position:
+    'absolute',
+    right: 100,
+    top: 12,
+  },
+  targetOrigin: {
+    horizontal: 'right',
+    vertical: 'top',
+  },
+  anchorOrigin: {
+    horizontal: 'right',
+    vertical: 'top',
+  },
+  iconStyle: {
+    fill: 'white',
+  },
+  userAdmin: {
+    textDecoration: 'none',
+  },
+};
