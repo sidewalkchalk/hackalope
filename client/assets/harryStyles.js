@@ -17,3 +17,28 @@ export const adminStyles = {
     listStyleType: 'none',
   },
 };
+
+export const commentsStyles = {
+  avatarSpan: {
+    position: 'relative',
+    left: 10,
+    top: 12,
+  },
+  cardHeader: {
+    left: 50,
+  },
+  cardText: {
+    position: 'relative',
+    left: 60,
+  },
+  addCommentDiv: {
+    width: '65%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+  },
+  commentsUl: {
+    width: '65%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+  },
+};

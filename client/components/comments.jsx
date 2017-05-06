@@ -10,20 +10,23 @@ import AddComment from './addComment.jsx';
 import { checkAvatar } from '../helpers/helpers.js';
 import moment from 'moment';
 
+// Styles
+import { commentsStyles } from '../assets/harryStyles';
+
 const Comments = ({ comments }) => {
   const renderComments = () => comments.map(comment => (
     <li key={comment._id} >
       <Card>
-        <span style={{ position: 'relative', left: 10, top: 12 }}>
+        <span style={commentsStyles.avatarSpan}>
           {checkAvatar(comment)}
         </span>
         <CardHeader
           title={comment.user}
           subtitle={moment(comment.createdAt).format('L, h:mm a')}
-          style={{ left: 50 }}
+          style={commentsStyles.cardHeader}
         />
         <CardText>
-          <span style={{ position: 'relative', left: 60 }}>
+          <span style={commentsStyles.cardText}>
             {comment.body}
           </span>
         </CardText>
@@ -31,9 +34,9 @@ const Comments = ({ comments }) => {
     </li>
   ));
   return (
-    <div style={{ width: '65%', marginRight: 'auto', marginLeft: 'auto' }} >
+    <div style={commentsStyles.addCommentDiv} >
       <AddComment />
-      <ul style={{ listStyleType: 'none', WebkitPaddingStart: 0 }}>
+      <ul style={commentsStyles.commentsUl}>
         {renderComments()}
       </ul>
     </div>
