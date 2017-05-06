@@ -42,3 +42,29 @@ export const commentsStyles = {
     marginLeft: 'auto',
   },
 };
+
+export const landingStyles = {
+  div1: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    margin: 'auto',
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    bottom: '0',
+    right: '0',
+  },
+  div2: {
+    alignSelf: 'center',
+    display: 'inline-block',
+  },
+  div3: {
+    alignSelf: 'center',
+    display: 'inline-block',
+  },
+  logo: {
+    width: '320px',
+    height: '320px',
+  },
+};

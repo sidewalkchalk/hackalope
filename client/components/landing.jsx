@@ -9,41 +9,26 @@ import Submit from './submit.jsx';
 import SignUp from './signup.jsx';
 import Login from './login.jsx';
 
+// Styles
+import { landingStyles } from '../assets/harryStyles';
+
 const Landing = () => (
   <div>
     <Nav />
     <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        margin: 'auto',
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        bottom: '0',
-        right: '0',
-      }}
+      style={landingStyles.div1}
     >
       <div
-        style={{
-          alignSelf: 'center',
-          display: 'inline-block',
-        }}
+        style={landingStyles.div2}
       >
         <img
           alt="hackalope"
           src="/public/assets/ABC320x320_edited-1.jpg"
-          style={{ width: '320px',
-            height: '320px',
-          }}
+          style={landingStyles.logo}
         />
       </div>
       <div
-        style={{
-          alignSelf: 'center',
-          display: 'inline-block',
-        }}
+        style={landingStyles.div3}
       >
         <Search />
       </div>
