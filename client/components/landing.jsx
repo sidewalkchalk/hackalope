@@ -15,21 +15,15 @@ import { landingStyles } from '../assets/harryStyles';
 const Landing = () => (
   <div>
     <Nav />
-    <div
-      style={landingStyles.div1}
-    >
-      <div
-        style={landingStyles.div2}
-      >
+    <div style={landingStyles.div1}>
+      <div style={landingStyles.div2}>
         <img
           alt="hackalope"
           src="/public/assets/ABC320x320_edited-1.jpg"
           style={landingStyles.logo}
         />
       </div>
-      <div
-        style={landingStyles.div3}
-      >
+      <div style={landingStyles.div3}>
         <Search />
       </div>
     </div>
