@@ -6,7 +6,7 @@ export const checkImgIcon = (result) => {
     const letter = result.title.charAt(0).toUpperCase();
     return (
       <div style={{ background: 'rgb(188, 188, 188)', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
-        <font color="white" size="5">
+        <font color="rgb(255, 255, 255)" size="5">
           {letter}
         </font>
       </div>
@@ -30,7 +30,7 @@ export const checkAvatar = (user) => {
           textAlign: 'center',
         }}
       >
-        <font color="white" size="5">
+        <font color="rgb(255, 255, 255)" size="5">
           {letter}
         </font>
       </span>

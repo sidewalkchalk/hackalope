@@ -9,10 +9,13 @@ import Submit from './submit.jsx';
 import SignUp from './signup.jsx';
 import Login from './login.jsx';
 
+// Styles
+import { mainStyles } from '../assets/harryStyles';
+
 const Main = props => (
   <div>
     <Nav />
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', verticalAlign: '-200px' }}>
+    <div style={mainStyles.main}>
       <div><Search /></div>
     </div>
     <Submit />

@@ -26,7 +26,7 @@ const Favorites = ({ profile }) => {
             <CardHeader
               title={favorite.title}
               subtitle={favorite.description}
-              />
+            />
             <div>
               <CardActions>
                 <RaisedButton
@@ -34,11 +34,11 @@ const Favorites = ({ profile }) => {
                   labelPosition="before"
                   icon={<ContentLink />}
                   backgroundColor="#2D3047"
-                  labelColor='white'
+                  labelColor="rgb(255, 255, 255)"
                   style={styles.button}
                   href={`${favorite.url}`}
                   target="_blank"
-                  />
+                />
               </CardActions>
             </div>
           </Card>

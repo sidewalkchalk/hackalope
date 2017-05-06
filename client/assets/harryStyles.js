@@ -85,9 +85,18 @@ export const loggedinmenuStyles = {
     vertical: 'top',
   },
   iconStyle: {
-    fill: 'white',
+    fill: 'rgb(255, 255, 255)',
   },
   userAdmin: {
     textDecoration: 'none',
+  },
+};
+
+export const mainStyles = {
+  main: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    verticalAlign: '-200px',
   },
 };
