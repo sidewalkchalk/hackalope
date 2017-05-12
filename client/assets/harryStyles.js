@@ -100,3 +100,16 @@ export const mainStyles = {
     verticalAlign: '-200px',
   },
 };
+
+export const navStyles = {
+  appBar: {
+    backgroundColor: '#2D3047',
+    textColor: '#1A535C',
+    fontFamily: 'Roboto Condensed',
+  },
+  title: {
+    color: '#F7F7F8',
+    textDecoration: 'none',
+    fontSize: '33px',
+  },
+};

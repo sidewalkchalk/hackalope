@@ -15,6 +15,9 @@ import Snackbar from 'material-ui/Snackbar';
 import LoggedInMenu from './loggedinmenu.jsx';
 import LoggedOutMenu from './loggedoutmenu.jsx';
 
+// STYLES
+import { navStyles } from '../assets/harryStyles';
+
 // ACTIONS AND HELPERS
 import { closeUnapprovedSnackbar, closePendingSnackbar, closeLoggedInSnackbar,
          closeLoggedOutSnackbar, openAdminSnackbar, closeAdminSnackbar,
@@ -36,13 +39,15 @@ const Nav = ({ user, snackbar, unapproved, dispatch }) => {
     <MuiThemeProvider>
       <div>
         <AppBar
-          style={{ backgroundColor: '#2D3047', textColor:'#1A535C', fontFamily: 'Roboto Condensed'}}
+          style={navStyles.appBar}
           iconElementLeft={window.location.hash !== '#/' ? <IconButton id="backButton">
             <ArrowBack
               onClick={hashHistory.goBack}
             />
           </IconButton> : <div style={{ width: '48px' }} />}
-          title={<Link style={{ color: '#F7F7F8', textDecoration: 'none', fontSize:'33px' }} to="/">HACKALOPE :  a coding resource review site</Link>}
+          title={<Link style={navStyles.title} to="/">
+           HACKALOPE :  a coding resource review site
+          </Link>}
           iconElementRight={user._id ? <LoggedInMenu /> : <LoggedOutMenu />}
         />
         <Snackbar
