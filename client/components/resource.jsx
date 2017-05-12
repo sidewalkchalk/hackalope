@@ -61,7 +61,7 @@ const Resource = ({ result }) => {
                     labelPosition="before"
                     icon={<ContentLink />}
                     backgroundColor="#2D3047"
-                    labelColor='white'
+                    labelColor="rgb(255, 255, 255)"
                     style={styles.button}
                   />
                 </a>

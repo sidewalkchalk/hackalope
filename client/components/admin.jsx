@@ -8,17 +8,20 @@ import { renderUnapproved } from '../helpers/adminHelpers';
 // COMPONENTS
 import UnapprovedResource from './unapprovedResource.jsx';
 
+// Styles
+import { adminStyles } from '../assets/harryStyles';
+
 const Admin = ({ unapproved, dispatch }) => unapproved.length ? (
-  <div style={{ paddingLeft: 20 }}>
-    <h4 style={{ fontFamily: 'Roboto' }}>Pending Submissions:</h4>
-    <ul style={{ listStyleType: 'none' }}>
+  <div style={adminStyles.div}>
+    <h4 style={adminStyles.h4}>Pending Submissions:</h4>
+    <ul style={adminStyles.ul}>
       {renderUnapproved(unapproved)}
     </ul>
   </div>
   ) : (
-  <div style={{ paddingLeft: 20 }}>
-    <h4 style={{ fontFamily: 'Roboto' }}>Pending Submissions:</h4>
-  </div>
+    <div style={adminStyles.div}>
+      <h4 style={adminStyles.h4}>Pending Submissions:</h4>
+    </div>
   );
 
 const mapStateToProps = state => ({

@@ -3,6 +3,7 @@
   <head>
     <link rel="icon" type="image/png" href="/public/assets/flaviconhack.png" />
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
     <title>Hackalope</title>
 
     <!-- FONTS AND STYLES -->
@@ -11,14 +12,20 @@
     <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
-
-    <!-- SCRIPTS AND DEPENDENCIES -->
-
     <style>
       body {
         background-color: '#E8E9EB' !important;
       }
     </style>
+  </head>
+
+  <body>
+    <div id="app" />
+
+    <script type="text/javascript" src="bundle/bundle.js" async></script>
+  </body>
+
+  <footer>
     <script>
       (function (i, s, o, g, r, a, m) {
         i.GoogleAnalyticsObject = r; i[r] = i[r] || function () {
@@ -30,12 +37,6 @@
       ga('create', 'UA-97849625-1', 'auto');
       ga('send', 'pageview');
     </script>
-  </head>
-
-  <body>
-    <div id="app" />
-
-    <script type="text/javascript" src="bundle/bundle.js"></script>
-  </body>
+  </footer>
 
 </html>

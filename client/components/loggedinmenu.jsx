@@ -16,9 +16,12 @@ import { openPendingSnackbar } from '../helpers/snackbarHelpers.js';
 import { getProfile } from '../helpers/favoriteHelpers.js';
 import { checkAvatar } from '../helpers/helpers.js';
 
+// Styles
+import { loggedinmenuStyles } from '../assets/harryStyles';
+
 const LoggedInMenu = ({ user, dispatch }) => (
   <div>
-    <div style={{ position: 'absolute', right: 100, top: 12 }}>
+    <div style={loggedinmenuStyles.avatarStyle}>
       {checkAvatar(user)}
     </div>
     <IconMenu
@@ -27,11 +30,11 @@ const LoggedInMenu = ({ user, dispatch }) => (
           <MoreVertIcon />
         </IconButton>
       }
-      targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-      anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-      iconStyle={{ fill: 'white' }}
+      targetOrigin={loggedinmenuStyles.targetOrigin}
+      anchorOrigin={loggedinmenuStyles.anchorOrigin}
+      iconStyle={loggedinmenuStyles.iconStyle}
     >
-      {user.admin ? <Link to="user/admin" style={{ textDecoration: 'none' }}>
+      {user.admin ? <Link to="user/admin" style={loggedinmenuStyles.userAdmin}>
         <MenuItem
           primaryText="Admin"
           onClick={() => { getUnapproved(dispatch); openPendingSnackbar(dispatch); }}

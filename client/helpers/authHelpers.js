@@ -57,7 +57,6 @@ export const handleSignUpOpen = (dispatch) => {
 export const handleSignUpClose = (dispatch) => {
   dispatch(actions.signUpDialog({ signup: false }));
   dispatch(actions.clearAuthForm());
-
 };
 
 // handle request to create new account

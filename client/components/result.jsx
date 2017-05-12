@@ -63,7 +63,7 @@ const Result = ({ result, user, results, dispatch }) => (
             <Checkbox
               defaultChecked={isDownvoted(user, result, results.votes)}
               onCheck={() => handleVote(result._id, results.votes, { vote: -1 }, dispatch)}
-              checkedIcon={<ArrowDropDown style={{ color: "#2D3047" }} />}
+              checkedIcon={<ArrowDropDown style={{ color: '#2D3047' }} />}
               uncheckedIcon={<ArrowDropDown />}
             />
           </div>
@@ -77,7 +77,7 @@ const Result = ({ result, user, results, dispatch }) => (
             uncheckedIcon={<ActionFavoriteBorder />}
             style={styles.checkbox}
 
-            
+
           />
         </div>
 
@@ -95,7 +95,7 @@ const Result = ({ result, user, results, dispatch }) => (
                 label="Details"
                 labelPosition="before"
                 backgroundColor="#258EA6"
-                labelColor='white'
+                labelColor="rgb(255, 255, 255)"
                 icon={<DetailIcon />}
                 style={styles.button}
                 containerElement={<Link to={`resource/${result._id}`} />}
@@ -106,7 +106,7 @@ const Result = ({ result, user, results, dispatch }) => (
                 labelPosition="before"
                 icon={<ContentLink />}
                 backgroundColor="#2D3047"
-                labelColor='white'
+                labelColor="rgb(255, 255, 255)"
                 style={styles.button}
                 href={`${result.url}`}
                 target="_blank"

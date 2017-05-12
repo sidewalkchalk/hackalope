@@ -13,52 +13,46 @@ import { newComment } from '../actions';
 import { openNotAuthSnackbar } from '../helpers/snackbarHelpers';
 import { addComment } from '../helpers/commentHelpers';
 
-const AddComment = ({ dispatch, comment, user, result }) => {
-  const style = {
-    margin: 0,
-    padding: 20,
-    width: '100%',
-    textAlign: 'center',
-    display: 'inline-block',
-  };
+// Styles
+import { addCommentStyles } from '../assets/harryStyles';
 
-  return (
-    <div>
-      <br />
-      <MuiThemeProvider>
-        <div>
-          <Paper style={style} zDepth={2}>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (user._id) {
-                  addComment(e, user, result, comment, dispatch);
-                  dispatch(newComment({ body: '' }));
-                } else {
-                  openNotAuthSnackbar(dispatch);
-                }
-              }}
-            >
-              <TextField
-                value={comment.body}
-                fullWidth
-                hintText="Add a comment"
-                multiLine
-                rows={1}
-                onChange={e => dispatch(newComment({ body: e.target.value }))}
-              />
-              <RaisedButton 
-                type="submit" 
-                backgroundColor="#258EA6"
-                labelColor='white' 
-                label="Comment" />
-            </form>
-          </Paper>
-        </div>
-      </MuiThemeProvider>
-    </div>
+const AddComment = ({ dispatch, comment, user, result }) => (
+  <div>
+    <br />
+    <MuiThemeProvider>
+      <div>
+        <Paper style={addCommentStyles} zDepth={2}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (user._id) {
+                addComment(e, user, result, comment, dispatch);
+                dispatch(newComment({ body: '' }));
+              } else {
+                openNotAuthSnackbar(dispatch);
+              }
+            }}
+          >
+            <TextField
+              value={comment.body}
+              fullWidth
+              hintText="Add a comment"
+              multiLine
+              rows={1}
+              onChange={e => dispatch(newComment({ body: e.target.value }))}
+            />
+            <RaisedButton
+              type="submit"
+              backgroundColor="#258EA6"
+              labelColor="white"
+              label="Comment"
+            />
+          </form>
+        </Paper>
+      </div>
+    </MuiThemeProvider>
+  </div>
   );
-};
 
 const mapStateToProps = state => ({
   comment: state.comment,
